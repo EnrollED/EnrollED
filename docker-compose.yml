@@ -1,0 +1,10 @@
+version: '2'
+services:
+  postgres:
+    image: postgres:9.5
+    ports:
+     - "5432:5432"
+  redis:
+    image: redis:3-alpine
+    ports:
+     - "6379:6379"
