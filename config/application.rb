@@ -23,6 +23,9 @@ module Enrolled
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
+    # Use sidekiq for ActiveJob background jobs.
+    config.active_job.queue_adapter = :sidekiq
+
     # Set uuids as the models primary key
     config.generators do |g|
       g.orm :active_record, primary_key_type: :uuid
