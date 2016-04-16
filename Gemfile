@@ -8,7 +8,7 @@ gem 'sidekiq', '~> 4.1'
 gem 'jbuilder', '~> 2.0'
 gem 'devise', '~> 3.5'
 
-# Frontend dependencies
+# Frontend helpers
 gem 'turbolinks', '~> 5.0.0.beta2'
 
 group :development, :test do

@@ -33,6 +33,10 @@
   },
   "peerDependencies": {
     "jquery": "^2.2.3",
-    "jquery-ujs": "^1.2.1"
+    "jquery-ujs": "^1.2.1",
+    "turbolinks": "^5.0.0-beta4"
+  },
+  "dependencies": {
+
   }
 }
