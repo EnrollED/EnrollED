@@ -10,6 +10,11 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
  */
+
+@import "./variables";
+
+@import "../../../vendor/assets/bootstrap-sass-3.3.6/bootstrap";
+@import "../../../vendor/assets/font-awesome-4.6.1/font-awesome";
+
+@import "./base";

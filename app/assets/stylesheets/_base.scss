@@ -1,0 +1,28 @@
+html {
+  background: none;
+}
+
+body {
+  font-family: $font-stack;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background-color: $body-bg;
+  color: $text-color;
+}
+
+h1, h2, h3, h4,
+input, select, textarea,
+.smart-form .input input,
+.smart-form .select select,
+.smart-form .textarea textarea,
+*::-webkit-input-placeholder,
+*:-moz-placeholder,
+*::-moz-placeholder,
+*:-ms-input-placeholder {
+  font-family: $font-stack;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

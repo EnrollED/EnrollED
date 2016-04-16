@@ -26,9 +26,6 @@ module Enrolled
     # Use sidekiq for ActiveJob background jobs.
     config.active_job.queue_adapter = :sidekiq
 
-    # Add Javascript/CSS components to the asset pipeline
-    config.assets.paths << Rails.root.join('node_modules')
-
     # Set uuids as the models primary key
     config.generators do |g|
       g.orm :active_record, primary_key_type: :uuid
