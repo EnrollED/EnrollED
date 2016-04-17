@@ -9,3 +9,5 @@
 user = User.new(username: 'admin', firstname: 'Admin', lastname: 'Strator', email: 'admin@example.com', password: 'supergeslo')
 user.skip_confirmation!
 user.save!
+
+user.add_role :admin

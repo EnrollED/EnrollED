@@ -7,6 +7,8 @@ gem 'sidekiq', '~> 4.1'
 
 gem 'jbuilder', '~> 2.0'
 gem 'devise', '~> 3.5'
+gem 'rolify', '~> 5.1'
+gem 'pundit', '~> 1.1'
 
 # Frontend helpers
 gem 'turbolinks', '~> 5.0.0.beta2'
