@@ -42,7 +42,7 @@ sl:
     shared:
       links:
         login: 'Prijavi se'
-        register: 'Pridruzi se'
+        register: 'Pridruži se'
         forgot: 'Pozabili geslo?'
         confirm: 'Niste dobili navodil za potrditev?'
         unlock: 'Niste dobili navodil za odklep?'
