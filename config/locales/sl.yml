@@ -1,0 +1,44 @@
+sl:
+  activerecord:
+    models:
+      user: 'Uporabnik'
+    attributes:
+      user:
+        email: 'Elektronska pošta'
+        password: 'Geslo'
+        firstname: 'Ime'
+        lastname: 'Priimek'
+        remember_me: 'Zapomni se me'
+  devise:
+    shared:
+      links:
+        login: 'Prijavi se'
+        forgot: 'Pozabili geslo?'
+        confirm: 'Niste dobili navodil za potrditev?'
+        unlock: 'Niste dobili navodil za odklep?'
+    confirmations:
+      new:
+        title: 'Ponovno pošlji podatke za potrditev'
+        subtitle: "Navodila za potrditev vam bomo poslali po elektronski pošti"
+        confirm: 'Ponovno pošlji podatke za potrditev'
+    passwords:
+      edit:
+        title: 'Zamenjaj geslo'
+        subtitle: 'Vnesite nove podatke'
+        new_pass: 'Novo geslo'
+        conf_new_pass: 'Potrdi novo geslo'
+        change: 'Zamenjaj moje geslo'
+      new:
+        title: 'Reset your password'
+        subtitle: "We'll send you instructions via email"
+        reset: 'Send me reset password instructions'
+    sessions:
+      new:
+        title: 'Prijavi se v Enrolled'
+        subtitle: 'Vnesite svoje podatke spodaj'
+        login: 'Prijava'
+    unlocks:
+      new:
+        title: 'Ponovno pošlji navodila za odklep'
+        subtitle: 'Navodila za odklep vam bomo poslali po elektronski pošti'
+        resend: 'Ponovno pošlji navodila za odklep'

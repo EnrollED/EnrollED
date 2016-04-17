@@ -20,4 +20,36 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  devise:
+    shared:
+      links:
+        login: 'Sign in'
+        forgot: 'Forgot your password?'
+        confirm: "Didn't receive confirmation instructions?"
+        unlock: "Didn't receive unlock instructions?"
+    confirmations:
+      new:
+        title: 'Resend confirmation instructions'
+        subtitle: "We'll send you instructions via email"
+        confirm: 'Resend confirmation instructions'
+    passwords:
+      edit:
+        title: 'Change your password'
+        subtitle: 'Enter your new credentials below'
+        new_pass: 'New password'
+        conf_new_pass: 'Confirm new password'
+        change: 'Change my password'
+      new:
+        title: 'Reset your password'
+        subtitle: "We'll send you instructions via email"
+        reset: 'Send me reset password instructions'
+    sessions:
+      new:
+        title: 'Sign in to Enrolled'
+        subtitle: 'Enter your credentials below'
+        login: 'Sign in'
+    unlocks:
+      new:
+        title: 'Resend unlock instructions'
+        subtitle: "We'll send you instructions via email"
+        resend: 'Resend unlock instructions'

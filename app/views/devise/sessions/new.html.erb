@@ -1,11 +1,11 @@
 <div class="auth-title text-center">
-  <h3>Sign in to Enrolled</h3>
+  <h3><%= t '.title' %></h3>
 </div>
 
 <div class="panel panel-body login-form">
 
   <div class="auth-subtitle text-center">
-    <small class="display-block">Enter your credentials below</small>
+    <small class="display-block"><%= t '.subtitle' %></small>
   </div>
 
   <%= render "devise/shared/errors" %>
@@ -14,7 +14,7 @@
 
       <div class="form-group has-feedback">
         <%= f.label :email %>
-        <%= f.email_field :email, placeholder: 'Email', autofocus: true, class: 'form-control' %>
+        <%= f.email_field :email, placeholder: true, autofocus: true, class: 'form-control' %>
 
         <div class="form-control-feedback">
           <i class="fa fa-user" aria-hidden="true"></i>
@@ -23,7 +23,7 @@
 
       <div class="form-group has-feedback">
         <%= f.label :password %>
-        <%= f.password_field :password, placeholder: 'Password', autocomplete: "off", class: 'form-control' %>
+        <%= f.password_field :password, placeholder: true, autocomplete: "off", class: 'form-control' %>
 
         <div class="form-control-feedback">
           <i class="fa fa-lock" aria-hidden="true"></i>
@@ -38,7 +38,7 @@
       <% end -%>
 
       <div class="form-group">
-        <%= f.submit "Log in", class: 'btn btn-success btn-block' %>
+        <%= f.submit t('.login'), class: 'btn btn-success btn-block' %>
       </div>
   <% end %>
 
