@@ -24,6 +24,7 @@ en:
     shared:
       links:
         login: 'Sign in'
+        register: 'Join'
         forgot: 'Forgot your password?'
         confirm: "Didn't receive confirmation instructions?"
         unlock: "Didn't receive unlock instructions?"
@@ -43,6 +44,11 @@ en:
         title: 'Reset your password'
         subtitle: "We'll send you instructions via email"
         reset: 'Send me reset password instructions'
+    registrations:
+      new:
+        title: 'Join EnrollED'
+        subtitle: "Enter your information below"
+        signup: 'Create an account'
     sessions:
       new:
         title: 'Sign in to Enrolled'
