@@ -11,6 +11,10 @@ sl:
         firstname: 'Ime'
         lastname: 'Priimek'
         remember_me: 'Zapomni se me'
+  layouts:
+    header:
+      my_profile: 'Moj profil'
+      logout: 'Odjavi se'
   devise:
     shared:
       links:
