@@ -13,7 +13,7 @@
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
       <div class="form-group has-feedback">
-        <%= f.label :email %>
+        <%= f.label :email, class: 'control-label' %>
         <%= f.email_field :email, placeholder: true, autofocus: true, class: 'form-control' %>
 
         <div class="form-control-feedback">
@@ -22,7 +22,7 @@
       </div>
 
       <div class="form-group has-feedback">
-        <%= f.label :password %>
+        <%= f.label :password, class: 'control-label' %>
         <%= f.password_field :password, placeholder: true, autocomplete: "off", class: 'form-control' %>
 
         <div class="form-control-feedback">
