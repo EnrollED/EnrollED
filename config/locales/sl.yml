@@ -28,6 +28,7 @@ sl:
       user: 'Uporabnik'
     attributes:
       user:
+        username: 'Uporabniško ime'
         email: 'Elektronska pošta'
         password: 'Geslo'
         password_confirmation: 'Potrdi geslo'
