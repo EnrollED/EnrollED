@@ -1,4 +1,6 @@
 sl:
+  defaults:
+    name: 'EnrollED'
   activerecord:
     models:
       user: 'Uporabnik'

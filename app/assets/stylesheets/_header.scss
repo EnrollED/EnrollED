@@ -1,0 +1,17 @@
+.navbar {
+  border-width: 0 0 0;
+
+  .navbar-nav {
+
+    > .dropdown-user {
+
+      > .dropdown-toggle {
+        padding: 0;
+
+        img {
+          height: 50px;
+        }
+      }
+    }
+  }
+}
