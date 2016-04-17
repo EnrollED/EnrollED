@@ -12,8 +12,14 @@ body {
   color: $text-color;
 }
 
-h1, h2, h3, h4,
-input, select, textarea,
+h1, h2, h3, h4 {
+  font-family: $font-stack;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input, label, select, textarea,
 .smart-form .input input,
 .smart-form .select select,
 .smart-form .textarea textarea,
@@ -25,4 +31,31 @@ input, select, textarea,
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+label {
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.devise {
+
+  .header {
+    padding: 40px 0 20px;
+    text-align: center;
+    font-size: 30px;
+  }
+
+  .auth {
+
+    .auth-title {
+      padding: 10px 0;
+      margin-bottom: 15px;
+    }
+
+    .auth-subtitle {
+      padding-bottom: 20px;
+    }
+  }
 }
