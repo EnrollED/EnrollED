@@ -1,0 +1,9 @@
+<% if resource.errors.full_messages.length > 0 %>
+    <%= content_tag :div, class: ('alert alert-danger') do -%>
+        <%= content_tag :a, 'x', class: 'close', :data => {:dismiss => 'alert'} %>
+        <% resource.errors.full_messages.each do |msg| %>
+            <%= msg %>
+            <br/>
+        <% end %>
+    <% end %>
+<% end %>
