@@ -1,0 +1,75 @@
+<div class="auth-title text-center">
+  <h3><%= t '.title' %></h3>
+</div>
+
+<div class="panel panel-body login-form">
+
+  <div class="auth-subtitle text-center">
+    <small class="display-block"><%= t '.subtitle' %></small>
+  </div>
+
+  <%= render "devise/shared/errors" %>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+      <div class="form-group has-feedback">
+        <%= f.label :username %><br />
+        <%= f.text_field :username, placeholder: true, autofocus: true, class: 'form-control' %>
+
+        <div class="form-control-feedback">
+          <i class="fa fa-user" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div class="form-group has-feedback">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, placeholder: true, class: 'form-control' %>
+
+        <div class="form-control-feedback">
+          <i class="fa fa-user" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div class="form-group has-feedback">
+        <%= f.label :firstname %><br />
+        <%= f.text_field :firstname, placeholder: true, class: 'form-control' %>
+
+        <div class="form-control-feedback">
+          <i class="fa fa-user" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div class="form-group has-feedback">
+        <%= f.label :lastname %><br />
+        <%= f.text_field :lastname, placeholder: true, class: 'form-control' %>
+
+        <div class="form-control-feedback">
+          <i class="fa fa-user" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div class="form-group has-feedback">
+        <%= f.label :password %>
+        <%= f.password_field :password, placeholder: true, autocomplete: "off", class: 'form-control' %>
+
+        <div class="form-control-feedback">
+          <i class="fa fa-user" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div class="form-group has-feedback">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, placeholder: true, autocomplete: "off", class: 'form-control' %>
+
+        <div class="form-control-feedback">
+          <i class="fa fa-user" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit t('.signup'), class: 'btn btn-success btn-block' %>
+      </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>

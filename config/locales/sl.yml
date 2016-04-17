@@ -1,6 +1,28 @@
 sl:
   defaults:
     name: 'EnrollED'
+  errors:
+      format: "%{attribute} %{message}"
+      messages:
+        accepted: mora biti sprejeto
+        blank: ne sme biti prazno
+        confirmation: se ne ujema s potrditvijo
+        empty: ne sme biti prazno
+        equal_to: mora biti enako %{count}
+        even: mora biti sodo
+        exclusion: je rezervirano
+        greater_than: mora biti večje kot %{count}
+        greater_than_or_equal_to: mora biti večje ali enako %{count}
+        inclusion: ni vključeno v seznam
+        invalid: je nepravilno
+        less_than: mora biti manj kot %{count}
+        less_than_or_equal_to: mora biti manj ali enako %{count}
+        not_a_number: ni številka
+        odd: mora biti liho
+        taken: je že zasedeno
+        too_long: je predolgo (dovoljeno je do %{count} znakov)
+        too_short: je prekratko (zahtevano je najmanj %{count} znakov)
+        wrong_length: je napačne dolžine (mora biti natančno %{count} znakov)
   activerecord:
     models:
       user: 'Uporabnik'
@@ -8,6 +30,7 @@ sl:
       user:
         email: 'Elektronska pošta'
         password: 'Geslo'
+        password_confirmation: 'Potrdi geslo'
         firstname: 'Ime'
         lastname: 'Priimek'
         remember_me: 'Zapomni se me'
@@ -19,6 +42,7 @@ sl:
     shared:
       links:
         login: 'Prijavi se'
+        register: 'Pridruzi se'
         forgot: 'Pozabili geslo?'
         confirm: 'Niste dobili navodil za potrditev?'
         unlock: 'Niste dobili navodil za odklep?'
@@ -35,9 +59,14 @@ sl:
         conf_new_pass: 'Potrdi novo geslo'
         change: 'Zamenjaj moje geslo'
       new:
-        title: 'Reset your password'
-        subtitle: "We'll send you instructions via email"
-        reset: 'Send me reset password instructions'
+        title: 'Ponastavi geslo'
+        subtitle: "Navodila za ponastavitev gesla vam bomo poslali po elektronski pošti"
+        reset: 'Poslji mi navodila za ponastavitev gesla'
+    registrations:
+      new:
+        title: 'Pridruži se EnrollED'
+        subtitle: "Vnesite svoje podatke spodaj"
+        signup: 'Ustvari račun'
     sessions:
       new:
         title: 'Prijavi se v Enrolled'
