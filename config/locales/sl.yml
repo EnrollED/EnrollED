@@ -28,11 +28,18 @@ sl:
       user: 'Uporabnik'
     attributes:
       user:
+        username: 'Uporabniško ime'
         email: 'Elektronska pošta'
         password: 'Geslo'
         password_confirmation: 'Potrdi geslo'
         firstname: 'Ime'
         lastname: 'Priimek'
+        maiden_name: 'Dekliški priimek'
+        date_of_birth: 'Datum rojstva'
+        sex: 'Spol'
+        phone: 'Telefonska številka'
+        place_of_birth: 'Kraj rojstva'
+        EMSO: 'EMŠO'
         remember_me: 'Zapomni se me'
     errors:
       models:

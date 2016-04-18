@@ -11,3 +11,86 @@ user.skip_confirmation!
 user.save!
 
 user.add_role :admin
+
+
+csv_file_path = 'db/data/Drzava.csv'
+CSV.foreach(csv_file_path, {:headers=>:first_row}) do |row|
+  Country.create!({
+                      :code => row[0],
+                      :name => row[1],
+                      :eu_member => (row[2] == 'D' ? true : false),
+                  })
+end
+puts "Inserted countries"
+
+
+csv_file_path = 'db/data/Drzavljan.csv'
+CSV.foreach(csv_file_path, {:headers=>:first_row}) do |row|
+  Citizen.create!({
+                      :code => row[0],
+                      :name => row[1],
+                  })
+end
+puts "Inserted citizens"
+
+
+csv_file_path = 'db/data/Obcina.csv'
+CSV.foreach(csv_file_path, {:headers=>:first_row}) do |row|
+  Municipality.create!({
+                           :code => row[0],
+                           :name => row[1],
+                       })
+end
+puts "Inserted municipalities"
+
+
+csv_file_path = 'db/data/Posta.csv'
+CSV.foreach(csv_file_path, {:headers=>:first_row}) do |row|
+  Post.create!({
+                   :code => row[0],
+                   :name => row[1],
+               })
+end
+puts "Inserted posts"
+
+
+csv_file_path = 'db/data/Element.csv'
+CSV.foreach(csv_file_path, {:headers=>:first_row}) do |row|
+  Element.create!({
+                      :code => row[0],
+                      :name => row[1],
+                  })
+end
+puts "Inserted elements"
+
+
+csv_file_path = 'db/data/Koncal_sr_sola.csv'
+CSV.foreach(csv_file_path, {:headers=>:first_row}) do |row|
+  HighschoolCompletion.create!({
+                                   :code => row[0],
+                                   :name => row[1],
+                               })
+end
+puts "Inserted highshool completion"
+
+
+csv_file_path = 'db/data/Sr_sola.csv'
+CSV.foreach(csv_file_path, {:headers=>:first_row}) do |row|
+  Highschool.create!({
+                         :code => row[0],
+                         :name => row[1],
+                     })
+end
+puts "Inserted highschools"
+
+
+csv_file_path = 'db/data/Poklic.csv'
+CSV.foreach(csv_file_path, {:headers=>:first_row}) do |row|
+  Profession.create!({
+                         :code => row[0],
+                         :name => row[1],
+                     })
+end
+puts "Inserted professions"
+
+

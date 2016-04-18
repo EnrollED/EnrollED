@@ -13,6 +13,7 @@ gem 'pundit', '~> 1.1'
 # Frontend helpers
 gem 'turbolinks', '~> 5.0.0.beta2'
 
+
 group :development, :test do
   gem 'sass-rails', '~> 5.0'
   gem 'uglifier', '~> 1.3'
