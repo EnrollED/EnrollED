@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160418103304) do
+ActiveRecord::Schema.define(version: 20160419175300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20160418103304) do
     t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "valid"
   end
 
   create_table "countries", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
@@ -30,6 +31,7 @@ ActiveRecord::Schema.define(version: 20160418103304) do
     t.boolean  "eu_member",  null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "valid"
   end
 
   create_table "elements", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
@@ -37,6 +39,7 @@ ActiveRecord::Schema.define(version: 20160418103304) do
     t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "valid"
   end
 
   create_table "highschool_completions", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
@@ -44,6 +47,7 @@ ActiveRecord::Schema.define(version: 20160418103304) do
     t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "valid"
   end
 
   create_table "highschools", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
@@ -51,6 +55,7 @@ ActiveRecord::Schema.define(version: 20160418103304) do
     t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "valid"
   end
 
   create_table "municipalities", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
@@ -58,6 +63,7 @@ ActiveRecord::Schema.define(version: 20160418103304) do
     t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "valid"
   end
 
   create_table "posts", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
@@ -65,6 +71,7 @@ ActiveRecord::Schema.define(version: 20160418103304) do
     t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "valid"
   end
 
   create_table "professions", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
@@ -72,6 +79,7 @@ ActiveRecord::Schema.define(version: 20160418103304) do
     t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "valid"
   end
 
   create_table "roles", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|

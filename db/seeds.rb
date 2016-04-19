@@ -6,11 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-user = User.new(username: 'admin', firstname: 'Admin', lastname: 'Strator', email: 'admin@example.com', password: 'supergeslo')
-user.skip_confirmation!
-user.save!
+#user = User.new(username: 'admin2', firstname: 'Admin', lastname: 'Strator', email: 'admin2@example.com', password: 'supergeslo2')#
+#user.skip_confirmation!
+#user.save!
 
-user.add_role :admin
+
+
+#user.add_role :admin
 
 
 csv_file_path = 'db/data/Drzava.csv'
