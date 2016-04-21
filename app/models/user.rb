@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, length: {in: 4..20}, uniqueness: { case_sensitive: false }
   validates :firstname, :lastname, presence: true, length: {in: 2..100}
-  validates_format_of :password, with: /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d). /, message: :complexity
+  validates_format_of :password, with: /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)./, message: :complexity
 
   protected
 

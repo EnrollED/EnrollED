@@ -2,27 +2,27 @@ sl:
   defaults:
     name: 'EnrollED'
   errors:
-      format: "%{attribute} %{message}"
-      messages:
-        accepted: mora biti sprejeto
-        blank: ne sme biti prazno
-        confirmation: se ne ujema s potrditvijo
-        empty: ne sme biti prazno
-        equal_to: mora biti enako %{count}
-        even: mora biti sodo
-        exclusion: je rezervirano
-        greater_than: mora biti večje kot %{count}
-        greater_than_or_equal_to: mora biti večje ali enako %{count}
-        inclusion: ni vključeno v seznam
-        invalid: je nepravilno
-        less_than: mora biti manj kot %{count}
-        less_than_or_equal_to: mora biti manj ali enako %{count}
-        not_a_number: ni številka
-        odd: mora biti liho
-        taken: je že zasedeno
-        too_long: je predolgo (dovoljeno je do %{count} znakov)
-        too_short: je prekratko (zahtevano je najmanj %{count} znakov)
-        wrong_length: je napačne dolžine (mora biti natančno %{count} znakov)
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: mora biti sprejeto
+      blank: ne sme biti prazno
+      confirmation: se ne ujema s potrditvijo
+      empty: ne sme biti prazno
+      equal_to: mora biti enako %{count}
+      even: mora biti sodo
+      exclusion: je rezervirano
+      greater_than: mora biti večje kot %{count}
+      greater_than_or_equal_to: mora biti večje ali enako %{count}
+      inclusion: ni vključeno v seznam
+      invalid: je nepravilno
+      less_than: mora biti manj kot %{count}
+      less_than_or_equal_to: mora biti manj ali enako %{count}
+      not_a_number: ni številka
+      odd: mora biti liho
+      taken: je že zasedeno
+      too_long: je predolgo (dovoljeno je do %{count} znakov)
+      too_short: je prekratko (zahtevano je najmanj %{count} znakov)
+      wrong_length: je napačne dolžine (mora biti natančno %{count} znakov)
   activerecord:
     models:
       user: 'Uporabnik'
@@ -42,6 +42,11 @@ sl:
         EMSO: 'EMŠO'
         remember_me: 'Zapomni se me'
     errors:
+      messages:
+        record_invalid: "Validacija ni uspela: %{errors}"
+        restrict_dependent_destroy:
+          has_one: "Cannot delete record because a dependent %{record} exists"
+          has_many: "Cannot delete record because dependent %{record} exist"
       models:
         user:
           attributes:

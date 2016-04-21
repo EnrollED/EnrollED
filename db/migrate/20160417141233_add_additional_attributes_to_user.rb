@@ -1,4 +1,4 @@
-class AddMaidenNameAndSexAndDateOfBirthAndPhoneAndPlaceOfBirthAndEmsoToUser < ActiveRecord::Migration
+class AddAdditionalAttributesToUser < ActiveRecord::Migration
   def change
     add_column :users, :maiden_name, :string
     add_column :users, :date_of_birth, :date
