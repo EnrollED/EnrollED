@@ -11,11 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160418103304) do
+ActiveRecord::Schema.define(version: 20160418191611) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
+
+  create_table "admission_requirements", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
+    t.string   "code",       null: false
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "citizens", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "code",       null: false
@@ -39,6 +46,16 @@ ActiveRecord::Schema.define(version: 20160418103304) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "higher_education_institutions", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
+    t.string   "code",            null: false
+    t.string   "name",            null: false
+    t.string   "acronym",         null: false
+    t.uuid     "university_id"
+    t.uuid     "municipality_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
   create_table "highschool_completions", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "code",       null: false
     t.string   "name",       null: false
@@ -47,6 +64,13 @@ ActiveRecord::Schema.define(version: 20160418103304) do
   end
 
   create_table "highschools", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
+    t.string   "code",       null: false
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "mode_of_studies", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "code",       null: false
     t.string   "name",       null: false
     t.datetime "created_at", null: false
@@ -84,6 +108,29 @@ ActiveRecord::Schema.define(version: 20160418103304) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
+
+  create_table "study_programs", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
+    t.string   "name",                            null: false
+    t.string   "type",                            null: false
+    t.uuid     "higher_education_institution_id"
+    t.uuid     "type_of_study_id"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
+
+  create_table "type_of_studies", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
+    t.string   "code",       null: false
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "universities", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
+    t.string   "code",       null: false
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "username",                            null: false
