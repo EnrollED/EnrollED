@@ -1,0 +1,62 @@
+<%= form_for [:admin, @user] do |f| %>
+
+    <%= render 'layouts/errors', :resource => @user %>
+
+    <div class="form-group has-feedback">
+      <%= f.label :username, class: 'control-label' %>
+      <%= f.text_field :username, placeholder: true, autofocus: true, class: 'form-control' %>
+
+      <div class="form-control-feedback">
+        <i class="fa fa-user" aria-hidden="true"></i>
+      </div>
+    </div>
+
+    <div class="form-group has-feedback">
+      <%= f.label :email, class: 'control-label' %>
+      <%= f.email_field :email, placeholder: true, class: 'form-control' %>
+
+      <div class="form-control-feedback">
+        <i class="fa fa-user" aria-hidden="true"></i>
+      </div>
+    </div>
+
+    <div class="form-group has-feedback">
+      <%= f.label :firstname, class: 'control-label' %>
+      <%= f.text_field :firstname, placeholder: true, class: 'form-control' %>
+
+      <div class="form-control-feedback">
+        <i class="fa fa-user" aria-hidden="true"></i>
+      </div>
+    </div>
+
+    <div class="form-group has-feedback">
+      <%= f.label :lastname, class: 'control-label' %>
+      <%= f.text_field :lastname, placeholder: true, class: 'form-control' %>
+
+      <div class="form-control-feedback">
+        <i class="fa fa-user" aria-hidden="true"></i>
+      </div>
+    </div>
+
+    <div class="form-group has-feedback">
+      <%= f.label :password, class: 'control-label' %>
+      <%= f.password_field :password, placeholder: true, autocomplete: "off", class: 'form-control' %>
+
+      <div class="form-control-feedback">
+        <i class="fa fa-lock" aria-hidden="true"></i>
+      </div>
+    </div>
+
+    <div class="form-group has-feedback">
+      <%= f.label :password_confirmation, class: 'control-label' %>
+      <%= f.password_field :password_confirmation, placeholder: true, autocomplete: "off", class: 'form-control' %>
+
+      <div class="form-control-feedback">
+        <i class="fa fa-lock" aria-hidden="true"></i>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

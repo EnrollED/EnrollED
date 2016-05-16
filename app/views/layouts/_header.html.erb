@@ -16,9 +16,10 @@
 
       <ul class="nav navbar-nav navbar-right">
 
-        <% if policy(:admin_panel).index? %>
+        <% if policy(:admin).index? %>
           <li>
-            <a data-toggle="tooltip" rel="tooltip" data-placement="bottom" title="<%= t '.admin_area' %> ">
+            <a href="<%= admin_users_path %>" data-toggle="tooltip" rel="tooltip" data-placement="bottom"
+               title="<%= t '.admin_area' %> ">
               <i class="fa fa-wrench fa-lg" aria-hidden="true"></i>
             </a>
           </li>
