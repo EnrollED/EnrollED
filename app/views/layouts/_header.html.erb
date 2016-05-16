@@ -16,11 +16,13 @@
 
       <ul class="nav navbar-nav navbar-right">
 
-        <li>
-          <a data-toggle="tooltip" rel="tooltip" data-placement="bottom" title="<%= t '.admin_area' %> ">
-            <i class="fa fa-wrench fa-lg" aria-hidden="true"></i>
-          </a>
-        </li>
+        <% if policy(:admin_panel).index? %>
+          <li>
+            <a data-toggle="tooltip" rel="tooltip" data-placement="bottom" title="<%= t '.admin_area' %> ">
+              <i class="fa fa-wrench fa-lg" aria-hidden="true"></i>
+            </a>
+          </li>
+        <% end %>
 
         <li class="dropdown dropdown-user">
           <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
