@@ -15,3 +15,7 @@
 //= require turbolinks-5.0.0.beta4/turbolinks
 //= require bootstrap-3.3.6/bootstrap
 //= require_tree .
+
+$(function(){
+    $('[rel="tooltip"]').tooltip();
+});

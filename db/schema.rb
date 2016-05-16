@@ -17,13 +17,6 @@ ActiveRecord::Schema.define(version: 20160418191611) do
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
 
-  create_table "admission_requirements", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
-    t.string   "code",       null: false
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "citizens", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "code",       null: false
     t.string   "name",       null: false
