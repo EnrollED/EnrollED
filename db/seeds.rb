@@ -93,4 +93,45 @@ CSV.foreach(csv_file_path, {:headers=>:first_row}) do |row|
 end
 puts "Inserted professions"
 
+csv_file_path = "db/data/Univerza.csv"
+CSV.foreach(csv_file_path, {:headers=>:first_row}) do |row|
+  University.create!({
+      :code => row[0],
+      :name => row[1],
+                     })
+end
+puts "Inserted universities"
+
+csv_file_path = "db/data/VIS_zavod.csv"
+CSV.foreach(csv_file_path, {:headers=>:first_row}) do |row|
+  HigherEducationInstitution.create!({
+      :code => row[0],
+      :name => row[1],
+      :acronym => row[2],
+      :municipality => Municipality.find_by_code(row[3]),
+      :university => University.find_by_code(row[4]),
+                                     })
+end
+puts "Inserted higher education institutions"
+
+csv_file_path = "db/data/Vrsta_studija.csv"
+CSV.foreach(csv_file_path, {:headers=>:first_row}) do |row|
+  TypeOfStudy.create!({
+      :code => row[0],
+      :name => row[1],
+                      })
+end
+puts "Inserted type of study"
+
+csv_file_path = "db/data/Nacin_studija.csv"
+CSV.foreach(csv_file_path, {:headers=>:first_row}) do |row|
+  ModeOfStudy.create!({
+                          :code => row[0],
+                          :name => row[1],
+                      })
+end
+puts "Inserted mode of study"
+
+
+
 
