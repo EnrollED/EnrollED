@@ -7,6 +7,7 @@ sl:
       send_instructions: 'V nekaj minutah boste prejeli elektronsko sporočilo z navodili za potrditev vašega uporabniškega računa.'
       send_paranoid_instructions: 'Če je vaš elektronski naslov v naši bazi podatkov, boste na ta naslov v nekaj minutah prejeli navodila za potrditev vašega uporabniškega računa.'
     failure:
+      disabled_account: 'Vaš uporabniški račun je bil izklopljen.'
       already_authenticated: 'Ste že prijavljeni.'
       inactive: 'Vaš uporabniški račun še ni bil aktiviran.'
       invalid: 'Napačno uporabniško ime ali geslo.'

@@ -1,6 +1,11 @@
 sl:
   defaults:
     name: 'EnrollED'
+
+    edit: 'Uredi'
+    disable: 'Onesposobi'
+    search: 'Išči'
+    are_you_sure: 'Ali ste prepričani?'
   errors:
     format: "%{attribute} %{message}"
     messages:
@@ -23,6 +28,66 @@ sl:
       too_long: je predolgo (dovoljeno je do %{count} znakov)
       too_short: je prekratko (zahtevano je najmanj %{count} znakov)
       wrong_length: je napačne dolžine (mora biti natančno %{count} znakov)
+  date:
+      abbr_day_names:
+      - ned
+      - pon
+      - tor
+      - sre
+      - čet
+      - pet
+      - sob
+      abbr_month_names:
+      -
+      - jan
+      - feb
+      - mar
+      - apr
+      - maj
+      - jun
+      - jul
+      - avg
+      - sep
+      - okt
+      - nov
+      - dec
+      day_names:
+      - nedelja
+      - ponedeljek
+      - torek
+      - sreda
+      - četrtek
+      - petek
+      - sobota
+      formats:
+        default: "%d.%m.%Y"
+        long: "%d. %b %Y"
+        short: "%d. %b"
+      month_names:
+      -
+      - januar
+      - februar
+      - marec
+      - april
+      - maj
+      - junij
+      - julij
+      - avgust
+      - september
+      - oktober
+      - november
+      - december
+      order:
+      - :day
+      - :month
+      - :year
+  time:
+      am: dopoldan
+      formats:
+        default: "%A, %d %b %Y ob %H:%M:%S"
+        long: "%d. %B, %Y ob %H:%M"
+        short: "%d. %b ob %H:%M"
+      pm: popoldan
   activerecord:
     models:
       user: 'Uporabnik'
@@ -57,6 +122,12 @@ sl:
       my_profile: 'Moj profil'
       logout: 'Odjavi se'
       admin_area: 'Admin prostor'
+  admin:
+    users:
+      index:
+        list: 'Seznam uporabnikov'
+        new_user: 'Novi uporabnik'
+        no_users: 'Ni bilo najdenih nobenih uporabnikov!'
   devise:
     shared:
       links:

@@ -5,21 +5,28 @@ class Admin::UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.order(:username).page(params[:page]).per(2)
+    authorize User
+
+    @users = User.where(disabled_at: nil).search(params[:search]).order(:username).page(params[:page])
   end
 
   # GET /tests/new
   def new
+    authorize User
+
     @user = User.new
   end
 
   # GET /tests/1/edit
   def edit
+    authorize @user
   end
 
   # POST /tests
   # POST /tests.json
   def create
+    authorize User
+
     @user = User.new user_params
 
     if @user.save
@@ -32,6 +39,8 @@ class Admin::UsersController < ApplicationController
   # PATCH/PUT /tests/1
   # PATCH/PUT /tests/1.json
   def update
+    authorize @user
+
     if params[:user][:password].blank?
       params[:user][:password] = nil
       params[:user][:password_confirmation] = nil if params[:user][:password_confirmation].blank?
@@ -49,7 +58,9 @@ class Admin::UsersController < ApplicationController
   # DELETE /tests/1
   # DELETE /tests/1.json
   def destroy
-    @user.destroy
+    authorize @user
+
+    @user.disable
 
     redirect_to admin_users_path, notice: 'User was successfully destroyed.'
   end

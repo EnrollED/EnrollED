@@ -5,9 +5,30 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable
 
-  validates :username, presence: true, length: {in: 4..20}, uniqueness: { case_sensitive: false }
+  validates :username, presence: true, length: {in: 4..20}, uniqueness: {case_sensitive: false}
   validates :firstname, :lastname, presence: true, length: {in: 2..100}
   validates_format_of :password, with: /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)?/, message: :complexity
+
+  # Class methods
+  class << self
+
+    def search(name)
+      where("LOWER(firstname || ' ' || lastname || ' ' || firstname) LIKE LOWER(?)", "%#{name}%")
+    end
+  end
+
+  # Instance methods
+  def disable
+    update_attribute(:disabled_at, Time.current)
+  end
+
+  def active_for_authentication?
+    super && !disabled_at
+  end
+
+  def inactive_message
+    !disabled_at ? super : :disabled_account
+  end
 
   protected
 
