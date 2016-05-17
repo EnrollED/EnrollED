@@ -11,11 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160516080330) do
+ActiveRecord::Schema.define(version: 20160517075054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
+
+  create_table "applications", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
+    t.string   "status",           null: false
+    t.datetime "submission_date",  null: false
+    t.uuid     "user_id"
+    t.uuid     "enrollment_id"
+    t.uuid     "highschool_id"
+    t.uuid     "study_program_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "citizens", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "code",       null: false
@@ -122,7 +133,7 @@ ActiveRecord::Schema.define(version: 20160516080330) do
 
   create_table "study_programs", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "name",                            null: false
-    t.string   "type",                            null: false
+    t.string   "code",                            null: false
     t.uuid     "higher_education_institution_id", null: false
     t.uuid     "type_of_study_id",                null: false
     t.uuid     "enrollment_id",                   null: false
