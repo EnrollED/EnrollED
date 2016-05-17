@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Seznam pošt</h1>
+<%= link_to 'Dodaj pošto', new_post_path %>
+<br/><br/>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Poštna številka</th>
+      <th>Naziv</th>
+      <th>Veljavnost</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.code %></td>
+        <td><%= post.name %></td>
+        <td><%if post.is_valid? %>da<% else %>ne<% end %></td>
+        <td><%= link_to 'Prikaži', post %></td>
+        <td><%= link_to 'Uredi', edit_post_path(post) %></td>
+        <td><% if post.is_valid? %><%= link_to 'Izbriši', post, method: :delete, data: { confirm: 'Ali ste prepričani, da želite izbrisati zapis?' } %><% end %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

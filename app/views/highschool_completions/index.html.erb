@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Seznam zaključkov srednje šole</h1>
+<%= link_to 'Dodaj nov zaključek srednje šole', new_highschool_completion_path %>
+<br/><br/>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Šifra</th>
+      <th>Naziv</th>
+      <th>Veljavnost</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @highschool_completions.each do |highschool_completion| %>
+      <tr>
+        <td><%= highschool_completion.code %></td>
+        <td><%= highschool_completion.name %></td>
+        <td><%if highschool_completion.is_valid? %>da<% else %>ne<% end %></td>
+        <td><%= link_to 'Prikaži', highschool_completion %></td>
+        <td><%= link_to 'Uredi', edit_highschool_completion_path(highschool_completion) %></td>
+        <td><%= link_to 'Izbriši', highschool_completion, method: :delete, data: { confirm: 'Ali ste prepričani, da želite izbrisati zapis?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

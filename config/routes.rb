@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :highschool_completions
+  resources :posts
+  resources :countries
+  resources :elements
+  resources :citizens
+  resources :municipalities
   devise_for :users
 
   # The priority is based upon order of creation: first created -> highest priority.

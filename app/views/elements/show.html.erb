@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Šifra:</strong>
+  <%= @element.code %>
+</p>
+
+<p>
+  <strong>Naziv:</strong>
+  <%= @element.name %>
+</p>
+
+<p>
+  <strong>Veljavnost:</strong>
+  <%if @element.is_valid? %>da<% else %>ne<% end %>
+</p>
+
+<%= link_to 'Uredi', edit_element_path(@element) %> |
+<%= link_to 'Nazaj', elements_path %>

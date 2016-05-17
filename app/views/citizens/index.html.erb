@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Seznam zapisov</h1>
+<%= link_to 'Dodaj zapis', new_citizen_path %>
+<br/><br/>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Šifra</th>
+      <th>Naziv</th>
+      <th>Veljavnost</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @citizens.each do |citizen| %>
+      <tr>
+        <td><%= citizen.code %></td>
+        <td><%= citizen.name %></td>
+        <td><% if citizen.is_valid? %>da<% else %>ne<% end %></td>
+        <td><%= link_to 'Prikaži', citizen %></td>
+        <td><%= link_to 'Uredi', edit_citizen_path(citizen) %></td>
+        <td><% if citizen.is_valid? %><%= link_to 'Izbriši', citizen, method: :delete, data: { confirm: 'Ali ste prepričani, da želite izbrisati zapis?' } %><% end %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

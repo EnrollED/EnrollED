@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Seznam elementov</h1>
+<%= link_to 'Dodaj nov element', new_element_path %>
+<br/><br/>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Šifra</th>
+      <th>Naziv</th>
+      <th>Veljavnost</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @elements.each do |element| %>
+      <tr>
+        <td><%= element.code %></td>
+        <td><%= element.name %></td>
+        <td><%if element.is_valid? %>da<% else %>ne<% end %></td>
+        <td><%= link_to 'Prikaži', element %></td>
+        <td><%= link_to 'Uredi', edit_element_path(element) %></td>
+        <td><%= link_to 'Izbriši', element, method: :delete, data: { confirm: 'Ali ste prepričani, da želite izbrisati zapis?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

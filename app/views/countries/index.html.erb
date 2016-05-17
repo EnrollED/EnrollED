@@ -1,0 +1,35 @@
+
+<p id="notice"><%= notice %></p>
+
+<h1>Seznam držav</h1>
+<%= link_to 'Dodaj državo', new_country_path %>
+<br/><br/>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Šifra</th>
+      <th>Naziv</th>
+      <th>Članica EU</th>
+      <th>Veljavnost</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @countries.each do |country| %>
+      <tr>
+        <td><%= country.code %></td>
+        <td><%= country.name %></td>
+        <td><% if country.eu_member? %>da<% else %>ne<% end %></td>
+        <td><% if country.is_valid? %>da<% else %>ne<% end %></td>
+        <td><%= link_to 'Prikaži', country %></td>
+        <td><%= link_to 'Uredi', edit_country_path(country) %></td>
+        <td><% if country.is_valid? %><%= link_to 'Izbriši', country, method: :delete, data: { confirm: 'Ali ste prepričani, da želite izbrisati zapis?' } %><% end %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

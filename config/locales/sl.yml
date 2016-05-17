@@ -1,6 +1,11 @@
 sl:
   defaults:
     name: 'EnrollED'
+    edit: 'Uredi'
+    show: 'Prikaži'
+    delete: 'Izbriši'
+    create: 'Dodaj'
+    update: 'Posodobi'
   errors:
       format: "%{attribute} %{message}"
       messages:
@@ -26,6 +31,14 @@ sl:
   activerecord:
     models:
       user: 'Uporabnik'
+      post: 'Pošta'
+      country: 'Država'
+      municipality: 'Občina'
+      citizen: 'Državljanstvo'
+      highschool_completion: 'Zaključek srednje šole'
+      highschool: 'Srednja šola'
+      profession: 'Poklic'
+      role: 'Vloga'
     attributes:
       user:
         username: 'Uporabniško ime'
@@ -41,6 +54,31 @@ sl:
         place_of_birth: 'Kraj rojstva'
         EMSO: 'EMŠO'
         remember_me: 'Zapomni se me'
+      post:
+        code: 'Poštna številka'
+        name: 'Naziv'
+        is_valid: 'Veljavnost'
+      municipality:
+        code: 'Šifra'
+        name: 'Naziv'
+        is_valid: 'Veljavnost'
+      citizen:
+        code: 'Šifra'
+        name: 'Naziv'
+        is_valid: 'Veljavnost'
+      element:
+        code: 'Šifra'
+        name: 'Naziv'
+        is_valid: 'Veljavnost'
+      highschool_completion:
+        code: 'Šifra'
+        name: 'Naziv'
+        is_valid: 'Veljavnost'
+      country:
+        code: 'Šifra'
+        name: 'Naziv'
+        eu_member: 'Članica EU'
+        is_valid: 'Veljavnost'
     errors:
       models:
         user:

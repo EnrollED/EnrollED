@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Seznam občin</h1>
+<%= link_to 'Dodaj novo občino', new_municipality_path %>
+<br/><br/>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Šifra</th>
+      <th>Naziv</th>
+      <th>Veljavnost</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @municipalities.each do |municipality| %>
+      <tr>
+        <td><%= municipality.code %></td>
+        <td><%= municipality.name %></td>
+        <td><% if municipality.is_valid? %>da<% else %>ne<% end %></td>
+        <td><%= link_to 'Prikaži', municipality %></td>
+        <td><%= link_to 'Uredi', edit_municipality_path(municipality) %></td>
+        <td><% if municipality.is_valid? %><%= link_to 'Izbriši', municipality, method: :delete, data: { confirm: 'Ali ste prepričani, da želite izbrisati zapis?' } %><% end %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

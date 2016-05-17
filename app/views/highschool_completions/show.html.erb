@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Šifra:</strong>
+  <%= @highschool_completion.code %>
+</p>
+
+<p>
+  <strong>Naziv:</strong>
+  <%= @highschool_completion.name %>
+</p>
+
+<p>
+  <strong>Veljavnost:</strong>
+  <%if @highschool_completion.is_valid? %>da<% else %>ne<% end %>
+</p>
+
+<%= link_to 'Uredi', edit_highschool_completion_path(@highschool_completion) %> |
+<%= link_to 'Nazaj', highschool_completions_path %>

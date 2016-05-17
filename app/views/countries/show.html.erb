@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Šifra:</strong>
+  <%= @country.code %>
+</p>
+
+<p>
+  <strong>Naziv:</strong>
+  <%= @country.name %>
+</p>
+<p>
+  <strong>Članica EU:</strong>
+  <%if @country.eu_member? %>da<% else %>ne<% end %>
+</p>
+<p>
+  <strong>Veljavno:</strong>
+  <%if @country.is_valid? %>da<% else %>ne<% end %>
+</p>
+<%= link_to 'Uredi', edit_country_path(@country) %> |
+<%= link_to 'Nazaj', countries_path %>
