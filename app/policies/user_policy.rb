@@ -13,7 +13,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def update?
-    @user.has_role? :admin
+    @user == @record || @user.has_role?(:admin)
   end
 
   def edit?

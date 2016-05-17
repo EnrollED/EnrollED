@@ -20,6 +20,7 @@ class Admin::UsersController < ApplicationController
   # GET /tests/1/edit
   def edit
     authorize @user
+    authorize :admin, :index?
   end
 
   # POST /tests
@@ -30,7 +31,7 @@ class Admin::UsersController < ApplicationController
     @user = User.new user_params
 
     if @user.save
-      redirect_to action: :index, notice: 'User was successfully created.'
+      redirect_to action: :index, notice: t('admin.users.create.created')
     else
       render :new
     end
@@ -40,16 +41,10 @@ class Admin::UsersController < ApplicationController
   # PATCH/PUT /tests/1.json
   def update
     authorize @user
-
-    if params[:user][:password].blank?
-      params[:user][:password] = nil
-      params[:user][:password_confirmation] = nil if params[:user][:password_confirmation].blank?
-    end
-
-    print params
+    authorize :admin, :index?
 
     if @user.update user_params
-      redirect_to action: :index, notice: 'User updated successfully!'
+      redirect_to action: :index, notice: t('admin.users.update.updated')
     else
       render :edit
     end
@@ -62,16 +57,14 @@ class Admin::UsersController < ApplicationController
 
     @user.disable
 
-    redirect_to admin_users_path, notice: 'User was successfully destroyed.'
+    redirect_to admin_users_path, notice: t('admin.users.destroy.disabled')
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
   def set_user
     @user = User.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
     params.require(:user).permit(:username, :firstname, :lastname, :email)
   end

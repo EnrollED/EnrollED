@@ -6,6 +6,7 @@ sl:
     disable: 'Onesposobi'
     search: 'Išči'
     are_you_sure: 'Ali ste prepričani?'
+    not_authorized: 'Opala! Tam pa ne smete biti!'
   errors:
     format: "%{attribute} %{message}"
     messages:
@@ -97,6 +98,7 @@ sl:
         email: 'Elektronska pošta'
         password: 'Geslo'
         password_confirmation: 'Potrdi geslo'
+        current_password: 'Trenutno geslo'
         firstname: 'Ime'
         lastname: 'Priimek'
         maiden_name: 'Dekliški priimek'
@@ -122,14 +124,21 @@ sl:
       my_profile: 'Moj profil'
       logout: 'Odjavi se'
       admin_area: 'Admin prostor'
+      zadnja_prijava: 'Zadnja prijava'
   admin:
     users:
+      create:
+        created: 'Uporabnik je bil uspešno ustvarjen'
       index:
         list: 'Seznam uporabnikov'
         new_user: 'Novi uporabnik'
         no_users: 'Ni bilo najdenih nobenih uporabnikov!'
       new:
         new: 'Novi uporabnik'
+      update:
+        updated: 'Uporabnik je bil uspešno posodobljen'
+      destroy:
+        disabled: 'Uporabnik je bil uspešno onemogočen'
   devise:
     shared:
       links:

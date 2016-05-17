@@ -8,15 +8,20 @@ Rails.application.routes.draw do
   # App routes
   root 'home#index'
 
-  devise_for :users, controllers: { confirmations: 'confirmations' }
+  devise_for :users, skip: :registrations, controllers: { confirmations: 'confirmations' }
 
   as :user do
+    get '/users/sign_up' => 'devise/registrations#new', as: :new_user_registration
+    post '/users' => 'devise/registrations#create', as: :user_registration
+
     patch '/users/confirmations' => 'confirmations#update', via: :patch, as: :update_user_confirmation
   end
 
   namespace :admin do
     resources :users, except: :show, concerns: :paginatable
   end
+
+  resources :users, only: [:edit, :update]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
