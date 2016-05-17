@@ -7,6 +7,9 @@ class CreateUsers < ActiveRecord::Migration
       t.string :firstname, null: false
       t.string :lastname, null: false
 
+      # Disabled
+      t.datetime :disabled_at
+
       t.timestamps null: false
     end
 

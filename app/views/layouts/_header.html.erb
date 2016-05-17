@@ -16,6 +16,13 @@
 
       <ul class="nav navbar-nav navbar-right">
 
+        <li>
+          <a data-toggle="tooltip" rel="tooltip" data-placement="bottom"
+             title="<%= t '.zadnja_prijava' %>: <%= l current_user.last_sign_in_at, format: :short %> ">
+            <%= current_user.firstname + ' ' + current_user.lastname %>
+          </a>
+        </li>
+
         <% if policy(:admin).index? %>
           <li>
             <a href="<%= admin_users_path %>" data-toggle="tooltip" rel="tooltip" data-placement="bottom"
@@ -31,7 +38,7 @@
           </a>
           <ul class="dropdown-menu">
             <li>
-              <a href="#"><%= t '.my_profile' %></a>
+              <a href="<%= edit_user_path(current_user) %>"><%= t '.my_profile' %></a>
             </li>
             <li>
               <%= link_to t('.logout'), destroy_user_session_path, method: :delete %>
