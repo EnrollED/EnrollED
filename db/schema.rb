@@ -123,8 +123,9 @@ ActiveRecord::Schema.define(version: 20160516080330) do
   create_table "study_programs", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "name",                            null: false
     t.string   "type",                            null: false
-    t.uuid     "higher_education_institution_id"
-    t.uuid     "type_of_study_id"
+    t.uuid     "higher_education_institution_id", null: false
+    t.uuid     "type_of_study_id",                null: false
+    t.uuid     "enrollment_id",                   null: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
   end

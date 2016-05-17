@@ -16,6 +16,12 @@
 
       <ul class="nav navbar-nav navbar-right">
 
+        <li>
+          <a data-toggle="tooltip" rel="tooltip" data-placement="bottom" title="Zadnja prijava: <%= current_user.last_sign_in_at %> ">
+            <%= current_user.firstname + ' ' + current_user.lastname %>
+          </a>
+        </li>
+
         <% if policy(:admin).index? %>
           <li>
             <a href="<%= admin_users_path %>" data-toggle="tooltip" rel="tooltip" data-placement="bottom"
