@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   # App routes
   root 'home#index'
 
-  devise_for :users
+  devise_for :users, controllers: { confirmations: 'confirmations' }
+
+  as :user do
+    patch '/users/confirmations' => 'confirmations#update', via: :patch, as: :update_user_confirmation
+  end
 
   namespace :admin do
     resources :users, except: :show, concerns: :paginatable

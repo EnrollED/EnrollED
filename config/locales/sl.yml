@@ -128,6 +128,8 @@ sl:
         list: 'Seznam uporabnikov'
         new_user: 'Novi uporabnik'
         no_users: 'Ni bilo najdenih nobenih uporabnikov!'
+      new:
+        new: 'Novi uporabnik'
   devise:
     shared:
       links:
@@ -137,6 +139,10 @@ sl:
         confirm: 'Niste dobili navodil za potrditev?'
         unlock: 'Niste dobili navodil za odklep?'
     confirmations:
+      show:
+        title: 'Nastavite si geslo'
+        subtitle: 'Dobrodošli. Preden vstopite v aplikacijo, si prosim nastavite vaše geslo.'
+        set: 'Nastavi geslo'
       new:
         title: 'Ponovno pošlji podatke za potrditev'
         subtitle: "Navodila za potrditev vam bomo poslali po elektronski pošti"
