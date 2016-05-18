@@ -38,6 +38,16 @@
       </div>
     </div>
 
+    <% if policy(@user).change_role? %>
+        <div class="form-group has-feedback">
+          <%= f.label :role_ids, class: 'control-label' %>
+
+          <%= f.collection_select :role_ids, @roles, :id, :t_name, {},
+                                  {multiple: true, class: 'form-control', data:
+                                      {placeholder: t('activerecord.attributes.user.role_ids')}} %>
+        </div>
+    <% end %>
+
     <div class="actions">
       <%= f.submit %>
     </div>

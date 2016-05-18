@@ -14,13 +14,22 @@
 //= require jquery-ujs-1.2.1/jquery-ujs
 //= require turbolinks-5.0.0.beta4/turbolinks
 //= require bootstrap-3.3.6/bootstrap
+//= require select2-4.0.2/select2
 //= require sweetalert-1.1.3/sweetalert
+//= require_self
 //= require_tree .
 
 // Global object for page specific funcions
-window.Enrolled = {};
+window.Enrolled = {
+    init: function() {
+
+        $('[rel="tooltip"]').tooltip();
+    },
+
+    admin: {}
+};
 
 // App initialization
 $(document).on('turbolinks:load', function () {
-    $('[rel="tooltip"]').tooltip();
+    Enrolled.init();
 });

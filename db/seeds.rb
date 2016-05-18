@@ -11,7 +11,7 @@ user.skip_confirmation!
 user.save!
 
 user.add_role :admin
-
+user.add_role :admissions
 
 csv_file_path = 'db/data/Drzava.csv'
 CSV.foreach(csv_file_path, {:headers=>:first_row}) do |row|

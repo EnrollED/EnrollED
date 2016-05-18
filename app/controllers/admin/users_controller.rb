@@ -15,12 +15,15 @@ class Admin::UsersController < ApplicationController
     authorize User
 
     @user = User.new
+    @roles = Role.where(resource: nil)
   end
 
   # GET /tests/1/edit
   def edit
     authorize @user
     authorize :admin, :index?
+
+    @roles = Role.where(resource: nil)
   end
 
   # POST /tests
@@ -28,7 +31,7 @@ class Admin::UsersController < ApplicationController
   def create
     authorize User
 
-    @user = User.new user_params
+    @user = User.new permitted_attributes(@user)
 
     if @user.save
       redirect_to action: :index, notice: t('admin.users.create.created')
@@ -43,7 +46,7 @@ class Admin::UsersController < ApplicationController
     authorize @user
     authorize :admin, :index?
 
-    if @user.update user_params
+    if @user.update permitted_attributes(@user)
       redirect_to action: :index, notice: t('admin.users.update.updated')
     else
       render :edit
@@ -66,6 +69,6 @@ class Admin::UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :firstname, :lastname, :email)
+    params.require(:user).permit(:username, :firstname, :lastname, :email, :role_ids => [])
   end
 end

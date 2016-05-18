@@ -7,6 +7,9 @@ sl:
     search: 'Išči'
     are_you_sure: 'Ali ste prepričani?'
     not_authorized: 'Opala! Tam pa ne smete biti!'
+  roles:
+    admin: 'Administrator'
+    admissions: 'Služba za vpis'
   errors:
     format: "%{attribute} %{message}"
     messages:
@@ -107,6 +110,7 @@ sl:
         phone: 'Telefonska številka'
         place_of_birth: 'Kraj rojstva'
         EMSO: 'EMŠO'
+        role_ids: 'Vloge'
         remember_me: 'Zapomni se me'
     errors:
       messages:
