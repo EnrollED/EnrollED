@@ -1,17 +1,23 @@
 <%= form_for(@study_program) do |f| %>
-  <% if @study_program.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@study_program.errors.count, "error") %> prohibited this study_program from being saved:</h2>
+    <%= render 'layouts/errors', :resource => @study_program %>
 
-      <ul>
-      <% @study_program.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="form-group">
+      <%= f.label "Ime študijskega programa", class: 'control-label' %>
+      <%= f.text_field :name, placeholder: true, autofocus: true, class: 'form-control' %>
+
     </div>
-  <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="form-group">
+      <%= f.label "Način študija", class: 'control-label' %>
+      <%= f.collection_select :type_of_study_id, TypeOfStudy.all, :id, :name, class: 'form-control'  %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "Fakulteta", class: 'control-label' %>
+      <%= f.collection_select :higher_education_institution_id, HigherEducationInstitution.all, :id, :name, class: 'form-control'  %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>
