@@ -32,6 +32,9 @@
       <th>Način študija</th>
       <th>Ime programa</th>
       <th>Koda</th>
+      <th></th>
+      <th></th>
+      <th></th>
     </tr>
     </thead>
 
@@ -58,6 +61,13 @@
             <% end %>
           </td>
         </tr>
+        <% if study_program.study_program_modes.length == 0 %>
+          <tr>
+            <td>Program nima razpisanih mest</td>
+          </tr>
+        <% end %>
+
+
     <% end %>
     </tbody>
   </table>

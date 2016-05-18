@@ -4,7 +4,7 @@ class StudyProgramsController < ApplicationController
   # GET /study_programs
   # GET /study_programs.json
   def index
-    @study_programs = StudyProgram.all
+    @study_programs = StudyProgram.order(:higher_education_institution_id, :name)
   end
 
   # GET /study_programs/1
