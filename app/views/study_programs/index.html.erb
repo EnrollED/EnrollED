@@ -4,6 +4,7 @@
     <thead>
     <tr>
       <th>Fakulteta</th>
+      <th>Način študija</th>
       <th>Ime programa</th>
     </tr>
     </thead>
@@ -12,7 +13,7 @@
     <% @study_programs.each do |study_program| %>
         <tr>
           <td><%= study_program.higher_education_institution.name %></td>
-
+          <td><%= study_program.type_of_study.name %></td>
           <td><%= study_program.name %></td>
           <td>
             <%= link_to study_program_path(study_program), class: 'label label-success' do %>

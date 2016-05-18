@@ -41,6 +41,9 @@
               <a href="<%= edit_user_path(current_user) %>"><%= t '.my_profile' %></a>
             </li>
             <li>
+              <a href="<%= study_programs_path %>"><%= "Študijski programi" %></a>
+            </li>
+            <li>
               <%= link_to t('.logout'), destroy_user_session_path, method: :delete %>
             </li>
           </ul>
