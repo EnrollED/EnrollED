@@ -1,0 +1,6 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @study_program.higher_education_institution.acronym %> - <%= @study_program.name %> (<%= @study_program.type_of_study.name %>)</h1>
+
+<%= link_to 'Edit', edit_study_program_path(@study_program) %> |
+<%= link_to 'Nazaj', study_programs_path %>

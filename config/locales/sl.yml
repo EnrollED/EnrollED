@@ -186,3 +186,6 @@ sl:
         title: 'Ponovno pošlji navodila za odklep'
         subtitle: 'Navodila za odklep vam bomo poslali po elektronski pošti'
         resend: 'Ponovno pošlji navodila za odklep'
+    study_programs:
+      index:
+        list: 'Seznam študijskih programov'
