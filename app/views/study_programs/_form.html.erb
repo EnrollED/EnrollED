@@ -4,7 +4,11 @@
     <div class="form-group">
       <%= f.label "Ime študijskega programa", class: 'control-label' %>
       <%= f.text_field :name, placeholder: true, autofocus: true, class: 'form-control' %>
+    </div>
 
+    <div class="form-group">
+      <%= f.label "Koda", class: 'control-label' %>
+      <%= f.text_field :code, placeholder: true, autofocus: true, class: 'form-control' %>
     </div>
 
     <div class="form-group">
@@ -15,6 +19,11 @@
     <div class="form-group">
       <%= f.label "Fakulteta", class: 'control-label' %>
       <%= f.collection_select :higher_education_institution_id, HigherEducationInstitution.all, :id, :name, {:include_blank => false}, { :class => 'form-control' }  %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "Razpis", class: 'control-label' %>
+      <%= f.collection_select :enrollment_id, Enrollment.all, :id, :name, {:include_blank => false}, { :class => 'form-control' }  %>
     </div>
 
     <div class="actions">
