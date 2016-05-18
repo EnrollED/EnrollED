@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:edit, :update]
+  resources :study_programs
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
