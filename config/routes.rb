@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:edit, :update]
   resources :study_programs
+  resources :study_program_modes
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
