@@ -17,6 +17,11 @@
       <ul class="nav navbar-nav navbar-right">
 
         <li>
+          <a href="<%= study_programs_path %>"><%= "Študijski programi" %></a>
+        </li>
+
+
+        <li>
           <a data-toggle="tooltip" rel="tooltip" data-placement="bottom"
              title="<%= t '.zadnja_prijava' %>: <%= l current_user.last_sign_in_at, format: :short %> ">
             <%= current_user.firstname + ' ' + current_user.lastname %>
@@ -32,6 +37,7 @@
           </li>
         <% end %>
 
+
         <li class="dropdown dropdown-user">
           <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <%= image_tag gravatar_url(current_user.email) %>
@@ -39,9 +45,6 @@
           <ul class="dropdown-menu">
             <li>
               <a href="<%= edit_user_path(current_user) %>"><%= t '.my_profile' %></a>
-            </li>
-            <li>
-              <a href="<%= study_programs_path %>"><%= "Študijski programi" %></a>
             </li>
             <li>
               <%= link_to t('.logout'), destroy_user_session_path, method: :delete %>
