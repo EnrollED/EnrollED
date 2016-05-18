@@ -2,21 +2,8 @@
 
 <div class="row">
 
-  <div class="col-sm-4">
-    <%= form_tag(study_programs_path, method: :get) do |f| %>
-
-        <div class="input-group">
-
-          <%= search_field_tag :search, params[:search], autofocus: true,
-                               placeholder: t('defaults.search') + '...', class: 'form-control' %>
-
-          <span class="input-group-btn">
-            <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
-          </span>
-
-        </div>
-
-    <% end %>
+  <div class="col-sm-4 text-left">
+    <%= link_to "Razpisana mesta", study_program_modes_path, class: 'btn btn-info' %>
   </div>
 
   <div class="col-sm-8 text-right">
