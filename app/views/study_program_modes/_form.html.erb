@@ -21,6 +21,16 @@
       <%= f.text_field :number_of_places_foreign, placeholder: true, autofocus: true, class: 'form-control' %>
     </div>
 
+    <div class="form-group">
+      <%= f.label "Število vpisnih mest za državljane Slovenije in EU po razvrstitvi", class: 'control-label' %>
+      <%= f.text_field :number_of_places_after_selection, placeholder: true, autofocus: true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "Število vpisnih mest za tujce in Slovence brez slovenskega državljanstva po razvrstitvi", class: 'control-label' %>
+      <%= f.text_field :number_of_places_after_selection_foreign, placeholder: true, autofocus: true, class: 'form-control' %>
+    </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
