@@ -12,6 +12,7 @@
   <tbody>
     <% @study_program_modes.each do |study_program_mode| %>
       <tr>
+        <td></td>
         <td><%= link_to 'Show', study_program_mode %></td>
         <td><%= link_to 'Edit', edit_study_program_mode_path(study_program_mode) %></td>
         <td><%= link_to 'Destroy', study_program_mode, method: :delete, data: { confirm: 'Are you sure?' } %></td>
