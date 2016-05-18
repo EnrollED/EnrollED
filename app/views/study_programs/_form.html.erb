@@ -9,12 +9,12 @@
 
     <div class="form-group">
       <%= f.label "Način študija", class: 'control-label' %>
-      <%= f.collection_select :type_of_study_id, TypeOfStudy.all, :id, :name, class: 'form-control'  %>
+      <%= f.collection_select :type_of_study_id, TypeOfStudy.all, :id, :name, {:include_blank => false}, { :class => 'form-control' }  %>
     </div>
 
     <div class="form-group">
       <%= f.label "Fakulteta", class: 'control-label' %>
-      <%= f.collection_select :higher_education_institution_id, HigherEducationInstitution.all, :id, :name, class: 'form-control'  %>
+      <%= f.collection_select :higher_education_institution_id, HigherEducationInstitution.all, :id, :name, {:include_blank => false}, { :class => 'form-control' }  %>
     </div>
 
     <div class="actions">
