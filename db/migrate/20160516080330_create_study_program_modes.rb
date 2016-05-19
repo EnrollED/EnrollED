@@ -1,9 +1,13 @@
 class CreateStudyProgramModes < ActiveRecord::Migration
   def change
-    create_table :study_program_modes do |t|
-      t.integer :number_of_places
-      t.integer :number_of_places_after_selection
-      t.float :selection_limit
+    create_table :study_program_modes, id: :uuid do |t|
+      t.integer  :number_of_places
+      t.integer  :number_of_places_foreign
+      t.integer  :number_of_places_after_selection
+      t.integer  :number_of_places_after_selection_foreign
+      t.integer  :selected
+      t.integer  :selected_foreign
+      t.float    :selection_limit
 
       t.references :study_program, id: :uuid
       t.references :mode_of_study, id: :uuid

@@ -28,9 +28,15 @@ class UserPolicy < ApplicationPolicy
     destroy?
   end
 
+  def change_pass?
+    @user == @record
+  end
+
   def permitted_attributes
-    if @user.has_role?(:admin) && @user != @record
+    if change_role?
       [:username, :firstname, :lastname, :email, role_ids: []]
+    elsif change_pass?
+      [:username, :firstname, :lastname, :email, :password, :password_confirmation]
     else
       [:username, :firstname, :lastname, :email]
     end

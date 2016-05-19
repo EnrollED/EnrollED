@@ -1,6 +1,6 @@
-<%= form_for [:admin, @user] do |f| %>
+<%= form_for user do |f| %>
 
-
+    <%= render 'layouts/errors', :resource => @user %>
 
     <div class="form-group has-feedback">
       <%= f.label :username, class: 'control-label' %>
@@ -48,7 +48,27 @@
         </div>
     <% end %>
 
+    <% if policy(@user).change_pass? %>
+        <div class="form-group has-feedback">
+          <%= f.label :password, class: 'control-label' %> <i><small>(<%= t '.leave_blank_pass' %>)</small></i>
+          <%= f.password_field :password, placeholder: true, autocomplete: "off", class: 'form-control' %>
+
+          <div class="form-control-feedback">
+            <i class="fa fa-lock" aria-hidden="true"></i>
+          </div>
+        </div>
+
+        <div class="form-group has-feedback">
+          <%= f.label :password_confirmation, class: 'control-label' %>
+          <%= f.password_field :password_confirmation, placeholder: true, autocomplete: "off", class: 'form-control' %>
+
+          <div class="form-control-feedback">
+            <i class="fa fa-lock" aria-hidden="true"></i>
+          </div>
+        </div>
+    <% end %>
+
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit t('defaults.save') %>
     </div>
 <% end %>

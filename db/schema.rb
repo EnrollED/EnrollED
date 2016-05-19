@@ -11,18 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160518150929) do
+ActiveRecord::Schema.define(version: 20160517075054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
-
-  create_table "admission_requirements", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
-    t.string   "code",       null: false
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "applications", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "status",           null: false
@@ -129,8 +122,6 @@ ActiveRecord::Schema.define(version: 20160518150929) do
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
 
   create_table "study_program_modes", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
-    t.uuid     "study_program_id"
-    t.uuid     "mode_of_study_id"
     t.integer  "number_of_places"
     t.integer  "number_of_places_foreign"
     t.integer  "number_of_places_after_selection"
@@ -138,6 +129,8 @@ ActiveRecord::Schema.define(version: 20160518150929) do
     t.integer  "selected"
     t.integer  "selected_foreign"
     t.float    "selection_limit"
+    t.integer  "study_program_id"
+    t.integer  "mode_of_study_id"
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
   end

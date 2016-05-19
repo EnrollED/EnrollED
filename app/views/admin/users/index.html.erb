@@ -34,7 +34,8 @@
       <th><%= t 'activerecord.attributes.user.firstname' %></th>
       <th><%= t 'activerecord.attributes.user.lastname' %></th>
       <th><%= t 'activerecord.attributes.user.email' %></th>
-      <th>Ustvarjen</th>
+      <td></td>
+      <th><%= t 'activerecord.attributes.user.created_at' %></th>
       <th></th>
     </tr>
     </thead>
@@ -47,6 +48,7 @@
           <td><%= user.firstname %></td>
           <td><%= user.lastname %></td>
           <td><%= user.email %></td>
+          <td></td>
           <td><%= l user.created_at, format: :short %></td>
           <td class="text-right table-links">
 

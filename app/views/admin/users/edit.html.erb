@@ -1,6 +1,6 @@
-<h1>Editing User</h1>
+<h1><%= t '.edit' %></h1>
 
-<%= render 'form' %>
+<%= render 'form', user: [:admin, @user] %>
 
 <%= link_to 'Back', admin_users_path %>
 

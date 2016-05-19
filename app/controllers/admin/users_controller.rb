@@ -31,7 +31,7 @@ class Admin::UsersController < ApplicationController
   def create
     authorize User
 
-    @user = User.new permitted_attributes(@user)
+    @user = User.new permitted_attributes(User)
 
     if @user.save
       redirect_to action: :index, notice: t('admin.users.create.created')
@@ -45,6 +45,11 @@ class Admin::UsersController < ApplicationController
   def update
     authorize @user
     authorize :admin, :index?
+
+    if params[:user][:password].blank?
+      params[:user][:password] = nil
+      params[:user][:password_confirmation] = nil if params[:user][:password_confirmation].blank?
+    end
 
     if @user.update permitted_attributes(@user)
       redirect_to action: :index, notice: t('admin.users.update.updated')
@@ -66,9 +71,5 @@ class Admin::UsersController < ApplicationController
   private
   def set_user
     @user = User.find(params[:id])
-  end
-
-  def user_params
-    params.require(:user).permit(:username, :firstname, :lastname, :email, :role_ids => [])
   end
 end

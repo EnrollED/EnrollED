@@ -2,6 +2,7 @@ sl:
   defaults:
     name: 'EnrollED'
 
+    save: 'Shrani'
     edit: 'Uredi'
     disable: 'Onesposobi'
     search: 'Išči'
@@ -112,6 +113,7 @@ sl:
         EMSO: 'EMŠO'
         role_ids: 'Vloge'
         remember_me: 'Zapomni se me'
+        created_at: 'Ustvarjen'
     errors:
       messages:
         record_invalid: "Validacija ni uspela: %{errors}"
@@ -129,8 +131,13 @@ sl:
       logout: 'Odjavi se'
       admin_area: 'Admin prostor'
       zadnja_prijava: 'Zadnja prijava'
+  users:
+    edit:
+      edit: 'Uredi profil'
   admin:
     users:
+      form:
+        leave_blank_pass: 'Pustite prazno, v primeru da gesla ne želite spremeniti.'
       create:
         created: 'Uporabnik je bil uspešno ustvarjen'
       index:
@@ -139,6 +146,8 @@ sl:
         no_users: 'Ni bilo najdenih nobenih uporabnikov!'
       new:
         new: 'Novi uporabnik'
+      edit:
+        edit: 'Uredi uporabnika'
       update:
         updated: 'Uporabnik je bil uspešno posodobljen'
       destroy:
