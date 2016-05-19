@@ -9,8 +9,8 @@ class CreateStudyProgramModes < ActiveRecord::Migration
       t.integer  :selected_foreign
       t.float    :selection_limit
 
-      t.references :study_program, id: :uuid
-      t.references :mode_of_study, id: :uuid
+      t.references :study_program, type: :uuid
+      t.references :mode_of_study, type: :uuid
 
       t.timestamps null: false
     end

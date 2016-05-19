@@ -129,8 +129,8 @@ ActiveRecord::Schema.define(version: 20160517075054) do
     t.integer  "selected"
     t.integer  "selected_foreign"
     t.float    "selection_limit"
-    t.integer  "study_program_id"
-    t.integer  "mode_of_study_id"
+    t.uuid     "study_program_id"
+    t.uuid     "mode_of_study_id"
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
   end

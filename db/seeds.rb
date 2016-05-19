@@ -149,4 +149,5 @@ puts "Inserted study program"
 
 
 
+#StudyProgramMode.create( study_program: StudyProgram.first, mode_of_study: ModeOfStudy.all.find_by_name('REDNI') )
 
