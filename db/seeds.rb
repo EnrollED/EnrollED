@@ -11,7 +11,7 @@ user.skip_confirmation!
 user.save!
 
 user.add_role :admin
-
+user.add_role :admissions
 
 csv_file_path = 'db/data/Drzava.csv'
 CSV.foreach(csv_file_path, {:headers=>:first_row}) do |row|
@@ -147,6 +147,5 @@ CSV.foreach(csv_file_path, {:headers=>:first_row}) do |row|
 end
 puts "Inserted study program"
 
-
-
+StudyProgramMode.create( study_program: StudyProgram.find_by_name('RAČUNALNIŠTVO IN INFORMATIKA'), mode_of_study: ModeOfStudy.all.find_by_name('REDNI'), number_of_places: '150', number_of_places_foreign: '10' )
 

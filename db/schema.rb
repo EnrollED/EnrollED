@@ -143,14 +143,18 @@ ActiveRecord::Schema.define(version: 20160518095035) do
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
 
-  create_table "study_program_modes", force: :cascade do |t|
+  create_table "study_program_modes", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.integer  "number_of_places"
+    t.integer  "number_of_places_foreign"
     t.integer  "number_of_places_after_selection"
+    t.integer  "number_of_places_after_selection_foreign"
+    t.integer  "selected"
+    t.integer  "selected_foreign"
     t.float    "selection_limit"
-    t.integer  "study_program_id"
-    t.integer  "mode_of_study_id"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.uuid     "study_program_id"
+    t.uuid     "mode_of_study_id"
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
   end
 
   create_table "study_programs", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|

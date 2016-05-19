@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:edit, :update]
+  resources :study_programs
+  resources :study_program_modes
 
   resources :application_forms
 

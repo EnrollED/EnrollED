@@ -8,4 +8,10 @@ class Role < ActiveRecord::Base
             allow_nil: true
 
   scopify
+
+  ####### Instance methods #######
+  def t_name
+    I18n.t(name, scope: :roles)
+  end
+
 end

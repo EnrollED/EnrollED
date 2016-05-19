@@ -2,11 +2,15 @@ sl:
   defaults:
     name: 'EnrollED'
 
+    save: 'Shrani'
     edit: 'Uredi'
     disable: 'Onesposobi'
     search: 'Išči'
     are_you_sure: 'Ali ste prepričani?'
     not_authorized: 'Opala! Tam pa ne smete biti!'
+  roles:
+    admin: 'Administrator'
+    admissions: 'Služba za vpis'
   errors:
     format: "%{attribute} %{message}"
     messages:
@@ -109,7 +113,9 @@ sl:
         place_of_birth: 'Kraj rojstva'
         country_of_birth: 'Država rojstva'
         EMSO: 'EMŠO'
+        role_ids: 'Vloge'
         remember_me: 'Zapomni se me'
+        created_at: 'Ustvarjen'
       application:
         place_of_residence: 'Naslov'
         post_of_residence: 'Pošta'
@@ -140,8 +146,13 @@ sl:
       logout: 'Odjavi se'
       admin_area: 'Admin prostor'
       zadnja_prijava: 'Zadnja prijava'
+  users:
+    edit:
+      edit: 'Uredi profil'
   admin:
     users:
+      form:
+        leave_blank_pass: 'Pustite prazno, v primeru da gesla ne želite spremeniti.'
       create:
         created: 'Uporabnik je bil uspešno ustvarjen'
       index:
@@ -150,6 +161,8 @@ sl:
         no_users: 'Ni bilo najdenih nobenih uporabnikov!'
       new:
         new: 'Novi uporabnik'
+      edit:
+        edit: 'Uredi uporabnika'
       update:
         updated: 'Uporabnik je bil uspešno posodobljen'
       destroy:
@@ -197,3 +210,6 @@ sl:
         title: 'Ponovno pošlji navodila za odklep'
         subtitle: 'Navodila za odklep vam bomo poslali po elektronski pošti'
         resend: 'Ponovno pošlji navodila za odklep'
+    study_programs:
+      index:
+        list: 'Seznam študijskih programov'
