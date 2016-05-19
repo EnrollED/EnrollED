@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160517075054) do
+ActiveRecord::Schema.define(version: 20160519200235) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,21 +54,23 @@ ActiveRecord::Schema.define(version: 20160517075054) do
   end
 
   create_table "enrollments", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.datetime "start",      null: false
-    t.datetime "end",        null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",                      null: false
+    t.datetime "start",                     null: false
+    t.datetime "end",                       null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.boolean  "is_valid",   default: true
   end
 
   create_table "higher_education_institutions", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
-    t.string   "code",            null: false
-    t.string   "name",            null: false
-    t.string   "acronym",         null: false
+    t.string   "code",                           null: false
+    t.string   "name",                           null: false
+    t.string   "acronym",                        null: false
     t.uuid     "university_id"
     t.uuid     "municipality_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.boolean  "is_valid",        default: true
   end
 
   create_table "highschool_completions", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
@@ -88,10 +90,11 @@ ActiveRecord::Schema.define(version: 20160517075054) do
   end
 
   create_table "mode_of_studies", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
-    t.string   "code",       null: false
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "code",                      null: false
+    t.string   "name",                      null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.boolean  "is_valid",   default: true
   end
 
   create_table "municipalities", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
@@ -124,6 +127,7 @@ ActiveRecord::Schema.define(version: 20160517075054) do
     t.string   "resource_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_valid",      default: true
   end
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
@@ -139,32 +143,36 @@ ActiveRecord::Schema.define(version: 20160517075054) do
     t.float    "selection_limit"
     t.uuid     "study_program_id"
     t.uuid     "mode_of_study_id"
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.datetime "created_at",                                              null: false
+    t.datetime "updated_at",                                              null: false
+    t.boolean  "is_valid",                                 default: true
   end
 
   create_table "study_programs", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
-    t.string   "name",                            null: false
-    t.string   "code",                            null: false
-    t.uuid     "higher_education_institution_id", null: false
-    t.uuid     "type_of_study_id",                null: false
-    t.uuid     "enrollment_id",                   null: false
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.string   "name",                                           null: false
+    t.string   "code",                                           null: false
+    t.uuid     "higher_education_institution_id",                null: false
+    t.uuid     "type_of_study_id",                               null: false
+    t.uuid     "enrollment_id",                                  null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+    t.boolean  "is_valid",                        default: true
   end
 
   create_table "type_of_studies", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
-    t.string   "code",       null: false
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "code",                      null: false
+    t.string   "name",                      null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.boolean  "is_valid",   default: true
   end
 
   create_table "universities", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
-    t.string   "code",       null: false
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "code",                      null: false
+    t.string   "name",                      null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.boolean  "is_valid",   default: true
   end
 
   create_table "users", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|

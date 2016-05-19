@@ -4,7 +4,7 @@ class MunicipalitiesController < ApplicationController
   # GET /municipalities
   # GET /municipalities.json
   def index
-    @municipalities = Municipality.order(:name)
+    @municipalities = Municipality.order(:name).search(params[:search]).page(params[:page])
   end
 
   # GET /municipalities/1

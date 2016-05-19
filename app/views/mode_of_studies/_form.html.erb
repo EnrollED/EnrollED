@@ -1,0 +1,29 @@
+<%= form_for(@mode_of_study) do |f| %>
+  <% if @mode_of_study.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mode_of_study.errors.count, "error") %> prohibited this mode_of_study from being saved:</h2>
+
+      <ul>
+      <% @mode_of_study.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= f.label "Šifra" %><br>
+    <%= f.text_field :code, class: 'form-control' %>
+  </div>
+  <div class="field form-group">
+    <%= f.label "Naziv" %><br>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="field form-group form-inline">
+    <%= f.label "Veljavnost" %><br>
+    <%= f.check_box :is_valid, class: 'form-control'%>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -4,7 +4,7 @@ class HighschoolCompletionsController < ApplicationController
   # GET /highschool_completions
   # GET /highschool_completions.json
   def index
-    @highschool_completions = HighschoolCompletion.order(:code)
+    @highschool_completions = HighschoolCompletion.order(:code).search(params[:search]).page(params[:page])
   end
 
   # GET /highschool_completions/1

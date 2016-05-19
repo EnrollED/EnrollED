@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :mode_of_studies
+  resources :higher_education_institutions
+  resources :higher_education_institutions
+  resources :higher_education_institutions
   resources :highschool_completions
   resources :posts
   resources :countries

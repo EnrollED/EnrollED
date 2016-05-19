@@ -4,7 +4,7 @@ class CitizensController < ApplicationController
   # GET /citizens
   # GET /citizens.json
   def index
-    @citizens = Citizen.order(:name).page(params[:page])
+    @citizens = Citizen.order(:name).search(params[:search]).page(params[:page])
   end
 
   # GET /citizens/1
@@ -54,7 +54,7 @@ class CitizensController < ApplicationController
   # DELETE /citizens/1
   # DELETE /citizens/1.json
   def destroy
-    @citizen.is_valid=false;
+    @citizen.is_valid=false
     respond_to do |format|
       if @citizen.save
         format.html { redirect_to citizens_url, notice: 'Zapis označen kot neveljaven.' }

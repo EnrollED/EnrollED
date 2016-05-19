@@ -33,7 +33,7 @@ class StudyProgramsController < ApplicationController
 
     respond_to do |format|
       if @study_program.save
-        format.html { redirect_to @study_program, notice: 'Study program was successfully created.' }
+        format.html { redirect_to @study_program, notice: 'Študijski program uspešno dodan.' }
         format.json { render :show, status: :created, location: @study_program }
       else
         format.html { render :new }
@@ -48,7 +48,7 @@ class StudyProgramsController < ApplicationController
     authorize StudyProgram
     respond_to do |format|
       if @study_program.update(study_program_params)
-        format.html { redirect_to @study_program, notice: 'Study program was successfully updated.' }
+        format.html { redirect_to @study_program, notice: 'Študijski program uspešno posodobljen.' }
         format.json { render :show, status: :ok, location: @study_program }
       else
         format.html { render :edit }
@@ -63,7 +63,7 @@ class StudyProgramsController < ApplicationController
     authorize StudyProgram
     @study_program.destroy
     respond_to do |format|
-      format.html { redirect_to study_programs_url, notice: 'Study program was successfully destroyed.' }
+      format.html { redirect_to study_programs_url, notice: 'Študijski program označen kot neveljaven.' }
       format.json { head :no_content }
     end
   end
