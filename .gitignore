@@ -180,3 +180,5 @@ node_modules
 
 # Ignore pow environment settings
 .powenv
+
+dump.rdb
