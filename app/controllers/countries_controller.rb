@@ -4,7 +4,7 @@ class CountriesController < ApplicationController
   # GET /countries
   # GET /countries.json
   def index
-    @countries = Country.order(:name)
+    @countries = Country.order(:name).page(params[:page])
   end
 
   # GET /countries/1
@@ -57,7 +57,7 @@ class CountriesController < ApplicationController
     @country.is_valid = false;                            #we set the country as inactive
     respond_to do |format|
       if @country.save
-        format.html { redirect_to countries_url_url, notice: 'Država je bila označena kot neveljavna.' }
+        format.html { redirect_to countries_url, notice: 'Država je bila označena kot neveljavna.' }
         format.json { head :no_content }
       end
     end

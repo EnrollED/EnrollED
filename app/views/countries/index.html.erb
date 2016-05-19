@@ -2,34 +2,65 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Seznam držav</h1>
-<%= link_to 'Dodaj državo', new_country_path %>
-<br/><br/>
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Šifra</th>
-      <th>Naziv</th>
-      <th>Članica EU</th>
-      <th>Veljavnost</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-4 text-right">
+    <%= link_to 'Dodaj državo', new_country_path, class: 'btn btn-success' %>
+  </div>
+</div>
 
-  <tbody>
-    <% @countries.each do |country| %>
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
       <tr>
-        <td><%= country.code %></td>
-        <td><%= country.name %></td>
-        <td><% if country.eu_member? %>da<% else %>ne<% end %></td>
-        <td><% if country.is_valid? %>da<% else %>ne<% end %></td>
-        <td><%= link_to 'Prikaži', country %></td>
-        <td><%= link_to 'Uredi', edit_country_path(country) %></td>
-        <td><% if country.is_valid? %><%= link_to 'Izbriši', country, method: :delete, data: { confirm: 'Ali ste prepričani, da želite izbrisati zapis?' } %><% end %></td>
+        <th>Šifra</th>
+        <th>Naziv</th>
+        <th>Članica EU</th>
+        <th>Veljavnost</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @countries.each do |country| %>
+        <tr>
+          <td><%= country.code %></td>
+          <td><%= country.name %></td>
+          <td><% if country.eu_member? %>da<% else %>ne<% end %></td>
+          <td><% if country.is_valid? %>da<% else %>ne<% end %></td>
+          <td>
+            <%= link_to country, class: 'label label-success' do %>
+                <i class="fa fa-eye" title="<%= "Prikaži" %>" aria-hidden="true"></i>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_country_path(country), class: 'label label-info' do %>
+                <i class="fa fa-pencil" title="<%= t 'defaults.edit' %>" aria-hidden="true"></i>
+            <% end %>
+          </td>
+          <td>
+            <% if country.is_valid? %>
+                <%= link_to country, method: :delete, data: { confirm: 'Ali ste prepričani?' }, class: 'label label-danger' do %>
+                    <i class="fa fa-trash" title="<%= "Odstrani" %>" aria-hidden="true"></i>
+                <% end %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</div>
+<% if @countries.length == 0 %>
+    <div class="text-center">
+
+      <p><%= t 'defaults.no_records' %></p>
+    </div>
+<% end %>
+
+<div>
+  <%= paginate @countries %>
+</div>
 
 

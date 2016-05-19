@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :elements
   resources :citizens
   resources :municipalities
-  devise_for :users
+
 
 
   # Route concerns

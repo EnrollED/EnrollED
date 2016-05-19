@@ -4,7 +4,7 @@ class CitizensController < ApplicationController
   # GET /citizens
   # GET /citizens.json
   def index
-    @citizens = Citizen.order(:name)
+    @citizens = Citizen.order(:name).page(params[:page])
   end
 
   # GET /citizens/1
