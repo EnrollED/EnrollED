@@ -94,7 +94,7 @@
 
     <div class="form-group has-feedback">
       <%= f.label :post_of_residence_id, t('activerecord.attributes.application.post_of_residence'), class: 'control-label' %>
-      <%= f.collection_select :post_of_residence_id, @posts, :id, :name, {},{class: 'form-control', data: {placeholder: t('activerecord.attributes.user.role_ids')}} %>
+      <%= f.collection_select :post_of_residence_id, @posts, :id, :name, {},{class: 'form-control', data: {placeholder: ''}} %>
     </div>
 
     <div class="form-group has-feedback">
@@ -133,14 +133,14 @@
 
     <div class="form-group has-feedback">
       <%= f.label :post_for_notification_id, t('activerecord.attributes.application.post_for_notification'), class: 'control-label' %>
-      <%= f.collection_select :post_for_notification_id, @posts, :id, :name, {},{class: 'form-control', data: {placeholder: t('activerecord.attributes.user.role_ids')}} %>
+      <%= f.collection_select :post_for_notification_id, @posts, :id, :name, {},{class: 'form-control', data: {placeholder: ''}} %>
     </div>
 
 
     <h4>Državljanstvo</h4>
     <div class="form-group has-feedback">
       <%= f.label :nationality, t('activerecord.attributes.application.nationality'), class: 'control-label' %>
-      <%= f.collection_select :citizen_id, @citizens, :id, :name, {},{class: 'form-control', data: {placeholder: t('activerecord.attributes.user.role_ids')}} %>
+      <%= f.collection_select :citizen_id, @citizens, :id, :name, {},{class: 'form-control', data: {placeholder: ''}} %>
     </div>
 
     <h4>Državljanstvo</h4>
