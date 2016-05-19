@@ -1,6 +1,7 @@
 class Admin::UsersController < ApplicationController
 
   before_action :set_user, only: [:edit, :update, :destroy]
+  before_action :set_roles, except: [:index, :destroy]
 
   # GET /users
   # GET /users.json
@@ -15,15 +16,12 @@ class Admin::UsersController < ApplicationController
     authorize User
 
     @user = User.new
-    @roles = Role.where(resource: nil)
   end
 
   # GET /tests/1/edit
   def edit
     authorize @user
     authorize :admin, :index?
-
-    @roles = Role.where(resource: nil)
   end
 
   # POST /tests
@@ -71,5 +69,9 @@ class Admin::UsersController < ApplicationController
   private
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def set_roles
+    @roles = Role.where(resource: nil)
   end
 end
