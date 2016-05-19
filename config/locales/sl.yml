@@ -6,28 +6,96 @@ sl:
     delete: 'Izbriši'
     create: 'Dodaj'
     update: 'Posodobi'
+    save: 'Shrani'
+    disable: 'Onesposobi'
+    search: 'Išči'
+    are_you_sure: 'Ali ste prepričani?'
+    not_authorized: 'Opala! Tam pa ne smete biti!'
+  roles:
+    admin: 'Administrator'
+    admissions: 'Služba za vpis'
   errors:
-      format: "%{attribute} %{message}"
-      messages:
-        accepted: mora biti sprejeto
-        blank: ne sme biti prazno
-        confirmation: se ne ujema s potrditvijo
-        empty: ne sme biti prazno
-        equal_to: mora biti enako %{count}
-        even: mora biti sodo
-        exclusion: je rezervirano
-        greater_than: mora biti večje kot %{count}
-        greater_than_or_equal_to: mora biti večje ali enako %{count}
-        inclusion: ni vključeno v seznam
-        invalid: je nepravilno
-        less_than: mora biti manj kot %{count}
-        less_than_or_equal_to: mora biti manj ali enako %{count}
-        not_a_number: ni številka
-        odd: mora biti liho
-        taken: je že zasedeno
-        too_long: je predolgo (dovoljeno je do %{count} znakov)
-        too_short: je prekratko (zahtevano je najmanj %{count} znakov)
-        wrong_length: je napačne dolžine (mora biti natančno %{count} znakov)
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: mora biti sprejeto
+      blank: ne sme biti prazno
+      confirmation: se ne ujema s potrditvijo
+      empty: ne sme biti prazno
+      equal_to: mora biti enako %{count}
+      even: mora biti sodo
+      exclusion: je rezervirano
+      greater_than: mora biti večje kot %{count}
+      greater_than_or_equal_to: mora biti večje ali enako %{count}
+      inclusion: ni vključeno v seznam
+      invalid: je nepravilno
+      less_than: mora biti manj kot %{count}
+      less_than_or_equal_to: mora biti manj ali enako %{count}
+      not_a_number: ni številka
+      odd: mora biti liho
+      taken: je že zasedeno
+      too_long: je predolgo (dovoljeno je do %{count} znakov)
+      too_short: je prekratko (zahtevano je najmanj %{count} znakov)
+      wrong_length: je napačne dolžine (mora biti natančno %{count} znakov)
+  date:
+      abbr_day_names:
+      - ned
+      - pon
+      - tor
+      - sre
+      - čet
+      - pet
+      - sob
+      abbr_month_names:
+      -
+      - jan
+      - feb
+      - mar
+      - apr
+      - maj
+      - jun
+      - jul
+      - avg
+      - sep
+      - okt
+      - nov
+      - dec
+      day_names:
+      - nedelja
+      - ponedeljek
+      - torek
+      - sreda
+      - četrtek
+      - petek
+      - sobota
+      formats:
+        default: "%d.%m.%Y"
+        long: "%d. %b %Y"
+        short: "%d. %b"
+      month_names:
+      -
+      - januar
+      - februar
+      - marec
+      - april
+      - maj
+      - junij
+      - julij
+      - avgust
+      - september
+      - oktober
+      - november
+      - december
+      order:
+      - :day
+      - :month
+      - :year
+  time:
+      am: dopoldan
+      formats:
+        default: "%A, %d %b %Y ob %H:%M:%S"
+        long: "%d. %B, %Y ob %H:%M"
+        short: "%d. %b ob %H:%M"
+      pm: popoldan
   activerecord:
     models:
       user: 'Uporabnik'
@@ -45,6 +113,7 @@ sl:
         email: 'Elektronska pošta'
         password: 'Geslo'
         password_confirmation: 'Potrdi geslo'
+        current_password: 'Trenutno geslo'
         firstname: 'Ime'
         lastname: 'Priimek'
         maiden_name: 'Dekliški priimek'
@@ -53,6 +122,7 @@ sl:
         phone: 'Telefonska številka'
         place_of_birth: 'Kraj rojstva'
         EMSO: 'EMŠO'
+        role_ids: 'Vloge'
         remember_me: 'Zapomni se me'
       post:
         code: 'Poštna številka'
@@ -79,7 +149,15 @@ sl:
         name: 'Naziv'
         eu_member: 'Članica EU'
         is_valid: 'Veljavnost'
+        created_at: 'Ustvarjen'
+        confirmed_at: 'Potrjen'
+
     errors:
+      messages:
+        record_invalid: "Validacija ni uspela: %{errors}"
+        restrict_dependent_destroy:
+          has_one: "Cannot delete record because a dependent %{record} exists"
+          has_many: "Cannot delete record because dependent %{record} exist"
       models:
         user:
           attributes:
@@ -89,6 +167,29 @@ sl:
     header:
       my_profile: 'Moj profil'
       logout: 'Odjavi se'
+      admin_area: 'Admin prostor'
+      zadnja_prijava: 'Zadnja prijava'
+  users:
+    edit:
+      edit: 'Uredi profil'
+  admin:
+    users:
+      form:
+        leave_blank_pass: 'Pustite prazno, v primeru da gesla ne želite spremeniti.'
+      create:
+        created: 'Uporabnik je bil uspešno ustvarjen'
+      index:
+        list: 'Seznam uporabnikov'
+        new_user: 'Novi uporabnik'
+        no_users: 'Ni bilo najdenih nobenih uporabnikov!'
+      new:
+        new: 'Novi uporabnik'
+      edit:
+        edit: 'Uredi uporabnika'
+      update:
+        updated: 'Uporabnik je bil uspešno posodobljen'
+      destroy:
+        disabled: 'Uporabnik je bil uspešno onemogočen'
   devise:
     shared:
       links:
@@ -98,6 +199,10 @@ sl:
         confirm: 'Niste dobili navodil za potrditev?'
         unlock: 'Niste dobili navodil za odklep?'
     confirmations:
+      show:
+        title: 'Nastavite si geslo'
+        subtitle: 'Dobrodošli. Preden vstopite v aplikacijo, si prosim nastavite vaše geslo.'
+        set: 'Nastavi geslo'
       new:
         title: 'Ponovno pošlji podatke za potrditev'
         subtitle: "Navodila za potrditev vam bomo poslali po elektronski pošti"
@@ -128,3 +233,6 @@ sl:
         title: 'Ponovno pošlji navodila za odklep'
         subtitle: 'Navodila za odklep vam bomo poslali po elektronski pošti'
         resend: 'Ponovno pošlji navodila za odklep'
+    study_programs:
+      index:
+        list: 'Seznam študijskih programov'

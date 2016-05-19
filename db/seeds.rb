@@ -6,14 +6,16 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-user = User.new(username: 'admin2', firstname: 'Admin', lastname: 'Strator', email: 'admin2@example.com', password: 'supergeslo2')#
+
+user = User.new(username: 'admin', firstname: 'Admin', lastname: 'Strator', email: 'admin@example.com', password: 'Supergeslo1')
+
 user.skip_confirmation!
 user.save!
 
 
 
 user.add_role :admin
-
+user.add_role :admissions
 
 csv_file_path = 'db/data/Drzava.csv'
 CSV.foreach(csv_file_path, {:headers=>:first_row}) do |row|
@@ -95,4 +97,59 @@ CSV.foreach(csv_file_path, {:headers=>:first_row}) do |row|
 end
 puts "Inserted professions"
 
+csv_file_path = "db/data/Univerza.csv"
+CSV.foreach(csv_file_path, {:headers=>:first_row}) do |row|
+  University.create!({
+      :code => row[0],
+      :name => row[1],
+                     })
+end
+puts "Inserted universities"
+
+csv_file_path = "db/data/VIS_zavod.csv"
+CSV.foreach(csv_file_path, {:headers=>:first_row}) do |row|
+  HigherEducationInstitution.create!({
+      :code => row[0],
+      :name => row[1],
+      :acronym => row[2],
+      :municipality => Municipality.find_by_code(row[3]),
+      :university => University.find_by_code(row[4]),
+                                     })
+end
+puts "Inserted higher education institutions"
+
+csv_file_path = "db/data/Vrsta_studija.csv"
+CSV.foreach(csv_file_path, {:headers=>:first_row}) do |row|
+  TypeOfStudy.create!({
+      :code => row[0],
+      :name => row[1],
+                      })
+end
+puts "Inserted type of study"
+
+csv_file_path = "db/data/Nacin_studija.csv"
+CSV.foreach(csv_file_path, {:headers=>:first_row}) do |row|
+  ModeOfStudy.create!({
+                          :code => row[0],
+                          :name => row[1],
+                      })
+end
+puts "Inserted mode of study"
+
+enrollment = Enrollment.new(name: 'Vpis fakultete 2016/17', start: '2016-05-15 10:23:54', end: '2016-07-15 10:23:54', created_at: Time.now, updated_at: Time.now)
+enrollment.save!
+
+csv_file_path = "db/data/Program.csv"
+CSV.foreach(csv_file_path, {:headers=>:first_row}) do |row|
+  StudyProgram.create!({
+                          :code => row[3],
+                          :name => row[4],
+                          :higher_education_institution => HigherEducationInstitution.find_by_code(row[2]),
+                          :type_of_study => TypeOfStudy.find_by_code(row[0]),
+                          :enrollment => Enrollment.find_by_name("Vpis fakultete 2016/17")
+                      })
+end
+puts "Inserted study program"
+
+StudyProgramMode.create( study_program: StudyProgram.find_by_name('RAČUNALNIŠTVO IN INFORMATIKA'), mode_of_study: ModeOfStudy.all.find_by_name('REDNI'), number_of_places: '150', number_of_places_foreign: '10' )
 

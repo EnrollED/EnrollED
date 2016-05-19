@@ -7,10 +7,31 @@ Rails.application.routes.draw do
   resources :municipalities
   devise_for :users
 
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
+  # Route concerns
+  concern :paginatable do
+    get '(page/:page)', action: :index, on: :collection, as: ''
+  end
+
+  # App routes
   root 'home#index'
+
+  devise_for :users, skip: :registrations, controllers: { confirmations: 'confirmations' }
+
+  as :user do
+    get '/users/sign_up' => 'devise/registrations#new', as: :new_user_registration
+    post '/users' => 'devise/registrations#create', as: :user_registration
+
+    patch '/users/confirmations' => 'confirmations#update', via: :patch, as: :update_user_confirmation
+  end
+
+  namespace :admin do
+    resources :users, except: :show, concerns: :paginatable
+  end
+
+  resources :users, only: [:edit, :update]
+  resources :study_programs
+  resources :study_program_modes
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

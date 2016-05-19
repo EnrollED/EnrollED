@@ -16,8 +16,12 @@
 
 @import "../../../vendor/assets/bootstrap-3.3.6/bootstrap";
 @import "../../../vendor/assets/font-awesome-4.6.1/font-awesome";
+@import "../../../vendor/assets/select2-4.0.2/core";
+@import "../../../vendor/assets/sweetalert-1.1.3/sweetalert";
 
 @import "./theme";
 @import "./base";
 @import "./header";
 @import "./devise";
+
+@import "admin/users";

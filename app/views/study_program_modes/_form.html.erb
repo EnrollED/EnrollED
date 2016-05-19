@@ -1,0 +1,37 @@
+<%= form_for(@study_program_mode) do |f| %>
+    <%= render 'layouts/errors', :resource => @study_program_mode %>
+
+    <div class="form-group">
+      <%= f.label "Program", class: 'control-label' %>
+      <%= f.collection_select :study_program_id, StudyProgram.all, :id, :name, {:include_blank => false}, { :class => 'form-control' }  %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "Vrsta študija", class: 'control-label' %>
+      <%= f.collection_select :mode_of_study_id, ModeOfStudy.all, :id, :name, {:include_blank => false}, { :class => 'form-control' }  %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "Število vpisnih mest za državljane Slovenije in EU", class: 'control-label' %>
+      <%= f.text_field :number_of_places, placeholder: true, autofocus: true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "Število vpisnih mest za tujce in Slovence brez slovenskega državljanstva", class: 'control-label' %>
+      <%= f.text_field :number_of_places_foreign, placeholder: true, autofocus: true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "Število vpisnih mest za državljane Slovenije in EU po razvrstitvi", class: 'control-label' %>
+      <%= f.text_field :number_of_places_after_selection, placeholder: true, autofocus: true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "Število vpisnih mest za tujce in Slovence brez slovenskega državljanstva po razvrstitvi", class: 'control-label' %>
+      <%= f.text_field :number_of_places_after_selection_foreign, placeholder: true, autofocus: true, class: 'form-control' %>
+    </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

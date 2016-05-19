@@ -1,0 +1,9 @@
+<h1><%= t '.new' %></h1>
+
+<%= render 'form', user: [:admin, @user] %>
+
+<%= link_to 'Back', admin_users_path %>
+
+<script type="text/javascript">
+  Enrolled.admin.users.form();
+</script>
