@@ -4,26 +4,31 @@ class StudyProgramsController < ApplicationController
   # GET /study_programs
   # GET /study_programs.json
   def index
+    authorize StudyProgram
     @study_programs = StudyProgram.order(:higher_education_institution_id, :name)
   end
 
   # GET /study_programs/1
   # GET /study_programs/1.json
   def show
+    authorize StudyProgram
   end
 
   # GET /study_programs/new
   def new
+    authorize StudyProgram
     @study_program = StudyProgram.new
   end
 
   # GET /study_programs/1/edit
   def edit
+    authorize StudyProgram
   end
 
   # POST /study_programs
   # POST /study_programs.json
   def create
+    authorize StudyProgram
     @study_program = StudyProgram.new(study_program_params)
 
     respond_to do |format|
@@ -40,6 +45,7 @@ class StudyProgramsController < ApplicationController
   # PATCH/PUT /study_programs/1
   # PATCH/PUT /study_programs/1.json
   def update
+    authorize StudyProgram
     respond_to do |format|
       if @study_program.update(study_program_params)
         format.html { redirect_to @study_program, notice: 'Study program was successfully updated.' }
@@ -54,6 +60,7 @@ class StudyProgramsController < ApplicationController
   # DELETE /study_programs/1
   # DELETE /study_programs/1.json
   def destroy
+    authorize StudyProgram
     @study_program.destroy
     respond_to do |format|
       format.html { redirect_to study_programs_url, notice: 'Study program was successfully destroyed.' }

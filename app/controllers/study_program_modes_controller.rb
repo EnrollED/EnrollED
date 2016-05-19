@@ -4,26 +4,31 @@ class StudyProgramModesController < ApplicationController
   # GET /study_program_modes
   # GET /study_program_modes.json
   def index
+    authorize StudyProgramMode
     @study_program_modes = StudyProgramMode.all
   end
 
   # GET /study_program_modes/1
   # GET /study_program_modes/1.json
   def show
+    authorize StudyProgramMode
   end
 
   # GET /study_program_modes/new
   def new
+    authorize StudyProgramMode
     @study_program_mode = StudyProgramMode.new
   end
 
   # GET /study_program_modes/1/edit
   def edit
+    authorize StudyProgramMode
   end
 
   # POST /study_program_modes
   # POST /study_program_modes.json
   def create
+    authorize StudyProgramMode
     @study_program_mode = StudyProgramMode.new(study_program_mode_params)
 
     respond_to do |format|
@@ -40,6 +45,7 @@ class StudyProgramModesController < ApplicationController
   # PATCH/PUT /study_program_modes/1
   # PATCH/PUT /study_program_modes/1.json
   def update
+    authorize StudyProgramMode
     respond_to do |format|
       if @study_program_mode.update(study_program_mode_params)
         format.html { redirect_to @study_program_mode, notice: 'Study program mode was successfully updated.' }
@@ -54,6 +60,7 @@ class StudyProgramModesController < ApplicationController
   # DELETE /study_program_modes/1
   # DELETE /study_program_modes/1.json
   def destroy
+    authorize StudyProgramMode
     @study_program_mode.destroy
     respond_to do |format|
       format.html { redirect_to study_program_modes_url, notice: 'Study program mode was successfully destroyed.' }
