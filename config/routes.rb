@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:edit, :update]
 
+  resources :application_forms
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -92,6 +92,7 @@ sl:
   activerecord:
     models:
       user: 'Uporabnik'
+      application: 'Prijava'
     attributes:
       user:
         username: 'Uporabniško ime'
@@ -106,8 +107,22 @@ sl:
         sex: 'Spol'
         phone: 'Telefonska številka'
         place_of_birth: 'Kraj rojstva'
+        country_of_birth: 'Država rojstva'
         EMSO: 'EMŠO'
         remember_me: 'Zapomni se me'
+      application:
+        place_of_residence: 'Naslov'
+        post_of_residence: 'Pošta'
+        country_of_residence: 'Država'
+        firstname_for_notification: 'Ime'
+        lastname_for_notification: 'Priimek'
+        place_for_notification: 'Naslov'
+        post_for_notification: 'Pošta'
+        nationality: 'Državljanstvo'
+        create_prijava: 'Shrani'
+        messages:
+          create:
+            created: 'Prijava je bila uspešno ustvarjena!'
     errors:
       messages:
         record_invalid: "Validacija ni uspela: %{errors}"

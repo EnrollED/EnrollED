@@ -7,7 +7,10 @@ class CreateApplications < ActiveRecord::Migration
       t.references :user, type: :uuid
       t.references :enrollment, type: :uuid
       t.references :highschool, type: :uuid
-      t.references :study_program, type: :uuid
+      t.references :post_of_residence, type: :uuid
+      t.references :post_for_notification, type: :uuid
+      t.references :citizen, type: :uuid
+
 
       t.timestamps null: false
     end
