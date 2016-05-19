@@ -114,6 +114,7 @@ sl:
         role_ids: 'Vloge'
         remember_me: 'Zapomni se me'
         created_at: 'Ustvarjen'
+        confirmed_at: 'Potrjen'
     errors:
       messages:
         record_invalid: "Validacija ni uspela: %{errors}"

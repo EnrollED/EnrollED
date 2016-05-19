@@ -34,7 +34,7 @@
       <th><%= t 'activerecord.attributes.user.firstname' %></th>
       <th><%= t 'activerecord.attributes.user.lastname' %></th>
       <th><%= t 'activerecord.attributes.user.email' %></th>
-      <td></td>
+      <th><%= t 'activerecord.attributes.user.confirmed_at' %></th>
       <th><%= t 'activerecord.attributes.user.created_at' %></th>
       <th></th>
     </tr>
@@ -48,7 +48,13 @@
           <td><%= user.firstname %></td>
           <td><%= user.lastname %></td>
           <td><%= user.email %></td>
-          <td></td>
+          <td>
+            <% if user.confirmed_at.present? %>
+                <span class="label label-success"><i class="fa fa-check"></i></span>
+            <% else %>
+                <span class="label label-danger"><i class="fa fa-exclamation-circle"></i></span>
+            <% end %>
+          </td>
           <td><%= l user.created_at, format: :short %></td>
           <td class="text-right table-links">
 
