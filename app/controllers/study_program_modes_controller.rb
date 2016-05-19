@@ -5,7 +5,7 @@ class StudyProgramModesController < ApplicationController
   # GET /study_program_modes.json
   def index
     authorize StudyProgramMode
-    @study_program_modes = StudyProgramMode.all
+    @study_program_modes = StudyProgramMode.all.page(params[:page]).per(10)
   end
 
   # GET /study_program_modes/1
