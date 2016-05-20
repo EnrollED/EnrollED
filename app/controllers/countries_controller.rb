@@ -4,26 +4,31 @@ class CountriesController < ApplicationController
   # GET /countries
   # GET /countries.json
   def index
-    @countries = Country.order(:name).page(params[:page])
+    authorize Country
+    @countries = Country.order(:name).search(params[:search]).page(params[:page])
   end
 
   # GET /countries/1
   # GET /countries/1.json
   def show
+    authorize Country
   end
 
   # GET /countries/new
   def new
+    authorize Country
     @country = Country.new
   end
 
   # GET /countries/1/edit
   def edit
+    authorize Country
   end
 
   # POST /countries
   # POST /countries.json
   def create
+    authorize Country
     @country = Country.new(country_params)
 
     respond_to do |format|
@@ -40,6 +45,7 @@ class CountriesController < ApplicationController
   # PATCH/PUT /countries/1
   # PATCH/PUT /countries/1.json
   def update
+    authorize Country
     respond_to do |format|
       if @country.update(country_params)
         format.html { redirect_to @country, notice: 'Država uspešno posodobljena.' }
@@ -54,6 +60,7 @@ class CountriesController < ApplicationController
   # DELETE /countries/1
   # DELETE /countries/1.json
   def destroy
+    authorize Country
     @country.is_valid = false;                            #we set the country as inactive
     respond_to do |format|
       if @country.save

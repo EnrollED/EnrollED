@@ -4,26 +4,31 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.order(:code)
+    authorize Post
+    @posts = Post.order(:code).search(params[:search]).page(params[:page])
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
+    authorize Post
   end
 
   # GET /posts/new
   def new
+    authorize Post
     @post = Post.new
   end
 
   # GET /posts/1/edit
   def edit
+    authorize Post
   end
 
   # POST /posts
   # POST /posts.json
   def create
+    authorize Post
     @post = Post.new(post_params)
 
     respond_to do |format|
@@ -40,6 +45,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
+    authorize Post
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Pošta je bila uspešno posodobljena.' }
@@ -54,6 +60,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
+    authorize Post
     @post.is_valid = false;                            #we set the post as inactive
     respond_to do |format|
       if @post.save

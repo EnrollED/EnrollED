@@ -109,6 +109,12 @@ sl:
       highschool: 'Srednja šola'
       profession: 'Poklic'
       role: 'Vloga'
+      element: 'Element'
+      higher_education_institution: 'Visokošolski zavod'
+      mode_of_study: 'Način študija'
+      study_program: 'Študijski program'
+      type_of_study: 'Vrsta študija'
+      university: 'Univerza'
     attributes:
       user:
         username: 'Uporabniško ime'
@@ -155,7 +161,26 @@ sl:
         is_valid: 'Veljavnost'
         created_at: 'Ustvarjen'
         confirmed_at: 'Potrjen'
-
+      higher_education_institution:
+        code: 'Šifra'
+        name: 'Naziv'
+        is_valid: 'Veljavnost'
+      mode_of_study:
+        code: 'Šifra'
+        name: 'Naziv'
+        is_valid: 'Veljavnost'
+      study_program:
+        code: 'Šifra'
+        name: 'Naziv'
+        is_valid: 'Veljavnost'
+      type_of_study:
+        code: 'Šifra'
+        name: 'Naziv'
+        is_valid: 'Veljavnost'
+      university:
+        code: 'Šifra'
+        name: 'Naziv'
+        is_valid: 'Veljavnost'
     errors:
       messages:
         record_invalid: "Validacija ni uspela: %{errors}"

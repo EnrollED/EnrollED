@@ -4,26 +4,31 @@ class HighschoolCompletionsController < ApplicationController
   # GET /highschool_completions
   # GET /highschool_completions.json
   def index
-    @highschool_completions = HighschoolCompletion.order(:code)
+    authorize HighschoolCompletion
+    @highschool_completions = HighschoolCompletion.order(:code).search(params[:search]).page(params[:page])
   end
 
   # GET /highschool_completions/1
   # GET /highschool_completions/1.json
   def show
+    authorize HighschoolCompletion
   end
 
   # GET /highschool_completions/new
   def new
+    authorize HighschoolCompletion
     @highschool_completion = HighschoolCompletion.new
   end
 
   # GET /highschool_completions/1/edit
   def edit
+    authorize HighschoolCompletion
   end
 
   # POST /highschool_completions
   # POST /highschool_completions.json
   def create
+    authorize HighschoolCompletion
     @highschool_completion = HighschoolCompletion.new(highschool_completion_params)
 
     respond_to do |format|
@@ -40,6 +45,7 @@ class HighschoolCompletionsController < ApplicationController
   # PATCH/PUT /highschool_completions/1
   # PATCH/PUT /highschool_completions/1.json
   def update
+    authorize HighschoolCompletion
     respond_to do |format|
       if @highschool_completion.update(highschool_completion_params)
         format.html { redirect_to @highschool_completion, notice: 'Zaključek srednje šole je bil uspešno posodobljen.' }
@@ -54,6 +60,7 @@ class HighschoolCompletionsController < ApplicationController
   # DELETE /highschool_completions/1
   # DELETE /highschool_completions/1.json
   def destroy
+    authorize HighschoolCompletion
     @highschool_completion.is_valid=false
     respond_to do |format|
      if @highschool_completion.save

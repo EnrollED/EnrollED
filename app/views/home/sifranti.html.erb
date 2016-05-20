@@ -1,0 +1,114 @@
+<h1>Seznam šifrantov</h1>
+
+
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
+    <tr>
+      <th>Šifrant</th>
+      <th></th>
+    </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+          <td>Država</td>
+          <td>
+            <%= link_to countries_path, class: 'label label-success' do %>
+                <i class="fa fa-pencil" title="<%= "Prikaži" %>" aria-hidden="true"></i>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>Državljanstvo</td>
+          <td>
+            <%= link_to citizens_path, class: 'label label-success' do %>
+                <i class="fa fa-pencil" title="<%= "Prikaži" %>" aria-hidden="true"></i>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>Element</td>
+          <td>
+            <%= link_to elements_path, class: 'label label-success' do %>
+                <i class="fa fa-pencil" title="<%= "Prikaži" %>" aria-hidden="true"></i>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>Način študija</td>
+          <td>
+            <%= link_to mode_of_studies_path, class: 'label label-success' do %>
+                <i class="fa fa-pencil" title="<%= "Prikaži" %>" aria-hidden="true"></i>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>Občina</td>
+          <td>
+            <%= link_to municipalities_path, class: 'label label-success' do %>
+                <i class="fa fa-pencil" title="<%= "Prikaži" %>" aria-hidden="true"></i>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>Poklic</td>
+          <td>
+            <%= link_to professions_path, class: 'label label-success' do %>
+                <i class="fa fa-pencil" title="<%= "Prikaži" %>" aria-hidden="true"></i>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>Pošta</td>
+          <td>
+            <%= link_to posts_path, class: 'label label-success' do %>
+                <i class="fa fa-pencil" title="<%= "Prikaži" %>" aria-hidden="true"></i>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>Srednja šola</td>
+          <td>
+            <%= link_to highschools_path, class: 'label label-success' do %>
+                <i class="fa fa-pencil" title="<%= "Prikaži" %>" aria-hidden="true"></i>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>Univerza</td>
+          <td>
+            <%= link_to universities_path, class: 'label label-success' do %>
+                <i class="fa fa-pencil" title="<%= "Prikaži" %>" aria-hidden="true"></i>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>Visokošolski zavod</td>
+          <td>
+            <%= link_to higher_education_institutions_path, class: 'label label-success' do %>
+                <i class="fa fa-pencil" title="<%= "Prikaži" %>" aria-hidden="true"></i>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>Vrsta študija</td>
+          <td>
+            <%= link_to type_of_studies_path, class: 'label label-success' do %>
+                <i class="fa fa-pencil" title="<%= "Prikaži" %>" aria-hidden="true"></i>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>Zaključek srednje šole</td>
+          <td>
+            <%= link_to highschool_completions_path, class: 'label label-success' do %>
+                <i class="fa fa-pencil" title="<%= "Prikaži" %>" aria-hidden="true"></i>
+            <% end %>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+

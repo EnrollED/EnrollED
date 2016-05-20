@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Šifra:</strong>
+  <%= @type_of_study.code %>
+</p>
+
+<p>
+  <strong>Naziv:</strong>
+  <%= @type_of_study.name %>
+</p>
+
+<p>
+  <strong>Veljavnost:</strong>
+  <%if @type_of_study.is_valid? %>da<% else %>ne<% end %>
+</p>
+
+<%= link_to 'Uredi', edit_type_of_study_path(@type_of_study) %> |
+<%= link_to 'Nazaj', type_of_studies_path %>

@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :highschools
+  resources :universities
+  resources :type_of_studies
+  resources :professions
+  resources :mode_of_studies
+  resources :higher_education_institutions
+  resources :higher_education_institutions
+  resources :higher_education_institutions
   resources :highschool_completions
   resources :posts
   resources :countries
@@ -31,6 +39,7 @@ Rails.application.routes.draw do
   resources :study_programs
   resources :study_program_modes
 
+  get 'sifranti' => 'home#sifranti'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

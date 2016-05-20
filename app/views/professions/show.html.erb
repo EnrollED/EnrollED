@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Šifra:</strong>
+  <%= @profession.code %>
+</p>
+
+<p>
+  <strong>Naziv:</strong>
+  <%= @profession.name %>
+</p>
+
+<p>
+  <strong>Veljavnost:</strong>
+  <%if @profession.is_valid? %>da<% else %>ne<% end %>
+</p>
+
+<%= link_to 'Uredi', edit_profession_path(@profession) %> |
+<%= link_to 'Nazaj', professions_path %>

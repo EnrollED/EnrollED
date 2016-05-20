@@ -4,26 +4,31 @@ class MunicipalitiesController < ApplicationController
   # GET /municipalities
   # GET /municipalities.json
   def index
-    @municipalities = Municipality.order(:name)
+    authorize Municipality
+    @municipalities = Municipality.order(:name).search(params[:search]).page(params[:page])
   end
 
   # GET /municipalities/1
   # GET /municipalities/1.json
   def show
+    authorize Municipality
   end
 
   # GET /municipalities/new
   def new
+    authorize Municipality
     @municipality = Municipality.new
   end
 
   # GET /municipalities/1/edit
   def edit
+    authorize Municipality
   end
 
   # POST /municipalities
   # POST /municipalities.json
   def create
+    authorize Municipality
     @municipality = Municipality.new(municipality_params)
 
     respond_to do |format|
@@ -40,6 +45,7 @@ class MunicipalitiesController < ApplicationController
   # PATCH/PUT /municipalities/1
   # PATCH/PUT /municipalities/1.json
   def update
+    authorize Municipality
     respond_to do |format|
       if @municipality.update(municipality_params)
         format.html { redirect_to @municipality, notice: 'Občina uspešno posodobljena.' }
@@ -54,6 +60,7 @@ class MunicipalitiesController < ApplicationController
   # DELETE /municipalities/1
   # DELETE /municipalities/1.json
   def destroy
+    authorize Municipality
     @municipality.is_valid=false;
 
     respond_to do |format|

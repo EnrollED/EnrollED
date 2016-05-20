@@ -20,7 +20,11 @@
             <a href="<%= study_programs_path %>"><%= "Študijski programi" %></a>
           </li>
         <% end %>
-
+        <% if policy(:post).index? %>
+            <li>
+              <a href="<%= sifranti_path %>"><%= "Šifranti" %></a>
+            </li>
+        <% end %>
 
         <li>
           <a data-toggle="tooltip" rel="tooltip" data-placement="bottom"

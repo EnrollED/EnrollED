@@ -29,9 +29,9 @@
     <thead>
     <tr>
       <th>Fakulteta</th>
-      <th>Način študija</th>
       <th>Ime programa</th>
-      <th>Vrsta</th>
+      <th>Vrsta študija</th>
+      <th>Način študija</th>
       <th>EU</th>
       <th>Tujci</th>
       <th></th>
@@ -44,8 +44,8 @@
     <% @study_program_modes.each do |study_program_mode| %>
         <tr>
           <td><%= study_program_mode.study_program.higher_education_institution.acronym %></td>
-          <td><%= study_program_mode.study_program.type_of_study.name %></td>
           <td><%= study_program_mode.study_program.name %></td>
+          <td><%= study_program_mode.study_program.type_of_study.name %></td>
           <td><%= study_program_mode.mode_of_study.name %></td>
           <td><%= study_program_mode.number_of_places %></td>
           <td><%= study_program_mode.number_of_places_foreign %></td>
