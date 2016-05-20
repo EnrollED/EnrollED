@@ -1,0 +1,19 @@
+<%= form_for @applicationChoice, url: url do |f| %>
+
+    <%= render 'layouts/errors', :resource => @applicationChoice %>
+
+    <h4><%= @choice_number%>. želja</h4>
+
+    <%= f.fields_for :study_program_mode, @applicationChoice.study_program_mode do |study_program_mode|%>
+        <div class="form-group has-feedback">
+          <%= study_program_mode.collection_select :study_program_mode_id, StudyProgramMode.all, :id, :study_program_choice, {:include_blank => ''}, {class: 'form-control', data: {placeholder: ''}} %>
+        </div>
+
+    <% end %>
+
+
+    <div class="actions">
+      <%= f.submit t('activerecord.attributes.application.create_prijava')%>
+    </div>
+
+<% end %>

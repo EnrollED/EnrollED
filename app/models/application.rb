@@ -13,4 +13,9 @@ class Application < ActiveRecord::Base
 
   validates :EMSO, :sex, :phone, :place_of_residence, :firstname_for_notification, :lastname_for_notification, :place_for_notification,  presence: true
   validates_format_of :EMSO, with: /[0-3]\d[0-1]\d{6}[0156]\d{3}/, message: "ni v pravilnem formatu!"
+  validates :phone, :numericality => true
+
+  include ActiveModel::Validations
+  validates_with ValidateApplicationForm
+
 end

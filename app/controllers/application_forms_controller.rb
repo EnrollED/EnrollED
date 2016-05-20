@@ -14,12 +14,6 @@ class ApplicationFormsController < ApplicationController
   end
 
   def create
-    if !check_municipality_country
-      redirect_to new_application_form_path, notice: t('activerecord.attributes.application.messages.create.wrong_country_municipality')
-      return
-    end
-    print 'Veronika'
-    print params[:application][:highschool_certificate]
 
     @application = Application.new application_params
     @application.user = current_user
@@ -35,7 +29,7 @@ class ApplicationFormsController < ApplicationController
 
 
     if @application.save
-      redirect_to application_forms_path, notice: t('activerecord.attributes.application.messages.create.created')
+      redirect_to new_application_form_choice_path(@application)
     else
       render new_application_form_path
     end
@@ -45,10 +39,7 @@ class ApplicationFormsController < ApplicationController
   end
 
   def update
-    if !check_municipality_country
-      redirect_to edit_application_form_path, notice: t('activerecord.attributes.application.messages.create.wrong_country_municipality')
-      return
-    end
+
     if @application.update application_params
       redirect_to application_forms_path, notice: "Prijava je bila uspešno posodobljena!"
     else
@@ -81,12 +72,6 @@ class ApplicationFormsController < ApplicationController
     return Time.now.year.to_s + '-' + rand(999999).to_s
   end
 
-  def check_municipality_country
-    if (Municipality.find(params[:application][:municipality_id]).code.eql?('0') and Country.find(params[:application][:country_of_birth_id]).code.eql?('705')) or (Municipality.find(params[:application][:municipality_id]).code != '0' and Country.find(params[:application][:country_of_birth_id]).code != '705')
-      return false
-    end
-    return true
-  end
 
 
 

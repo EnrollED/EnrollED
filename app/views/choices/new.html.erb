@@ -1,0 +1,5 @@
+<h1>Prijava za vpis na razpis: <%= @enrollment.name %></h1>
+
+<%= render 'form', url: application_form_choices_path %>
+
+<%= link_to 'Nazaj', edit_application_form_path(@application) %>

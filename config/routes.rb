@@ -38,7 +38,10 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   resources :study_programs
   resources :study_program_modes
-  resources :application_forms
+
+  resources :application_forms do
+    resources :choices
+  end
 
   get 'sifranti' => 'home#sifranti'
 
