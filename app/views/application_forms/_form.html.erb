@@ -1,4 +1,4 @@
-<%= form_for @application, url: application_forms_path do |f| %>
+<%= form_for @application, url: url do |f| %>
 
     <%= render 'layouts/errors', :resource => @application %>
 
@@ -7,8 +7,8 @@
         <h4>Osebni podatki</h4>
 
         <div class="form-group has-feedback">
-          <%= user.label :firstname, t('activerecord.attributes.user.firstname'), class: 'control-label' %>
-          <%= user.text_field :firstname, autofocus: true, class: 'form-control' %>
+          <%= user.label :firstname, t('activerecord.attributes.user.firstname'), class: 'control-label'%>
+          <%= user.text_field :firstname, autofocus: true, class: 'form-control', disabled: "disabled" %>
           <div class="form-control-feedback">
             <i class="fa fa-user" aria-hidden="true"></i>
           </div>
@@ -16,7 +16,7 @@
 
         <div class="form-group has-feedback">
           <%= user.label :lastname, t('activerecord.attributes.user.lastname'), class: 'control-label' %>
-          <%= user.text_field :lastname, class: 'form-control' %>
+          <%= user.text_field :lastname, class: 'form-control', disabled: "disabled" %>
           <div class="form-control-feedback">
             <i class="fa fa-user" aria-hidden="true"></i>
           </div>
@@ -33,6 +33,11 @@
     </div>
 
     <div class="form-group has-feedback">
+      <%= f.label :citizen_id, t('activerecord.attributes.application.nationality'), class: 'control-label' %>
+      <%= f.collection_select :citizen_id, Citizen.all, :id, :name, {},{class: 'form-control', data: {placeholder: ''}} %>
+    </div>
+
+    <div class="form-group has-feedback">
       <%= f.label :EMSO, t('activerecord.attributes.user.EMSO'), class: 'control-label' %>
       <%= f.text_field :EMSO, class: 'form-control' %>
       <div class="form-control-feedback">
@@ -42,25 +47,18 @@
 
     <div class="form-group has-feedback">
       <%= f.label :sex, t('activerecord.attributes.user.sex'), class: 'control-label' %>
-      <%= f.select :sex, [['M', 1], ['F', 2]], { include_blank: true }, {class: 'form-control'} %>
+      <%= f.select :sex, [['M', 'M'], ['Ž', 'Ž']], { include_blank: true }, {class: 'form-control'} %>
     </div>
 
 
-
     <div class="form-group has-feedback">
-      <%= f.label :place_of_birth, t('activerecord.attributes.user.place_of_birth'), class: 'control-label' %>
-      <%= f.text_field :place_of_birth, class: 'form-control' %>
-      <div class="form-control-feedback">
-        <i class="fa fa-user" aria-hidden="true"></i>
-      </div>
+      <%= f.label :municipality_id, t('activerecord.attributes.application.municipality_of_birth'), class: 'control-label' %>
+      <%= f.collection_select :municipality_id, Municipality.all, :id, :name, {},{class: 'form-control', data: {placeholder: ''}} %>
     </div>
 
     <div class="form-group has-feedback">
-      <%= f.label :country_of_birth, t('activerecord.attributes.user.country_of_birth'), class: 'control-label' %>
-      <%= f.text_field :country_of_birth, class: 'form-control' %>
-      <div class="form-control-feedback">
-        <i class="fa fa-user" aria-hidden="true"></i>
-      </div>
+      <%= f.label :country_of_birth_id, t('activerecord.attributes.user.country_of_birth'), class: 'control-label' %>
+      <%= f.collection_select :country_of_birth_id, Country.all, :id, :name, {},{class: 'form-control', data: {placeholder: ''}} %>
     </div>
 
     <div class="form-group has-feedback">
@@ -75,7 +73,7 @@
 
         <div class="form-group has-feedback">
         <%= user.label :email, t('activerecord.attributes.user.email'), class: 'control-label' %>
-        <%= user.text_field :email, class: 'form-control' %>
+        <%= user.text_field :email, class: 'form-control', disabled: "disabled" %>
         <div class="form-control-feedback">
           <i class="fa fa-user" aria-hidden="true"></i>
         </div>
@@ -94,15 +92,12 @@
 
     <div class="form-group has-feedback">
       <%= f.label :post_of_residence_id, t('activerecord.attributes.application.post_of_residence'), class: 'control-label' %>
-      <%= f.collection_select :post_of_residence_id, @posts, :id, :name, {},{class: 'form-control', data: {placeholder: ''}} %>
+      <%= f.collection_select :post_of_residence_id, Post.all, :id, :name, {},{class: 'form-control', data: {placeholder: ''}} %>
     </div>
 
     <div class="form-group has-feedback">
-      <%= f.label :country_of_residence, t('activerecord.attributes.application.country_of_residence'), class: 'control-label' %>
-      <%= f.text_field :country_of_residence, class: 'form-control' %>
-      <div class="form-control-feedback">
-        <i class="fa fa-user" aria-hidden="true"></i>
-      </div>
+      <%= f.label :country_of_residence_id, t('activerecord.attributes.application.country_of_residence'), class: 'control-label' %>
+      <%= f.collection_select :country_of_residence_id, Country.all, :id, :name, {},{class: 'form-control', data: {placeholder: ''}} %>
     </div>
 
     <h4>Naslov za obvestila</h4>
@@ -133,17 +128,35 @@
 
     <div class="form-group has-feedback">
       <%= f.label :post_for_notification_id, t('activerecord.attributes.application.post_for_notification'), class: 'control-label' %>
-      <%= f.collection_select :post_for_notification_id, @posts, :id, :name, {},{class: 'form-control', data: {placeholder: ''}} %>
+      <%= f.collection_select :post_for_notification_id, Post.all, :id, :name, {},{class: 'form-control', data: {placeholder: ''}} %>
     </div>
 
+    <h4>Srednješolska izobrazba</h4>
 
-    <h4>Državljanstvo</h4>
     <div class="form-group has-feedback">
-      <%= f.label :nationality, t('activerecord.attributes.application.nationality'), class: 'control-label' %>
-      <%= f.collection_select :citizen_id, @citizens, :id, :name, {},{class: 'form-control', data: {placeholder: ''}} %>
+      <%= f.label :highschool_id, t('activerecord.attributes.application.highschool'), class: 'control-label' %>
+      <%= f.collection_select :highschool_id, Highschool.all, :id, :name, {},{class: 'form-control', data: {placeholder: ''}} %>
     </div>
 
-    <h4>Državljanstvo</h4>
+    <div class="form-group has-feedback">
+      <%= f.label :highschool_certificate, t('activerecord.attributes.application.highschool_certificate'), class: 'control-label' %>
+      <div class="row">
+        <div class="col-sm-9">
+          <%= f.radio_button :highschool_certificate, true, checked: 'checked'%> Da
+          <%= f.radio_button :highschool_certificate, false%> Ne
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group has-feedback">
+      <%= f.label :highschool_completion_id, t('activerecord.attributes.application.highschool_completion'), class: 'control-label' %>
+      <%= f.collection_select :highschool_completion_id, HighschoolCompletion.all, :id, :name, {},{class: 'form-control', data: {placeholder: ''}} %>
+    </div>
+
+    <div class="form-group has-feedback">
+      <%= f.label :highschool_country_id, t('activerecord.attributes.application.highschool_country'), class: 'control-label' %>
+      <%= f.collection_select :highschool_country_id, Country.all, :id, :name, {},{class: 'form-control', data: {placeholder: ''}} %>
+    </div>
 
     <div class="actions">
       <%= f.submit t('activerecord.attributes.application.create_prijava')%>

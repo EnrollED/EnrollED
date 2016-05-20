@@ -11,15 +11,15 @@ class AddAttributesToUser < ActiveRecord::Migration
     add_column :applications, :date_of_birth, :date
     add_column :applications, :sex, :string
     add_column :applications, :phone, :string
-    add_column :applications, :place_of_birth, :string
-    add_column :applications, :country_of_birth, :string
     add_column :applications, :EMSO, :string
     add_column :applications, :place_of_residence, :string
 
-    add_column :applications, :country_of_residence, :string
     add_column :applications, :firstname_for_notification, :string
     add_column :applications, :lastname_for_notification, :string
     add_column :applications, :place_for_notification, :string
+
+    add_column :applications, :highschool_certificate, :boolean
+    add_column :applications, :highschool_finishe_date, :date
 
   end
 end

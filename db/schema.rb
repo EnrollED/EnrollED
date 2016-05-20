@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20160518095035) do
 
   create_table "applications", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "status",                     null: false
+    t.string   "application_number",         null: false
     t.datetime "submission_date",            null: false
     t.uuid     "user_id"
     t.uuid     "enrollment_id"
@@ -34,20 +35,24 @@ ActiveRecord::Schema.define(version: 20160518095035) do
     t.uuid     "post_of_residence_id"
     t.uuid     "post_for_notification_id"
     t.uuid     "citizen_id"
+    t.uuid     "municipality_id"
+    t.uuid     "country_of_birth_id"
+    t.uuid     "country_of_residence_id"
+    t.uuid     "highschool_country_id"
+    t.uuid     "highschool_completion_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.string   "maiden_name"
     t.date     "date_of_birth"
     t.string   "sex"
     t.string   "phone"
-    t.string   "place_of_birth"
-    t.string   "country_of_birth"
     t.string   "EMSO"
     t.string   "place_of_residence"
-    t.string   "country_of_residence"
     t.string   "firstname_for_notification"
     t.string   "lastname_for_notification"
     t.string   "place_for_notification"
+    t.boolean  "highschool_certificate"
+    t.date     "highschool_finishe_date"
   end
 
   create_table "citizens", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
@@ -76,6 +81,7 @@ ActiveRecord::Schema.define(version: 20160518095035) do
     t.string   "name",       null: false
     t.datetime "start",      null: false
     t.datetime "end",        null: false
+    t.boolean  "current",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

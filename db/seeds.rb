@@ -132,7 +132,7 @@ CSV.foreach(csv_file_path, {:headers=>:first_row}) do |row|
 end
 puts "Inserted mode of study"
 
-enrollment = Enrollment.new(name: 'Vpis fakultete 2016/17', start: '2016-05-15 10:23:54', end: '2016-07-15 10:23:54', created_at: Time.now, updated_at: Time.now)
+enrollment = Enrollment.new(name: 'Vpis fakultete 2016/17', start: '2016-05-15 10:23:54', end: '2016-07-15 10:23:54', created_at: Time.now, updated_at: Time.now, current: true)
 enrollment.save!
 
 csv_file_path = "db/data/Program.csv"
