@@ -5,7 +5,8 @@ class StudyProgramModesController < ApplicationController
   # GET /study_program_modes.json
   def index
     authorize StudyProgramMode
-    @study_program_modes = StudyProgramMode.all
+    #@study_program_modes = StudyProgramMode.all.page(params[:page]).per(10)
+    @study_program_modes = StudyProgramMode.joins(:mode_of_study, :study_program, :study_program => :higher_education_institution).order("higher_education_institutions.name, study_programs.name").page(params[:page]).per(10)
   end
 
   # GET /study_program_modes/1
