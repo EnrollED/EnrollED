@@ -4,26 +4,31 @@ class CitizensController < ApplicationController
   # GET /citizens
   # GET /citizens.json
   def index
+    authorize Citizen
     @citizens = Citizen.order(:name).search(params[:search]).page(params[:page])
   end
 
   # GET /citizens/1
   # GET /citizens/1.json
   def show
+    authorize Citizen
   end
 
   # GET /citizens/new
   def new
+    authorize Citizen
     @citizen = Citizen.new
   end
 
   # GET /citizens/1/edit
   def edit
+    authorize Citizen
   end
 
   # POST /citizens
   # POST /citizens.json
   def create
+    authorize Citizen
     @citizen = Citizen.new(citizen_params)
 
     respond_to do |format|
@@ -40,6 +45,7 @@ class CitizensController < ApplicationController
   # PATCH/PUT /citizens/1
   # PATCH/PUT /citizens/1.json
   def update
+    authorize Citizen
     respond_to do |format|
       if @citizen.update(citizen_params)
         format.html { redirect_to @citizen, notice: 'Zapis uspešno posodobljen' }
@@ -54,6 +60,7 @@ class CitizensController < ApplicationController
   # DELETE /citizens/1
   # DELETE /citizens/1.json
   def destroy
+    authorize Citizen
     @citizen.is_valid=false
     respond_to do |format|
       if @citizen.save

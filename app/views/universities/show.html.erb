@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Šifra:</strong>
+  <%= @university.code %>
+</p>
+
+<p>
+  <strong>Naziv:</strong>
+  <%= @university.name %>
+</p>
+
+<p>
+  <strong>Veljavnost:</strong>
+  <%if @university.is_valid? %>da<% else %>ne<% end %>
+</p>
+
+<%= link_to 'Uredi', edit_university_path(@university) %> |
+<%= link_to 'Nazaj', universities_path %>

@@ -4,26 +4,31 @@ class ModeOfStudiesController < ApplicationController
   # GET /mode_of_studies
   # GET /mode_of_studies.json
   def index
+    authorize ModeOfStudy
     @mode_of_studies = ModeOfStudy.order(:name).search(params[:search]).page(params[:page])
   end
 
   # GET /mode_of_studies/1
   # GET /mode_of_studies/1.json
   def show
+    authorize ModeOfStudy
   end
 
   # GET /mode_of_studies/new
   def new
+    authorize ModeOfStudy
     @mode_of_study = ModeOfStudy.new
   end
 
   # GET /mode_of_studies/1/edit
   def edit
+    authorize ModeOfStudy
   end
 
   # POST /mode_of_studies
   # POST /mode_of_studies.json
   def create
+    authorize ModeOfStudy
     @mode_of_study = ModeOfStudy.new(mode_of_study_params)
 
     respond_to do |format|
@@ -40,6 +45,7 @@ class ModeOfStudiesController < ApplicationController
   # PATCH/PUT /mode_of_studies/1
   # PATCH/PUT /mode_of_studies/1.json
   def update
+    authorize ModeOfStudy
     respond_to do |format|
       if @mode_of_study.update(mode_of_study_params)
         format.html { redirect_to @mode_of_study, notice: 'Način študija je bil uspešno posodobljen.' }
@@ -54,6 +60,7 @@ class ModeOfStudiesController < ApplicationController
   # DELETE /mode_of_studies/1
   # DELETE /mode_of_studies/1.json
   def destroy
+    authorize ModeOfStudy
     @mode_of_study.is_valid=false
     respond_to do |format|
       if @mode_of_study.save

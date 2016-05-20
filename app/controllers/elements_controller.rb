@@ -4,26 +4,31 @@ class ElementsController < ApplicationController
   # GET /elements
   # GET /elements.json
   def index
+    authorize Element
     @elements = Element.order(:code).search(params[:search]).page(params[:page])
   end
 
   # GET /elements/1
   # GET /elements/1.json
   def show
+    authorize Element
   end
 
   # GET /elements/new
   def new
+    authorize Element
     @element = Element.new
   end
 
   # GET /elements/1/edit
   def edit
+    authorize Element
   end
 
   # POST /elements
   # POST /elements.json
   def create
+    authorize Element
     @element = Element.new(element_params)
 
     respond_to do |format|
@@ -40,6 +45,7 @@ class ElementsController < ApplicationController
   # PATCH/PUT /elements/1
   # PATCH/PUT /elements/1.json
   def update
+    authorize Element
     respond_to do |format|
       if @element.update(element_params)
         format.html { redirect_to @element, notice: 'Element je bil uspešno posodobljen.' }
@@ -54,6 +60,7 @@ class ElementsController < ApplicationController
   # DELETE /elements/1
   # DELETE /elements/1.json
   def destroy
+    authorize Element
     @element.is_valid=false;
     respond_to do |format|
       if @element.save
