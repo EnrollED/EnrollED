@@ -38,8 +38,10 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   resources :study_programs
   resources :study_program_modes
+  resources :application_forms
 
   get 'sifranti' => 'home#sifranti'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

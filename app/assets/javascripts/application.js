@@ -31,5 +31,6 @@ window.Enrolled = {
 
 // App initialization
 $(document).on('turbolinks:load', function () {
+
     Enrolled.init();
 });

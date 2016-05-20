@@ -4,6 +4,7 @@ class CreateEnrollments < ActiveRecord::Migration
       t.string :name, null: false
       t.datetime :start, null: false
       t.datetime :end, null: false
+      t.boolean :current, null: false
 
       t.timestamps null: false
     end

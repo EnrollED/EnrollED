@@ -101,6 +101,7 @@ sl:
   activerecord:
     models:
       user: 'Uporabnik'
+      application: 'Prijava'
       post: 'Pošta'
       country: 'Država'
       municipality: 'Občina'
@@ -129,10 +130,31 @@ sl:
         sex: 'Spol'
         phone: 'Telefonska številka'
         place_of_birth: 'Kraj rojstva'
+        country_of_birth: 'Država rojstva'
         EMSO: 'EMŠO'
         role_ids: 'Vloge'
         remember_me: 'Zapomni se me'
         created_at: 'Ustvarjen'
+      application:
+        place_of_residence: 'Naslov'
+        post_of_residence: 'Pošta'
+        country_of_residence: 'Država'
+        firstname_for_notification: 'Ime'
+        lastname_for_notification: 'Priimek'
+        place_for_notification: 'Naslov'
+        post_for_notification: 'Pošta'
+        nationality: 'Državljanstvo'
+        municipality_of_birth: 'Občina rojstva'
+        create_prijava: 'Shrani'
+        highschool: 'Srednja šola'
+        highschool_certificate: 'Spričevalo o končani srednji šoli že imam:'
+        highschool_completion: 'Način zaključka srednje šole'
+        highschool_country: 'Država'
+        messages:
+          create:
+            created: 'Prijava je bila uspešno ustvarjena!'
+            wrong_country_municipality: 'Občina in država rojstva se ne ujemata!'
+            submission_date_too_late: 'Rok za vnos prijave je potekel!'
         confirmed_at: 'Potrjen'
       post:
         code: 'Poštna številka'
