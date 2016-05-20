@@ -4,6 +4,10 @@ class StudyProgram < ActiveRecord::Base
   belongs_to :enrollment
   has_many :study_program_modes, :dependent => :destroy
 
+  def fac_name
+    self.higher_education_institution.name
+  end
+
   def self.search(search)
     if search
       find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
