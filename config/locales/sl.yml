@@ -1,13 +1,18 @@
 sl:
   defaults:
     name: 'EnrollED'
-
-    save: 'Shrani'
+    cancel: 'Prekliči'
     edit: 'Uredi'
+    show: 'Prikaži'
+    delete: 'Izbriši'
+    create: 'Dodaj'
+    update: 'Posodobi'
+    save: 'Shrani'
     disable: 'Onesposobi'
     search: 'Išči'
     are_you_sure: 'Ali ste prepričani?'
     not_authorized: 'Opala! Tam pa ne smete biti!'
+    no_records: 'Ni najdenih zapisov.'
   roles:
     admin: 'Administrator'
     admissions: 'Služba za vpis'
@@ -97,6 +102,20 @@ sl:
     models:
       user: 'Uporabnik'
       application: 'Prijava'
+      post: 'Pošta'
+      country: 'Država'
+      municipality: 'Občina'
+      citizen: 'Državljanstvo'
+      highschool_completion: 'Zaključek srednje šole'
+      highschool: 'Srednja šola'
+      profession: 'Poklic'
+      role: 'Vloga'
+      element: 'Element'
+      higher_education_institution: 'Visokošolski zavod'
+      mode_of_study: 'Način študija'
+      study_program: 'Študijski program'
+      type_of_study: 'Vrsta študija'
+      university: 'Univerza'
     attributes:
       user:
         username: 'Uporabniško ime'
@@ -136,6 +155,54 @@ sl:
             created: 'Prijava je bila uspešno ustvarjena!'
             wrong_country_municipality: 'Občina in država rojstva se ne ujemata!'
             submission_date_too_late: 'Rok za vnos prijave je potekel!'
+        confirmed_at: 'Potrjen'
+      post:
+        code: 'Poštna številka'
+        name: 'Naziv'
+        is_valid: 'Veljavnost'
+      municipality:
+        code: 'Šifra'
+        name: 'Naziv'
+        is_valid: 'Veljavnost'
+      citizen:
+        code: 'Šifra'
+        name: 'Naziv'
+        is_valid: 'Veljavnost'
+      element:
+        code: 'Šifra'
+        name: 'Naziv'
+        is_valid: 'Veljavnost'
+      highschool_completion:
+        code: 'Šifra'
+        name: 'Naziv'
+        is_valid: 'Veljavnost'
+      country:
+        code: 'Šifra'
+        name: 'Naziv'
+        eu_member: 'Članica EU'
+        is_valid: 'Veljavnost'
+        created_at: 'Ustvarjen'
+        confirmed_at: 'Potrjen'
+      higher_education_institution:
+        code: 'Šifra'
+        name: 'Naziv'
+        is_valid: 'Veljavnost'
+      mode_of_study:
+        code: 'Šifra'
+        name: 'Naziv'
+        is_valid: 'Veljavnost'
+      study_program:
+        code: 'Šifra'
+        name: 'Naziv'
+        is_valid: 'Veljavnost'
+      type_of_study:
+        code: 'Šifra'
+        name: 'Naziv'
+        is_valid: 'Veljavnost'
+      university:
+        code: 'Šifra'
+        name: 'Naziv'
+        is_valid: 'Veljavnost'
     errors:
       messages:
         record_invalid: "Validacija ni uspela: %{errors}"
@@ -156,6 +223,8 @@ sl:
   users:
     edit:
       edit: 'Uredi profil'
+    destroy:
+      disabled: 'Vaš račun je bil onemogočen'
   admin:
     users:
       form:

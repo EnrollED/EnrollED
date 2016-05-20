@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  resources :highschools
+  resources :universities
+  resources :type_of_studies
+  resources :professions
+  resources :mode_of_studies
+  resources :higher_education_institutions
+  resources :higher_education_institutions
+  resources :higher_education_institutions
+  resources :highschool_completions
+  resources :posts
+  resources :countries
+  resources :elements
+  resources :citizens
+  resources :municipalities
 
   # Route concerns
   concern :paginatable do
@@ -24,8 +38,9 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   resources :study_programs
   resources :study_program_modes
-
   resources :application_forms
+
+  get 'sifranti' => 'home#sifranti'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

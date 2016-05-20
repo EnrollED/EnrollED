@@ -1,0 +1,20 @@
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Poštna številka:</strong>
+  <%= @municipality.code %>
+</p>
+
+<p>
+  <strong>Naziv:</strong>
+  <%= @municipality.name %>
+</p>
+
+<p>
+  <strong>Veljavno:</strong>
+  <%if @municipality.is_valid? %>da<% else %>ne<% end %>
+</p>
+
+<%= link_to 'Uredi', edit_municipality_path(@municipality) %> |
+<%= link_to 'Nazaj', municipalities_path %>

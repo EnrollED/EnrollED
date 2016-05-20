@@ -1,0 +1,2 @@
+module HighschoolCompletionsHelper
+end

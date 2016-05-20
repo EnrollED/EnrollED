@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Šifra:</strong>
+  <%= @citizen.code %>
+</p>
+
+<p>
+  <strong>naziv:</strong>
+  <%= @citizen.name %>
+</p>
+
+<p>
+  <strong>Veljavnost:</strong>
+  <%if @citizen.is_valid? %>da<% else %>ne<% end %>
+</p>
+
+<%= link_to 'Uredi', edit_citizen_path(@citizen) %> |
+<%= link_to 'Nazaj', citizens_path %>

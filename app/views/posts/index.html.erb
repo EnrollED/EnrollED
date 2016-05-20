@@ -1,0 +1,80 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Seznam pošt</h1>
+<div class="row">
+  <div class="col-sm-4">
+    <%= form_tag(posts_path, method: :get) do |f| %>
+
+        <div class="input-group">
+
+          <%= search_field_tag :search, params[:search], autofocus: true,
+                               placeholder: t('defaults.search') + '...', class: 'form-control' %>
+
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+          </span>
+
+        </div>
+
+    <% end %>
+  </div>
+
+  <div class="col-sm-8 text-right">
+    <%= link_to 'Dodaj pošto', new_post_path, class: 'btn btn-success' %>
+  </div>
+
+</div>
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+
+    <thead>
+      <tr>
+        <th>Poštna številka</th>
+        <th>Naziv</th>
+        <th>Veljavnost</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @posts.each do |post| %>
+        <tr>
+          <td><%= post.code %></td>
+          <td><%= post.name %></td>
+          <td><%if post.is_valid? %>da<% else %>ne<% end %></td>
+          <td>
+            <%= link_to post, class: 'label label-success' do %>
+                <i class="fa fa-eye" title="<%= "Prikaži" %>" aria-hidden="true"></i>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_post_path(post), class: 'label label-info' do %>
+                <i class="fa fa-pencil" title="<%= t 'defaults.edit' %>" aria-hidden="true"></i>
+            <% end %>
+          </td>
+          <td>
+            <% if post.is_valid? %>
+                <%= link_to post, method: :delete, data: { confirm: 'Ali ste prepričani?' }, class: 'label label-danger' do %>
+                    <i class="fa fa-trash" title="<%= "Odstrani" %>" aria-hidden="true"></i>
+                <% end %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<% if @posts.length == 0 %>
+    <div class="text-center">
+
+      <p><%= t 'defaults.no_records' %></p>
+    </div>
+<% end %>
+
+<div>
+  <%= paginate @posts %>
+</div>
+
+

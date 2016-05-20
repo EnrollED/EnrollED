@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Šifra:</strong>
+  <%= @higher_education_institution.code %>
+</p>
+
+<p>
+  <strong>Naziv:</strong>
+  <%= @higher_education_institution.name %>
+</p>
+
+<p>
+  <strong>Akronim:</strong>
+  <%= @higher_education_institution.acronym %>
+</p>
+
+<p>
+  <strong>Univerza:</strong>
+  <%= @higher_education_institution.university.name if @higher_education_institution.university %>
+</p>
+
+<p>
+  <strong>Občina:</strong>
+  <%= @higher_education_institution.municipality.name if @higher_education_institution.municipality %>
+</p>
+
+<%= link_to 'Uredi', edit_higher_education_institution_path(@higher_education_institution) %> |
+<%= link_to 'Nazaj', higher_education_institutions_path %>
