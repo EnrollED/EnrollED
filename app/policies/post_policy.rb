@@ -27,4 +27,8 @@ class PostPolicy < ApplicationPolicy
   def destroy?
     update?
   end
+
+  def sifranti?
+    update?
+  end
 end
