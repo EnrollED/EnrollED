@@ -21,6 +21,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    authorize @user
+
+    @user.disable
+
+    redirect_to root_path, notice: t('users.destroy.disabled')
+  end
+
   private
   def set_user
     @user = User.find(params[:id])

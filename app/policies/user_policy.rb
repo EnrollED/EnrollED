@@ -21,11 +21,11 @@ class UserPolicy < ApplicationPolicy
   end
 
   def destroy?
-    @user != @record && @user.has_role?(:admin)
+    @user == @record || @user != @record && @user.has_role?(:admin)
   end
 
   def change_role?
-    destroy?
+    @user != @record && @user.has_role?(:admin)
   end
 
   def change_pass?

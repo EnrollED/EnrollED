@@ -26,7 +26,5 @@
       <%= f.collection_select :enrollment_id, Enrollment.all, :id, :name, {:include_blank => false}, { :class => 'form-control' }  %>
     </div>
 
-    <div class="actions">
-      <%= f.submit "Shrani" %>
-    </div>
+    <%= f.submit t('defaults.save'), class: 'btn btn-success' %>
 <% end %>
