@@ -22,27 +22,22 @@
     </div>
 
     <div class="form-group">
-      <%= f.label "Število vpisnih mest za državljane Slovenije in EU po razvrstitvi", class: 'control-label' %>
+      <%= f.label "Število vpisnih mest, ki je določeno s sklepom o omejitvi vpisa, za državljane Slovenije in EU po razvrstitvi", class: 'control-label' %>
       <%= f.text_field :number_of_places_after_selection, placeholder: true, autofocus: true, class: 'form-control' %>
     </div>
 
     <div class="form-group">
-      <%= f.label "Število vpisnih mest za tujce in Slovence brez slovenskega državljanstva po razvrstitvi", class: 'control-label' %>
+      <%= f.label "Število vpisnih mest, ki je določeno s sklepom o omejitvi vpisa, za tujce in Slovence brez slovenskega državljanstva po razvrstitvi", class: 'control-label' %>
       <%= f.text_field :number_of_places_after_selection_foreign, placeholder: true, autofocus: true, class: 'form-control' %>
     </div>
 
     <div class="form-group">
-      <%= f.label "Omejitev", class: 'control-label' %>
-      <%= f.text_field :selection_limit , placeholder: true, autofocus: true, class: 'form-control' %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label "Število šprejetih kandidatov (državljani Slovenije in EU)", class: 'control-label' %>
+      <%= f.label "Število sprejetih kandidatov (državljani Slovenije in EU)", class: 'control-label' %>
       <%= f.text_field :selected, placeholder: true, autofocus: true, class: 'form-control' %>
     </div>
 
     <div class="form-group">
-      <%= f.label "Število šprejetih kandidatov (tujci in Slovence brez slovenskega državljanstva po razvrstitvi)", class: 'control-label' %>
+      <%= f.label "Število sprejetih kandidatov (tujci in Slovence brez slovenskega državljanstva po razvrstitvi)", class: 'control-label' %>
       <%= f.text_field :selected_foreign, placeholder: true, autofocus: true, class: 'form-control' %>
     </div>
 
