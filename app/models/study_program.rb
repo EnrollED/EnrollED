@@ -10,6 +10,10 @@ class StudyProgram < ActiveRecord::Base
     self.higher_education_institution.name
   end
 
+  def full_name
+    self.higher_education_institution.acronym + ' - ' + self.name + ' (' + self.type_of_study.name + ')'
+  end
+
   def self.search(search)
     if search
       find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
