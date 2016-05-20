@@ -1,6 +1,7 @@
 sl:
   defaults:
     name: 'EnrollED'
+    cancel: 'Prekliči'
     edit: 'Uredi'
     show: 'Prikaži'
     delete: 'Izbriši'
@@ -125,6 +126,8 @@ sl:
         EMSO: 'EMŠO'
         role_ids: 'Vloge'
         remember_me: 'Zapomni se me'
+        created_at: 'Ustvarjen'
+        confirmed_at: 'Potrjen'
       post:
         code: 'Poštna številka'
         name: 'Naziv'
@@ -173,6 +176,8 @@ sl:
   users:
     edit:
       edit: 'Uredi profil'
+    destroy:
+      disabled: 'Vaš račun je bil onemogočen'
   admin:
     users:
       form:

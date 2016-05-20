@@ -2,6 +2,7 @@
 
 <%= render 'admin/users/form', user: @user %>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(:user), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<%= link_to  t('defaults.cancel'), :back, class: 'btn btn-warning' %>
 
-<%= link_to "Back", :back %>
+<%= button_to "Cancel my account", registration_path(:user),
+              data: { confirm: t('defaults.are_you_sure') }, class: 'btn btn-danger', method: :delete %>

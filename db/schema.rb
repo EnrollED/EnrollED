@@ -11,21 +11,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160517075054) do
+ActiveRecord::Schema.define(version: 20160518095035) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
 
+  create_table "application_choices", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
+    t.integer  "choice",                null: false
+    t.uuid     "application_id"
+    t.uuid     "study_program_mode_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "applications", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
-    t.string   "status",           null: false
-    t.datetime "submission_date",  null: false
+    t.string   "status",                     null: false
+    t.datetime "submission_date",            null: false
     t.uuid     "user_id"
     t.uuid     "enrollment_id"
     t.uuid     "highschool_id"
-    t.uuid     "study_program_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.uuid     "post_of_residence_id"
+    t.uuid     "post_for_notification_id"
+    t.uuid     "citizen_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "maiden_name"
+    t.date     "date_of_birth"
+    t.string   "sex"
+    t.string   "phone"
+    t.string   "place_of_birth"
+    t.string   "country_of_birth"
+    t.string   "EMSO"
+    t.string   "place_of_residence"
+    t.string   "country_of_residence"
+    t.string   "firstname_for_notification"
+    t.string   "lastname_for_notification"
+    t.string   "place_for_notification"
   end
 
   create_table "citizens", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
@@ -129,18 +151,14 @@ ActiveRecord::Schema.define(version: 20160517075054) do
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
 
-  create_table "study_program_modes", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
+  create_table "study_program_modes", force: :cascade do |t|
     t.integer  "number_of_places"
-    t.integer  "number_of_places_foreign"
     t.integer  "number_of_places_after_selection"
-    t.integer  "number_of_places_after_selection_foreign"
-    t.integer  "selected"
-    t.integer  "selected_foreign"
     t.float    "selection_limit"
-    t.uuid     "study_program_id"
-    t.uuid     "mode_of_study_id"
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.integer  "study_program_id"
+    t.integer  "mode_of_study_id"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   create_table "study_programs", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
@@ -191,12 +209,6 @@ ActiveRecord::Schema.define(version: 20160517075054) do
     t.integer  "failed_attempts",        default: 0,  null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.string   "maiden_name"
-    t.date     "date_of_birth"
-    t.string   "sex"
-    t.string   "phone"
-    t.string   "place_of_birth"
-    t.string   "EMSO"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
