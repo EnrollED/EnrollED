@@ -34,7 +34,7 @@ class StudyProgramModesController < ApplicationController
 
     respond_to do |format|
       if @study_program_mode.save
-        format.html { redirect_to @study_program_mode, notice: 'Study program mode was successfully created.' }
+        format.html { redirect_to @study_program_mode, notice: 'Razpisna mesta so bila uspešno dodana.' }
         format.json { render :show, status: :created, location: @study_program_mode }
       else
         format.html { render :new }
@@ -49,7 +49,7 @@ class StudyProgramModesController < ApplicationController
     authorize StudyProgramMode
     respond_to do |format|
       if @study_program_mode.update(study_program_mode_params)
-        format.html { redirect_to @study_program_mode, notice: 'Study program mode was successfully updated.' }
+        format.html { redirect_to @study_program_mode, notice: 'Razpisna mesta so bila uspešno posodobljena.' }
         format.json { render :show, status: :ok, location: @study_program_mode }
       else
         format.html { render :edit }
@@ -64,7 +64,7 @@ class StudyProgramModesController < ApplicationController
     authorize StudyProgramMode
     @study_program_mode.destroy
     respond_to do |format|
-      format.html { redirect_to study_program_modes_url, notice: 'Study program mode was successfully destroyed.' }
+      format.html { redirect_to study_program_modes_url, notice: 'Razpisana mesta so bila uspešno pobrisana.' }
       format.json { head :no_content }
     end
   end
