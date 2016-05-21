@@ -15,13 +15,20 @@
 //= require turbolinks-5.0.0.beta4/turbolinks
 //= require bootstrap-3.3.6/bootstrap
 //= require select2-4.0.2/select2
-//= require sweetalert-1.1.3/sweetalert
+//= require momentjs-2.13.0/moment
+//= require momentjs-2.13.0/locales/sl
+//= require bootstrap-datetimepicker-4.17.37/bootstrap-datetimepicker
 //= require_self
 //= require_tree .
 
 // Global object for page specific funcions
 window.Enrolled = {
+
     init: function() {
+
+        var lang = $(document.body).attr('lang') || 'sl';
+
+        moment.locale(lang);
 
         $('[rel="tooltip"]').tooltip();
     },
