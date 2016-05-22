@@ -135,6 +135,7 @@ sl:
         role_ids: 'Vloge'
         remember_me: 'Zapomni se me'
         created_at: 'Ustvarjen'
+        confirmed_at: 'Potrjen'
       application:
         place_of_residence: 'Naslov'
         post_of_residence: 'Pošta'
@@ -228,6 +229,7 @@ sl:
   admin:
     users:
       form:
+        cancel_account: 'Prekliči račun'
         leave_blank_pass: 'Pustite prazno, v primeru da gesla ne želite spremeniti.'
       create:
         created: 'Uporabnik je bil uspešno ustvarjen'
