@@ -1,8 +1,6 @@
 <h1><%= t '.new' %></h1>
 
-<%= render 'form', user: [:admin, @user] %>
-
-<%= link_to t('defaults.cancel'), admin_users_path, class: 'btn btn-warning' %>
+<%= render 'form', user: [:admin, @user], cancel: admin_users_path %>
 
 <script type="text/javascript">
   Enrolled.admin.users.form();

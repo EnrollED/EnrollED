@@ -24,6 +24,10 @@ class UserPolicy < ApplicationPolicy
     @user == @record || @user != @record && @user.has_role?(:admin)
   end
 
+  def cancel?
+    @user == @record
+  end
+
   def change_role?
     @user != @record && @user.has_role?(:admin)
   end

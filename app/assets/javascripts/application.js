@@ -15,13 +15,36 @@
 //= require turbolinks-5.0.0.beta4/turbolinks
 //= require bootstrap-3.3.6/bootstrap
 //= require select2-4.0.2/select2
-//= require sweetalert-1.1.3/sweetalert
+//= require momentjs-2.13.0/moment
+//= require momentjs-2.13.0/locales/sl
+//= require bootstrap-datetimepicker-4.17.37/bootstrap-datetimepicker
 //= require_self
 //= require_tree .
 
 // Global object for page specific funcions
 window.Enrolled = {
-    init: function() {
+
+    defaults: function () {
+
+        $.fn.datetimepicker.defaults.allowInputToggle = true;
+        $.fn.datetimepicker.defaults.icons = {
+            time: 'fa fa-time',
+            date: 'fa fa-calendar',
+            up: 'fa fa-chevron-up',
+            down: 'fa fa-chevron-down',
+            previous: 'fa fa-chevron-left',
+            next: 'fa fa-chevron-right',
+            today: 'fa fa-screenshot',
+            clear: 'fa fa-trash',
+            close: 'fa fa-remove'
+        };
+    },
+
+    init: function () {
+
+        var lang = $(document.body).attr('lang') || 'sl';
+
+        moment.locale(lang);
 
         $('[rel="tooltip"]').tooltip();
     },
@@ -30,6 +53,10 @@ window.Enrolled = {
 };
 
 // App initialization
+$(function () {
+    Enrolled.defaults();
+});
+
 $(document).on('turbolinks:load', function () {
 
     Enrolled.init();
