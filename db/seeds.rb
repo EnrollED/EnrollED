@@ -12,8 +12,6 @@ user = User.new(username: 'admin', firstname: 'Admin', lastname: 'Strator', emai
 user.skip_confirmation!
 user.save!
 
-
-
 user.add_role :admin
 user.add_role :admissions
 
