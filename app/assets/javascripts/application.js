@@ -24,7 +24,23 @@
 // Global object for page specific funcions
 window.Enrolled = {
 
-    init: function() {
+    defaults: function () {
+
+        $.fn.datetimepicker.defaults.allowInputToggle = true;
+        $.fn.datetimepicker.defaults.icons = {
+            time: 'fa fa-time',
+            date: 'fa fa-calendar',
+            up: 'fa fa-chevron-up',
+            down: 'fa fa-chevron-down',
+            previous: 'fa fa-chevron-left',
+            next: 'fa fa-chevron-right',
+            today: 'fa fa-screenshot',
+            clear: 'fa fa-trash',
+            close: 'fa fa-remove'
+        };
+    },
+
+    init: function () {
 
         var lang = $(document.body).attr('lang') || 'sl';
 
@@ -37,6 +53,10 @@ window.Enrolled = {
 };
 
 // App initialization
+$(function () {
+    Enrolled.defaults();
+});
+
 $(document).on('turbolinks:load', function () {
 
     Enrolled.init();

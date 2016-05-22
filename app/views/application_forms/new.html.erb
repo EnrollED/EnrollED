@@ -3,3 +3,9 @@
 <%= render 'form', url: application_forms_path%>
 
 <%= link_to 'Nazaj', application_forms_path %>
+
+<script type="text/javascript">
+  $(document).on('turbolinks:load', function () {
+    Enrolled.application_forms.form();
+  });
+</script>

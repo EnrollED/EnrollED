@@ -24,6 +24,7 @@ class ApplicationFormsController < ApplicationController
     @application = Application.new application_params
     @application.user = current_user
     @application.status = 'Status'
+
     submission_date = Time.now
     if @enrollment.end < submission_date
       redirect_to application_forms_path, notice: t('activerecord.attributes.application.messages.create.submission_date_too_late')
@@ -65,7 +66,7 @@ class ApplicationFormsController < ApplicationController
 
   def application_params
 
-    params.require(:application).permit(:maiden_name, :EMSO, :sex, :phone, :place_of_residence, :post_of_residence_id, :municipality_id, :country_of_birth_id, :highschool_id, :highschool_certificate, :highschool_country_id,
+    params.require(:application).permit(:maiden_name, :EMSO, :sex, :phone, :place_of_residence, :post_of_residence_id, :municipality_id, :country_of_birth_id, :highschool_id, :highschool_certificate, :highschool_country_id, :date_of_birth,
                                         :firstname_for_notification, :lastname_for_notification, :place_for_notification, :post_for_notification_id, :citizen_id, :country_of_residence_id, :highschool_completion_id)
   end
 
