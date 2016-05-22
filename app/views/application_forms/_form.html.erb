@@ -160,10 +160,24 @@
       </div>
     </div>
 
+
+    <div class="form-group">
+      <%= f.label :highschool_finished_date, t('activerecord.attributes.application.highschool_finished_date'), class: 'control-label' %>
+
+      <div class='input-group date'>
+        <%= f.text_field :highschool_finished_date, class: 'form-control' %>
+
+        <span class="input-group-addon">
+            <span class="fa fa-calendar"></span>
+        </span>
+      </div>
+    </div>
+
     <div class="form-group has-feedback">
       <%= f.label :highschool_completion_id, t('activerecord.attributes.application.highschool_completion'), class: 'control-label' %>
       <%= f.collection_select :highschool_completion_id, HighschoolCompletion.all, :id, :name, {},{class: 'form-control', data: {placeholder: ''}} %>
     </div>
+
 
     <div class="form-group has-feedback">
       <%= f.label :highschool_country_id, t('activerecord.attributes.application.highschool_country'), class: 'control-label' %>

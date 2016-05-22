@@ -151,6 +151,7 @@ sl:
         highschool_certificate: 'Spričevalo o končani srednji šoli že imam:'
         highschool_completion: 'Način zaključka srednje šole'
         highschool_country: 'Država'
+        highschool_finished_date: 'Datum izdaje spričevala o končani srednji šoli'
         messages:
           create:
             created: 'Prijava je bila uspešno ustvarjena!'
