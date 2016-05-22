@@ -26,9 +26,15 @@
 //}
 
 #main {
-  margin-left: 220px;
   padding-bottom: 120px;
   min-height: 600px;
+}
+
+.has-sidebar {
+
+  #main {
+    margin-left: 220px;
+  }
 }
 
 footer {

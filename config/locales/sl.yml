@@ -216,6 +216,11 @@ sl:
             password:
               complexity: 'mora vsebovati vsaj eno število, en velik znak in en majhen znak'
   layouts:
+    nav:
+      admin:
+        system: 'Sistemske lastnosti'
+        codes: 'Šifranti'
+        uporabniki: 'Uporabniki'
     header:
       my_profile: 'Moj profil'
       logout: 'Odjavi se'
