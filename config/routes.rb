@@ -43,6 +43,10 @@ Rails.application.routes.draw do
     resources :choices
   end
 
+  get '/application_forms/:id', to: 'application_forms#send', as: 'send_application_form'
+
+
+
   get 'sifranti' => 'home#sifranti'
 
   # Example of regular route:

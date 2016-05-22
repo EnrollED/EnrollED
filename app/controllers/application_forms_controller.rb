@@ -14,10 +14,9 @@ class ApplicationFormsController < ApplicationController
   end
 
   def create
-
     @application = Application.new application_params
     @application.user = current_user
-    @application.status = 'Status'
+    @application.status = 'Nepopolna'
     submission_date = Time.now
     if @enrollment.end < submission_date
       redirect_to application_forms_path, notice: t('activerecord.attributes.application.messages.create.submission_date_too_late')
@@ -25,7 +24,7 @@ class ApplicationFormsController < ApplicationController
     end
     @application.enrollment = @enrollment
     @application.submission_date = Time.now
-    @application.application_number = generateNumber
+    @application.application_number = generateAppNumber
 
 
     if @application.save
@@ -36,12 +35,16 @@ class ApplicationFormsController < ApplicationController
   end
 
   def edit
+    if @application.status == 'Poslana'
+      redirect_to application_forms_path, notice: 'Prijave ni mogoče spreminjati, saj je bila poslana vpisni službi!'
+    end
   end
 
   def update
 
     if @application.update application_params
-      redirect_to application_forms_path, notice: "Prijava je bila uspešno posodobljena!"
+      @applicationChoice = ApplicationChoice.where(application_id: @application.id, choice: 1).first
+      redirect_to edit_application_form_choice_path(@application, @applicationChoice)
     else
       render edit_application_form_path
     end
@@ -68,11 +71,17 @@ class ApplicationFormsController < ApplicationController
     @application = Application.find(params[:id])
   end
 
-  def generateNumber
+  def generateAppNumber
     return Time.now.year.to_s + '-' + rand(999999).to_s
   end
 
-
-
+  def show
+    @application = Application.find(params[:id])
+    if @application.update(:status => 'Poslana')
+      redirect_to application_forms_path, notice: 'Prijava je bila poslana vpisni službi!'
+    else
+      redirect_to application_forms_path, notice: 'Prišlo je do napake pri pošiljanju prijave vpisni službi!'
+    end
+  end
 
 end
