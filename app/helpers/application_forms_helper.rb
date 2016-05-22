@@ -14,4 +14,12 @@ module ApplicationFormsHelper
     end
     return ary
   end
+
+  def disableNewApplicationFormButton
+    if @enrollment.end < Time.now
+      return "disabled"
+    else
+      return "active"
+    end
+  end
 end

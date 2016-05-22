@@ -1,11 +1,11 @@
 class ApplicationFormsController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_enrollment, only: [:new, :create, :edit, :update]
+  before_action :set_enrollment, only: [:new, :create, :edit, :update, :index]
   before_action :set_application, only: [:update, :edit]
 
   def index
-    @applications = Application.all
+    @applications = Application.where(user_id: current_user.id)
   end
 
   def new
@@ -19,12 +19,19 @@ class ApplicationFormsController < ApplicationController
     @application.status = 'Nepopolna'
 
     submission_date = Time.now
-    if @enrollment.end < submission_date
+    if @enrollment.end < submission_date or policy(:admissions).index?
       redirect_to application_forms_path, notice: t('activerecord.attributes.application.messages.create.submission_date_too_late')
       return
     end
+
+    if params[:application][:citizen_id] == Citizen.find_by_code(1).id
+      @application.EMSO = params[:application][:EMSO]
+    else
+      @application.EMSO = generateEMSO
+
+    end
     @application.enrollment = @enrollment
-    @application.submission_date = Time.now
+    @application.submission_date = submission_date
     @application.application_number = generateAppNumber
 
 
@@ -45,7 +52,11 @@ class ApplicationFormsController < ApplicationController
 
     if @application.update application_params
       @applicationChoice = ApplicationChoice.where(application_id: @application.id, choice: 1).first
-      redirect_to edit_application_form_choice_path(@application, @applicationChoice)
+      if @applicationChoice.nil?
+        redirect_to new_application_form_choice_path(@application)
+      else
+        redirect_to edit_application_form_choice_path(@application, @applicationChoice)
+      end
     else
       render edit_application_form_path
     end
@@ -53,14 +64,23 @@ class ApplicationFormsController < ApplicationController
 
   def destroy
     @application = Application.find(params[:id])
-    @application.destroy
+    if @application.status != 'Poslana'
+      @application.destroy
+      redirect_to application_forms_path, notice: "Prijava je odstanjena!"
+    else
+      redirect_to application_forms_path, notice: "Poslane prijave ni mogoče odstraniti!"
+    end
 
-    redirect_to application_forms_path, notice: "Prijava je odstanjena!"
+
+
+  end
+
+  def generateEMSO
+    return '00' + '%011d' % rand(10 ** 10)
   end
 
   def application_params
-
-    params.require(:application).permit(:maiden_name, :EMSO, :sex, :phone, :place_of_residence, :post_of_residence_id, :municipality_id, :country_of_birth_id, :highschool_id, :highschool_certificate, :highschool_country_id, :date_of_birth,
+    params.require(:application).permit(:maiden_name, :sex, :phone, :place_of_residence, :post_of_residence_id, :municipality_id, :country_of_birth_id, :highschool_id, :highschool_certificate, :highschool_country_id, :date_of_birth,
                                         :firstname_for_notification, :lastname_for_notification, :place_for_notification, :post_for_notification_id, :citizen_id, :country_of_residence_id, :highschool_completion_id, :highschool_finished_date)
   end
 
