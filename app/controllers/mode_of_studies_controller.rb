@@ -1,6 +1,8 @@
 class ModeOfStudiesController < ApplicationController
   before_action :set_mode_of_study, only: [:show, :edit, :update, :destroy]
 
+  layout 'admin'
+
   # GET /mode_of_studies
   # GET /mode_of_studies.json
   def index

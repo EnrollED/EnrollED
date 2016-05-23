@@ -46,6 +46,7 @@
                                   {multiple: true, class: 'form-control', data:
                                       {placeholder: t('activerecord.attributes.user.role_ids')}} %>
         </div>
+
     <% end %>
 
     <% if policy(@user).change_pass? %>
@@ -69,6 +70,8 @@
           </div>
         </div>
     <% end %>
+
+
 
     <%= f.submit t('defaults.save'), class: 'btn btn-success' %>
 

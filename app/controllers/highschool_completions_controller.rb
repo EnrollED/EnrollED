@@ -1,6 +1,8 @@
 class HighschoolCompletionsController < ApplicationController
   before_action :set_highschool_completion, only: [:show, :edit, :update, :destroy]
 
+  layout 'admin'
+
   # GET /highschool_completions
   # GET /highschool_completions.json
   def index

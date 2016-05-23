@@ -1,6 +1,8 @@
 class HighschoolsController < ApplicationController
   before_action :set_highschool, only: [:show, :edit, :update, :destroy]
 
+  layout 'admin'
+
   # GET /highschools
   # GET /highschools.json
   def index

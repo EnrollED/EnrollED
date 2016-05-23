@@ -5,8 +5,6 @@ Rails.application.routes.draw do
   resources :professions
   resources :mode_of_studies
   resources :higher_education_institutions
-  resources :higher_education_institutions
-  resources :higher_education_institutions
   resources :highschool_completions
   resources :posts
   resources :countries
@@ -32,8 +30,12 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :users, except: :show, concerns: :paginatable
+    resources :users, except: :show, concerns: :paginatable do
+      resources :faculties, only: [:index, :create, :destroy]
+    end
   end
+
+  resources :codes, only: :index
 
   resources :users, only: [:edit, :update]
   resources :study_programs
@@ -43,11 +45,8 @@ Rails.application.routes.draw do
     resources :choices
   end
 
-  get '/application_forms/:id', to: 'application_forms#send', as: 'send_application_form'
-
-
-
-  get 'sifranti' => 'home#sifranti'
+  get '/application_forms/:id/send' => 'application_forms#send_application', via: :get,  as: 'send_application_form'
+  get '/application_forms/:id/pdf_export/' => 'application_forms#pdf_export'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

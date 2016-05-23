@@ -3,6 +3,8 @@ class Admin::UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :destroy]
   before_action :set_roles, except: [:index, :destroy]
 
+  layout 'admin'
+
   # GET /users
   # GET /users.json
   def index
