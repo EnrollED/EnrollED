@@ -6,11 +6,8 @@
 
 
         <div class="form-group has-feedback">
-          <%= f.collection_select :study_program_mode_id, StudyProgramMode.all, :id, :study_program_choice, {:include_blank => ''}, {class: 'form-control', data: {placeholder: ''}} %>
+          <%= f.collection_select :study_program_mode_id, StudyProgramMode.where(is_valid: true), :id, :study_program_choice, {:include_blank => ''}, {class: 'form-control', data: {placeholder: ''}} %>
         </div>
-
-
-
 
     <div class="actions">
       <%= f.submit getSaveOrNextMessage(@choice_number)%>

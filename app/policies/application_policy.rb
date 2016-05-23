@@ -1,9 +1,19 @@
-class ApplicationPolicy
-  attr_reader :user, :record
+class ApplicationPolicy < BasePolicy
+  class Scope
+    attr_reader :user, :scope
 
-  def initialize(user, record)
-    @user = user
-    @record = record
+    def initialize(user, scope)
+      @user  = user
+      @scope = scope
+    end
+
+    def resolve
+      if (@user.has_role? :admissions) or (@user.has_role? :admin)
+        scope.all
+      else
+        scope.where(user_id: @user.id)
+      end
+    end
   end
 
   def index?
@@ -11,43 +21,30 @@ class ApplicationPolicy
   end
 
   def show?
-    scope.where(:id => record.id).exists?
-  end
-
-  def create?
-    true
-  end
-
-  def new?
-    create?
-  end
-
-  def update?
-    true
+    (@user.has_role? :admissions) or (@user.has_role? :admin) or @record.user == @user
   end
 
   def edit?
     update?
   end
 
+  def new?
+    create?
+  end
+
+  def create?
+    (@user.has_role? :admissions) or (@user.has_role? :admin) or (@record.user == @user and @record.enrollment.end > Time.now)
+  end
+
+  def update?
+    (@user.has_role? :admissions) or (@user.has_role? :admin) or (@record.user == @user and @record.status != 'Poslana')
+  end
+
   def destroy?
-    true
+    update?
   end
 
-  def scope
-    Pundit.policy_scope!(user, record.class)
-  end
-
-  class Scope
-    attr_reader :user, :scope
-
-    def initialize(user, scope)
-      @user = user
-      @scope = scope
-    end
-
-    def resolve
-      scope
-    end
+  def send_application?
+    show?
   end
 end

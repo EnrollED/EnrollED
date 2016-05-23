@@ -5,24 +5,23 @@ class ApplicationFormsController < ApplicationController
   before_action :set_application, only: [:update, :edit, :pdf_export, :send]
 
   def index
-    @applications = Application.where(user_id: current_user.id)
+    authorize Application
+    @applications = policy_scope(Application)
   end
 
   def new
     @application = Application.new
     @application.user = current_user
+    @application.enrollment = @enrollment
+    authorize @application
   end
 
   def create
+
     @application = Application.new application_params
+
     @application.user = current_user
     @application.status = 'Nepopolna'
-
-    submission_date = Time.now
-    if @enrollment.end < submission_date
-      redirect_to application_forms_path, notice: t('activerecord.attributes.application.messages.create.submission_date_too_late')
-      return
-    end
 
     if params[:application][:citizen_id] == Citizen.find_by_code(1).id
       @application.EMSO = params[:application][:EMSO]
@@ -31,10 +30,10 @@ class ApplicationFormsController < ApplicationController
 
     end
     @application.enrollment = @enrollment
-    @application.submission_date = submission_date
+    @application.submission_date = Time.now
     @application.application_number = generateAppNumber
 
-
+    authorize @application
     if @application.save
       redirect_to new_application_form_choice_path(@application)
     else
@@ -43,12 +42,11 @@ class ApplicationFormsController < ApplicationController
   end
 
   def edit
-    if @application.status == 'Poslana'
-      redirect_to application_forms_path, notice: 'Prijave ni mogoče spreminjati, saj je bila poslana vpisni službi!'
-    end
+    authorize @application
   end
 
   def update
+    authorize @application
     if @application.update application_params
       @applicationChoice = ApplicationChoice.where(application_id: @application.id, choice: 1).first
       if @applicationChoice.nil?
@@ -63,6 +61,7 @@ class ApplicationFormsController < ApplicationController
 
   def destroy
     @application = Application.find(params[:id])
+    authorize @application
     if @application.status != 'Poslana'
       @application.destroy
       redirect_to application_forms_path, notice: "Prijava je odstanjena!"
