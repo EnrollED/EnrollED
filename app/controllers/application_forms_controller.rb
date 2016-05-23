@@ -103,7 +103,8 @@ class ApplicationFormsController < ApplicationController
   end
 
   def pdf_export
-
+    @application = Application.find(params[:id])
+    @application_choices =  ApplicationChoice.where(application_id: @application.id)
   end
 
 end
