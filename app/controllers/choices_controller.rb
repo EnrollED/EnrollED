@@ -24,6 +24,10 @@ class ChoicesController < ApplicationController
 
   def create
     @applicationChoice.study_program_mode_id = params[:application_choice][:study_program_mode_id]
+    if @applicationChoice.study_program_mode_id.nil?
+      redirect_to application_forms_path
+      return
+    end
     @applicationChoice.choice = @choice_number.to_s
     @applicationChoice.application = @application
     @applicationChoice.save
@@ -39,6 +43,10 @@ class ChoicesController < ApplicationController
     @applicationChoice = ApplicationChoice.find(params[:id])
     @application = Application.find(params[:application_form_id])
     @applicationChoice.study_program_mode_id = params[:application_choice][:study_program_mode_id]
+    if @applicationChoice.study_program_mode_id.nil?
+      redirect_to application_forms_path
+      return
+    end
     @applicationChoice.save
     if @applicationChoice.choice == 3
       @applicationChoiceExisting = ApplicationChoice.where(application_id: params[:application_form_id])

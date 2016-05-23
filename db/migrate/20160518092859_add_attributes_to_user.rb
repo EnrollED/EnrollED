@@ -21,5 +21,10 @@ class AddAttributesToUser < ActiveRecord::Migration
     add_column :applications, :highschool_certificate, :boolean
     add_column :applications, :highschool_finished_date, :date
 
+    add_column :applications, :repeater, :boolean
+    add_column :applications, :absolvent, :boolean
+    add_column :applications, :diplomant, :boolean
+    add_column :applications, :student, :boolean
+
   end
 end

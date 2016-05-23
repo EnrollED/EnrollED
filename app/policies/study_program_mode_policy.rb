@@ -1,4 +1,4 @@
-class StudyProgramModePolicy < ApplicationPolicy
+class StudyProgramModePolicy < BasePolicy
 
   def index?
     (@user.has_role? :admissions) or (@user.has_role? :admin)
