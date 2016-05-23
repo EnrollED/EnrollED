@@ -184,8 +184,6 @@
       <%= f.collection_select :highschool_country_id, Country.all, :id, :name, {},{class: 'form-control', data: {placeholder: ''}} %>
     </div>
 
-    <div class="actions">
-      <%= f.submit 'Naprej'%>
-    </div>
+      <%= f.submit 'Naprej', class: 'btn btn-success'%>
 
 <% end %>
