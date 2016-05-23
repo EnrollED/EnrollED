@@ -36,6 +36,10 @@ class UserPolicy < ApplicationPolicy
     @user == @record
   end
 
+  def edit_faculties?
+    index?
+  end
+
   def permitted_attributes
     if change_role?
       [:username, :firstname, :lastname, :email, role_ids: []]

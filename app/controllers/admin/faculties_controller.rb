@@ -5,11 +5,15 @@ class Admin::FacultiesController < ApplicationController
   layout 'admin'
 
   def index
+    authorize @user, :edit_faculties?
+
     @faculties = HigherEducationInstitution.with_role(:member, @user).order(:name).page(params[:page])
     @available_faculties = HigherEducationInstitution.order(:name).all
   end
 
   def create
+    authorize @user, :edit_faculties?
+
     faculty = HigherEducationInstitution.find(params[:faculty_id]) rescue (return redirect_to(action: :index))
 
     if @user.add_role :member, faculty
@@ -20,6 +24,8 @@ class Admin::FacultiesController < ApplicationController
   end
 
   def destroy
+    authorize @user, :edit_faculties?
+
     faculty = HigherEducationInstitution.find(params[:id])
 
     if @user.remove_role :member, faculty
