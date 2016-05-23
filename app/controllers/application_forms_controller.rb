@@ -6,7 +6,7 @@ class ApplicationFormsController < ApplicationController
 
   def index
     authorize Application
-    @applications = Application.where(user_id: current_user.id)
+    @applications = policy_scope(Application)
   end
 
   def new
