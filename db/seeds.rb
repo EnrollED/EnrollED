@@ -134,10 +134,10 @@ CSV.foreach(csv_file_path, {:headers=>:first_row}) do |row|
 end
 puts "Inserted mode of study"
 
-enrollment = Enrollment.new(name: 'Vpis fakultete 2016/17', start: '2016-05-15 10:23:54', end: '2016-07-15 10:23:54', created_at: Time.now, updated_at: Time.now, current: true)
+enrollment = Enrollment.new(name: '1. rok', study_year: '2016/17', start: '2016-05-15 10:23:54', end: '2016-07-15 10:23:54', created_at: Time.now, updated_at: Time.now, current: true)
 enrollment.save!
 
-enrollment2 = Enrollment.new(name: 'Vpis fakultete 2015/16', start: '2015-05-15 10:23:54', end: '2015-07-15 10:23:54', created_at: Time.now, updated_at: Time.now, current: false)
+enrollment2 = Enrollment.new(name: '1. rok', study_year: '2015/16', start: '2015-05-15 10:23:54', end: '2015-07-15 10:23:54', created_at: Time.now, updated_at: Time.now, current: false)
 enrollment2.save!
 
 csv_file_path = "db/data/Program.csv"
@@ -147,7 +147,7 @@ CSV.foreach(csv_file_path, {:headers=>:first_row}) do |row|
                           :name => row[4],
                           :higher_education_institution => HigherEducationInstitution.find_by_code(row[2]),
                           :type_of_study => TypeOfStudy.find_by_code(row[0]),
-                          :enrollment => Enrollment.find_by_name("Vpis fakultete 2016/17")
+                          :enrollment => Enrollment.find_by_study_year('2016/17')
                       })
 end
 puts "Inserted study program"

@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 20160519200235) do
 
   create_table "enrollments", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "name",                      null: false
+    t.string   "study_year",                null: false
     t.datetime "start",                     null: false
     t.datetime "end",                       null: false
     t.boolean  "current",                   null: false

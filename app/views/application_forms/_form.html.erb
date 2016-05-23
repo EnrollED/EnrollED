@@ -191,50 +191,6 @@
       <%= f.collection_select :highschool_country_id, Country.where(is_valid: true), :id, :name, {},{class: 'form-control', data: {placeholder: ''}} %>
     </div>
 
-    <!--<hr>-->
-
-    <!--<h4>Visokošolska izobrazba</h4>-->
-
-    <!--<div class="form-group has-feedback">-->
-      <!--<%= f.label :repeater, t('activerecord.attributes.application.repeater'), class: 'control-label' %>-->
-      <!--<div class="row">-->
-        <!--<div class="col-sm-9">-->
-    <!--  <%= f.radio_button :repeater, true, checked: 'checked'%> Da-->
-    <!--   <%= f.radio_button :repeater, false%> Ne-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
-
-    <!--<div class="form-group has-feedback">-->
-      <!--<%= f.label :absolvent, t('activerecord.attributes.application.absolvent'), class: 'control-label' %>-->
-      <!--<div class="row">-->
-        <!--<div class="col-sm-9">-->
-    <!--   <%= f.radio_button :absolvent, true, checked: 'checked'%> Da-->
-    <!--   <%= f.radio_button :absolvent, false%> Ne-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
-
-    <!--<div class="form-group has-feedback">-->
-      <!--<%= f.label :diplomant, t('activerecord.attributes.application.diplomant'), class: 'control-label' %>-->
-      <!--<div class="row">-->
-        <!--<div class="col-sm-9">-->
-    <!--    <%= f.radio_button :diplomant, true, checked: 'checked'%> Da-->
-    <!--    <%= f.radio_button :diplomant, false%> Ne-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
-
-    <!--<div class="form-group has-feedback">-->
-      <!--<%= f.label :student, t('activerecord.attributes.application.student'), class: 'control-label' %>-->
-      <!--<div class="row">-->
-        <!--<div class="col-sm-9">-->
-    <!-- <%= f.radio_button :student, true, checked: 'checked'%> Da-->
-    <!-- <%= f.radio_button :student, false%> Ne-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
-
-      <%= f.submit 'Naprej', class: 'btn btn-success'%>
+    <%= f.submit 'Naprej', class: 'btn btn-success'%>
 
 <% end %>
