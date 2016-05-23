@@ -19,7 +19,7 @@ class AddAttributesToUser < ActiveRecord::Migration
     add_column :applications, :place_for_notification, :string
 
     add_column :applications, :highschool_certificate, :boolean
-    add_column :applications, :highschool_finishe_date, :date
+    add_column :applications, :highschool_finished_date, :date
 
   end
 end

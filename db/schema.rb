@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20160519200235) do
     t.string   "lastname_for_notification"
     t.string   "place_for_notification"
     t.boolean  "highschool_certificate"
-    t.date     "highschool_finishe_date"
+    t.date     "highschool_finished_date"
   end
 
   create_table "citizens", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
