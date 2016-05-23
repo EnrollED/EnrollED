@@ -19,7 +19,7 @@ class ApplicationFormsController < ApplicationController
     @application.status = 'Nepopolna'
 
     submission_date = Time.now
-    if @enrollment.end < submission_date or policy(:admissions).index?
+    if @enrollment.end < submission_date
       redirect_to application_forms_path, notice: t('activerecord.attributes.application.messages.create.submission_date_too_late')
       return
     end
@@ -49,7 +49,6 @@ class ApplicationFormsController < ApplicationController
   end
 
   def update
-
     if @application.update application_params
       @applicationChoice = ApplicationChoice.where(application_id: @application.id, choice: 1).first
       if @applicationChoice.nil?
@@ -70,9 +69,6 @@ class ApplicationFormsController < ApplicationController
     else
       redirect_to application_forms_path, notice: "Poslane prijave ni mogoče odstraniti!"
     end
-
-
-
   end
 
   def generateEMSO

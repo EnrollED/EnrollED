@@ -20,8 +20,6 @@ class ChoicesController < ApplicationController
     @application = Application.find(params[:application_form_id])
     @applicationChoiceExisting = ApplicationChoice.where(application_id: params[:application_form_id])
     @choice_number = @applicationChoiceExisting.count + 1
-
-
   end
 
   def create
@@ -30,13 +28,11 @@ class ChoicesController < ApplicationController
     @applicationChoice.application = @application
     @applicationChoice.save
     redirect_to new_application_form_choice_path
-
   end
 
   def edit
     @applicationChoice = ApplicationChoice.find(params[:id])
     @choice_number = @applicationChoice.choice
-
   end
 
   def update
@@ -61,11 +57,11 @@ class ChoicesController < ApplicationController
       else
         redirect_to edit_application_form_choice_path(@application, @applicationChoiceNew)
       end
-
     end
   end
 
   def set_enrollment
     @enrollment = Enrollment.find_by_current(true)
   end
+
 end
