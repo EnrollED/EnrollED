@@ -1,8 +1,8 @@
 class ApplicationFormsController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_enrollment, only: [:new, :create, :edit, :update, :index]
-  before_action :set_application, only: [:update, :edit]
+  before_action :set_enrollment, only: [:new, :create, :edit, :update, :index, :pdf_export, :send]
+  before_action :set_application, only: [:update, :edit, :pdf_export, :send]
 
   def index
     @applications = Application.where(user_id: current_user.id)
@@ -92,13 +92,18 @@ class ApplicationFormsController < ApplicationController
     return Time.now.year.to_s + '-' + rand(999999).to_s
   end
 
-  def show
+ 
+  def send_application
     @application = Application.find(params[:id])
     if @application.update(:status => 'Poslana')
       redirect_to application_forms_path, notice: 'Prijava je bila poslana vpisni službi!'
     else
       redirect_to application_forms_path, notice: 'Prišlo je do napake pri pošiljanju prijave vpisni službi!'
     end
+  end
+
+  def pdf_export
+
   end
 
 end

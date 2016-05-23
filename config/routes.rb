@@ -5,8 +5,6 @@ Rails.application.routes.draw do
   resources :professions
   resources :mode_of_studies
   resources :higher_education_institutions
-  resources :higher_education_institutions
-  resources :higher_education_institutions
   resources :highschool_completions
   resources :posts
   resources :countries
@@ -39,15 +37,17 @@ Rails.application.routes.draw do
   resources :study_programs
   resources :study_program_modes
 
+
+
   resources :application_forms do
     resources :choices
   end
-
-  get '/application_forms/:id', to: 'application_forms#send', as: 'send_application_form'
+  get '/application_forms/:id/send' => 'application_forms#send_application', via: :get,  as: 'send_application_form'
 
 
 
   get 'sifranti' => 'home#sifranti'
+  get '/application_forms/:id/pdf_export/' => 'application_forms#pdf_export'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
