@@ -25,7 +25,7 @@
 
     <% end %>
     <div class="form-group has-feedback">
-      <%= f.label :maiden_name, t('activerecord.attributes.user.maiden_name'), class: 'control-label' %>
+      <%= f.label :maiden_name, t('activerecord.attributes.application.maiden_name'), class: 'control-label' %>
       <%= f.text_field :maiden_name, class: 'form-control' %>
       <div class="form-control-feedback">
         <i class="fa fa-user" aria-hidden="true"></i>
@@ -50,7 +50,7 @@
     </div>
 
     <div class="form-group has-feedback">
-      <%= f.label :EMSO, t('activerecord.attributes.user.EMSO'), class: 'control-label' %>
+      <%= f.label :EMSO, t('activerecord.attributes.application.EMSO'), class: 'control-label' %>
       <%= f.text_field :EMSO, class: 'form-control' %>
       <div class="form-control-feedback">
         <i class="fa fa-user" aria-hidden="true"></i>
@@ -58,7 +58,7 @@
     </div>
 
     <div class="form-group has-feedback">
-      <%= f.label :sex, t('activerecord.attributes.user.sex'), class: 'control-label' %>
+      <%= f.label :sex, t('activerecord.attributes.application.sex'), class: 'control-label' %>
       <%= f.select :sex, [['M', 'M'], ['Ž', 'Ž']], { include_blank: true }, {class: 'form-control'} %>
     </div>
 
@@ -69,12 +69,12 @@
     </div>
 
     <div class="form-group has-feedback">
-      <%= f.label :country_of_birth_id, t('activerecord.attributes.user.country_of_birth'), class: 'control-label' %>
+      <%= f.label :country_of_birth_id, t('activerecord.attributes.application.country_of_birth'), class: 'control-label' %>
       <%= f.collection_select :country_of_birth_id, Country.all, :id, :name, {},{class: 'form-control', data: {placeholder: ''}} %>
     </div>
 
     <div class="form-group has-feedback">
-      <%= f.label :phone, t('activerecord.attributes.user.phone'), class: 'control-label' %>
+      <%= f.label :phone, t('activerecord.attributes.application.phone'), class: 'control-label' %>
       <%= f.text_field :phone, class: 'form-control' %>
       <div class="form-control-feedback">
         <i class="fa fa-user" aria-hidden="true"></i>
@@ -160,10 +160,24 @@
       </div>
     </div>
 
+
+    <div class="form-group">
+      <%= f.label :highschool_finished_date, t('activerecord.attributes.application.highschool_finished_date'), class: 'control-label' %>
+
+      <div class='input-group date'>
+        <%= f.text_field :highschool_finished_date, class: 'form-control' %>
+
+        <span class="input-group-addon">
+            <span class="fa fa-calendar"></span>
+        </span>
+      </div>
+    </div>
+
     <div class="form-group has-feedback">
       <%= f.label :highschool_completion_id, t('activerecord.attributes.application.highschool_completion'), class: 'control-label' %>
       <%= f.collection_select :highschool_completion_id, HighschoolCompletion.all, :id, :name, {},{class: 'form-control', data: {placeholder: ''}} %>
     </div>
+
 
     <div class="form-group has-feedback">
       <%= f.label :highschool_country_id, t('activerecord.attributes.application.highschool_country'), class: 'control-label' %>
@@ -171,7 +185,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit t('activerecord.attributes.application.create_prijava')%>
+      <%= f.submit 'Naprej'%>
     </div>
 
 <% end %>

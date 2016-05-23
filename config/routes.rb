@@ -38,7 +38,14 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   resources :study_programs
   resources :study_program_modes
-  resources :application_forms
+
+  resources :application_forms do
+    resources :choices
+  end
+
+  get '/application_forms/:id', to: 'application_forms#send', as: 'send_application_form'
+
+
 
   get 'sifranti' => 'home#sifranti'
 
