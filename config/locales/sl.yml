@@ -228,6 +228,11 @@ sl:
         system: 'Sistemske lastnosti'
         codes: 'Šifranti'
         uporabniki: 'Uporabniki'
+      home:
+        personal: 'Osebno'
+        enrollment_resources: 'Viri za vpis'
+        my_applications: 'Moje prijave'
+        study_programs: 'Študijski programi'
     header:
       my_profile: 'Moj profil'
       logout: 'Odjavi se'

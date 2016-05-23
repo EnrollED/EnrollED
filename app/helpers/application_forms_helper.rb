@@ -17,9 +17,9 @@ module ApplicationFormsHelper
 
   def disableNewApplicationFormButton
     if @enrollment.end < Time.now
-      return "disabled"
+      'disabled'
     else
-      return "active"
+      ''
     end
   end
 end

@@ -4,6 +4,8 @@ class ApplicationFormsController < ApplicationController
   before_action :set_enrollment, only: [:new, :create, :edit, :update, :index, :pdf_export, :send]
   before_action :set_application, only: [:update, :edit, :pdf_export, :send]
 
+  layout 'home'
+
   def index
     authorize Application
     @applications = policy_scope(Application)
