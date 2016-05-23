@@ -1,6 +1,8 @@
 class MunicipalitiesController < ApplicationController
   before_action :set_municipality, only: [:show, :edit, :update, :destroy]
 
+  layout 'admin'
+
   # GET /municipalities
   # GET /municipalities.json
   def index

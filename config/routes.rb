@@ -32,7 +32,9 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :users, except: :show, concerns: :paginatable
+    resources :users, except: :show, concerns: :paginatable do
+      resources :faculties, only: [:index, :create, :destroy]
+    end
   end
 
   resources :users, only: [:edit, :update]
@@ -40,7 +42,7 @@ Rails.application.routes.draw do
   resources :study_program_modes
   resources :application_forms
 
-  get 'sifranti' => 'home#sifranti'
+  resources :codes, only: :index
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

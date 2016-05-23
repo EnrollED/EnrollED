@@ -1,4 +1,17 @@
-<h1><%= t '.edit' %></h1>
+<div class="row page-heading">
+  <div class="col-lg-10">
+    <h2><%= t '.edit' %></h2>
+  </div>
+</div>
+
+<div class="tabs-container">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="<%= edit_admin_user_path(@user) %>" aria-expanded="true">Profil</a></li>
+    <li><a href="<%= admin_user_faculties_path(@user) %>" aria-expanded="false">Fakultete</a></li>
+  </ul>
+</div>
+
+<br />
 
 <%= render 'form', user: [:admin, @user], cancel: admin_users_path %>
 

@@ -2,6 +2,7 @@ sl:
   defaults:
     name: 'EnrollED'
     cancel: 'Prekliči'
+    remove: 'Odstrani'
     edit: 'Uredi'
     show: 'Prikaži'
     delete: 'Izbriši'
@@ -187,6 +188,7 @@ sl:
       higher_education_institution:
         code: 'Šifra'
         name: 'Naziv'
+        acronym: 'Kratica'
         is_valid: 'Veljavnost'
       mode_of_study:
         code: 'Šifra'
@@ -232,6 +234,18 @@ sl:
     destroy:
       disabled: 'Vaš račun je bil onemogočen'
   admin:
+    faculties:
+      index:
+        choose_faculty: 'Izberi fakulteto'
+        add_faculty: 'Dodaj fakulteto'
+        faculties: 'Fakultete uporabnika'
+        no_faculties: 'Uporabnik ne pripada nobeni fakulteti'
+      create:
+        success: 'Fakulteta je bila uspešno dodana'
+        failed: 'Dodajanje fakultete ni uspelo'
+      destroy:
+        success: 'Fakulteta je bila uspešno odstranjena'
+        failed: 'Odstranitev fakultete ni uspela'
     users:
       form:
         cancel_account: 'Prekliči račun'

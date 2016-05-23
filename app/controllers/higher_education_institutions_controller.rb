@@ -1,6 +1,8 @@
 class HigherEducationInstitutionsController < ApplicationController
   before_action :set_higher_education_institution, only: [:show, :edit, :update, :destroy]
 
+  layout 'admin'
+
   # GET /higher_education_institutions
   # GET /higher_education_institutions.json
   def index

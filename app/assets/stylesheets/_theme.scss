@@ -1,4 +1,4 @@
-// Theme fixes
+// External theme fixes
 .navbar-fixed-top, .navbar-static-top {
   background: $navbar-inverse-bg;
 }
@@ -21,18 +21,28 @@
   }
 }
 
-//.page-heading {
-//  background-color: $page-heading-color;
-//}
+.select2-container--default .select2-selection--multiple {
+  border: 1px solid $border-color;
+  border-radius: 0;
+}
 
-#main {
+// Theme
+
+.page-heading {
+  border-bottom: 1px solid $border-color;
+  margin-bottom: 10px;
+  padding: 0 0 20px 0;
+  //background-color: $page-heading-color;
+}
+
+.main {
   padding-bottom: 120px;
   min-height: 600px;
 }
 
 .has-sidebar {
 
-  #main {
+  .main {
     margin-left: 220px;
   }
 }
@@ -53,6 +63,22 @@ footer {
     margin-top: 5px;
   }
 }
+
+.has-sidebar {
+
+  .content {
+    padding: 0 10px 0 10px;
+
+    .full {
+      margin: 0 -10px 0 -10px;
+    }
+  }
+}
+
+.content {
+  padding: 0 30px 0 30px;
+}
+
 
 .panel {
   border-radius: 0;

@@ -1,6 +1,8 @@
 class CountriesController < ApplicationController
   before_action :set_country, only: [:show, :edit, :update, :destroy]
 
+  layout 'admin'
+
   # GET /countries
   # GET /countries.json
   def index
