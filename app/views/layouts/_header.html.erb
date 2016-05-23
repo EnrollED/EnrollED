@@ -15,11 +15,6 @@
     <div class="collapse navbar-collapse" id="nav">
 
       <ul class="nav navbar-nav navbar-right">
-        <% if policy(:study_program).index? %>
-            <li>
-              <a href="<%= study_programs_path %>"><%= "Študijski programi" %></a>
-            </li>
-        <% end %>
 
         <% if policy(:post).index? %>
             <li>

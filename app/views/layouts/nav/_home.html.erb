@@ -1,0 +1,21 @@
+<nav class="navbar-side" role="navigation">
+  <ul>
+
+    <li class="navbar-side-divider">
+      <span><%= t '.personal' %></span>
+    </li>
+    <li>
+      <a href="<%= application_forms_path %>"><i class="fa fa-wpforms"></i> <span><%= t '.my_applications' %></span></a>
+    </li>
+
+    <% if policy(:study_program).index? %>
+        <li class="navbar-side-divider">
+          <span><%= t '.enrollment_resources' %></span>
+        </li>
+        <li>
+          <a href="<%= study_programs_path %>"><i class="fa fa-list"></i> <span><%= t '.study_programs' %></span></a>
+        </li>
+    <% end %>
+
+  </ul>
+</nav>

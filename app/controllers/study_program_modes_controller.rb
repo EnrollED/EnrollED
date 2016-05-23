@@ -1,6 +1,8 @@
 class StudyProgramModesController < ApplicationController
   before_action :set_study_program_mode, only: [:show, :edit, :update, :destroy]
 
+  layout 'home'
+
   # GET /study_program_modes
   # GET /study_program_modes.json
   def index
