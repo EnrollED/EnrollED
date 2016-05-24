@@ -46,6 +46,12 @@
                 <i class="fa fa-paper-plane" title="<%= "Pošlji" %>" aria-hidden="true"></i>
             <% end %>
           </td>
+        <% elsif application.status == 'Poslana' %>
+            <td>
+                <%= link_to export_application_form_path(application, :format=> :pdf), class: 'label label-success' do %>
+                <i class="fa fa-print" title="<%= "Natisni" %>" aria-hidden="true"></i>
+            <% end %>
+            </td>
         <% else %>
         <td colspan="1"></td>
         <% end %>

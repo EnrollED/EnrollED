@@ -157,6 +157,7 @@ sl:
         absolvent: 'Sem absolvent(ka) visokošolskega študijskega programa'
         diplomant: 'Sem diplomant(ka) visokošolskega študijskega programa'
         student: 'Sem študent(ka) visokošolskega študijskega programa'
+        klasius_srvs: 'Najvišja že dosežena izobrazba'
         messages:
           create:
             created: 'Prijava je bila uspešno ustvarjena!'
@@ -210,6 +211,13 @@ sl:
       university:
         code: 'Šifra'
         name: 'Naziv'
+        is_valid: 'Veljavnost'
+      university:
+        code: 'Šifra'
+        description_sl: 'Opis (slo)'
+        description_en: 'Opis (ang)'
+        parent: 'Šifra starša'
+        level: 'Nivo'
         is_valid: 'Veljavnost'
     errors:
       messages:

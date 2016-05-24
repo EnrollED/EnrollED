@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Šifra:</strong>
+  <%= @klasius_srv.code %>
+</p>
+
+<p>
+  <strong>Opis (slo):</strong>
+  <%= @klasius_srv.description_sl %>
+</p>
+
+<p>
+  <strong>Opis (ang):</strong>
+  <%= @klasius_srv.description_en %>
+</p>
+
+<p>
+  <strong>Nivo:</strong>
+  <%= @klasius_srv.level %>
+</p>
+
+<p>
+  <strong>Veljavnost:</strong>
+  <%if @klasius_srv.is_valid? %>da<% else %>ne<% end %>
+</p>
+<%= link_to 'Uredi', edit_klasius_srv_path(@klasius_srv) %> |
+<%= link_to 'Nazaj', klasius_srvs_path %>

@@ -152,5 +152,17 @@ CSV.foreach(csv_file_path, {:headers=>:first_row}) do |row|
 end
 puts "Inserted study program"
 
+csv_file_path = 'db/data/KLASIUS-SRV.csv'
+CSV.foreach(csv_file_path, {:headers=>:first_row, :col_sep  => ';'}) do |row|
+  KlasiusSrv.create!({
+                         :code => row[1],
+                         :description_sl => row[2],
+                         :description_en => row[3],
+                         :parent => row[4],
+                         :level => row[0]
+                     })
+end
+puts "Inserted KlasiusSRV"
+
 StudyProgramMode.create( study_program: StudyProgram.find_by_name('RAČUNALNIŠTVO IN INFORMATIKA'), mode_of_study: ModeOfStudy.all.find_by_name('REDNI'), number_of_places: '150', number_of_places_foreign: '10' )
 

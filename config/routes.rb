@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :klasius_srvs
   resources :highschools
   resources :universities
   resources :type_of_studies
@@ -46,7 +47,7 @@ Rails.application.routes.draw do
   end
 
   get '/application_forms/:id/send' => 'application_forms#send_application', via: :get,  as: 'send_application_form'
-  get '/application_forms/:id/pdf_export/' => 'application_forms#pdf_export'
+  get '/application_forms/:id/pdf_export/' => 'application_forms#pdf_export', via: :get, as: 'export_application_form'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

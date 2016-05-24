@@ -78,7 +78,7 @@ class ApplicationFormsController < ApplicationController
 
   def application_params
     params.require(:application).permit(:maiden_name, :sex, :phone, :place_of_residence, :post_of_residence_id, :municipality_id, :country_of_birth_id, :highschool_id, :highschool_certificate, :highschool_country_id, :date_of_birth,
-                                        :firstname_for_notification, :lastname_for_notification, :place_for_notification, :post_for_notification_id, :citizen_id, :country_of_residence_id, :highschool_completion_id, :highschool_finished_date)
+                                        :firstname_for_notification, :lastname_for_notification, :place_for_notification, :post_for_notification_id, :citizen_id, :country_of_residence_id, :highschool_completion_id, :highschool_finished_date, :klasius_srvs_id)
   end
 
   def set_enrollment
@@ -104,7 +104,20 @@ class ApplicationFormsController < ApplicationController
   end
 
   def pdf_export
+    @application = Application.find(params[:id])
+    @application_choices =  ApplicationChoice.where(application_id: @application.id)
 
+    respond_to do |format|
+      format.html
+      format.pdf do
+        #export_pdf
+        html = render_to_string(:action => :pdf_export, :layout => 'layouts/layout_pdf.html.erb', :template => 'application_forms/pdf_export.html.erb')
+        pdf = WickedPdf.new.pdf_from_string(html)
+        send_data(pdf,
+                  :filename    => "prijava_"+ (@application.application_number) +".pdf",
+                  :disposition => 'attachment')
+      end
+    end
   end
 
 end

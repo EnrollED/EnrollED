@@ -1,0 +1,49 @@
+.bg-grey{
+    background-color: lightgrey;
+}
+
+.bg-light-grey{
+    background-color: #eeeeee;
+}
+
+.border-btm-thick{
+    border-bottom: #000 3px solid;
+}
+
+.border-all{
+    border: #000 1px solid;
+}
+
+.border-tbl{
+    border-top: #000 1px solid;
+    border-bottom: #000 1px solid;
+    border-left: #000 1px solid;
+}
+
+.fs14{
+    font-size: 14px;
+}
+
+.fs9{
+    font-size: 9px;
+}
+
+.mg-btm3{
+    margin-bottom: 3px;
+}
+
+.vertical-text {
+    transform: rotate(-90deg);
+    transform-origin: right, top;
+    -ms-transform: rotate(-90deg);
+    -ms-transform-origin:right, top;
+    -webkit-transform: rotate(-90deg);
+    -webkit-transform-origin:right, top;
+    position: absolute;
+    left: -5px;
+    top: 35px;
+}
+
+body{
+    font-size: 12px;
+}
