@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :klasius_srvs
   resources :highschools
   resources :universities
   resources :type_of_studies

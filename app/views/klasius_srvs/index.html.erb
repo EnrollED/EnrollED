@@ -1,0 +1,81 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Seznam zapisov Klasius SRV</h1>
+<div class="row">
+  <div class="col-sm-4">
+    <%= form_tag(klasius_srvs_path, method: :get) do |f| %>
+
+        <div class="input-group">
+
+          <%= search_field_tag :search, params[:search], autofocus: true,
+                               placeholder: t('defaults.search') + '...', class: 'form-control' %>
+
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+          </span>
+
+        </div>
+
+    <% end %>
+  </div>
+
+  <div class="col-sm-8 text-right">
+    <%= link_to 'Dodaj zapis', new_klasius_srv_path, class: 'btn btn-success' %>
+  </div>
+
+</div>
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
+    <tr>
+      <th>Šifra</th>
+      <th>Opis (slo)</th>
+      <th>Opis (ang)</th>
+      <th>Nivo</th>
+      <th>Veljavnost</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @klasius_srvs.each do |klasius_srv| %>
+        <tr>
+          <td><%= klasius_srv.code %></td>
+          <td><%= klasius_srv.description_sl %></td>
+          <td><%= klasius_srv.description_en %></td>
+          <td><%= klasius_srv.level %></td>
+          <td><% if klasius_srv.is_valid? %>da<% else %>ne<% end %></td>
+          <td>
+            <%= link_to klasius_srv, class: 'label label-success' do %>
+                <i class="fa fa-eye" title="<%= "Prikaži" %>" aria-hidden="true"></i>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_klasius_srv_path(klasius_srv), class: 'label label-info' do %>
+                <i class="fa fa-pencil" title="<%= t 'defaults.edit' %>" aria-hidden="true"></i>
+            <% end %>
+          </td>
+          <td>
+            <% if klasius_srv.is_valid? %>
+                <%= link_to klasius_srv, method: :delete, data: { confirm: 'Ali ste prepričani?' }, class: 'label label-danger' do %>
+                    <i class="fa fa-trash" title="<%= "Odstrani" %>" aria-hidden="true"></i>
+                <% end %>
+            <% end %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+<% if @klasius_srvs.length == 0 %>
+    <div class="text-center">
+
+      <p><%= t 'defaults.no_records' %></p>
+    </div>
+<% end %>
+
+<div>
+  <%= paginate @klasius_srvs %>
+</div>

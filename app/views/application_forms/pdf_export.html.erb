@@ -104,7 +104,7 @@
         Država in kraj:
       </div>
       <div class="col-sm-3 bg-grey">
-        <%= @application.country_of_birth.name %>,<%= @application.municipality.name %>
+        <%= @application.country_of_birth.name %>,<%= @application.municipality.name.blank? ? '&nbsp;'.html_safe : @application.municipality.name %>
       </div>
     </div>
     <div class="row mg-btm3">
@@ -165,7 +165,7 @@
         Ime in priimek:
       </div>
       <div class="col-sm-9 bg-grey">
-        <%= @application.firstname_for_notification %> <%= @application.lastname_for_notification %>
+        <%= @application.firstname_for_notification.blank? ? '&nbsp;'.html_safe : @application.firstname_for_notification %> <%= @application.lastname_for_notification.blank? ? '&nbsp;'.html_safe : @application.lastname_for_notification %>
       </div>
     </div>
     <div class="row mg-btm3">
@@ -181,7 +181,7 @@
         Naslov:
       </div>
       <div class="col-sm-9 bg-grey">
-        <%= @application.place_for_notification %>, <%= @application.post_for_notification.code %> <%= @application.post_for_notification.name %>
+        <%= @application.place_for_notification.blank? ? '&nbsp;'.html_safe : @application.place_for_notification %>, <%= @application.post_for_notification.code.blank? ? '&nbsp;'.html_safe : @application.post_for_notification.code %> <%= @application.post_for_notification.name.blank? ? '&nbsp;'.html_safe : @application.post_for_notification.name %>
       </div>
     </div>
   </div>

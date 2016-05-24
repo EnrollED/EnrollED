@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 
+  code: MyString
+  description__sl: MyString
+  description_en: MyString
+  parent: MyString
+  level: MyString
+  is_valid: false
+
+two:
+  id: 
+  code: MyString
+  description__sl: MyString
+  description_en: MyString
+  parent: MyString
+  level: MyString
+  is_valid: false

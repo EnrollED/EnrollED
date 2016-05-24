@@ -205,6 +205,13 @@ sl:
         code: 'Šifra'
         name: 'Naziv'
         is_valid: 'Veljavnost'
+      university:
+        code: 'Šifra'
+        description_sl: 'Opis (slo)'
+        description_en: 'Opis (ang)'
+        parent: 'Šifra starša'
+        level: 'Nivo'
+        is_valid: 'Veljavnost'
     errors:
       messages:
         record_invalid: "Validacija ni uspela: %{errors}"

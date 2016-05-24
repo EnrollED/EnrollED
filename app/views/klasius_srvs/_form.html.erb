@@ -1,0 +1,36 @@
+<%= form_for(@klasius_srv) do |f| %>
+  <% if @klasius_srv.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@klasius_srv.errors.count, "error") %> prohibited this klasius_srv from being saved:</h2>
+
+      <ul>
+      <% @klasius_srv.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field form-group">
+    <%= f.label :code %><br>
+    <%= f.text_field :code, class: 'form-control' %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :description_sl %><br>
+    <%= f.text_field :description_sl, class: 'form-control' %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :description_en %><br>
+    <%= f.text_field :description_en, class: 'form-control' %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :level %><br>
+    <%= f.text_field :level, class: 'form-control' %>
+  </div>
+  <div class="field form-group form-inline">
+    <%= f.label :is_valid %><br>
+    <%= f.check_box :is_valid, class: 'form-control'%>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

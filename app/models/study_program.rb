@@ -4,7 +4,8 @@ class StudyProgram < ActiveRecord::Base
   belongs_to :enrollment
   has_many :study_program_modes, :dependent => :destroy
   validates :name, presence: true
-  validates :code, presence: true
+  validates :code, presence: true, uniqueness: { case_sensitive: false }
+  validates :name, presence: true, length: {in: 2..100}
 
   def fac_name
     self.higher_education_institution.name
