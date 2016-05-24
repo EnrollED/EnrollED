@@ -191,6 +191,14 @@
       <%= f.collection_select :highschool_country_id, Country.where(is_valid: true).order(:name), :id, :name, {},{class: 'form-control', data: {placeholder: ''}} %>
     </div>
 
+
+    <h4>Visokošolska izobrazba</h4>
+
+    <div class="form-group has-feedback">
+      <%= f.label :klasius_srvs_id, t('activerecord.attributes.application.highschool_country'), class: 'control-label' %>
+      <%= f.collection_select :klasius_srvs_id, KlasiusSrv.where(is_valid: true).order(:description_sl), :id, :klasius_name_code, {},{class: 'form-control', data: {placeholder: ''}} %>
+    </div>
+
     <%= f.submit 'Naprej', class: 'btn btn-success'%>
 
 <% end %>
