@@ -22,7 +22,10 @@ class ValidateApplicationForm < ActiveModel::Validator
       end
     end
 
+    if record.highschool_certificate == true and record.highschool_finished_date.nil?
+      record.errors[:highschool_finished_date] << ' ne sme biti prazno'
 
+    end
 
   end
 

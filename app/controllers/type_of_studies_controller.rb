@@ -1,6 +1,8 @@
 class TypeOfStudiesController < ApplicationController
   before_action :set_type_of_study, only: [:show, :edit, :update, :destroy]
 
+  layout 'admin'
+
   # GET /type_of_studies
   # GET /type_of_studies.json
   def index

@@ -15,6 +15,7 @@
 @import "./variables";
 
 @import "../../../vendor/assets/bootstrap-3.3.6/bootstrap";
+@import "../../../lib/assets/inspinia-2.4/style";
 @import "../../../vendor/assets/font-awesome-4.6.1/font-awesome";
 @import "../../../vendor/assets/select2-4.0.2/core";
 @import "../../../vendor/assets/bootstrap-datetimepicker-4.17.37/bootstrap-datetimepicker";
@@ -22,6 +23,7 @@
 @import "./theme";
 @import "./base";
 @import "./header";
+@import "./side";
 @import "./devise";
 @import "./application_forms";
 

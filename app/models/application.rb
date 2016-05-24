@@ -11,7 +11,7 @@ class Application < ActiveRecord::Base
   belongs_to :municipality
   belongs_to :highschool_completion
 
-  validates :sex, :phone, :place_of_residence, :firstname_for_notification, :lastname_for_notification, :place_for_notification, :date_of_birth, :highschool_finished_date,  presence: true
+  validates :sex, :phone, :place_of_residence, :firstname_for_notification, :lastname_for_notification, :place_for_notification, :date_of_birth, presence: true
 
   validates :phone, :numericality => true
 

@@ -1,6 +1,8 @@
 class StudyProgramsController < ApplicationController
   before_action :set_study_program, only: [:show, :edit, :update, :destroy]
 
+  layout 'home'
+
   # GET /study_programs
   # GET /study_programs.json
   def index

@@ -7,5 +7,6 @@ class SetDefaultValue < ActiveRecord::Migration
         change_column :citizens, :is_valid, :boolean, default: true
         change_column :professions, :is_valid, :boolean, default: true
         change_column :posts, :is_valid, :boolean, default: true
+        change_column :highschools, :is_valid, :boolean, default: true
   end
 end

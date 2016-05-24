@@ -1,4 +1,4 @@
-class HighschoolCompletionPolicy < ApplicationPolicy
+class HighschoolCompletionPolicy < BasePolicy
 
   def index?
     (@user.has_role? :admissions) or (@user.has_role? :admin)

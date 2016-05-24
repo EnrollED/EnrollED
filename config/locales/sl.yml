@@ -2,6 +2,7 @@ sl:
   defaults:
     name: 'EnrollED'
     cancel: 'Prekliči'
+    remove: 'Odstrani'
     edit: 'Uredi'
     show: 'Prikaži'
     delete: 'Izbriši'
@@ -152,6 +153,10 @@ sl:
         highschool_completion: 'Način zaključka srednje šole'
         highschool_country: 'Država'
         highschool_finished_date: 'Datum izdaje spričevala o končani srednji šoli'
+        repeater: 'Doslej sem že enkrat ponavljal(a) letnik rednega študija oziroma zamenjal(a) redni študijski program na javnih visokošolskih zavodih ali koncesioniranih študijskih programih'
+        absolvent: 'Sem absolvent(ka) visokošolskega študijskega programa'
+        diplomant: 'Sem diplomant(ka) visokošolskega študijskega programa'
+        student: 'Sem študent(ka) visokošolskega študijskega programa'
         messages:
           create:
             created: 'Prijava je bila uspešno ustvarjena!'
@@ -188,6 +193,7 @@ sl:
       higher_education_institution:
         code: 'Šifra'
         name: 'Naziv'
+        acronym: 'Kratica'
         is_valid: 'Veljavnost'
       mode_of_study:
         code: 'Šifra'
@@ -224,6 +230,16 @@ sl:
             password:
               complexity: 'mora vsebovati vsaj eno število, en velik znak in en majhen znak'
   layouts:
+    nav:
+      admin:
+        system: 'Sistemske lastnosti'
+        codes: 'Šifranti'
+        uporabniki: 'Uporabniki'
+      home:
+        personal: 'Osebno'
+        enrollment_resources: 'Viri za vpis'
+        my_applications: 'Moje prijave'
+        study_programs: 'Študijski programi'
     header:
       my_profile: 'Moj profil'
       logout: 'Odjavi se'
@@ -235,6 +251,18 @@ sl:
     destroy:
       disabled: 'Vaš račun je bil onemogočen'
   admin:
+    faculties:
+      index:
+        choose_faculty: 'Izberi fakulteto'
+        add_faculty: 'Dodaj fakulteto'
+        faculties: 'Fakultete uporabnika'
+        no_faculties: 'Uporabnik ne pripada nobeni fakulteti'
+      create:
+        success: 'Fakulteta je bila uspešno dodana'
+        failed: 'Dodajanje fakultete ni uspelo'
+      destroy:
+        success: 'Fakulteta je bila uspešno odstranjena'
+        failed: 'Odstranitev fakultete ni uspela'
     users:
       form:
         cancel_account: 'Prekliči račun'

@@ -1,5 +1,8 @@
 html {
   background: none;
+  min-height: 100%;
+  height: inherit;
+  position: relative;
 }
 
 body {

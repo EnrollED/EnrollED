@@ -53,6 +53,10 @@ ActiveRecord::Schema.define(version: 20160524092716) do
     t.string   "place_for_notification"
     t.boolean  "highschool_certificate"
     t.date     "highschool_finished_date"
+    t.boolean  "repeater"
+    t.boolean  "absolvent"
+    t.boolean  "diplomant"
+    t.boolean  "student"
   end
 
   create_table "citizens", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
@@ -82,6 +86,7 @@ ActiveRecord::Schema.define(version: 20160524092716) do
 
   create_table "enrollments", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "name",                      null: false
+    t.string   "study_year",                null: false
     t.datetime "start",                     null: false
     t.datetime "end",                       null: false
     t.boolean  "current",                   null: false
@@ -110,11 +115,11 @@ ActiveRecord::Schema.define(version: 20160524092716) do
   end
 
   create_table "highschools", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
-    t.string   "code",       null: false
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean  "is_valid"
+    t.string   "code",                      null: false
+    t.string   "name",                      null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.boolean  "is_valid",   default: true
   end
 
   create_table "klasius_srvs", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|

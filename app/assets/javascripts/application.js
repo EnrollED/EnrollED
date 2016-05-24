@@ -18,6 +18,7 @@
 //= require momentjs-2.13.0/moment
 //= require momentjs-2.13.0/locales/sl
 //= require bootstrap-datetimepicker-4.17.37/bootstrap-datetimepicker
+//= require inspinia-2.4/inspinia
 //= require_self
 //= require_tree .
 

@@ -2,10 +2,19 @@ $fa-font-path: "." !default;
 
 $font-stack: -apple-system, BlinkMacSystemFont, "HelveticaNeue-Light", "Helvetica Neue Light", "Open Sans", Helvetica, Arial, Verdana, sans-serif;
 
-$body-bg: #ffffff;//#F9F9F9;
+$body-bg: #ffffff; //#2f4050;//#ffffff;//#F9F9F9;
+$login-body-bg: #fafafa;
 $text-color: #333;
 
-$navbar-inverse-bg: #37474F;
+$page-heading-color: #fafafa;
+
+$navbar-inverse-bg: #3e495f;
 $navbar-inverse-color: #FFF;
 $navbar-inverse-link-color: #FFF;
-$navbar-inverse-link-hover-bg: rgba(0, 0, 0, .1);
+$navbar-inverse-link-hover-bg: #3a4459;
+$nav-text-color: $text-color;
+$navbar-left-bg: #fafafa;
+$navbar-left-border: #e7eaec;
+$navbar-left-separator: #ABABAB;
+$navbar-left-hover: #ededed;
+$footer-bg: #fafafa;

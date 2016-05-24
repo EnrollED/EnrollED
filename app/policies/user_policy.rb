@@ -1,4 +1,4 @@
-class UserPolicy < ApplicationPolicy
+class UserPolicy < BasePolicy
 
   def index?
     @user.has_role? :admin
@@ -34,6 +34,10 @@ class UserPolicy < ApplicationPolicy
 
   def change_pass?
     @user == @record
+  end
+
+  def edit_faculties?
+    index?
   end
 
   def permitted_attributes

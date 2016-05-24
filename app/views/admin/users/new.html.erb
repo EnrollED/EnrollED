@@ -1,4 +1,9 @@
-<h1><%= t '.new' %></h1>
+
+<div class="row page-heading">
+  <div class="col-lg-10">
+    <h2><%= t '.new' %></h2>
+  </div>
+</div>
 
 <%= render 'form', user: [:admin, @user], cancel: admin_users_path %>
 

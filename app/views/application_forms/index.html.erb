@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col-sm-4 text-left">
-    <%= link_to "Nova prijava", new_application_form_path, class: 'btn btn-success '+disableNewApplicationFormButton%>
+    <%= link_to "Nova prijava", new_application_form_path, class: 'btn btn-success ' + disableNewApplicationFormButton%>
   </div>
 </div>
 
@@ -22,16 +22,24 @@
         <td><%= application.application_number %></td>
         <td><%= application.status %></td>
         <td><%= application.submission_date.to_date %></td>
+        <% if application.status != 'Poslana' or policy(:admin).index? or policy(:admissions).index? %>
         <td>
           <%= link_to edit_application_form_path(application), class: 'label label-info' do %>
               <i class="fa fa-pencil" title="<%= t 'defaults.edit' %>" aria-hidden="true"></i>
           <% end %>
         </td>
+        <% else %>
+            <td colspan="1"></td>
+        <% end %>
+        <% if application.status != 'Poslana' or policy(:admin).index? or policy(:admissions).index? %>
         <td>
           <%= link_to application_form_path(application), method: :delete, data: { confirm: 'Ali ste prepričani?' }, class: 'label label-danger' do %>
               <i class="fa fa-trash" title="<%= "Odstrani" %>" aria-hidden="true"></i>
           <% end %>
         </td>
+        <% else %>
+            <td colspan="1"></td>
+        <% end %>
         <% if application.status == 'Popolna' %>
           <td>
             <%= link_to send_application_form_path(application), class: 'label label-success' do %>

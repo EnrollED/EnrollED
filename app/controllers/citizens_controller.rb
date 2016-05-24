@@ -1,6 +1,8 @@
 class CitizensController < ApplicationController
   before_action :set_citizen, only: [:show, :edit, :update, :destroy]
 
+  layout 'admin'
+
   # GET /citizens
   # GET /citizens.json
   def index
