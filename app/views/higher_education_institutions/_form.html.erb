@@ -1,15 +1,6 @@
 <%= form_for(@higher_education_institution) do |f| %>
-  <% if @higher_education_institution.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@higher_education_institution.errors.count, "error") %> prohibited this higher_education_institution from being saved:</h2>
+    <%= render 'layouts/errors', :resource => @higher_education_institution %>
 
-      <ul>
-      <% @higher_education_institution.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
   <div class="field form-group">
     <%= f.label "Šifra" %><br>
     <%= f.text_field :code, class: 'form-control' %>

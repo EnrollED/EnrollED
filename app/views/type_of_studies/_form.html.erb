@@ -1,15 +1,5 @@
 <%= form_for(@type_of_study) do |f| %>
-  <% if @type_of_study.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@type_of_study.errors.count, "error") %> prohibited this type_of_study from being saved:</h2>
-
-      <ul>
-      <% @type_of_study.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <%= render 'layouts/errors', :resource => @type_of_study %>
 
   <div class="field form-group">
     <%= f.label :code %><br>

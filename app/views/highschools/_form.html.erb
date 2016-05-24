@@ -1,15 +1,5 @@
 <%= form_for(@highschool) do |f| %>
-  <% if @highschool.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@highschool.errors.count, "error") %> prohibited this highschool from being saved:</h2>
-
-      <ul>
-      <% @highschool.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <%= render 'layouts/errors', :resource => @highschool %>
 
   <div class="field form-group">
     <%= f.label :code %><br>

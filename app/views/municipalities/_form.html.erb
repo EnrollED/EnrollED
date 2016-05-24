@@ -1,15 +1,5 @@
 <%= form_for(@municipality) do |f| %>
-  <% if @municipality.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@municipality.errors.count, "error") %> prohibited this municipality from being saved:</h2>
-
-      <ul>
-      <% @municipality.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <%= render 'layouts/errors', :resource => @municipality %>
 
   <div class="field form-group">
     <%= f.label :code %><br>
