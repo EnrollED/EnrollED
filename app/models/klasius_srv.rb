@@ -10,4 +10,8 @@ class KlasiusSrv < ActiveRecord::Base
       where("LOWER(description_sl || ' ' || code || ' ') LIKE LOWER(?)", "%#{name}%")
     end
   end
+
+  def klasius_name_code
+    "#{code} -  #{description_sl}"
+  end
 end
