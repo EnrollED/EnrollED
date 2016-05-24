@@ -1,22 +1,23 @@
 <div class="row">
-  <div class="col-sm-6">
+  <div class="col-xs-6">
     Visokošolska prijavno-informacijska služba,<br/>
     Univerza v Ljubljani, p.p. 524, 1001 LJUBLJANA
   </div>
-  <div class="col-sm-2">
+  <div class="col-xs-2">
     Prijava oddana:  <br/>
-    <%= @application.submission_date.strftime('%d.%m.%Y %H:%M:%S') %>
+    <span class="fs9"><%= @application.submission_date.strftime('%d.%m.%Y %H:%M:%S') %></span>
   </div>
-  <div class="col-sm-2">
+  <div class="col-xs-2">
     Način oddaje:<br/>
     DIGITALNO
   </div>
-  <div class="col-sm-2">
-    <%= image_tag("barcode.png", alt: "Barcode", class: "img-responsive") %>
+  <div class="col-xs-2">
+    Številka:  <br/>
+    <strong class="fs14"><%= @application.application_number %></strong>
   </div>
 </div>
 <div class="row mg-btm3">
-  <div class="col-sm-10 bg-grey border-btm-thick">
+  <div class="col-xs-10 bg-grey border-btm-thick">
     RAZPIS ZA VPIS NA DODIPLOMSKE IN ENOVITE MAGISTRSKE ŠTUDIJSKE PROGRAME v<br/>
     študijskem letu 2016/2017 - Univerza v Ljubljani, Univerza v Mariboru, Univerza na<br/>
     Primorskem, Univerza v Novi Gorici, javni in koncesionirani samostojni visokošolski
@@ -25,286 +26,286 @@
   </div>
 </div>
 <div class="row mg-btm3">
-  <div class="col-sm-12">
+  <div class="col-xs-12">
     <div class="row mg-btm3">
-      <div class="col-sm-3">
+      <div class="col-xs-3">
         Vrsta prijave:
       </div>
-      <div class="col-sm-3 bg-grey">
+      <div class="col-xs-3 bg-grey">
         Vpis v 1. letnik
       </div>
-      <div class="col-sm-3 text-right">
+      <div class="col-xs-3 text-right">
         Številka:
       </div>
-      <div class="col-sm-3 bg-grey">
-        <%= @application.application_number %>
+      <div class="col-xs-3 bg-grey">
+        <strong class="fs14"><%= @application.application_number %></strong>
       </div>
     </div>
     <div class="row mg-btm3">
-      <div class="col-sm-3">
+      <div class="col-xs-3">
         Stopnja:
       </div>
-      <div class="col-sm-3 bg-grey">
+      <div class="col-xs-3 bg-grey">
         Prva stopnja
       </div>
-      <div class="col-sm-3 text-right">
+      <div class="col-xs-3 text-right">
         Datum:
       </div>
-      <div class="col-sm-3 bg-grey">
+      <div class="col-xs-3 bg-grey">
         <%= @application.submission_date.strftime('%d.%m.%Y') %>
       </div>
     </div>
   </div>
 </div>
-<div class="row bg-light-grey border-btm-thick fs16">
-  <div class="col-sm-12">
+<div class="row bg-light-grey border-btm-thick fs14">
+  <div class="col-xs-12">
     <strong>OSEBNI PODATKI</strong>
   </div>
 </div>
 <div class="row mg-btm3">
-  <div class="col-sm-12">
+  <div class="col-xs-12">
     <div class="row mg-btm3">
-      <div class="col-sm-3">
+      <div class="col-xs-3">
         Ime in priimek:
       </div>
-      <div class="col-sm-9 bg-grey">
+      <div class="col-xs-9 bg-grey">
         <%= @application.user.firstname %> <%= @application.user.lastname %>
       </div>
     </div>
     <div class="row mg-btm3">
-      <div class="col-sm-3">
+      <div class="col-xs-3">
         Dekliški priimek:
       </div>
-      <div class="col-sm-9 bg-grey">
+      <div class="col-xs-9 bg-grey">
         <%= @application.maiden_name.blank? ? '&nbsp;'.html_safe : @application.maiden_name %>
       </div>
     </div>
     <div class="row mg-btm3">
-      <div class="col-sm-3">
+      <div class="col-xs-3">
         EMŠO:
       </div>
-      <div class="col-sm-3 bg-grey">
+      <div class="col-xs-3 bg-grey">
         <%= @application.EMSO.blank? ? '&nbsp;'.html_safe : @application.EMSO %>
       </div>
-      <div class="col-sm-3">
+      <div class="col-xs-3">
         Spol:
       </div>
-      <div class="col-sm-3 bg-grey">
+      <div class="col-xs-3 bg-grey">
         <%= @application.sex %>
       </div>
     </div>
     <div class="row mg-btm3">
-      <div class="col-sm-3">
+      <div class="col-xs-3">
         Datum rojstva:
       </div>
-      <div class="col-sm-3 bg-grey">
+      <div class="col-xs-3 bg-grey">
         <%= @application.date_of_birth.strftime('%d.%m.%Y') %>
       </div>
-      <div class="col-sm-3">
+      <div class="col-xs-3">
         Država in kraj:
       </div>
-      <div class="col-sm-3 bg-grey">
+      <div class="col-xs-3 bg-grey">
         <%= @application.country_of_birth.name %>,<%= @application.municipality.name.blank? ? '&nbsp;'.html_safe : @application.municipality.name %>
       </div>
     </div>
     <div class="row mg-btm3">
-      <div class="col-sm-3">
+      <div class="col-xs-3">
         Kontaktni telefon:
       </div>
-      <div class="col-sm-3 bg-grey">
+      <div class="col-xs-3 bg-grey">
         <%= @application.phone %>
       </div>
-      <div class="col-sm-3">
+      <div class="col-xs-3">
         E-pošta:
       </div>
-      <div class="col-sm-3 bg-grey">
+      <div class="col-xs-3 bg-grey">
         <%= @application.user.email %>
       </div>
     </div>
   </div>
 </div>
-<div class="row bg-light-grey border-btm-thick fs16">
-  <div class="col-sm-12">
+<div class="row bg-light-grey border-btm-thick fs14">
+  <div class="col-xs-12">
     <strong>NASLOV STALNEGA PREBIVALIŠČA</strong>
   </div>
 </div>
 <div class="row mg-btm3">
-  <div class="col-sm-12">
+  <div class="col-xs-12">
     <div class="row mg-btm3">
-      <div class="col-sm-3">
+      <div class="col-xs-3">
        Naslov:
       </div>
-      <div class="col-sm-9 bg-grey">
+      <div class="col-xs-9 bg-grey">
         <%= @application.place_of_residence %>, <%= @application.post_of_residence.code %> <%= @application.post_of_residence.name %>
       </div>
     </div>
     <div class="row mg-btm3">
-      <div class="col-sm-3">
+      <div class="col-xs-3">
         Država:
       </div>
-      <div class="col-sm-9 bg-grey">
+      <div class="col-xs-9 bg-grey">
         <%= @application.country_of_residence.name %>
       </div>
     </div>
     <div class="row border-btm-thick">
-      <div class="col-sm-12">
+      <div class="col-xs-12">
         &nbsp;
       </div>
     </div>
   </div>
 </div>
-<div class="row bg-light-grey border-btm-thick fs16">
-  <div class="col-sm-12">
+<div class="row bg-light-grey border-btm-thick fs14">
+  <div class="col-xs-12">
     <strong>NASLOV ZA OBVESTILA</strong>
   </div>
 </div>
 <div class="row mg-btm3">
-  <div class="col-sm-12">
+  <div class="col-xs-12">
     <div class="row mg-btm3">
-      <div class="col-sm-3">
+      <div class="col-xs-3">
         Ime in priimek:
       </div>
-      <div class="col-sm-9 bg-grey">
+      <div class="col-xs-9 bg-grey">
         <%= @application.firstname_for_notification.blank? ? '&nbsp;'.html_safe : @application.firstname_for_notification %> <%= @application.lastname_for_notification.blank? ? '&nbsp;'.html_safe : @application.lastname_for_notification %>
       </div>
     </div>
     <div class="row mg-btm3">
-      <div class="col-sm-3">
+      <div class="col-xs-3">
         Država:
       </div>
-      <div class="col-sm-9 bg-grey">
+      <div class="col-xs-9 bg-grey">
 
       </div>
     </div>
     <div class="row mg-btm3">
-      <div class="col-sm-3">
+      <div class="col-xs-3">
         Naslov:
       </div>
-      <div class="col-sm-9 bg-grey">
+      <div class="col-xs-9 bg-grey">
         <%= @application.place_for_notification.blank? ? '&nbsp;'.html_safe : @application.place_for_notification %>, <%= @application.post_for_notification.code.blank? ? '&nbsp;'.html_safe : @application.post_for_notification.code %> <%= @application.post_for_notification.name.blank? ? '&nbsp;'.html_safe : @application.post_for_notification.name %>
       </div>
     </div>
   </div>
 </div>
-<div class="row bg-light-grey border-btm-thick fs16">
-  <div class="col-sm-12">
+<div class="row bg-light-grey border-btm-thick fs14">
+  <div class="col-xs-12">
     <strong>PODATKI O DRŽAVLJANSTVU</strong>
   </div>
 </div>
 <div class="row mg-btm3">
-  <div class="col-sm-12">
+  <div class="col-xs-12">
     <div class="row mg-btm3">
-      <div class="col-sm-3">
+      <div class="col-xs-3">
         Državljanstvo:
       </div>
-      <div class="col-sm-9 bg-grey">
+      <div class="col-xs-9 bg-grey">
         <%= @application.citizen.name %>
       </div>
     </div>
   </div>
 </div>
 <div class="row border-btm-thick mg-btm3">
-  <div class="col-sm-12">
+  <div class="col-xs-12">
     &nbsp;
   </div>
 </div>
-<div class="row bg-light-grey border-btm-thick fs16">
-  <div class="col-sm-12">
+<div class="row bg-light-grey border-btm-thick fs14">
+  <div class="col-xs-12">
     <strong>V SKLADU Z RAZPISOM ZA VPIS IN PROSTIMI VPISNIMI MESTI SE PRIJAVLJAM ZA ŠTUDIJ</strong>
   </div>
 </div>
 <% @application_choices.each do |choice| %>
   <div class="row mg-btm3 border-btm-thick">
-    <div class="col-sm-12">
+    <div class="col-xs-12">
       <div class="vertical-text">
         <strong><%= choice.choice %>. ŽELJA</strong>
       </div>
       <div class="row mg-btm3">
-        <div class="col-sm-3 col-sm-offset-1">
+        <div class="col-xs-3 col-xs-offset-1">
           Visokošolski zavod:
         </div>
-        <div class="col-sm-8 bg-grey">
+        <div class="col-xs-8 bg-grey">
           <%= choice.study_program_mode.study_program.higher_education_institution.university.name %>  <%= choice.study_program_mode.study_program.higher_education_institution.name %>
         </div>
       </div>
       <div class="row mg-btm3">
-        <div class="col-sm-3 col-sm-offset-1">
+        <div class="col-xs-3 col-xs-offset-1">
           Študijski program:
         </div>
-        <div class="col-sm-8 bg-grey">
+        <div class="col-xs-8 bg-grey">
           <%= choice.study_program_mode.study_program.name %>
         </div>
       </div>
       <div class="row mg-btm3">
-        <div class="col-sm-3 col-sm-offset-1">
+        <div class="col-xs-3 col-xs-offset-1">
           Smer/modul:
         </div>
-        <div class="col-sm-8 bg-grey">
+        <div class="col-xs-8 bg-grey">
           /
         </div>
       </div>
       <div class="row mg-btm3">
-        <div class="col-sm-3 col-sm-offset-1">
+        <div class="col-xs-3 col-xs-offset-1">
           Kraj študija:
         </div>
-        <div class="col-sm-8 bg-grey">
+        <div class="col-xs-8 bg-grey">
           <%= choice.study_program_mode.study_program.higher_education_institution.municipality.name %>
         </div>
       </div>
       <div class="row mg-btm3">
-        <div class="col-sm-3 ">
+        <div class="col-xs-3 ">
           Način študija:
         </div>
-        <div class="col-sm-9 bg-grey">
+        <div class="col-xs-9 bg-grey">
           <%= choice.study_program_mode.mode_of_study.name %>
         </div>
       </div>
     </div>
   </div>
 <% end %>
-<div class="row bg-light-grey border-btm-thick fs16">
-  <div class="col-sm-12">
+<div class="row bg-light-grey border-btm-thick fs14">
+  <div class="col-xs-12">
     <strong>DOSEDANJA IZOBRAZBA</strong>
   </div>
 </div>
 <div class="row mg-btm3 border-btm-thick">
-  <div class="col-sm-12">
+  <div class="col-xs-12">
     <div class="row mg-btm3">
-      <div class="col-sm-3">
+      <div class="col-xs-4">
         Najvišja že dosežena izobrazba:
       </div>
-      <div class="col-sm-9 bg-grey">
+      <div class="col-xs-8 bg-grey">
 
       </div>
     </div>
     <div class="row mg-btm3">
-      <div class="col-sm-12">
+      <div class="col-xs-12">
         <strong>Srednješolska izobrazba:</strong>
         <div class="row">
-          <div class="col-sm-12">
+          <div class="col-xs-12">
             <div class="row mg-btm3">
-              <div class="col-sm-11">Spričevalo o končani srednji šoli že imam:</div>
-              <div class="col-sm-1 bg-grey"><% if @application.highschool_certificate? %>DA <% else %>NE <% end %></div>
+              <div class="col-xs-10">Spričevalo o končani srednji šoli že imam:</div>
+              <div class="col-xs-2 bg-grey"><% if @application.highschool_certificate? %>DA <% else %>NE <% end %></div>
             </div>
             <div class="row mg-btm3">
-              <div class="col-sm-3">Način zaključka srednje šole:</div>
-              <div class="col-sm-9 bg-grey"><%= @application.highschool_completion.name %></div>
+              <div class="col-xs-4">Način zaključka srednje šole:</div>
+              <div class="col-xs-8 bg-grey"><%= @application.highschool_completion.name %></div>
             </div>
             <div class="row bg-light-grey ">
-              <div class="col-sm-12">
+              <div class="col-xs-12">
                 <strong>Srednja šola, ki sem jo oziroma jo bom končal</strong>
               </div>
             </div>
             <div class="row mg-btm3">
-              <div class="col-sm-11">Datum izdaje spričevala o končani srednji šoli:</div>
-              <div class="col-sm-1 bg-grey"><%= @application.highschool_finished_date.strftime('%d.%m.%Y') %></div>
+              <div class="col-xs-10">Datum izdaje spričevala o končani srednji šoli:</div>
+              <div class="col-xs-2 bg-grey"><%= @application.highschool_finished_date.strftime('%d.%m.%Y') %></div>
             </div>
             <div class="row mg-btm3">
-              <div class="col-sm-3">Država:</div>
-              <div class="col-sm-9 bg-grey"><%= @application.highschool_country.name %></div>
+              <div class="col-xs-4">Država:</div>
+              <div class="col-xs-8 bg-grey"><%= @application.highschool_country.name %></div>
             </div>
             <div class="row">
-              <div class="col-sm-8 bg-light-grey">
+              <div class="col-xs-8 bg-light-grey">
                 Podatki o zaključeni srednji šoli bodo pridobljeni od Državnega izpitnega centra.
               </div>
             </div>
@@ -315,7 +316,7 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-sm-12">
+  <div class="col-xs-12">
     POZOR!<br/><br/>
     S podpisom jamčim za resničnost podatkov, navedenih v tem prijavnem obrazcu in potrjujem, da sem
     seznanjen(a) z vsebino razpisa za vpis, na katerega se prijavljam, ter tudi z uporabo osebnih podatkov v
@@ -324,17 +325,16 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-sm-2 border-tbl">
+  <div class="col-xs-2 border-tbl">
     Datum:
   </div>
-  <div class="col-sm-4 border-tbl">
+  <div class="col-xs-4 border-tbl">
     <%= Time.now.strftime('%d.%m.%Y %H:%M:%S') %>
   </div>
-  <div class="col-sm-2 border-tbl">
+  <div class="col-xs-2 border-tbl">
     Podpis:
   </div>
-  <div class="col-sm-4 border-all">
+  <div class="col-xs-4 border-all">
     ELEKTRONSKO PODPISANO
   </div>
 </div>
-<br/><br/><br/>

@@ -106,6 +106,18 @@ class ApplicationFormsController < ApplicationController
   def pdf_export
     @application = Application.find(params[:id])
     @application_choices =  ApplicationChoice.where(application_id: @application.id)
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        #export_pdf
+        html = render_to_string(:action => :pdf_export, :layout => 'layouts/layout_pdf.html.erb', :template => 'application_forms/pdf_export.html.erb')
+        pdf = WickedPdf.new.pdf_from_string(html)
+        send_data(pdf,
+                  :filename    => "prijava_"+ (@application.application_number) +".pdf",
+                  :disposition => 'attachment')
+      end
+    end
   end
 
 end

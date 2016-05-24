@@ -14,6 +14,10 @@ gem 'kaminari', '~> 0.16'
 # Frontend helpers
 gem 'turbolinks', '~> 5.0.0.beta2'
 
+#pdf
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+gem 'wkhtmltopdf-binary-edge'
 
 group :development, :test do
   gem 'sass-rails', '~> 5.0'
