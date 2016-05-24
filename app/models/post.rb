@@ -9,4 +9,8 @@ class Post < ActiveRecord::Base
       where("LOWER(name || ' ' || code || ' ') LIKE LOWER(?)", "%#{name}%")
     end
   end
+
+  def post_name_code
+    "#{name}, #{code}"
+  end
 end

@@ -65,12 +65,12 @@
 
     <div class="form-group has-feedback">
       <%= f.label :municipality_id, t('activerecord.attributes.application.municipality_of_birth'), class: 'control-label' %>
-      <%= f.collection_select :municipality_id, Municipality.where(is_valid: true), :id, :name, {},{class: 'form-control', data: {placeholder: ''}} %>
+      <%= f.collection_select :municipality_id, Municipality.where(is_valid: true).order(:name), :id, :name, {},{class: 'form-control', data: {placeholder: ''}} %>
     </div>
 
     <div class="form-group has-feedback">
       <%= f.label :country_of_birth_id, t('activerecord.attributes.application.country_of_birth'), class: 'control-label' %>
-      <%= f.collection_select :country_of_birth_id, Country.where(is_valid: true), :id, :name, {},{class: 'form-control', data: {placeholder: ''}} %>
+      <%= f.collection_select :country_of_birth_id, Country.where(is_valid: true).order(:name), :id, :name, {},{class: 'form-control', data: {placeholder: ''}} %>
     </div>
 
     <div class="form-group has-feedback">
@@ -107,12 +107,12 @@
 
     <div class="form-group has-feedback">
       <%= f.label :post_of_residence_id, t('activerecord.attributes.application.post_of_residence'), class: 'control-label' %>
-      <%= f.collection_select :post_of_residence_id, Post.where(is_valid: true), :id, :name, {},{class: 'form-control', data: {placeholder: ''}} %>
+      <%= f.collection_select :post_of_residence_id, Post.where(is_valid: true).order(:name), :id, :post_name_code, {},{class: 'form-control', data: {placeholder: ''}} %>
     </div>
 
     <div class="form-group has-feedback">
       <%= f.label :country_of_residence_id, t('activerecord.attributes.application.country_of_residence'), class: 'control-label' %>
-      <%= f.collection_select :country_of_residence_id, Country.where(is_valid: true), :id, :name, {},{class: 'form-control', data: {placeholder: ''}} %>
+      <%= f.collection_select :country_of_residence_id, Country.where(is_valid: true).order(:name), :id, :name, {},{class: 'form-control', data: {placeholder: ''}} %>
     </div>
 
     <hr>
@@ -145,7 +145,7 @@
 
     <div class="form-group has-feedback">
       <%= f.label :post_for_notification_id, t('activerecord.attributes.application.post_for_notification'), class: 'control-label' %>
-      <%= f.collection_select :post_for_notification_id, Post.where(is_valid: true), :id, :name, {},{class: 'form-control', data: {placeholder: ''}} %>
+      <%= f.collection_select :post_for_notification_id, Post.where(is_valid: true).order(:name), :id, :post_name_code, {},{class: 'form-control', data: {placeholder: ''}} %>
     </div>
 
     <hr>
@@ -154,7 +154,7 @@
 
     <div class="form-group has-feedback">
       <%= f.label :highschool_id, t('activerecord.attributes.application.highschool'), class: 'control-label' %>
-      <%= f.collection_select :highschool_id, Highschool.where(is_valid: true), :id, :name, {},{class: 'form-control', data: {placeholder: ''}} %>
+      <%= f.collection_select :highschool_id, Highschool.where(is_valid: true).order(:name), :id, :name, {},{class: 'form-control', data: {placeholder: ''}} %>
     </div>
 
     <div class="form-group has-feedback">
@@ -188,7 +188,7 @@
 
     <div class="form-group has-feedback">
       <%= f.label :highschool_country_id, t('activerecord.attributes.application.highschool_country'), class: 'control-label' %>
-      <%= f.collection_select :highschool_country_id, Country.where(is_valid: true), :id, :name, {},{class: 'form-control', data: {placeholder: ''}} %>
+      <%= f.collection_select :highschool_country_id, Country.where(is_valid: true).order(:name), :id, :name, {},{class: 'form-control', data: {placeholder: ''}} %>
     </div>
 
     <%= f.submit 'Naprej', class: 'btn btn-success'%>

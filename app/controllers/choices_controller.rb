@@ -1,11 +1,11 @@
 class ChoicesController < ApplicationController
 
-  before_action :set_elements, only: [:new, :create]
+  before_action :set_elements, only: [:new, :create, :edit, :update]
   before_action :set_enrollment, only: [:new, :create, :edit, :update]
 
   def new
     if @choice_number == 4
-      checkPopolna
+      checkPopolna("Prijava je bila uspešno oddana!")
     end
   end
 
@@ -20,13 +20,15 @@ class ChoicesController < ApplicationController
 
   def create
     @applicationChoice.study_program_mode_id = params[:application_choice][:study_program_mode_id]
-    if @applicationChoice.study_program_mode_id.nil?
-      checkPopolna
-      return
-    end
     @applicationChoice.choice = @choice_number.to_s
     @applicationChoice.application = @application
     @applicationChoice.save
+    @applicationChoiceExisting = ApplicationChoice.where(application_id: params[:application_form_id])
+    if @applicationChoice.study_program_mode_id.nil?
+      @applicationChoice.destroy
+      checkPopolna("Prijava je bila uspešno oddana!")
+      return
+    end
     redirect_to new_application_form_choice_path
   end
 
@@ -39,43 +41,36 @@ class ChoicesController < ApplicationController
     @applicationChoice = ApplicationChoice.find(params[:id])
     @application = Application.find(params[:application_form_id])
     @applicationChoice.study_program_mode_id = params[:application_choice][:study_program_mode_id]
-    if @applicationChoice.study_program_mode_id.nil?
-      checkPopolna
-      return
-    end
     @applicationChoice.save
-    if @applicationChoice.choice == 3
-      @applicationChoiceExisting = ApplicationChoice.where(application_id: params[:application_form_id])
-      if @applicationChoiceExisting.count(:study_program_mode_id) > 0
-        @application.status = 'Popolna'
-      else
-        @application.status = 'Nepopolna'
-      end
-      @application.save
-      redirect_to application_forms_path, notice: 'Prijava je bila uspešno posodobljena!'
+    @applicationChoiceExisting = ApplicationChoice.where(application_id: params[:application_form_id])
+    if @applicationChoice.study_program_mode_id.nil?
+      @applicationChoice.destroy
+      checkPopolna("Prijava je bila uspešno posodobljena!")
       return
-    else
-      @applicationChoiceNew = ApplicationChoice.where(application_id: params[:application_form_id], choice: @applicationChoice.choice.to_i + 1).first
-      if @applicationChoiceNew.nil?
-        redirect_to new_application_form_choice_path(@application)
-      else
-        redirect_to edit_application_form_choice_path(@application, @applicationChoiceNew)
-      end
     end
+
+
+    @applicationChoiceNew = ApplicationChoice.where(application_id: params[:application_form_id], choice: @applicationChoice.choice.to_i + 1).first
+    if @applicationChoiceNew.nil?
+      redirect_to new_application_form_choice_path(@application)
+    else
+      redirect_to edit_application_form_choice_path(@application, @applicationChoiceNew)
+    end
+
   end
 
   def set_enrollment
     @enrollment = Enrollment.find_by_current(true)
   end
 
-  def checkPopolna
+  def checkPopolna(alert)
     if @applicationChoiceExisting.count(:study_program_mode_id) > 0
       @application.status = 'Popolna'
     else
       @application.status = 'Nepopolna'
     end
     @application.save
-    redirect_to application_forms_path, notice: "Prijava je bila uspešno oddana!"
+    redirect_to application_forms_path, notice: alert
   end
 
 end
