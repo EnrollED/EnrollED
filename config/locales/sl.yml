@@ -157,6 +157,7 @@ sl:
         absolvent: 'Sem absolvent(ka) visokošolskega študijskega programa'
         diplomant: 'Sem diplomant(ka) visokošolskega študijskega programa'
         student: 'Sem študent(ka) visokošolskega študijskega programa'
+        klasius_srvs: 'Najvišja že dosežena izobrazba'
         messages:
           create:
             created: 'Prijava je bila uspešno ustvarjena!'
