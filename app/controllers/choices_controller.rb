@@ -25,6 +25,7 @@ class ChoicesController < ApplicationController
     @applicationChoice.save
     @applicationChoiceExisting = ApplicationChoice.where(application_id: params[:application_form_id])
     if @applicationChoice.study_program_mode_id.nil?
+      @applicationChoice.destroy
       checkPopolna("Prijava je bila uspešno oddana!")
       return
     end
@@ -43,6 +44,7 @@ class ChoicesController < ApplicationController
     @applicationChoice.save
     @applicationChoiceExisting = ApplicationChoice.where(application_id: params[:application_form_id])
     if @applicationChoice.study_program_mode_id.nil?
+      @applicationChoice.destroy
       checkPopolna("Prijava je bila uspešno posodobljena!")
       return
     end
