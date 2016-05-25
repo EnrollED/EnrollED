@@ -6,13 +6,8 @@ class RequirementsController < ApplicationController
   # GET /requirements
   # GET /requirements.json
   def index
-    @requirements = Requirement.where(:study_program_id => params[:study_program_id])
+    @requirements = Requirement.where(:study_program_id => params[:study_program_id]).order(:highschool_completion_id)
     @study_program = StudyProgram.find(params[:study_program_id])
-  end
-
-  # GET /requirements/1
-  # GET /requirements/1.json
-  def show
   end
 
   # GET /requirements/new
@@ -21,9 +16,6 @@ class RequirementsController < ApplicationController
     @requirement = Requirement.new
   end
 
-  # GET /requirements/1/edit
-  def edit
-  end
 
   # POST /requirements
   # POST /requirements.json
