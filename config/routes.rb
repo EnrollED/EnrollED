@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :requirements
   resources :klasius_srvs
   resources :highschools
   resources :universities
