@@ -31,6 +31,7 @@
     <tr>
       <th><%= "Pogoj" %></th>
       <th><%= "Poklic" %></th>
+      <th><%= "Predmeti" %></th>
       <th></th>
     </tr>
     </thead>
@@ -45,6 +46,19 @@
             <% else %>
               <%= req.profession.name %>
             <% end %>
+          </td>
+          <td>
+            <table>
+              <tr>
+                <td>A</td>
+              </tr>
+              <tr>
+                <td>C</td>
+              </tr>
+              <tr>
+                <td>Dodaj predmet</td>
+              </tr>
+            </table>
           </td>
           <td class="text-right table-links">
             <%= link_to study_program_requirement_path(@study_program, req), method: :delete,
