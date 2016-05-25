@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :requirements
   resources :klasius_srvs
   resources :highschools
   resources :universities
@@ -40,7 +39,9 @@ Rails.application.routes.draw do
   resources :codes, only: :index
 
   resources :users, only: [:edit, :update]
-  resources :study_programs
+  resources :study_programs do
+    resources :requirements
+  end
   resources :study_program_modes
 
   resources :application_forms do

@@ -1,29 +1,15 @@
-<%= form_for(@requirement) do |f| %>
-  <% if @requirement.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@requirement.errors.count, "error") %> prohibited this requirement from being saved:</h2>
+<%= form_for [@study_program, @requirement] do |f| %>
+    <%= render 'layouts/errors', :resource => @requirement %>
 
-      <ul>
-      <% @requirement.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="form-group">
+      <%= f.label "Pogoj", class: 'control-label' %>
+      <%= f.collection_select :highschool_completion_id, HighschoolCompletion.where(code: [1,2,6]), :id, :name, {:include_blank => "---Izberi pogoj---"}, { :class => 'form-control' }  %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :study_program_id %><br>
-    <%= f.text_field :study_program_id %>
-  </div>
-  <div class="field">
-    <%= f.label :highschool_completion_id %><br>
-    <%= f.text_field :highschool_completion_id %>
-  </div>
-  <div class="field">
-    <%= f.label :profession_id %><br>
-    <%= f.text_field :profession_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="form-group">
+      <%= f.label "Poklic", class: 'control-label' %>
+      <%= f.collection_select :profession_id, Profession.all, :id, :name, {:include_blank => "POKLIC NI DOLOČEN"}, { :class => 'form-control' }  %>
+    </div>
+
+    <%= f.submit t('defaults.save'), class: 'btn btn-success' %>
 <% end %>
