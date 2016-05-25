@@ -42,21 +42,34 @@
           <td><%= req.highschool_completion.name %></td>
           <td>
             <% if req.profession.nil? %>
-              Ni določen
+              /
             <% else %>
               <%= req.profession.name %>
             <% end %>
           </td>
           <td>
             <table>
+              <% if req.requirement_elements.length == 0 %>
+                  <tr>
+                    <td>Predmeti niso določeni</td>
+                  </tr>
+              <% else %>
+                  <% req.requirement_elements.each do |el| %>
+                      <tr>
+                        <td><%= el.element.name %></td>
+                        <td class="text-right table-links">
+                          <%= link_to study_program_requirement_requirement_element_path(@study_program, req, el), method: :delete,
+                                      data: {confirm: t('defaults.are_you_sure')}, class: 'label label-danger' do %>
+                              <i class="fa fa-trash" title="<%= t 'defaults.remove' %>" aria-hidden="true"></i>
+                          <% end %>
+                        </td>
+                      </tr>
+                  <% end %>
+              <% end %>
               <tr>
-                <td>A</td>
-              </tr>
-              <tr>
-                <td>C</td>
-              </tr>
-              <tr>
-                <td>Dodaj predmet</td>
+                <td>
+                  <%= link_to "Dodaj predmet", new_study_program_requirement_requirement_element_path(@study_program, req), class: 'btn btn-xs btn-primary' %>
+                </td>
               </tr>
             </table>
           </td>

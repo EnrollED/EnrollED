@@ -1,19 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Study program:</strong>
-  <%= @requirement.study_program %>
-</p>
-
-<p>
   <strong>Highschool completion:</strong>
-  <%= @requirement.highschool_completion %>
+  <%= @requirement.highschool_completion.name %>
 </p>
 
-<p>
-  <strong>Profession:</strong>
-  <%= @requirement.profession %>
 </p>
 
-<%= link_to 'Edit', edit_requirement_path(@requirement) %> |
-<%= link_to 'Back', requirements_path %>
