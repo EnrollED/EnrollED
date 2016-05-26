@@ -12,6 +12,8 @@ class StudyProgramElementsController < ApplicationController
 
   # GET /study_program_elements/1/edit
   def edit
+    @study_program = StudyProgram.find(params[:study_program_id])
+    @requirement = Requirement.find(params[:requirement_id])
   end
 
   # POST /study_program_elements

@@ -88,6 +88,11 @@
                           <tr>
                             <td><%= el.element.name %></td>
                             <td> - <%= el.percentage %> %</td>
+                            <td>
+                              <%= link_to edit_study_program_requirement_study_program_element_path(@study_program, req, el), class: 'label label-info' do %>
+                                  <i class="fa fa-pencil" title="<%= t 'defaults.edit' %>" aria-hidden="true"></i>
+                              <% end %>
+                            </td>
                             <td class="text-right table-links">
                               <%= link_to study_program_requirement_study_program_element_path(@study_program, req, el), method: :delete,
                                           data: {confirm: t('defaults.are_you_sure')}, class: 'label label-danger' do %>
