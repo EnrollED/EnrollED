@@ -40,12 +40,12 @@ Rails.application.routes.draw do
 
   resources :users, only: [:edit, :update]
   resources :study_programs do
+    resources :study_program_modes
     resources :requirements do
       resources :requirement_elements
       resources :study_program_elements
     end
   end
-  resources :study_program_modes
 
   resources :application_forms do
     resources :choices

@@ -254,6 +254,7 @@ sl:
   study_programs:
     menu:
       overview: 'Pregled'
+      modes: 'Načini'
       requirements: 'Pogoji in elementi'
       candidates: 'Kandidati'
     show:
@@ -261,6 +262,9 @@ sl:
       filled: 'Zapolnjeno'
       filled_text_before: 'Zapolnjena mesta bodo vidna po začetku razpisa'
       filled_text_during: 'Trenutno zapolnjenih %{percent}% mest. Podroben seznam se nahaja na seznamu kandidatov.'
+  study_program_modes:
+    index:
+      no_modes: 'Ni bilo najdenih nobenih načinov'
   users:
     edit:
       edit: 'Uredi profil'
