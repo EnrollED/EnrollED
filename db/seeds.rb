@@ -164,9 +164,17 @@ CSV.foreach(csv_file_path, {:headers=>:first_row, :col_sep  => ';'}) do |row|
 end
 puts "Inserted KlasiusSRV"
 
-StudyProgramMode.create( study_program: StudyProgram.find_by_name('RAČUNALNIŠTVO IN INFORMATIKA'), mode_of_study: ModeOfStudy.all.find_by_name('REDNI'), number_of_places: '150', number_of_places_foreign: '10' )
-StudyProgramMode.create( study_program: StudyProgram.find_by_name('RAČUNALNIŠTVO IN INFORMATIKA'), mode_of_study: ModeOfStudy.all.find_by_name('IZREDNI'), number_of_places: '25', number_of_places_foreign: '5' )
+StudyProgramMode.create(study_program: StudyProgram.find_by_name('RAČUNALNIŠTVO IN INFORMATIKA'), mode_of_study: ModeOfStudy.all.find_by_name('REDNI'), number_of_places: '150', number_of_places_foreign: '10' )
+StudyProgramMode.create(study_program: StudyProgram.find_by_name('RAČUNALNIŠTVO IN INFORMATIKA'), mode_of_study: ModeOfStudy.all.find_by_name('IZREDNI'), number_of_places: '25', number_of_places_foreign: '5' )
+StudyProgramMode.create(study_program: StudyProgram.where(type_of_study: TypeOfStudy.find_by_name('UNIVERZITETNI')).find_by_name('RAČUNALNIŠTVO IN INFORMATIKA'), mode_of_study: ModeOfStudy.all.find_by_name('REDNI'), number_of_places: '150', number_of_places_foreign: '10' )
+StudyProgramMode.create(study_program: StudyProgram.where(type_of_study: TypeOfStudy.find_by_name('UNIVERZITETNI')).find_by_name('RAČUNALNIŠTVO IN INFORMATIKA'), mode_of_study: ModeOfStudy.all.find_by_name('IZREDNI'), number_of_places: '25', number_of_places_foreign: '5' )
 
+Requirement.create(study_program: StudyProgram.where(type_of_study: TypeOfStudy.find_by_name('UNIVERZITETNI')).find_by_name('RAČUNALNIŠTVO IN INFORMATIKA'), highschool_completion: HighschoolCompletion.find_by_name('SPLOŠNA MATURA'))
+req = Requirement.create(study_program: StudyProgram.where(type_of_study: TypeOfStudy.find_by_name('UNIVERZITETNI')).find_by_name('RAČUNALNIŠTVO IN INFORMATIKA'), highschool_completion: HighschoolCompletion.find_by_name('POKLICNA MATURA'))
+RequirementElement.create(requirement: req, element: Element.find_by_name('RAČUNALNIŠTVO (NA MATURI)'))
+RequirementElement.create(requirement: req, element: Element.find_by_name('MATEMATIKA (OSNOVNA RAVEN) (NA MATURI)'))
+RequirementElement.create(requirement: req, element: Element.find_by_name('FIZIKA (NA MATURI)'))
 
-
-
+Requirement.create(study_program: StudyProgram.where(type_of_study: TypeOfStudy.find_by_name('UNIVERZITETNI')).find_by_name('GOZDARSTVO IN OBNOVLJIVI GOZDNI VIRI'), highschool_completion: HighschoolCompletion.find_by_name('SPLOŠNA MATURA'))
+req = Requirement.create(study_program: StudyProgram.where(type_of_study: TypeOfStudy.find_by_name('UNIVERZITETNI')).find_by_name('GOZDARSTVO IN OBNOVLJIVI GOZDNI VIRI'), highschool_completion: HighschoolCompletion.find_by_name('POKLICNA MATURA'), profession: Profession.find_by_name('GOZDARSKI TEHNIK'))
+RequirementElement.create(requirement: req, element: Element.find_by_name('BIOLOGIJA (NA MATURI)'))
