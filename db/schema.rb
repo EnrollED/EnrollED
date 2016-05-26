@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20160526080936) do
     t.uuid     "country_of_residence_id"
     t.uuid     "highschool_country_id"
     t.uuid     "highschool_completion_id"
-    t.uuid     "klasius_srvs_id"
+    t.uuid     "klasius_srv_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.string   "maiden_name"
