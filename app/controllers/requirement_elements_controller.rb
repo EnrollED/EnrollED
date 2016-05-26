@@ -1,6 +1,8 @@
 class RequirementElementsController < ApplicationController
   before_action :set_requirement_element, only: [:show, :edit, :update, :destroy]
 
+  layout 'home'
+
   # GET /requirement_elements/new
   def new
     @study_program = StudyProgram.find(params[:study_program_id])
