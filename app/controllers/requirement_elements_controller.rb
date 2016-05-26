@@ -5,6 +5,7 @@ class RequirementElementsController < ApplicationController
 
   # GET /requirement_elements/new
   def new
+    authorize RequirementElement
     @study_program = StudyProgram.find(params[:study_program_id])
     @requirement = Requirement.find(params[:requirement_id])
     @requirement_element = RequirementElement.new
@@ -13,6 +14,7 @@ class RequirementElementsController < ApplicationController
   # POST /requirement_elements
   # POST /requirement_elements.json
   def create
+    authorize RequirementElement
     @study_program = StudyProgram.find(params[:study_program_id])
     @requirement = Requirement.find(params[:requirement_id])
     @requirement_element = RequirementElement.new(requirement_element_params)
@@ -27,6 +29,7 @@ class RequirementElementsController < ApplicationController
   # DELETE /requirement_elements/1
   # DELETE /requirement_elements/1.json
   def destroy
+    authorize @requirement_element
     @study_program = StudyProgram.find(params[:study_program_id])
     @requirement = Requirement.find(params[:requirement_id])
     @requirement_element.destroy

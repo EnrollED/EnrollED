@@ -6,12 +6,14 @@ class RequirementsController < ApplicationController
   # GET /requirements
   # GET /requirements.json
   def index
+    authorize Requirement
     @requirements = Requirement.where(:study_program_id => params[:study_program_id]).order(:highschool_completion_id)
     @study_program = StudyProgram.find(params[:study_program_id])
   end
 
   # GET /requirements/new
   def new
+    authorize Requirement
     @study_program = StudyProgram.find(params[:study_program_id])
     @requirement = Requirement.new
   end
@@ -20,6 +22,7 @@ class RequirementsController < ApplicationController
   # POST /requirements
   # POST /requirements.json
   def create
+    authorize Requirement
     @study_program = StudyProgram.find(params[:study_program_id])
     @requirement = Requirement.new(requirement_params)
     @requirement.study_program = @study_program
@@ -34,6 +37,7 @@ class RequirementsController < ApplicationController
   # PATCH/PUT /requirements/1
   # PATCH/PUT /requirements/1.json
   def update
+    authorize @requirement
     @study_program = StudyProgram.find(params[:study_program_id])
     if @requirement.update(requirement_params)
       redirect_to study_program_requirements_path(@study_program), notice: 'Pogoj uspešno posodobljen.'
@@ -45,6 +49,7 @@ class RequirementsController < ApplicationController
   # DELETE /requirements/1
   # DELETE /requirements/1.json
   def destroy
+    authorize @requirement
     @study_program = StudyProgram.find(params[:study_program_id])
     @requirement.destroy
     redirect_to study_program_requirements_path(@study_program)
