@@ -8,7 +8,7 @@
 <div class="tabs-container">
   <ul class="nav nav-tabs">
     <li><a href="<%= study_program_path(@study_program) %>" aria-expanded="true">Pregled</a></li>
-    <li class="active"><a href="<%= '' %>" aria-expanded="false">Pogoji</a></li>
+    <li class="active"><a href="<%= '' %>" aria-expanded="false">Pogoji in elementi</a></li>
     <li><a href="<%= '' %>" aria-expanded="false">Kandidati</a></li>
   </ul>
 </div>
@@ -35,6 +35,7 @@
           <th><%= "Pogoj" %></th>
           <th><%= "Poklic" %></th>
           <th><%= "Predmeti" %></th>
+          <th><%= "Elementi za izračun točk" %></th>
           <th></th>
         </tr>
         </thead>
@@ -72,6 +73,32 @@
                   <tr>
                     <td>
                       <%= link_to "Dodaj predmet", new_study_program_requirement_requirement_element_path(@study_program, req), class: 'btn btn-xs btn-primary' %>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+              <td>
+                <table>
+                  <% if req.study_program_elements.length == 0 %>
+                      <tr>
+                        <td>Elementi niso določeni</td>
+                      </tr>
+                  <% else %>
+                      <% req.study_program_elements.each do |el| %>
+                          <tr>
+                            <td><%= el.element.name %></td>
+                            <td class="text-right table-links">
+                              <%= link_to study_program_requirement_study_program_element_path(@study_program, req, el), method: :delete,
+                                          data: {confirm: t('defaults.are_you_sure')}, class: 'label label-danger' do %>
+                                  <i class="fa fa-trash" title="<%= t 'defaults.remove' %>" aria-hidden="true"></i>
+                              <% end %>
+                            </td>
+                          </tr>
+                      <% end %>
+                  <% end %>
+                  <tr>
+                    <td>
+                      <%= link_to "Dodaj element", new_study_program_requirement_study_program_element_path(@study_program, req), class: 'btn btn-xs btn-primary' %>
                     </td>
                   </tr>
                 </table>

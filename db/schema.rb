@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160525225438) do
+ActiveRecord::Schema.define(version: 20160526080936) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -200,6 +200,17 @@ ActiveRecord::Schema.define(version: 20160525225438) do
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
 
+  create_table "study_program_elements", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
+    t.uuid     "requirement_id", null: false
+    t.uuid     "element_id",     null: false
+    t.float    "weight",         null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "study_program_elements", ["element_id"], name: "index_study_program_elements_on_element_id", using: :btree
+  add_index "study_program_elements", ["requirement_id"], name: "index_study_program_elements_on_requirement_id", using: :btree
+
   create_table "study_program_modes", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.integer  "number_of_places"
     t.integer  "number_of_places_foreign"
@@ -286,4 +297,6 @@ ActiveRecord::Schema.define(version: 20160525225438) do
   add_foreign_key "requirements", "highschool_completions"
   add_foreign_key "requirements", "professions"
   add_foreign_key "requirements", "study_programs"
+  add_foreign_key "study_program_elements", "elements"
+  add_foreign_key "study_program_elements", "requirements"
 end

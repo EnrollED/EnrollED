@@ -1,0 +1,15 @@
+<%= form_for [@study_program, @requirement, @study_program_element] do |f| %>
+    <%= render 'layouts/errors', :resource => @study_program_element %>
+
+    <div class="form-group">
+      <%= f.label "Element", class: 'control-label' %>
+      <%= f.collection_select :element_id, Element.all, :id, :name, {:include_blank => "---Izberi element za izračun---"}, {:class => 'form-control'} %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "Utež", class: 'control-label' %>
+      <%= f.text_field :weight, placeholder: true, autofocus: true, class: 'form-control' %>
+    </div>
+
+    <%= f.submit t('defaults.save'), class: 'btn btn-success' %>
+<% end %>

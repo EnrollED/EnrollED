@@ -42,6 +42,7 @@ Rails.application.routes.draw do
   resources :study_programs do
     resources :requirements do
       resources :requirement_elements
+      resources :study_program_elements
     end
   end
   resources :study_program_modes
