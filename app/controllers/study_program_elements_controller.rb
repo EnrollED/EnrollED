@@ -38,14 +38,12 @@ class StudyProgramElementsController < ApplicationController
   # PATCH/PUT /study_program_elements/1.json
   def update
     authorize @study_program_element
-    respond_to do |format|
-      if @study_program_element.update(study_program_element_params)
-        format.html { redirect_to @study_program_element, notice: 'Study program element was successfully updated.' }
-        format.json { render :show, status: :ok, location: @study_program_element }
-      else
-        format.html { render :edit }
-        format.json { render json: @study_program_element.errors, status: :unprocessable_entity }
-      end
+    @study_program = StudyProgram.find(params[:study_program_id])
+    @requirement = Requirement.find(params[:requirement_id])
+    if @study_program_element.update(study_program_element_params)
+      redirect_to study_program_requirements_path(@study_program), notice: 'Element uspešno posodbljen.'
+    else
+      render :edit
     end
   end
 
