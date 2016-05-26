@@ -66,7 +66,7 @@ class ApplicationFormsController < ApplicationController
     authorize @application
     if @application.status != 'Poslana'
       @application.destroy
-      redirect_to application_forms_path, notice: "Prijava je odstanjena!"
+      redirect_to application_forms_path, notice: "Prijava je odstranjena!"
     else
       redirect_to application_forms_path, notice: "Poslane prijave ni mogoče odstraniti!"
     end
@@ -78,7 +78,7 @@ class ApplicationFormsController < ApplicationController
 
   def application_params
     params.require(:application).permit(:maiden_name, :sex, :phone, :place_of_residence, :post_of_residence_id, :municipality_id, :country_of_birth_id, :highschool_id, :highschool_certificate, :highschool_country_id, :date_of_birth,
-                                        :firstname_for_notification, :lastname_for_notification, :place_for_notification, :post_for_notification_id, :citizen_id, :country_of_residence_id, :highschool_completion_id, :highschool_finished_date, :klasius_srvs_id)
+                                        :firstname_for_notification, :lastname_for_notification, :place_for_notification, :post_for_notification_id, :citizen_id, :country_of_residence_id, :highschool_completion_id, :highschool_finished_date, :klasius_srv_id)
   end
 
   def set_enrollment
