@@ -255,7 +255,7 @@ sl:
   study_programs:
     menu:
       overview: 'Pregled'
-      modes: 'Vrste'
+      modes: 'Načini'
       requirements: 'Pogoji in elementi'
       candidates: 'Kandidati'
     index:
