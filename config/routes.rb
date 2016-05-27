@@ -46,7 +46,7 @@ Rails.application.routes.draw do
       resources :study_program_elements
     end
   end
-  
+
   resources :study_program_modes
   resources :candidates
   resources :application_forms, except: :show do
