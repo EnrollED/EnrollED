@@ -8,8 +8,23 @@ class StudyProgramsController < ApplicationController
   def index
     authorize StudyProgram
 
-    #@study_programs = StudyProgram.includes(:higher_education_institution, :type_of_study).order(:higher_education_institution_id, :name).page(params[:page]).per(10)
-    @study_programs = StudyProgram.joins(:higher_education_institution, :type_of_study).order("higher_education_institutions.name, study_programs.name, type_of_studies.name").page(params[:page]).per(10)
+    @available_faculties = HigherEducationInstitution.includes(:university)
+                               .order('universities.name, higher_education_institutions.name')
+
+    @type_of_studies = TypeOfStudy.order(:name)
+
+    @mode_of_studies = ModeOfStudy.order(:name)
+
+    @extra_columns = [[ 'EU', :number_of_places, 'n_places'], [ 'Tujci', :number_of_places_foreign, 'n_places_foreign'],
+                      ['EU sklep', :number_of_places_after_selection, 'n_selection'],
+                      ['Tujci sklep', :number_of_places_after_selection_foreign, 'n_selection_foreign'],
+                      ['EU sprejeti', :selected, 'n_selected'], ['Tujci sprejeti', :selected_foreign, 'n_selected_foreign']]
+
+    @study_programs = StudyProgram
+                          .advanced_search(params[:faculty_id], params[:type_of_study_id], params[:mode_of_study_id])
+                          .includes({higher_education_institution: [:university]}, :type_of_study, :study_program_modes)
+                          .order("higher_education_institutions.name, study_programs.name, type_of_studies.name")
+                          .page(params[:page])
   end
 
   # GET /study_programs/1

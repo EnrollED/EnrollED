@@ -11,6 +11,7 @@ sl:
     save: 'Shrani'
     disable: 'Onesposobi'
     search: 'Išči'
+    back: 'Nazaj'
     are_you_sure: 'Ali ste prepričani?'
     not_authorized: 'Opala! Tam pa ne smete biti!'
     no_records: 'Ni najdenih zapisov.'
@@ -117,6 +118,7 @@ sl:
       study_program: 'Študijski program'
       type_of_study: 'Vrsta študija'
       university: 'Univerza'
+      enrollment: 'Razpis'
     attributes:
       user:
         username: 'Uporabniško ime'
@@ -208,6 +210,8 @@ sl:
         code: 'Šifra'
         name: 'Naziv'
         is_valid: 'Veljavnost'
+        created_at: 'Ustvarjeno'
+        updated_at: 'Posodobljeno'
       type_of_study:
         code: 'Šifra'
         name: 'Naziv'
@@ -215,9 +219,6 @@ sl:
       university:
         code: 'Šifra'
         name: 'Naziv'
-        is_valid: 'Veljavnost'
-      university:
-        code: 'Šifra'
         description_sl: 'Opis (slo)'
         description_en: 'Opis (ang)'
         parent: 'Šifra starša'
@@ -251,6 +252,25 @@ sl:
       logout: 'Odjavi se'
       admin_area: 'Admin prostor'
       zadnja_prijava: 'Zadnja prijava'
+  study_programs:
+    menu:
+      overview: 'Pregled'
+      modes: 'Vrste'
+      requirements: 'Pogoji in elementi'
+      candidates: 'Kandidati'
+    index:
+      choose_faculty: 'Izberi fakulteto'
+      choose_type: 'Izberi način'
+      choose_mode: 'Izberi vrsto'
+      choose_columns: 'Izberi stolpce'
+    show:
+      university_short: 'Kratica univerze'
+      filled: 'Zapolnjeno'
+      filled_text_before: 'Zapolnjena mesta bodo vidna po začetku razpisa'
+      filled_text_during: 'Trenutno zapolnjenih %{percent}% mest. Podroben seznam se nahaja na seznamu kandidatov.'
+  study_program_modes:
+    index:
+      no_modes: 'Ni bilo najdenih nobenih načinov'
   users:
     edit:
       edit: 'Uredi profil'
@@ -273,6 +293,9 @@ sl:
       form:
         cancel_account: 'Prekliči račun'
         leave_blank_pass: 'Pustite prazno, v primeru da gesla ne želite spremeniti.'
+      menu:
+        profile: 'Profil'
+        faculties: 'Fakultete'
       create:
         created: 'Uporabnik je bil uspešno ustvarjen'
       index:

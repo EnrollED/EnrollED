@@ -1,9 +1,11 @@
-<%= form_for(@study_program_mode) do |f| %>
-    <%= render 'layouts/errors', :resource => @study_program_mode %>
+<%= form_for @study_program_mode, url: url do |f| %>
+
+    <%= render 'layouts/errors', resource: @study_program_mode %>
 
     <div class="form-group">
       <%= f.label "Program", class: 'control-label' %>
-      <%= f.collection_select :study_program_id, StudyProgram.all, :id, :full_name, {:include_blank => false}, { :class => 'form-control' }  %>
+      <%= f.collection_select :study_program_id, StudyProgram.all, :id, :full_name, {:include_blank => false},
+                              { class: 'form-control', disabled: 'disabled' }  %>
     </div>
 
     <div class="form-group">
@@ -42,4 +44,6 @@
     </div>
 
     <%= f.submit t('defaults.save'), class: 'btn btn-success' %>
+
+    <%= link_to t('defaults.cancel'), study_program_study_program_modes_path, class: 'btn btn-warning' %>
 <% end %>
