@@ -20,5 +20,27 @@ Enrolled.application_forms = {
                 $('#application_post_for_notification_id').val('');
             }
         });
+
+        $('#application_citizen_id').change(function() {
+            if($('#application_citizen_id option:selected').text() == 'DRŽAVLJAN(KA) REPUBLIKE SLOVENIJE'){
+                $('#application_EMSO').removeAttr("disabled");
+            }else{
+                $('#application_EMSO').attr("disabled", "disabled");
+            }
+        });
+        radiobutt
+
+        $("#radiobutt input[type=radio]").each(function(i){
+            $(this).click(function () {
+                if(i==1) {
+                    $("#application_highschool_finished_date").attr("disabled", "disabled");
+                }
+                else {
+                    $("#application_highschool_finished_date").removeAttr("disabled");
+                }
+            });
+
+        });
+
     }
 };
