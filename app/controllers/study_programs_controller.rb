@@ -87,6 +87,24 @@ class StudyProgramsController < ApplicationController
     end
   end
 
+  def pdf_export
+    @study_program = StudyProgram.find(params[:id])
+    @requirements =   @study_program.requirements.order(:highschool_completion_id)
+    @study_program_modes = @study_program.study_program_modes
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        #export_pdf
+        html = render_to_string(:action => :pdf_export, :layout => 'layouts/layout_pdf.html.erb', :template => 'study_programs/pdf_export.html.erb')
+        pdf = WickedPdf.new.pdf_from_string(html)
+        send_data(pdf,
+                  :filename    => "prijava_"+ (@study_program.name) +".pdf",
+                  :disposition => 'attachment')
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_study_program

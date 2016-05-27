@@ -57,6 +57,8 @@ Rails.application.routes.draw do
   get '/application_forms/:id/send' => 'application_forms#send_application', via: :get,  as: 'send_application_form'
   get '/application_forms/:id/pdf_export/' => 'application_forms#pdf_export', via: :get, as: 'export_application_form'
 
+  get '/study_programs/:id/pdf_export/' => 'study_programs#pdf_export', via: :get, as: 'export_study_program'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
