@@ -5,6 +5,7 @@ class StudyProgramElementsController < ApplicationController
 
   # GET /study_program_elements/new
   def new
+    authorize StudyProgramElement
     @study_program = StudyProgram.find(params[:study_program_id])
     @requirement = Requirement.find(params[:requirement_id])
     @study_program_element = StudyProgramElement.new
@@ -12,6 +13,7 @@ class StudyProgramElementsController < ApplicationController
 
   # GET /study_program_elements/1/edit
   def edit
+    authorize @study_program_element
     @study_program = StudyProgram.find(params[:study_program_id])
     @requirement = Requirement.find(params[:requirement_id])
   end
@@ -19,6 +21,7 @@ class StudyProgramElementsController < ApplicationController
   # POST /study_program_elements
   # POST /study_program_elements.json
   def create
+    authorize StudyProgramElement
     @study_program = StudyProgram.find(params[:study_program_id])
     @requirement = Requirement.find(params[:requirement_id])
     @study_program_element = StudyProgramElement.new(study_program_element_params)
@@ -34,20 +37,20 @@ class StudyProgramElementsController < ApplicationController
   # PATCH/PUT /study_program_elements/1
   # PATCH/PUT /study_program_elements/1.json
   def update
-    respond_to do |format|
-      if @study_program_element.update(study_program_element_params)
-        format.html { redirect_to @study_program_element, notice: 'Study program element was successfully updated.' }
-        format.json { render :show, status: :ok, location: @study_program_element }
-      else
-        format.html { render :edit }
-        format.json { render json: @study_program_element.errors, status: :unprocessable_entity }
-      end
+    authorize @study_program_element
+    @study_program = StudyProgram.find(params[:study_program_id])
+    @requirement = Requirement.find(params[:requirement_id])
+    if @study_program_element.update(study_program_element_params)
+      redirect_to study_program_requirements_path(@study_program), notice: 'Element uspešno posodbljen.'
+    else
+      render :edit
     end
   end
 
   # DELETE /study_program_elements/1
   # DELETE /study_program_elements/1.json
   def destroy
+    authorize @study_program_element
     @study_program = StudyProgram.find(params[:study_program_id])
     @requirement = Requirement.find(params[:requirement_id])
     @study_program_element.destroy

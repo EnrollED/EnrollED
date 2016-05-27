@@ -8,7 +8,12 @@ class ApplicationFormsController < ApplicationController
 
   def index
     authorize Application
-    @applications = policy_scope(Application)
+    @applications = Application.where(user_id: current_user.id).page(params[:page])
+  end
+
+  def all_applications
+    authorize Application
+    @applications = Application.all.search(params[:search]).page(params[:page])
   end
 
   def new

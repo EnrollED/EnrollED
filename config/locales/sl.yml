@@ -244,6 +244,7 @@ sl:
       home:
         personal: 'Osebno'
         enrollment_resources: 'Viri za vpis'
+        candidates: 'Kandidati'
         my_applications: 'Moje prijave'
         study_programs: 'Študijski programi'
     header:

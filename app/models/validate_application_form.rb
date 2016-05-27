@@ -13,13 +13,14 @@ class ValidateApplicationForm < ActiveModel::Validator
         record.errors[:EMSO] << ' je napačen!'
       end
 
-      if ((record.municipality.code.to_i == 0 and record.country_of_birth.code.to_i == 705 ) or (record.municipality.code.to_i != 0 and record.country_of_birth.code.to_i != 705))
-        record.errors[:base] << 'Občina in država rojstva se ne ujemata!'
-      end
+    end
 
-      if ((record.post_of_residence.code.to_i != 0 and record.country_of_residence.code.to_i != 705))
-        record.errors[:base] << 'Pošta in država stalnega prebivališča se na ujemata!'
-      end
+    if ((record.municipality.code.to_i == 0 and record.country_of_birth.code.to_i == 705 ) or (record.municipality.code.to_i != 0 and record.country_of_birth.code.to_i != 705))
+      record.errors[:base] << 'Občina in država rojstva se ne ujemata!'
+    end
+
+    if ((record.post_of_residence.code.to_i != 0 and record.country_of_residence.code.to_i != 705))
+      record.errors[:base] << 'Pošta in država stalnega prebivališča se na ujemata!'
     end
 
     if record.highschool_certificate == true and record.highschool_finished_date.nil?

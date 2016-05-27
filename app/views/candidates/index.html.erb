@@ -1,0 +1,61 @@
+<div class="row page-heading">
+  <div class="col-lg-10">
+    <h2>Študijski programi</h2>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="col-sm-4">
+    <%= form_tag(candidates_path, method: :get) do |f| %>
+
+        <div class="input-group">
+
+          <%= grouped_collection_select(:city, :country_id, @continents, :countries, :name, :id, :name) %>
+          <%= search_field_tag :search, params[:search], autofocus: true,
+                               placeholder: t('defaults.search') + '...', class: 'form-control' %>
+
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+          </span>
+
+        </div>
+
+    <% end %>
+  </div>
+</div>
+
+<br/>
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
+    <tr>
+      <th>Ime</th>
+      <th>Priimek</th>
+      <th>Visokošolski zavod</th>
+      <th>Študijski program</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @candidates.each do |candidate| %>
+        <tr>
+          <td><%= candidate.user.firstname %></td>
+          <td><%= candidate.user.lastname %></td>
+          <td><% @application_choices.where(application_id: candidate.id).each_with_index do |choice, index| %>
+                <%= index + 1 %>. želja:
+                <%= choice.study_program_mode.study_program.higher_education_institution.name %>
+                <br>
+              <% end %>
+          </td>
+          <td><% @application_choices.where(application_id: candidate.id).each do |choice| %>
+                <%= choice.study_program_mode.study_program.name %>
+                <br>
+            <% end %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
