@@ -105,6 +105,33 @@ class StudyProgramsController < ApplicationController
     end
   end
 
+  def pdf_export_list
+    @extra_columns = [[ 'EU', :number_of_places, 'n_places'], [ 'Tujci', :number_of_places_foreign, 'n_places_foreign'],
+                      ['EU sklep', :number_of_places_after_selection, 'n_selection'],
+                      ['Tujci sklep', :number_of_places_after_selection_foreign, 'n_selection_foreign'],
+                      ['EU sprejeti', :selected, 'n_selected'], ['Tujci sprejeti', :selected_foreign, 'n_selected_foreign']]
+
+    @selected_columns = [ 'n_places', 'n_places_foreign', 'n_selection', 'n_selection_foreign', 'n_selected_foreign']
+
+    @study_programs = StudyProgram
+                          .advanced_search(params[:faculty_id], params[:type_of_study_id], params[:mode_of_study_id])
+                          .includes({higher_education_institution: [:university]}, :type_of_study, :study_program_modes)
+                          .order("higher_education_institutions.name, study_programs.name, type_of_studies.name")
+                          .page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        #export_pdf
+        html = render_to_string(:action => :pdf_export, :layout => 'layouts/layout_pdf.html.erb', :template => 'study_programs/pdf_export_list.html.erb')
+        pdf = WickedPdf.new.pdf_from_string(html, :orientation => 'Landscape')
+        send_data(pdf,
+                  :filename    => "programi.pdf",
+                  :disposition => 'attachment')
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_study_program

@@ -82,7 +82,9 @@
                       <% req.study_program_elements.each do |el| %>
                           <tr>
                             <td><%= el.element.name %></td>
-                            <td> - <%= el.percentage %> %</td>
+                            <td>
+                              - <%= number_with_precision(el.percentage, :precision => 2, :delimiter => ',') %>
+                              %</td>
                             <td>
                               <%= link_to edit_study_program_requirement_study_program_element_path(@study_program, req, el), class: 'label label-info' do %>
                                   <i class="fa fa-pencil" title="<%= t 'defaults.edit' %>" aria-hidden="true"></i>
