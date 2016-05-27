@@ -12,6 +12,8 @@
                        {multiple: true, class: 'form-control', data: {placeholder: "-- #{t('.choose_columns')} --"}} %>
       </div>
       <div class="col-sm-6 text-right">
+        <%= link_to "Izvozi v PDF", export_study_programs_path( :format=> :pdf), class: 'btn btn-primary' %>
+
         <%= link_to "Dodaj študijski program", new_study_program_path, class: 'btn btn-success' %>
       </div>
     </div>
