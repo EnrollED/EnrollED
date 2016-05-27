@@ -46,11 +46,13 @@ Rails.application.routes.draw do
     end
   end
   resources :study_program_modes
+  resources :candidates
 
-  resources :application_forms do
+  resources :application_forms, except: :show do
     resources :choices
   end
 
+  get '/application_forms/all' => 'application_forms#all_applications', via: :get,  as: 'all_application_form'
   get '/application_forms/:id/send' => 'application_forms#send_application', via: :get,  as: 'send_application_form'
   get '/application_forms/:id/pdf_export/' => 'application_forms#pdf_export', via: :get, as: 'export_application_form'
 
