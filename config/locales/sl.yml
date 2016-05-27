@@ -254,9 +254,14 @@ sl:
   study_programs:
     menu:
       overview: 'Pregled'
-      modes: 'Načini'
+      modes: 'Vrste'
       requirements: 'Pogoji in elementi'
       candidates: 'Kandidati'
+    index:
+      choose_faculty: 'Izberi fakulteto'
+      choose_type: 'Izberi način'
+      choose_mode: 'Izberi vrsto'
+      choose_columns: 'Izberi stolpce'
     show:
       university_short: 'Kratica univerze'
       filled: 'Zapolnjeno'

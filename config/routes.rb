@@ -40,7 +40,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:edit, :update]
   resources :study_programs do
-    resources :study_program_modes
+    resources :study_program_modes, except: :show, concerns: :paginatable
     resources :requirements do
       resources :requirement_elements
       resources :study_program_elements

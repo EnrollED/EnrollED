@@ -7,15 +7,16 @@
 
 <%= render 'study_programs/menu' %>
 
-<br>
+<br />
 
 <div class="row">
 
-  <div class="col-sm-4 text-left">
+  <div class="col-sm-12 text-right">
     <%= link_to "Dodaj pogoj", new_study_program_requirement_path(@study_program), class: 'btn btn-success' %>
   </div>
-
 </div>
+
+<br />
 
 <% if @requirements.length == 0 %>
     <div class="text-center">
