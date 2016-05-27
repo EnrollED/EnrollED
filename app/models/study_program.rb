@@ -22,4 +22,14 @@ class StudyProgram < ActiveRecord::Base
       find(:all)
     end
   end
+
+  def self.advanced_search(faculty = nil, type = nil, mode = nil)
+    programs = self
+
+    programs = programs.where(higher_education_institution_id: faculty) unless faculty.nil? or faculty.empty?
+    programs = programs.where(type_of_study_id: type) unless type.nil? or type.empty?
+    programs = programs.where(study_program_modes: {mode_of_study_id: mode}) unless mode.nil? or mode.empty?
+
+    programs
+  end
 end
