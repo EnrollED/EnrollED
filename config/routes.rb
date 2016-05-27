@@ -39,7 +39,12 @@ Rails.application.routes.draw do
   resources :codes, only: :index
 
   resources :users, only: [:edit, :update]
-  resources :study_programs
+  resources :study_programs do
+    resources :requirements do
+      resources :requirement_elements
+      resources :study_program_elements
+    end
+  end
   resources :study_program_modes
 
   resources :application_forms do

@@ -10,6 +10,7 @@ class Application < ActiveRecord::Base
   belongs_to :citizen
   belongs_to :municipality
   belongs_to :highschool_completion
+  belongs_to :klasius_srv
 
   validates :sex, :phone, :place_of_residence, :firstname_for_notification, :lastname_for_notification, :place_for_notification, :date_of_birth, presence: true
 

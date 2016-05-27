@@ -16,7 +16,7 @@ class CreateApplications < ActiveRecord::Migration
       t.references :country_of_residence, type: :uuid
       t.references :highschool_country, type: :uuid
       t.references :highschool_completion, type: :uuid
-      t.references :klasius_srvs, type: :uuid
+      t.references :klasius_srv, type: :uuid
 
       t.timestamps null: false
     end

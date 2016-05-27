@@ -196,6 +196,10 @@ sl:
         name: 'Naziv'
         acronym: 'Kratica'
         is_valid: 'Veljavnost'
+      highschool:
+        code: 'Šifra'
+        name: 'Naziv'
+        is_valid: 'Veljavnost'
       mode_of_study:
         code: 'Šifra'
         name: 'Naziv'

@@ -1,0 +1,20 @@
+<div class="row page-heading">
+  <div class="col-lg-10">
+    <h2><%= @study_program.higher_education_institution.acronym %> - <%= @study_program.name %>
+      (<%= @study_program.type_of_study.name %>)</h2>
+  </div>
+</div>
+
+<div class="tabs-container">
+  <ul class="nav nav-tabs">
+    <li><a href="<%= study_program_path(@study_program) %>" aria-expanded="true">Pregled</a></li>
+    <li class="active"><a href="<%= study_program_requirements_path(@study_program) %>" aria-expanded="false">Pogoji in elementi</a></li>
+    <li><a href="<%= '' %>" aria-expanded="false">Kandidati</a></li>
+  </ul>
+</div>
+
+<br>
+
+<h2>Dodajanje predmeta za pogoj <%= @requirement.highschool_completion.name %></h2>
+
+<%= render 'form' %>
