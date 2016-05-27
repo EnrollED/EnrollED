@@ -59,3 +59,14 @@
   <% end %>
   </tbody>
 </table>
+
+<% if @applications.length == 0 %>
+    <div class="text-center">
+
+      <p><%= t 'defaults.no_records' %></p>
+    </div>
+<% end %>
+
+<div>
+  <%= paginate @applications %>
+</div>

@@ -19,4 +19,12 @@ class Application < ActiveRecord::Base
   include ActiveModel::Validations
   validates_with ValidateApplicationForm
 
+  ####### Class methods #######
+  class << self
+
+    def search(name)
+      joins(:user).where("LOWER(users.firstname || ' ' || users.lastname || ' ') LIKE LOWER(?)", "%#{name}%")
+    end
+  end
+
 end

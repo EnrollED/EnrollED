@@ -8,12 +8,12 @@ class ApplicationFormsController < ApplicationController
 
   def index
     authorize Application
-    @applications = Application.where(user_id: current_user.id)
+    @applications = Application.where(user_id: current_user.id).page(params[:page])
   end
 
   def all_applications
     authorize Application
-    @applications = Application.all
+    @applications = Application.all.search(params[:search]).page(params[:page])
   end
 
   def new
