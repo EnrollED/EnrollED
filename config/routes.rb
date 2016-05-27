@@ -39,6 +39,8 @@ Rails.application.routes.draw do
   resources :codes, only: :index
 
   resources :users, only: [:edit, :update]
+
+  get '/study_programs/pdf_export/' => 'study_programs#pdf_export_list', via: :get, as: 'export_study_programs'
   resources :study_programs do
     resources :study_program_modes, except: :show, concerns: :paginatable
     resources :requirements do
@@ -58,6 +60,9 @@ Rails.application.routes.draw do
   get '/application_forms/:id/pdf_export/' => 'application_forms#pdf_export', via: :get, as: 'export_application_form'
 
   get '/study_programs/:id/pdf_export/' => 'study_programs#pdf_export', via: :get, as: 'export_study_program'
+
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
