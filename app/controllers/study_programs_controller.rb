@@ -22,7 +22,7 @@ class StudyProgramsController < ApplicationController
 
     @study_programs = StudyProgram
                           .advanced_search(params[:faculty_id], params[:type_of_study_id], params[:mode_of_study_id])
-                          .includes({higher_education_institution: [:university]}, :type_of_study, :study_program_modes)
+                          .includes(:study_program_modes, {higher_education_institution: [:university]}, :type_of_study)
                           .order("higher_education_institutions.name, study_programs.name, type_of_studies.name")
                           .page(params[:page])
   end
