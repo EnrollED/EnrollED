@@ -4,37 +4,54 @@
   </div>
 </div>
 
+<%= form_tag(candidates_path, method: :get) do |f| %>
+
+    <div class="row">
+      <div class="col-md-4">
+        <%= select_tag :faculty_id, options_from_collection_for_select(@available_faculties, :id, :full_name, params[:faculty_id]),
+                       include_blank: "-- Izberi fakulteto --", class: 'form-control' %>
+      </div>
+
+      <div class="col-md-3">
+        <%= select_tag :study_program_id, options_from_collection_for_select(@study_programs, :id, :full_name, params[:study_program_id]),
+                       include_blank: "-- Izberi študijski program --", class: 'form-control' %>
+      </div>
+
+      <div class="col-md-2">
+        <%= select_tag :type_of_study_id, options_from_collection_for_select(@type_of_studies, :id, :name, params[:type_of_study_id]),
+                       include_blank: "-- Izberi način --", class: 'form-control' %>
+      </div>
+      <div class="col-md-2">
+        <%= select_tag :mode_of_study_id, options_from_collection_for_select(@mode_of_studies, :id, :name, params[:mode_of_study_id]),
+                       include_blank: "-- Izberi vrsto --", class: 'form-control' %>
+      </div>
+      <div class="col-md-1 text-right">
+        <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+      </div>
+    </div>
+
+<% end %>
+
+<br/>
+
 <div class="row">
-
-  <div class="col-sm-4">
-    <%= form_tag(candidates_path, method: :get) do |f| %>
-
-        <div class="input-group">
-
-          <%= grouped_collection_select(:city, :country_id, @continents, :countries, :name, :id, :name) %>
-          <%= search_field_tag :search, params[:search], autofocus: true,
-                               placeholder: t('defaults.search') + '...', class: 'form-control' %>
-
-          <span class="input-group-btn">
-            <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
-          </span>
-
-        </div>
-
-    <% end %>
+  <div class="col-sm-6">
+    <%= link_to "Izvozi v PDF", export_candidates_path( :format=> :pdf), class: 'btn btn-primary' %>
   </div>
 </div>
 
 <br/>
+
 <div class="table-responsive">
   <table class="table table-striped table-hover">
     <thead>
     <tr>
       <th>Ime</th>
       <th>Priimek</th>
+      <th>EMŠO</th>
       <th>Visokošolski zavod</th>
       <th>Študijski program</th>
-
+      <th>Način študija</th>
     </tr>
     </thead>
 
@@ -43,14 +60,21 @@
         <tr>
           <td><%= candidate.user.firstname %></td>
           <td><%= candidate.user.lastname %></td>
-          <td><% @application_choices.where(application_id: candidate.id).each_with_index do |choice, index| %>
+          <td><%= candidate.EMSO %></td>
+          <% @choices = @application_choices.where(application_id: candidate.id) %>
+          <td><% @choices.each_with_index do |choice, index| %>
                 <%= index + 1 %>. želja:
                 <%= choice.study_program_mode.study_program.higher_education_institution.name %>
                 <br>
               <% end %>
           </td>
-          <td><% @application_choices.where(application_id: candidate.id).each do |choice| %>
+          <td><% @choices.each do |choice| %>
                 <%= choice.study_program_mode.study_program.name %>
+                <br>
+            <% end %>
+          </td>
+          <td><% @choices.each do |choice| %>
+                <%= choice.study_program_mode.study_program.type_of_study.name %>
                 <br>
             <% end %>
           </td>
