@@ -29,7 +29,7 @@
           <td><%= application.application_number %></td>
           <td><%= application.status %></td>
           <td><%= application.submission_date.to_date %></td>
-          <% if application.status != 'Poslana' or policy(:admin).index? or policy(:admissions).index? %>
+          <% if (application.status != 'Poslana' and @enrollment.end >= Time.now) or policy(:admin).index? or policy(:admissions).index? %>
               <td>
                 <%= link_to edit_application_form_path(application), class: 'label label-info' do %>
                     <i class="fa fa-pencil" title="<%= t 'defaults.edit' %>" aria-hidden="true"></i>
@@ -38,7 +38,7 @@
           <% else %>
               <td colspan="1"></td>
           <% end %>
-          <% if application.status != 'Poslana' or policy(:admin).index? or policy(:admissions).index? %>
+          <% if (application.status != 'Poslana' and @enrollment.end >= Time.now) or policy(:admin).index? or policy(:admissions).index? %>
               <td>
                 <%= link_to application_form_path(application), method: :delete, data: {confirm: 'Ali ste prepričani?'}, class: 'label label-danger' do %>
                     <i class="fa fa-trash" title="<%= "Odstrani" %>" aria-hidden="true"></i>
@@ -47,7 +47,7 @@
           <% else %>
               <td colspan="1"></td>
           <% end %>
-          <% if application.status == 'Popolna' %>
+          <% if (application.status == 'Popolna' and @enrollment.end >= Time.now) %>
               <td>
                 <%= link_to send_application_form_path(application), class: 'label label-success' do %>
                     <i class="fa fa-paper-plane" title="<%= "Pošlji" %>" aria-hidden="true"></i>
