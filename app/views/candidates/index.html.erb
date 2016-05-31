@@ -1,6 +1,6 @@
 <div class="row page-heading">
   <div class="col-lg-10">
-    <h2>Študijski programi</h2>
+    <h2>Kandidati</h2>
   </div>
 </div>
 
@@ -58,26 +58,12 @@
     <tbody>
     <% @candidates.each do |candidate| %>
         <tr>
-          <td><%= candidate.user.firstname %></td>
-          <td><%= candidate.user.lastname %></td>
-          <td><%= candidate.EMSO %></td>
-          <% @choices = @application_choices.where(application_id: candidate.id) %>
-          <td><% @choices.each_with_index do |choice, index| %>
-                <%= index + 1 %>. želja:
-                <%= choice.study_program_mode.study_program.higher_education_institution.name %>
-                <br>
-              <% end %>
-          </td>
-          <td><% @choices.each do |choice| %>
-                <%= choice.study_program_mode.study_program.name %>
-                <br>
-            <% end %>
-          </td>
-          <td><% @choices.each do |choice| %>
-                <%= choice.study_program_mode.study_program.type_of_study.name %>
-                <br>
-            <% end %>
-          </td>
+          <td><%= candidate.application.user.firstname %></td>
+          <td><%= candidate.application.user.lastname %></td>
+          <td><%= candidate.application.EMSO %></td>
+          <td><%= candidate.study_program_mode.study_program.higher_education_institution.name %></td>
+          <td><%= candidate.study_program_mode.study_program.name %></td>
+          <td><%= candidate.study_program_mode.study_program.type_of_study.name %></td>
         </tr>
     <% end %>
     </tbody>

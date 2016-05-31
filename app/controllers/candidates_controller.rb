@@ -2,7 +2,10 @@ class CandidatesController < ApplicationController
   layout 'home'
 
   def index
-    @candidates = Application.includes(:user).page(params[:page]).per(10)
+
+    authorize ApplicationChoice
+    @candidates = CandidatePolicy::Scope.new(current_user, ApplicationChoice).resolve
+
 
     @available_faculties = HigherEducationInstitution.includes(:university)
                                .order('universities.name, higher_education_institutions.name')
@@ -14,12 +17,11 @@ class CandidatesController < ApplicationController
     @mode_of_studies = ModeOfStudy.order(:name)
 
 
-    @application_choices = ApplicationChoice.all
   end
 
   def pdf_export
-    @candidates = Application.includes(:user).page(params[:page]).per(10)
-    @application_choices = ApplicationChoice.all
+    authorize ApplicationChoice
+    @candidates = CandidatePolicy::Scope.new(current_user, ApplicationChoice).resolve
 
     respond_to do |format|
       format.html
