@@ -52,6 +52,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/candidates/pdf_export/' => 'candidates#pdf_export', via: :get, as: 'export_candidates'
+
   resources :study_program_modes
   resources :candidates
   resources :application_forms, except: :show do
@@ -63,9 +65,6 @@ Rails.application.routes.draw do
   get '/application_forms/:id/pdf_export/' => 'application_forms#pdf_export', via: :get, as: 'export_application_form'
 
   get '/study_programs/:id/pdf_export/' => 'study_programs#pdf_export', via: :get, as: 'export_study_program'
-
-
-
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
