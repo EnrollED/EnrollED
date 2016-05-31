@@ -1,0 +1,38 @@
+<div class="table-responsive full">
+  <table class="table table-striped table-hover table-study table-study-pdf">
+    <thead>
+    <tr>
+      <th>Ime programa</th>
+      <th class="faculty">Fakulteta</th>
+      <th>Način študija</th>
+      <th>Koda</th>
+      <% if @selected_columns %>
+          <% @extra_columns.each do |ec| %>
+              <% if @selected_columns.include?(ec[2]) %>
+                  <th><%= ec[0] %></th>
+              <% end %>
+          <% end %>
+      <% end %>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @study_programs.each do |study_program| %>
+        <tr>
+          <td><%= study_program.name %></td>
+          <td><%= study_program.higher_education_institution.name %></td>
+          <td><%= study_program.type_of_study.name %></td>
+          <td><%= study_program.code %></td>
+
+          <% if @selected_columns %>
+              <% @extra_columns.each do |ec| %>
+                  <% if @selected_columns.include?(ec[2]) %>
+                      <td><%= study_program.study_program_modes.pluck(ec[1]).reduce{ |sum, n| n.nil? ? sum : sum + n }  || '/' %></td>
+                  <% end %>
+              <% end %>
+          <% end %>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

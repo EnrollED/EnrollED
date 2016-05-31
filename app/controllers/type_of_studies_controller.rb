@@ -13,13 +13,14 @@ class TypeOfStudiesController < ApplicationController
   # GET /type_of_studies/1
   # GET /type_of_studies/1.json
   def show
-    authorize TypeOfStudy
+    authorize @type_of_study
   end
 
   # GET /type_of_studies/new
   def new
-    authorize TypeOfStudy
     @type_of_study = TypeOfStudy.new
+
+    authorize @type_of_study
   end
 
   # GET /type_of_studies/1/edit
@@ -30,8 +31,9 @@ class TypeOfStudiesController < ApplicationController
   # POST /type_of_studies
   # POST /type_of_studies.json
   def create
-    authorize TypeOfStudy
     @type_of_study = TypeOfStudy.new(type_of_study_params)
+
+    authorize @type_of_study
 
     respond_to do |format|
       if @type_of_study.save
@@ -47,7 +49,8 @@ class TypeOfStudiesController < ApplicationController
   # PATCH/PUT /type_of_studies/1
   # PATCH/PUT /type_of_studies/1.json
   def update
-    authorize TypeOfStudy
+    authorize @type_of_study
+
     respond_to do |format|
       if @type_of_study.update(type_of_study_params)
         format.html { redirect_to @type_of_study, notice: 'Type of study was successfully updated.' }
@@ -62,7 +65,8 @@ class TypeOfStudiesController < ApplicationController
   # DELETE /type_of_studies/1
   # DELETE /type_of_studies/1.json
   def destroy
-    authorize TypeOfStudy
+    authorize @type_of_study
+
     @type_of_study.is_valid=false
     respond_to do |format|
       if @type_of_study

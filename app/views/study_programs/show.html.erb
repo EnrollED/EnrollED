@@ -14,9 +14,11 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="m-b-md table-links">
+          <%= link_to "Izvozi v PDF", export_study_program_path(@study_program, :format=> :pdf), class: 'btn btn-primary pull-right' %>
+
           <%= link_to t('defaults.edit'), edit_study_program_path(@study_program), class: 'btn btn-primary pull-right' %>
 
-          <%= link_to t('defaults.back'), study_programs_path, class: 'btn btn-warning pull-right' %>
+          <%= link_to t('defaults.back'), :back, class: 'btn btn-warning pull-right' %>
           <h2><%= @study_program.name %></h2>
         </div>
         <dl class="dl-horizontal">

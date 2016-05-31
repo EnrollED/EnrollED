@@ -3,7 +3,7 @@ class StudyProgramElement < ActiveRecord::Base
   belongs_to :element
 
   validates :element, presence: true
-  validates :weight, presence: true
+  validates :weight, presence: true, numericality: { greater_than: 0 }
 
 
   def percentage

@@ -3,6 +3,7 @@ class StudyProgram < ActiveRecord::Base
   belongs_to :type_of_study
   belongs_to :enrollment
   has_many :study_program_modes, :dependent => :destroy
+  has_many :requirements, :dependent => :destroy
   validates :name, presence: true
   validates :code, presence: true, uniqueness: { case_sensitive: false }
   validates :name, presence: true, length: {in: 2..100}

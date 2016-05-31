@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     authorize Post
-    @posts = Post.order(:code).search(params[:search]).page(params[:page])
+    @posts = Post.order(:name).search(params[:search]).page(params[:page])
   end
 
   # GET /posts/1

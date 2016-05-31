@@ -7,8 +7,10 @@ class Admin::FacultiesController < ApplicationController
   def index
     authorize @user, :edit_faculties?
 
-    @faculties = HigherEducationInstitution.with_role(:member, @user).order(:name).page(params[:page])
-    @available_faculties = HigherEducationInstitution.order(:name).all
+    @faculties = HigherEducationInstitution.with_role(:member, @user).includes(:university)
+                     .order('universities.name, higher_education_institutions.name').page(params[:page])
+    @available_faculties = HigherEducationInstitution.includes(:university)
+                               .order('universities.name, higher_education_institutions.name').all
   end
 
   def create

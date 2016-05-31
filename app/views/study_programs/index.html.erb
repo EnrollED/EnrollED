@@ -12,6 +12,8 @@
                        {multiple: true, class: 'form-control', data: {placeholder: "-- #{t('.choose_columns')} --"}} %>
       </div>
       <div class="col-sm-6 text-right">
+        <%= link_to "Izvozi v PDF", export_study_programs_path( :format=> :pdf), class: 'btn btn-primary' %>
+
         <%= link_to "Dodaj študijski program", new_study_program_path, class: 'btn btn-success' %>
       </div>
     </div>
@@ -41,7 +43,7 @@
 <br/>
 
 <div class="table-responsive full">
-  <table class="table table-striped table-hover table-study">
+  <table class="table table-striped table-hover">
     <thead>
     <tr>
       <th>Ime programa</th>
@@ -55,7 +57,7 @@
               <% end %>
           <% end %>
       <% end %>
-      <th></th>
+      <th colspan="3"></th>
     </tr>
     </thead>
 
@@ -70,17 +72,22 @@
           <% if params[:column_ids] %>
               <% @extra_columns.each do |ec| %>
                   <% if params[:column_ids].include?(ec[2]) %>
-                      <td><%= study_program.study_program_modes.pluck(ec[1]).reduce{ |sum, n| n.nil? ? sum : sum + n }  || '/' %></td>
+                      <td><%= study_program.study_program_modes.map { |n| n[ec[1]] }
+                                  .reduce{ |sum, n| n.nil? ? sum : sum + n }  || '/' %></td>
                   <% end %>
               <% end %>
           <% end %>
-          <td class="table-links text-right">
+          <td class="text-right">
             <%= link_to study_program_path(study_program), class: 'label label-success' do %>
                 <i class="fa fa-eye" title="<%= "Prikaži" %>" aria-hidden="true"></i>
             <% end %>
+          </td>
+          <td class="text-right">
             <%= link_to edit_study_program_path(study_program), class: 'label label-info' do %>
                 <i class="fa fa-pencil" title="<%= t 'defaults.edit' %>" aria-hidden="true"></i>
             <% end %>
+          </td>
+          <td class="text-right">
             <%= link_to study_program_path(study_program), method: :delete, data: {confirm: 'Ali ste prepričani?'}, class: 'label label-danger' do %>
                 <i class="fa fa-trash" title="<%= "Odstrani" %>" aria-hidden="true"></i>
             <% end %>

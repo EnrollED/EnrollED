@@ -9,7 +9,13 @@
         <span class="icon-bar"></span>
       </button>
 
-      <a class="navbar-brand" href="<%= root_path %>"><%= t 'defaults.name' %></a>
+      <%= image_tag 'scarletteocat_small.png', class: 'navbar-brand-icon' %>
+
+      <a class="navbar-brand" href="<%= root_path %>">
+        <%= t 'defaults.name' %>
+
+      </a>
+
     </div>
 
     <div class="collapse navbar-collapse" id="nav">
