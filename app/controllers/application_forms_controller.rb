@@ -62,7 +62,7 @@ class ApplicationFormsController < ApplicationController
         redirect_to edit_application_form_choice_path(@application, @applicationChoice)
       end
     else
-      render edit_application_form_path
+      redirect_to application_forms_path
     end
   end
 
