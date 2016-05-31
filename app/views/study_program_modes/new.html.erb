@@ -1,5 +1,8 @@
-<h1>Razpisana mesta</h1>
+<div class="row page-heading">
+  <div class="col-lg-10">
+    <h2><%= @study_program.higher_education_institution.acronym %> - <%= @study_program.name %>
+      (<%= @study_program.type_of_study.name %>)</h2>
+  </div>
+</div>
 
-<%= render 'form' %>
-
-<%= link_to t('defaults.cancel'), study_program_modes_path, class: 'btn btn-warning' %>
+<%= render 'form', url: study_program_study_program_modes_path(@study_program) %>

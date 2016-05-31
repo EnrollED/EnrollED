@@ -8,7 +8,12 @@ class ApplicationFormsController < ApplicationController
 
   def index
     authorize Application
-    @applications = policy_scope(Application)
+    @applications = Application.where(user_id: current_user.id).page(params[:page])
+  end
+
+  def all_applications
+    authorize Application
+    @applications = Application.all.search(params[:search]).page(params[:page])
   end
 
   def new
@@ -57,7 +62,7 @@ class ApplicationFormsController < ApplicationController
         redirect_to edit_application_form_choice_path(@application, @applicationChoice)
       end
     else
-      render edit_application_form_path
+      redirect_to application_forms_path
     end
   end
 
@@ -66,7 +71,7 @@ class ApplicationFormsController < ApplicationController
     authorize @application
     if @application.status != 'Poslana'
       @application.destroy
-      redirect_to application_forms_path, notice: "Prijava je odstanjena!"
+      redirect_to application_forms_path, notice: "Prijava je odstranjena!"
     else
       redirect_to application_forms_path, notice: "Poslane prijave ni mogoče odstraniti!"
     end
@@ -78,7 +83,7 @@ class ApplicationFormsController < ApplicationController
 
   def application_params
     params.require(:application).permit(:maiden_name, :sex, :phone, :place_of_residence, :post_of_residence_id, :municipality_id, :country_of_birth_id, :highschool_id, :highschool_certificate, :highschool_country_id, :date_of_birth,
-                                        :firstname_for_notification, :lastname_for_notification, :place_for_notification, :post_for_notification_id, :citizen_id, :country_of_residence_id, :highschool_completion_id, :highschool_finished_date, :klasius_srvs_id)
+                                        :firstname_for_notification, :lastname_for_notification, :place_for_notification, :post_for_notification_id, :citizen_id, :country_of_residence_id, :highschool_completion_id, :highschool_finished_date, :klasius_srv_id)
   end
 
   def set_enrollment

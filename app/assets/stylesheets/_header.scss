@@ -1,6 +1,16 @@
 .navbar {
   border-width: 0 0 0;
 
+  .navbar-brand-icon {
+    padding-top: 4px;
+    height: 42px;
+    float: left;
+  }
+
+  .navbar-brand {
+    padding-left: 20px;
+  }
+
   .navbar-nav {
 
     > li {

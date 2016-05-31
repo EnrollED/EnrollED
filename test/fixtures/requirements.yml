@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  study_program_id: 
+  highschool_completion_id: 
+  profession_id: 
+
+two:
+  study_program_id: 
+  highschool_completion_id: 
+  profession_id: 

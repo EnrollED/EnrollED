@@ -1,121 +1,45 @@
  šifra ravni ; šifra kategorije ; Deskriptor ; Deskriptor (angleški) ; šifra starša
-1;1;Temeljno stopenjsko izobraževanje;Regular school education; 
-2;10;Pred prvo ravnjo: Predšolska vzgoja;Before first level: Pre-school education;1
-3;100;Predšolska vzgoja;Pre-school education;10
-4;10000;Predšolska vzgoja;Pre-school education;100
-2;11;Prva raven: Osnovnošolsko izobraževanje nižje stopnje/nedokončana osnovnošolska izobrazba;First level: First stage of basic education/Incomplete basic education;1
-3;110;Osnovnošolsko izobraževanje nižje stopnje/nepopolna osnovnošolska izobrazba;First stage of basic education/Incomplete basic education;11
-4;11001;Osnovnošolsko izobraževanje nižje stopnje/nepopolna nižja stopnja osnovnošolske izobrazbe;First stage of basic education/Incomplete first stage of basic education;110
-4;11002;Osnovnošolsko izobraževanje nižje stopnje/popolna nižja stopnja osnovnošolske izobrazbe;First stage of basic education/Complete first stage of basic education;110
-4;11003;Izpolnjena osnovnošolska obveznost/nepopolna višja stopnja osnovnošolske izobrazbe;Fulfilled basic education requirement/Incomplete second stage of basic education;110
-4;11099;Osnovnošolsko izobraževanje nižje stopnje/nepopolna osnovnošolska izobrazba, drugje nerazporejeno;First stage of basic education/Incomplete basic education, not elsewhere classified;110
-2;12;Druga raven: Osnovnošolsko izobraževanje višje stopnje/osnovnošolska izobrazba;Second level: Second stage of basic education/Basic education;1
-3;120;Osnovnošolsko izobraževanje višje stopnje/osnovnošolska izobrazba;Second stage of basic education/Basic education;12
-4;12001;0snovnošolsko izobraževanje višje stopnje/osnovnošolska izobrazba;Second stage of basic education/Basic education;120
-4;12099;Osnovnošolsko izobraževanje višje stopnje/osnovnošolska izobrazba, drugje nerazporejeno;Second stage of basic education/Basic education, not elsewhere classified;120
-2;13;Tretja raven: Nižje poklicno in podobno izobraževanje/nižja poklicna in podobna izobrazba;Third level: Short-term vocational upper secondary and similar education/Short-term vocational upper secondary and similar education;1
-3;130;Nižje poklicno in podobno izobraževanje/nižja poklicna in podobna izobrazba;Short-term vocational upper secondary and similar education/Short-term vocational  upper secondary and similar education;13
-4;13001;Nižje poklicno izobraževanje/nižja poklicna izobrazba;Short-term vocational upper secondary education/Short-term vocational upper secondary education;130
-4;13099;Nižje poklicno in podobno izobraževanje/nižja poklicna in podobna izobrazba, drugje nerazporejeno;Short-term vocational upper secondary and similar education/Short-term vocational upper secondary and similar education, not elsewhere classified;130
-2;14;Četrta raven: Srednje poklicno in podobno izobraževanje/srednja poklicna in podobna izobrazba;Fourth level: Vocational upper secondary and similar education/Vocational upper secondary and similar education;1
-3;140;Srednje poklicno in podobno izobraževanje/srednja poklicna in podobna izobrazba;Vocational upper secondary and similar education/Vocational upper secondary and similar education;14
-4;14001;Srednje poklicno izobraževanje/srednja poklicna izobrazba;Vocational upper secondary education/Vocational upper secondary education;140
-4;14099;Srednje poklicno in podobno izobraževanje/srednja poklicna in podobna izobrazba, drugje nerazporejeno;Vocational upper secondary and similar education/Vocational upper secondary and similar education, not elsewhere classified;140
-2;15;Peta raven: Srednje tehnižko in drugo strokovno ter splošno izobraževanje/srednja strokovna in splošna izobrazba;Fifth level: Technical and general upper secondary education/Technical and general upper secondary education;1
-3;150;Srednje tehnižko in drugo strokovno ter splošno izobraževanje/srednja strokovna in splošna izobrazba;Technical and general upper secondary education/Technical and general upper secondary education;15
-4;15001;Srednje tehnižko in drugo strokovno izobraževanje/srednja strokovna izobrazba;Technical upper secondary education/Technical upper secondary education;150
+4;15001;Srednje tehniško in drugo strokovno izobraževanje/srednja strokovna izobrazba;Technical upper secondary education/Technical upper secondary education;150
 4;15002;Srednje splošno izobraževanje/srednja splošna izobrazba;General upper secondary education/General upper secondary education;150
-4;15099;Srednje tehnižko in drugo strokovno ter splošno izobraževanje/ srednja strokovna in splošna izobrazba, drugje nerazporejeno;Technical and general upper secondary education/Technical and general upper secondary education, not elsewhere classified;150
-2;16;Šesta raven: Visokošolsko izobraževanje prve stopnje in podobno izobraževanje/visokošolska izobrazba prve stopnje in podobna izobrazba;Sixth level: First cycle of higher and similar education/First cycle of higher and similar education;1
-3;161;Podraven 6/1: Višješolsko in višje strokovno izobraževanje/višješolska, višja strokovna in podobna izobrazba;Sublevel 6/1: Short-term higher, higher vocational and similar education/Short-term higher, higher vocational and similar education;16
+4;15099;Srednje tehniško in drugo strokovno ter splošno izobraževanje/ srednja strokovna in splošna izobrazba, drugje nerazporejeno;Technical and general upper secondary education/Technical and general upper secondary education, not elsewhere classified;150
 4;16101;Višje strokovno izobraževanje/višja strokovna izobrazba;Higher vocational education/Higher vocational education;161
 4;16102;Višješolsko izobraževanje (prejšnje)/višješolska izobrazba (prejšnja);Short-term higher education (former)/Short-term higher education (former);161
 4;16199;Višješolsko, višje strokovno in podobno izobraževanje/višješolska, višja strokovna in podobna izobrazba, drugje nerazporejeno;Short-term higher, higher vocational and similar education/Short-term higher, higher vocational and similar education, not elsewhere classified;161
-3;162;Podraven 6/2: Visokošolsko izobraževanje prve stopnje, visokošolsko strokovno izobraževanje (prejšnje) in podobno izobraževanje/visokošolska izobrazba prve stopnje, visokošolska strokovna izobrazba (prejšnja) in podobna izobrazba;Sublevel 6/2: First cycle of higher, professional higher (former) and similar education/First cycle of higher, professional higher (former) and similar education;16
 4;16201;Specialistično izobraževanje po višješolski izobrazbi (prejšnje)/specializacija po višješolski izobrazbi (prejšnja);Specialization after short-term higher education (former)/Specialization after short-term higher education (former);162
 4;16202;Visokošolsko strokovno izobraževanje (prejšnje)/visokošolska strokovna izobrazba (prejšnja);Professional higher education (former)/Professional higher education (former);162
 4;16203;Visokošolsko strokovno izobraževanje (prva bolonjska stopnja)/visokošolska strokovna izobrazba (prva bolonjska stopnja);Professional higher education (first Bologna cycle)/Professional higher education (first Bologna cycle);162
 4;16204;Visokošolsko univerzitetno izobraževanje (prva bolonjska stopnja)/visokošolska univerzitetna izobrazba (prva bolonjska stopnja);Academic higher education (first Bologna cycle)/Academic higher education (first Bologna cycle);162
 4;16299;Visokošolsko izobraževanje prve stopnje in podobno izobraževanje/visokošolska izobrazba prve stopnje in podobna izobrazba, drugje nerazporejeno;First cycle of higher and similar education/First cycle of higher and similar education, not elsewhere classified;162
-2;17;Sedma raven: Visokošolsko izobraževanje druge stopnje in podobno izobraževanje/ visokošolska izobrazba druge stopnje in podobna izobrazba;Seventh level: Second cycle of higher and similar education/Second cycle of higher and similar education;1
-3;170;Visokošolsko izobraževanje druge stopnje in podobno izobraževanje/visokošolska izobrazba druge stopnje in podobna izobrazba;Second cycle of higher and similar education/Second cycle of higher and similar education;17
 4;17001;Specialistično izobraževanje po visokošolski strokovni izobrazbi (prejšnje)/specializacija po visokošolski strokovni izobrazbi (prejšnja);Specialization after professional higher education (former)/Specialization after professional higher education (former);170
 4;17002;Visokošolsko univerzitetno izobraževanje (prejšnje)/visokošolska univerzitetna izobrazba (prejšnja);Academic higher education (former)/Academic higher education (former);170
 4;17003;Magistrsko izobraževanje (druga bolonjska stopnja)/magistrska izobrazba (druga bolonjska stopnja);Master's education (second Bologna cycle)/Master (second Bologna cycle);170
 4;17099;Visokošolsko izobraževanje druge stopnje in podobno izobraževanje/visokošolska izobrazba druge stopnje, drugje nerazporejeno;Second cycle of higher and similar education/Second cycle of higher and similar education, not elsewhere classified;170
-2;18;Osma raven: Visokošolsko izobraževanje tretje stopnje in podobno izobraževanje/visokošolska izobrazba tretje stopnje in podobna izobrazba;Eighth level: Third cycle of higher and similar education/Third cycle of higher and similar education;1
-3;181;Podraven 8/1: Magistrsko (prejšnje) izobraževanje in podobno izobraževanje/magisterij znanosti in podobna izobrazba;"Sublevel 8/1: Education leading to ""magisterij"" of science (former) and similar education/""Magisterij"" of science (former) and similar education";18
 4;18101;Specialistično izobraževanje po univerzitetni izobrazbi (prejšnje)/specializacija po univerzitetni izobrazbi (prejšnja);Specialization after academic higher education (former)/Specialization after academic higher education (former);181
 4;18102;Magistrsko izobraževanje (prejšnje)/magisterij znanosti (prejšnji);"Education leading to ""magisterij"" of science (former)/""Magisterij"" of science (former)";181
 4;18199;Magistrsko (prejšnje) in podobno izobraževanje/magistrska (prejšnja) in podobna izobrazba, drugje nerazporejeno;"Education leading to ""magisterij"" of science (former) and similar education/""Magisterij"" of science and similar education, not elsewhere classified";181
-3;182;Podraven 8/2: Doktorsko in podobno izobraževanje/doktorat znanosti in podobna izobrazba;Sublevel 8/2: Education leading to doctorate of science and similar education/Doctorate of science and similar education;18
 4;18201;Doktorsko izobraževanje (prejšnje)/doktorat znanosti (prejšnji);Education leading to doctorate of science (former)/Doctorate of science (former);182
 4;18202;Doktorsko izobraževanje(tretja bolonjska stopnja)/doktorat znanosti (tretja bolonjska stopnja);Education leading to doctorate of science (third Bologna cycle)/Doctorate of science (third Bologna cycle);182
 4;18299;Doktorsko in podobno izobraževanje/doktorska znanstvena in podobna izobrazba, drugje nerazporejeno;Education leading to doctorate of science and similar education/Doctorate of science and similar education, not elsewhere classified;182
-2;19;Temeljno stopenjsko izobraževanje/izobrazba, drugje nerazporejeno;Regular school education/Education, not elsewhere classified;1
-3;199;Temeljno stopenjsko izobraževanje/izobrazba, drugje nerazporejeno;Regular school education/Education, not elsewhere classified;19
 4;19999;Temeljno stopenjsko izobraževanje/izobrazba, druge nerazporejeno;Regular school education/Education, not elsewhere classified;199
-1;2;Certifikatni sistem nacionalnih poklicnih kvalifikacij (NPK);Certificate system of national vocational qualifications (NVQ); 
-2;22;Druga raven: Izidi, certifikatni sistem NPK;Second level: achievements, certificate system NVQ;2
-3;220;Druga raven: Izidi, certifikatni sistem NPK;Second level: achievements, certificate system NVQ;22
 4;22000;Druga raven: Izidi, certifikatni sistem NPK;Second level: achievements, certificate system NVQ;220
-2;23;Tretja raven: Izidi, certifikatni sistem NPK;Third level: achievements, certificate system NVQ;2
-3;230;Tretja raven: Izidi, certifikatni sistem NPK;Third level: achievements, certificate system NVQ;23
 4;23000;Tretja raven: Izidi, certifikatni sistem NPK;Third level: achievements, certificate system NVQ;230
-2;24;Četrta raven: Izidi, certifikatni sistem NPK;Fourth level: achievements, certificate system NVQ;2
-3;240;Četrta raven: Izidi, certifikatni sistem NPK;Fourth level: achievements, certificate system NVQ;24
 4;24000;Četrta raven: Izidi, certifikatni sistem NPK;Fourth level: achievements, certificate system NVQ;240
-2;25;Peta raven: Izidi, certifikatni sistem NPK;Fifth level: achievements, certificate system NVQ;2
-3;250;Peta raven: Izidi, certifikatni sistem NPK;Fifth level: achievements, certificate system NVQ;25
 4;25000;Peta raven: Izidi, certifikatni sistem NPK;Fifth level: achievements, certificate system NVQ;250
-2;26;Šesta raven: Izidi, certifikatni sistem NPK;Sixth level: achievements, certificate system NVQ;2
-3;261;Podraven 6/1: Izidi, certifikatni sistem NPK;Sublevel 6/1: achievements, certificate system NVQ;26
 4;26100;Podraven 6/1: Izidi, certifikatni sistem NPK;Sublevel 6/1: achievements, certificate system NVQ;261
-3;262;Podraven 6/2: Izidi, certifikatni sistem NPK;Sublevel 6/1: achievements, certificate system NVQ;26
 4;26200;Podraven 6/2: Izidi, certifikatni sistem NPK;Sublevel 6/2: achievements, certificate system NVQ;262
-2;27;Sedma raven: Izidi, certifikatni sistem NPK;Seventh level: achievements, certificate system NVQ;2
-3;270;Sedma raven: Izidi, certifikatni sistem NPK;Seventh level: achievements, certificate system NVQ;27
 4;27000;Sedma raven: Izidi, certifikatni sistem NPK;Seventh level: achievements, certificate system NVQ;270
-2;28;Osma raven: Izidi, certifikatni sistem NPK;Eighth level: achievements, certificate system NVQ;2
-3;281;Podraven 8/1: Izidi, certifikatni sistem NPK;Sublevel 8/1: achievements, certificate system NVQ;28
 4;28100;Podraven 8/1: Izidi, certifikatni sistem NPK;Sublevel 8/1: achievements, certificate system NVQ;281
-3;282;Podraven 8/2: Izidi, certifikatni sistem NPK;Sublevel 8/2: achievements, certificate system NVQ;28
 4;28200;Podraven 8/1: Izidi, certifikatni sistem NPK;Sublevel 8/2: achievements, certificate system NVQ;282
-2;29;Certifikatni sistem nacionalnih poklicnih kvalifikacij (NPK), drugje nerazporejeno;Certificate system of national vocational qualifications (NVQ), not elsewhere classified;2
-3;299;Certifikatni sistem nacionalnih poklicnih kvalifikacij (NPK), drugje nerazporejeno;Certificate system of national vocational qualifications (NVQ), not elsewhere classified;29
 4;29999;Izidi, certifikatni sistem NPK, drugje nerazporejeno;Achievements, certificate system of national vocational qualifications (NVQ), not elsewhere classified;299
-1;3;Dopolnilno izobraževanje;Supplementary education; 
-2;30;Pred prvo ravnjo: Aktivnosti/izidi, dopolnilno izobraževanje;Before first level: Activities/Achievements, supplementary education;3
-3;300;Pred prvo ravnjo: Aktivnosti/izidi, dopolnilno izobraževanje;Before first level: Activities/Achievements, supplementary education;30
 4;30000;Pred prvo ravnjo: Aktivnosti/izidi, dopolnilno izobraževanje;Before first level: Activities/Achievements, supplementary education;300
-2;31;Prva raven: Aktivnosti/izidi, dopolnilno izobraževanje;First level: Activities/Achievements, supplementary education;3
-3;310;Prva raven: Aktivnosti/izidi, dopolnilno izobraževanje;First level: Activities/Achievements, supplementary education;31
 4;31000;Prva raven: Aktivnosti/izidi, dopolnilno izobraževanje;First level: Activities/Achievements, supplementary education;310
-2;32;Druga raven: Aktivnosti/izidi, dopolnilno izobraževanje;Second level: Activities/Achievements, supplementary education;3
-3;320;Druga raven: Aktivnosti/izidi, dopolnilno izobraževanje;Second level: Activities/Achievements, supplementary education;32
 4;32000;Druga raven: Aktivnosti/izidi, dopolnilno izobraževanje;Second level: Activities/Achievements, supplementary education;320
-2;33;Tretja raven: Aktivnosti/izidi, dopolnilno izobraževanje;Third level: Activities/Achievements, supplementary education;3
-3;330;Tretja raven: Aktivnosti/izidi, dopolnilno izobraževanje;Third level: Activities/Achievements, supplementary education;33
 4;33000;Tretja raven: Aktivnosti/izidi, dopolnilno izobraževanje;Third level: Activities/Achievements, supplementary education;330
-2;34;Četrta raven: Aktivnosti/izidi, dopolnilno izobraževanje;Fourth level: Activities/Achievements, supplementary education;3
-3;340;Četrta raven: Aktivnosti/izidi, dopolnilno izobraževanje;Fourth level: Activities/Achievements, supplementary education;34
 4;34000;Četrta raven: Aktivnosti/izidi, dopolnilno izobraževanje;Fourth level: Activities/Achievements, supplementary education;340
-2;35;Peta raven: Aktivnosti/izidi, dopolnilno izobraževanje;Fifth level: Activities/Achievements, supplementary education;3
-3;350;Peta raven: Aktivnosti/izidi, dopolnilno izobraževanje;Fifth level: Activities/Achievements, supplementary education;35
 4;35000;Peta raven: Aktivnosti/izidi, dopolnilno izobraževanje;Fifth level: Activities/Achievements, supplementary education;350
-2;36;Šesta raven: Aktivnosti/izidi, dopolnilno izobraževanje;Sixth level: Activities/Achievements, supplementary education;3
-3;361;Podraven 6/1: Aktivnosti/izidi, dopolnilno izobraževanje;Sublevel 6/1: Activities/Achievements, supplementary education;36
 4;36100;Podraven 6/1: Aktivnosti/izidi, dopolnilno izobraževanje;Sublevel 6/1: Activities/Achievements, supplementary education;361
-3;362;Podraven 6/2: Aktivnosti/izidi, dopolnilno izobraževanje;Sublevel 6/2: Activities/Achievements, supplementary education;36
 4;36200;Podraven 6/2: Aktivnosti/izidi, dopolnilno izobraževanje;Sublevel 6/2: Activities/Achievements, supplementary education;362
-2;37;Sedma raven: Aktivnosti/izidi, dopolnilno izobraževanje;Seventh level: Activities/Achievements, supplementary education;3
-3;370;Sedma raven: Aktivnosti/izidi, dopolnilno izobraževanje;Seventh level: Activities/Achievements, supplementary education;37
 4;37000;Sedma raven: Aktivnosti/izidi, dopolnilno izobraževanje;Seventh level: Activities/Achievements, supplementary education;370
-2;38;Osma raven: Aktivnosti/izidi, dopolnilno izobraževanje;Eighth level: Activities/Achievements, supplementary education;3
-3;381;Podraven 8/1: Aktivnosti/izidi, dopolnilno izobraževanje;Sublevel 8/1: Activities/Achievements, supplementary education;38
 4;38100;Podraven 8/1: Aktivnosti/izidi, dopolnilno izobraževanje;Sublevel 8/1: Activities/Achievements, supplementary education;381
-3;382;Podraven 8/2: Aktivnosti/izidi, dopolnilno izobraževanje;Sublevel 8/2: Activities/Achievements, supplementary education;38
 4;38200;Podraven 8/2:  Aktivnosti/izidi, dopolnilno izobraževanje;Sublevel 8/2: Activities/Achievements, supplementary education;382
-2;39;Dopolnilno izobraževanje, drugje nerazporejeno;Supplementary education, not elsewhere classified;3
-3;399;Dopolnilno izobraževanje, drugje nerazporejeno;Supplementary education, not elsewhere classified;39
 4;39999;Aktivnosti/izidi, dopolnilno izobraževanje, drugje nerazporejeno;Activities/Achievements, supplementary education, not elsewhere classified;399

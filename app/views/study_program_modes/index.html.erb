@@ -1,9 +1,18 @@
-<h1>Študijski programi - razpisana mesta</h1>
+<div class="row page-heading">
+  <div class="col-lg-10">
+    <h2><%= @study_program.higher_education_institution.acronym %> - <%= @study_program.name %>
+      (<%= @study_program.type_of_study.name %>)</h2>
+  </div>
+</div>
+
+<%= render 'study_programs/menu' %>
+
+<br />
 
 <div class="row">
 
   <div class="col-sm-4">
-    <%= form_tag(study_programs_path, method: :get) do |f| %>
+    <%= form_tag(study_program_study_program_modes_path(@study_program), method: :get) do |f| %>
 
         <div class="input-group">
 
@@ -20,22 +29,24 @@
   </div>
 
   <div class="col-sm-8 text-right">
-    <%= link_to "Dodaj razpisana mesta", new_study_program_mode_path, class: 'btn btn-success' %>
+    <%= link_to "Dodaj razpisana mesta", new_study_program_study_program_mode_path(@study_program),
+                class: 'btn btn-success' %>
   </div>
 </div>
 
-<div class="table-responsive">
+<br />
+
+<div class="table-responsive full">
   <table class="table table-striped table-hover">
     <thead>
     <tr>
-      <th>Fakulteta</th>
-      <th>Ime programa</th>
-      <th>Vrsta študija</th>
       <th>Način študija</th>
       <th>EU</th>
       <th>Tujci</th>
-      <th></th>
-      <th></th>
+      <th>EU sklep</th>
+      <th>Tujci sklep</th>
+      <th>EU sprejeti</th>
+      <th>Tujci sprejeti</th>
       <th></th>
     </tr>
     </thead>
@@ -43,25 +54,21 @@
     <tbody>
     <% @study_program_modes.each do |study_program_mode| %>
         <tr>
-          <td><%= study_program_mode.study_program.higher_education_institution.acronym %></td>
-          <td><%= study_program_mode.study_program.name %></td>
-          <td><%= study_program_mode.study_program.type_of_study.name %></td>
           <td><%= study_program_mode.mode_of_study.name %></td>
           <td><%= study_program_mode.number_of_places %></td>
           <td><%= study_program_mode.number_of_places_foreign %></td>
-          <td>
-            <%= link_to study_program_mode_path(study_program_mode), class: 'label label-success' do %>
-                <i class="fa fa-eye" title="<%= "Prikaži" %>" aria-hidden="true"></i>
-            <% end %>
-          </td>
-          <td>
-            <%= link_to edit_study_program_mode_path(study_program_mode), class: 'label label-info' do %>
+          <td><%= study_program_mode.number_of_places_after_selection || '/' %></td>
+          <td><%= study_program_mode.number_of_places_after_selection_foreign || '/' %></td>
+          <td><%= study_program_mode.selected || '/' %></td>
+          <td><%= study_program_mode.selected_foreign || '/' %></td>
+          <td class="text-right table-links">
+            <%= link_to edit_study_program_study_program_mode_path(@study_program, study_program_mode),
+                        class: 'label label-info' do %>
                 <i class="fa fa-pencil" title="<%= t 'defaults.edit' %>" aria-hidden="true"></i>
             <% end %>
-          </td>
-          <td>
-            <%= link_to study_program_mode_path(study_program_mode), method: :delete, data: { confirm: 'Ali ste prepričani?' }, class: 'label label-danger' do %>
-                <i class="fa fa-trash" title="<%= "Odstrsani" %>" aria-hidden="true"></i>
+            <%= link_to study_program_study_program_mode_path(@study_program, study_program_mode),
+                        method: :delete, data: { confirm: t('defaults.are_you_sure') }, class: 'label label-danger' do %>
+                <i class="fa fa-trash" title="<%= t 'defaults.remove' %>" aria-hidden="true"></i>
             <% end %>
           </td>
         </tr>
@@ -70,6 +77,13 @@
   </table>
 </div>
 
-<div>
+<% if @study_program_modes.length == 0 %>
+    <div class="text-center">
+
+      <p><%= t '.no_modes' %></p>
+    </div>
+<% end %>
+
+<div class="text-center">
   <%= paginate @study_program_modes %>
 </div>

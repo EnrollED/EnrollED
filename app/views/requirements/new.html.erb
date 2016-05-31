@@ -1,0 +1,15 @@
+<div class="row page-heading">
+  <div class="col-lg-10">
+    <h2><%= @study_program.higher_education_institution.acronym %> - <%= @study_program.name %>
+      (<%= @study_program.type_of_study.name %>)</h2>
+  </div>
+</div>
+
+<%= render 'study_programs/menu' %>
+
+<br>
+
+<h2>Dodajanje pogoja</h2>
+
+<%= render 'form' %>
+

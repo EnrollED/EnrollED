@@ -164,5 +164,35 @@ CSV.foreach(csv_file_path, {:headers=>:first_row, :col_sep  => ';'}) do |row|
 end
 puts "Inserted KlasiusSRV"
 
-StudyProgramMode.create( study_program: StudyProgram.find_by_name('RAČUNALNIŠTVO IN INFORMATIKA'), mode_of_study: ModeOfStudy.all.find_by_name('REDNI'), number_of_places: '150', number_of_places_foreign: '10' )
+#StudyProgramMode.create(study_program: StudyProgram.find_by_name('RAČUNALNIŠTVO IN INFORMATIKA'), mode_of_study: ModeOfStudy.all.find_by_name('REDNI'), number_of_places: '150', number_of_places_foreign: '10' )
+#StudyProgramMode.create(study_program: StudyProgram.find_by_name('RAČUNALNIŠTVO IN INFORMATIKA'), mode_of_study: ModeOfStudy.all.find_by_name('IZREDNI'), number_of_places: '25', number_of_places_foreign: '5' )
+StudyProgramMode.create(study_program: StudyProgram.where(type_of_study: TypeOfStudy.find_by_name('UNIVERZITETNI')).find_by_name('RAČUNALNIŠTVO IN INFORMATIKA'), mode_of_study: ModeOfStudy.all.find_by_name('REDNI'), number_of_places: '150', number_of_places_foreign: '10' )
+StudyProgramMode.create(study_program: StudyProgram.where(type_of_study: TypeOfStudy.find_by_name('UNIVERZITETNI')).find_by_name('RAČUNALNIŠTVO IN INFORMATIKA'), mode_of_study: ModeOfStudy.all.find_by_name('IZREDNI'), number_of_places: '25', number_of_places_foreign: '5' )
 
+
+req = Requirement.create(study_program: StudyProgram.where(type_of_study: TypeOfStudy.find_by_name('UNIVERZITETNI')).find_by_name('RAČUNALNIŠTVO IN INFORMATIKA'), highschool_completion: HighschoolCompletion.find_by_name('SPLOŠNA MATURA'))
+StudyProgramElement.create(requirement: req, element: Element.find_by_name('SPLOŠNI USPEH PRI SPLOŠNI MATURI'), weight: 0.6 )
+StudyProgramElement.create(requirement: req, element: Element.find_by_name('SPLOŠNI USPEH V 3. in 4. LETNIKU'), weight: 0.4 )
+req = Requirement.create(study_program: StudyProgram.where(type_of_study: TypeOfStudy.find_by_name('UNIVERZITETNI')).find_by_name('RAČUNALNIŠTVO IN INFORMATIKA'), highschool_completion: HighschoolCompletion.find_by_name('POKLICNA MATURA'))
+RequirementElement.create(requirement: req, element: Element.find_by_name('RAČUNALNIŠTVO (NA MATURI)'))
+RequirementElement.create(requirement: req, element: Element.find_by_name('MATEMATIKA (NA MATURI)'))
+RequirementElement.create(requirement: req, element: Element.find_by_name('FIZIKA (NA MATURI)'))
+StudyProgramElement.create(requirement: req, element: Element.find_by_name('SPLOŠNI USPEH PRI POKLICNI MATURI'), weight: 0.4 )
+StudyProgramElement.create(requirement: req, element: Element.find_by_name('SPLOŠNI USPEH V 3. in 4. LETNIKU'), weight: 0.4 )
+StudyProgramElement.create(requirement: req, element: Element.find_by_name('USPEH PRI MATURITETNEM PREDMETU'), weight: 0.2 )
+
+req = Requirement.create(study_program: StudyProgram.where(type_of_study: TypeOfStudy.find_by_name('VISOKOŠOLSKI STROKOVNI')).find_by_name('PRAKTIČNA MATEMATIKA'), highschool_completion: HighschoolCompletion.find_by_name('SPLOŠNA MATURA'))
+StudyProgramElement.create(requirement: req, element: Element.find_by_name('SPLOŠNI USPEH PRI SPLOŠNI MATURI'), weight: 0.3 )
+StudyProgramElement.create(requirement: req, element: Element.find_by_name('MATEMATIKA (NA MATURI)'), weight: 0.3 )
+StudyProgramElement.create(requirement: req, element: Element.find_by_name('SPLOŠNI USPEH V 3. in 4. LETNIKU'), weight: 0.2 )
+StudyProgramElement.create(requirement: req, element: Element.find_by_name('USPEH IZ MATEMATIKE V 3. IN 4. LETNIKU'), weight: 0.2 )
+req = Requirement.create(study_program: StudyProgram.where(type_of_study: TypeOfStudy.find_by_name('VISOKOŠOLSKI STROKOVNI')).find_by_name('PRAKTIČNA MATEMATIKA'), highschool_completion: HighschoolCompletion.find_by_name('POKLICNA MATURA'))
+StudyProgramElement.create(requirement: req, element: Element.find_by_name('SPLOŠNI USPEH PRI SPLOŠNI MATURI'), weight: 0.3 )
+StudyProgramElement.create(requirement: req, element: Element.find_by_name('MATEMATIKA (NA POKLICNI MATURI)'), weight: 0.3 )
+StudyProgramElement.create(requirement: req, element: Element.find_by_name('SPLOŠNI USPEH V 3. in 4. LETNIKU'), weight: 0.2 )
+StudyProgramElement.create(requirement: req, element: Element.find_by_name('USPEH IZ MATEMATIKE V 3. IN 4. LETNIKU'), weight: 0.2 )
+
+
+#req = Requirement.create(study_program: StudyProgram.where(type_of_study: TypeOfStudy.find_by_name('UNIVERZITETNI')).find_by_name('GOZDARSTVO IN OBNOVLJIVI GOZDNI VIRI'), highschool_completion: HighschoolCompletion.find_by_name('SPLOŠNA MATURA'))
+#req = Requirement.create(study_program: StudyProgram.where(type_of_study: TypeOfStudy.find_by_name('UNIVERZITETNI')).find_by_name('GOZDARSTVO IN OBNOVLJIVI GOZDNI VIRI'), highschool_completion: HighschoolCompletion.find_by_name('POKLICNA MATURA'), profession: Profession.find_by_name('GOZDARSKI TEHNIK'))
+#RequirementElement.create(requirement: req, element: Element.find_by_name('BIOLOGIJA (NA MATURI)'))

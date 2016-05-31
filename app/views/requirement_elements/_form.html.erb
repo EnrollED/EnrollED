@@ -1,0 +1,10 @@
+<%= form_for [@study_program, @requirement, @requirement_element] do |f| %>
+    <%= render 'layouts/errors', :resource => @requirement %>
+
+    <div class="form-group">
+      <%= f.label "Predmet", class: 'control-label' %>
+      <%= f.collection_select :element_id, Element.where("code LIKE 'M%'"), :id, :name, {:include_blank => "---Izberi predmet---"}, {:class => 'form-control'} %>
+    </div>
+
+    <%= f.submit t('defaults.save'), class: 'btn btn-success' %>
+<% end %>

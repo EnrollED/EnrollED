@@ -30,6 +30,8 @@ Rails.application.routes.draw do
     patch '/users/confirmations' => 'confirmations#update', via: :patch, as: :update_user_confirmation
   end
 
+  get '/my/programs' => 'home#my_programs'
+
   namespace :admin do
     resources :users, except: :show, concerns: :paginatable do
       resources :faculties, only: [:index, :create, :destroy]
@@ -38,16 +40,32 @@ Rails.application.routes.draw do
 
   resources :codes, only: :index
 
-  resources :users, only: [:edit, :update]
-  resources :study_programs
-  resources :study_program_modes
+  resources :users, only: [:edit, :update, :destroy]
 
-  resources :application_forms do
+  get '/study_programs/pdf_export/' => 'study_programs#pdf_export_list', via: :get, as: 'export_study_programs'
+
+  resources :study_programs do
+    resources :study_program_modes, except: :show, concerns: :paginatable
+    resources :requirements do
+      resources :requirement_elements
+      resources :study_program_elements
+    end
+  end
+
+  resources :study_program_modes
+  resources :candidates
+  resources :application_forms, except: :show do
     resources :choices
   end
 
+  get '/application_forms/all' => 'application_forms#all_applications', via: :get,  as: 'all_application_form'
   get '/application_forms/:id/send' => 'application_forms#send_application', via: :get,  as: 'send_application_form'
   get '/application_forms/:id/pdf_export/' => 'application_forms#pdf_export', via: :get, as: 'export_application_form'
+
+  get '/study_programs/:id/pdf_export/' => 'study_programs#pdf_export', via: :get, as: 'export_study_program'
+
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

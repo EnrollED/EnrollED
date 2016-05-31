@@ -11,6 +11,7 @@ sl:
     save: 'Shrani'
     disable: 'Onesposobi'
     search: 'Išči'
+    back: 'Nazaj'
     are_you_sure: 'Ali ste prepričani?'
     not_authorized: 'Opala! Tam pa ne smete biti!'
     no_records: 'Ni najdenih zapisov.'
@@ -92,6 +93,71 @@ sl:
       - :day
       - :month
       - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        few: okoli %{count} ure
+        one: okoli 1 ura
+        other: okoli %{count} ur
+        two: okoli 2 uri
+      about_x_months:
+        few: okoli %{count} mesece
+        one: okoli 1 mesec
+        other: okoli %{count} mesecev
+        two: okoli 2 meseca
+      about_x_years:
+        few: okoli %{count} leta
+        one: okoli 1 leto
+        other: okoli %{count} let
+        two: okoli 2 leti
+      almost_x_years:
+        few: skoraj %{count} leta
+        one: skoraj 1 leto
+        other: skoraj %{count} let
+        two: skoraj 2 leti
+      half_a_minute: pol minute
+      less_than_x_minutes:
+        few: manj kot %{count} minute
+        one: manj kot ena minuta
+        other: manj kot %{count} minut
+        two: manj kot dve minuti
+      less_than_x_seconds:
+        few: manj kot %{count} sekunde
+        one: manj kot 1 sekunda
+        other: manj kot %{count} sekund
+        two: manj kot 2 sekundi
+      over_x_years:
+        few: več kot %{count} leta
+        one: več kot 1 leto
+        other: več kot %{count} let
+        two: več kot 2 leti
+      x_days:
+        few: "%{count} dnevi"
+        one: 1 dan
+        other: "%{count} dni"
+        two: 2 dneva
+      x_minutes:
+        few: "%{count} minute"
+        one: 1 minuta
+        other: "%{count} minut"
+        two: 2 minuti
+      x_months:
+        few: "%{count} mesece"
+        one: 1 mesec
+        other: "%{count} mesecev"
+        two: 2 meseca
+      x_seconds:
+        few: "%{count} sekunde"
+        one: 1 sekunda
+        other: "%{count} sekund"
+        two: 2 sekundi
+    prompts:
+      day: Dan
+      hour: Ura
+      minute: Minute
+      month: Mesec
+      second: Sekunde
+      year: Leto
   time:
       am: dopoldan
       formats:
@@ -117,6 +183,7 @@ sl:
       study_program: 'Študijski program'
       type_of_study: 'Vrsta študija'
       university: 'Univerza'
+      enrollment: 'Razpis'
     attributes:
       user:
         username: 'Uporabniško ime'
@@ -196,6 +263,10 @@ sl:
         name: 'Naziv'
         acronym: 'Kratica'
         is_valid: 'Veljavnost'
+      highschool:
+        code: 'Šifra'
+        name: 'Naziv'
+        is_valid: 'Veljavnost'
       mode_of_study:
         code: 'Šifra'
         name: 'Naziv'
@@ -204,6 +275,8 @@ sl:
         code: 'Šifra'
         name: 'Naziv'
         is_valid: 'Veljavnost'
+        created_at: 'Ustvarjeno'
+        updated_at: 'Posodobljeno'
       type_of_study:
         code: 'Šifra'
         name: 'Naziv'
@@ -211,9 +284,6 @@ sl:
       university:
         code: 'Šifra'
         name: 'Naziv'
-        is_valid: 'Veljavnost'
-      university:
-        code: 'Šifra'
         description_sl: 'Opis (slo)'
         description_en: 'Opis (ang)'
         parent: 'Šifra starša'
@@ -239,13 +309,34 @@ sl:
       home:
         personal: 'Osebno'
         enrollment_resources: 'Viri za vpis'
+        candidates: 'Kandidati'
         my_applications: 'Moje prijave'
+        my_programs: 'Moji programi'
         study_programs: 'Študijski programi'
     header:
       my_profile: 'Moj profil'
       logout: 'Odjavi se'
       admin_area: 'Admin prostor'
       zadnja_prijava: 'Zadnja prijava'
+  study_programs:
+    menu:
+      overview: 'Pregled'
+      modes: 'Načini'
+      requirements: 'Pogoji in elementi'
+      candidates: 'Kandidati'
+    index:
+      choose_faculty: 'Izberi fakulteto'
+      choose_type: 'Izberi način'
+      choose_mode: 'Izberi vrsto'
+      choose_columns: 'Izberi stolpce'
+    show:
+      university_short: 'Kratica univerze'
+      filled: 'Zapolnjeno'
+      filled_text_before: 'Zapolnjena mesta bodo vidna po začetku razpisa'
+      filled_text_during: 'Trenutno zapolnjenih %{percent}% mest. Podroben seznam se nahaja na seznamu kandidatov.'
+  study_program_modes:
+    index:
+      no_modes: 'Ni bilo najdenih nobenih načinov'
   users:
     edit:
       edit: 'Uredi profil'
@@ -268,6 +359,9 @@ sl:
       form:
         cancel_account: 'Prekliči račun'
         leave_blank_pass: 'Pustite prazno, v primeru da gesla ne želite spremeniti.'
+      menu:
+        profile: 'Profil'
+        faculties: 'Fakultete'
       create:
         created: 'Uporabnik je bil uspešno ustvarjen'
       index:

@@ -1,0 +1,122 @@
+<div class="row page-heading">
+  <div class="col-lg-10">
+    <h2><%= @study_program.higher_education_institution.acronym %> - <%= @study_program.name %>
+      (<%= @study_program.type_of_study.name %>)</h2>
+  </div>
+</div>
+
+<%= render 'study_programs/menu' %>
+
+<br />
+
+<div class="row">
+
+  <div class="col-sm-12 text-right">
+    <%= link_to "Dodaj pogoj", new_study_program_requirement_path(@study_program), class: 'btn btn-success' %>
+  </div>
+</div>
+
+<br />
+
+<% if @requirements.length == 0 %>
+    <div class="text-center">
+      <p><%= "Program nima določenih pogojev" %></p>
+    </div>
+<% else %>
+    <div class="table-responsive full">
+      <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+          <th><%= "Pogoj" %></th>
+          <th><%= "Poklic" %></th>
+          <th><%= "Predmeti" %></th>
+          <th><%= "Elementi za izračun točk" %></th>
+          <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @requirements.each do |req| %>
+            <tr>
+              <td><%= req.highschool_completion.name %></td>
+              <td>
+                <% if req.profession.nil? %>
+                    /
+                <% else %>
+                    <%= req.profession.name %>
+                <% end %>
+              </td>
+              <td>
+                <table>
+                  <% if req.requirement_elements.length == 0 %>
+                      <tr>
+                        <td>Predmeti niso določeni</td>
+                      </tr>
+                  <% else %>
+                      <% req.requirement_elements.each do |el| %>
+                          <tr>
+                            <td><%= el.element.name %></td>
+                            <td class="text-right table-links">
+                              <%= link_to study_program_requirement_requirement_element_path(@study_program, req, el), method: :delete,
+                                          data: {confirm: t('defaults.are_you_sure')}, class: 'label label-danger' do %>
+                                  <i class="fa fa-trash" title="<%= t 'defaults.remove' %>" aria-hidden="true"></i>
+                              <% end %>
+                            </td>
+                          </tr>
+                      <% end %>
+                  <% end %>
+                  <tr>
+                    <td>
+                      <%= link_to "Dodaj predmet", new_study_program_requirement_requirement_element_path(@study_program, req), class: 'btn btn-xs btn-primary' %>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+              <td>
+                <table>
+                  <% if req.study_program_elements.length == 0 %>
+                      <tr>
+                        <td>Elementi niso določeni</td>
+                      </tr>
+                  <% else %>
+                      <% req.study_program_elements.each do |el| %>
+                          <tr>
+                            <td><%= el.element.name %></td>
+                            <td>
+                              - <%= number_with_precision(el.percentage, :precision => 2, :delimiter => ',') %>
+                              %</td>
+                            <td>
+                              <%= link_to edit_study_program_requirement_study_program_element_path(@study_program, req, el), class: 'label label-info' do %>
+                                  <i class="fa fa-pencil" title="<%= t 'defaults.edit' %>" aria-hidden="true"></i>
+                              <% end %>
+                            </td>
+                            <td class="text-right table-links">
+                              <%= link_to study_program_requirement_study_program_element_path(@study_program, req, el), method: :delete,
+                                          data: {confirm: t('defaults.are_you_sure')}, class: 'label label-danger' do %>
+                                  <i class="fa fa-trash" title="<%= t 'defaults.remove' %>" aria-hidden="true"></i>
+                              <% end %>
+                            </td>
+                          </tr>
+                      <% end %>
+                  <% end %>
+                  <tr>
+                    <td>
+                      <%= link_to "Dodaj element", new_study_program_requirement_study_program_element_path(@study_program, req), class: 'btn btn-xs btn-primary' %>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+              <td class="text-right table-links">
+                <%= link_to study_program_requirement_path(@study_program, req), method: :delete,
+                            data: {confirm: t('defaults.are_you_sure')}, class: 'label label-danger' do %>
+                    <i class="fa fa-trash" title="<%= t 'defaults.remove' %>" aria-hidden="true"></i>
+                <% end %>
+              </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+<% end %>
+
+

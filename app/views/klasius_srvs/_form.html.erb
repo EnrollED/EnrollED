@@ -1,15 +1,6 @@
 <%= form_for(@klasius_srv) do |f| %>
-  <% if @klasius_srv.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@klasius_srv.errors.count, "error") %> prohibited this klasius_srv from being saved:</h2>
+  <%= render 'layouts/errors', :resource => @klasius_srv %>
 
-      <ul>
-      <% @klasius_srv.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
   <div class="field form-group">
     <%= f.label :code %><br>
     <%= f.text_field :code, class: 'form-control' %>

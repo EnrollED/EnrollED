@@ -10,6 +10,7 @@ class Application < ActiveRecord::Base
   belongs_to :citizen
   belongs_to :municipality
   belongs_to :highschool_completion
+  belongs_to :klasius_srv
 
   validates :sex, :phone, :place_of_residence, :firstname_for_notification, :lastname_for_notification, :place_for_notification, :date_of_birth, presence: true
 
@@ -17,5 +18,13 @@ class Application < ActiveRecord::Base
 
   include ActiveModel::Validations
   validates_with ValidateApplicationForm
+
+  ####### Class methods #######
+  class << self
+
+    def search(name)
+      joins(:user).where("LOWER(users.firstname || ' ' || users.lastname || ' ') LIKE LOWER(?)", "%#{name}%")
+    end
+  end
 
 end

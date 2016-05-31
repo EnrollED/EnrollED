@@ -1,0 +1,2 @@
+module StudyProgramElementsHelper
+end

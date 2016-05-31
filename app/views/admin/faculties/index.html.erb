@@ -5,12 +5,7 @@
   </div>
 </div>
 
-<div class="tabs-container">
-  <ul class="nav nav-tabs">
-    <li><a href="<%= edit_admin_user_path(@user) %>" aria-expanded="true">Profil</a></li>
-    <li class="active"><a href="<%= admin_user_faculties_path(@user) %>" aria-expanded="false">Fakultete</a></li>
-  </ul>
-</div>
+<%= render 'admin/users/menu' %>
 
 <br/>
 
@@ -76,3 +71,7 @@
 <div class="text-center">
   <%= paginate @faculties %>
 </div>
+
+<script type="text/javascript">
+  Enrolled.admin.faculties.index();
+</script>
