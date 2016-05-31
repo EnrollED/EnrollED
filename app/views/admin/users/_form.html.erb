@@ -72,14 +72,15 @@
     <% end %>
 
 
-
     <%= f.submit t('defaults.save'), class: 'btn btn-success' %>
 
     <%= link_to t('defaults.cancel'), cancel, class: 'btn btn-warning' %>
 
-    <% if policy(@user).cancel? %>
-        <%= button_to t('.cancel_account'), registration_path(:user),
-                      data: {confirm: t('defaults.are_you_sure')}, class: 'btn btn-danger', method: :delete %>
-    <% end %>
+<% end %>
 
+<br/>
+
+<% if policy(@user).cancel? %>
+    <%= button_to t('.cancel_account'), registration_path(:user),
+                  data: {confirm: t('defaults.are_you_sure')}, class: 'btn btn-danger', method: :delete %>
 <% end %>
