@@ -40,7 +40,7 @@ Rails.application.routes.draw do
 
   resources :codes, only: :index
 
-  resources :users, only: [:edit, :update]
+  resources :users, only: [:edit, :update, :destroy]
 
   get '/study_programs/pdf_export/' => 'study_programs#pdf_export_list', via: :get, as: 'export_study_programs'
 

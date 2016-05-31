@@ -81,6 +81,6 @@
 <br/>
 
 <% if policy(@user).cancel? %>
-    <%= button_to t('.cancel_account'), registration_path(:user),
+    <%= button_to t('.cancel_account'), user_path(@user),
                   data: {confirm: t('defaults.are_you_sure')}, class: 'btn btn-danger', method: :delete %>
 <% end %>
