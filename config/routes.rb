@@ -30,6 +30,8 @@ Rails.application.routes.draw do
     patch '/users/confirmations' => 'confirmations#update', via: :patch, as: :update_user_confirmation
   end
 
+  get '/my/programs' => 'home#my_programs'
+
   namespace :admin do
     resources :users, except: :show, concerns: :paginatable do
       resources :faculties, only: [:index, :create, :destroy]
@@ -41,6 +43,7 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
 
   get '/study_programs/pdf_export/' => 'study_programs#pdf_export_list', via: :get, as: 'export_study_programs'
+
   resources :study_programs do
     resources :study_program_modes, except: :show, concerns: :paginatable
     resources :requirements do

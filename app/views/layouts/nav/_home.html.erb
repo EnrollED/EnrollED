@@ -6,6 +6,10 @@
     </li>
     <li>
       <a href="<%= application_forms_path %>"><i class="fa fa-wpforms"></i> <span><%= t '.my_applications' %></span></a>
+
+      <% if policy(:study_program).my? %>
+          <a href="<%= my_programs_path %>"><i class="fa fa-book"></i> <span><%= t '.my_programs' %></span></a>
+      <% end %>
     </li>
 
     <% if policy(:study_program).index? %>
@@ -18,13 +22,10 @@
         <li>
           <a href="<%= all_application_form_path %>"><i class="fa fa-wpforms"></i> <span>Vse prijave</span></a>
         </li>
+        <li>
+          <a href="<%= candidates_path %>"><i class="fa fa-male"></i> <span><%= t '.candidates' %></span></a>
+        </li>
     <% end %>
-
-
-    <li>
-      <a href="<%= candidates_path %>"><i class="fa fa-male"></i> <span><%= t '.candidates' %></span></a>
-    </li>
-
 
   </ul>
 </nav>

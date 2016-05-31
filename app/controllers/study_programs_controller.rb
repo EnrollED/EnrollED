@@ -30,25 +30,27 @@ class StudyProgramsController < ApplicationController
   # GET /study_programs/1
   # GET /study_programs/1.json
   def show
-    authorize StudyProgram
+    authorize @study_program
   end
 
   # GET /study_programs/new
   def new
-    authorize StudyProgram
     @study_program = StudyProgram.new
+
+    authorize @study_program
   end
 
   # GET /study_programs/1/edit
   def edit
-    authorize StudyProgram
+    authorize @study_program
   end
 
   # POST /study_programs
   # POST /study_programs.json
   def create
-    authorize StudyProgram
     @study_program = StudyProgram.new(study_program_params)
+
+    authorize @study_program
 
     respond_to do |format|
       if @study_program.save
@@ -64,7 +66,7 @@ class StudyProgramsController < ApplicationController
   # PATCH/PUT /study_programs/1
   # PATCH/PUT /study_programs/1.json
   def update
-    authorize StudyProgram
+    authorize @study_program
     respond_to do |format|
       if @study_program.update(study_program_params)
         format.html { redirect_to @study_program, notice: 'Študijski program uspešno posodobljen.' }
@@ -79,7 +81,7 @@ class StudyProgramsController < ApplicationController
   # DELETE /study_programs/1
   # DELETE /study_programs/1.json
   def destroy
-    authorize StudyProgram
+    authorize @study_program
     @study_program.destroy
     respond_to do |format|
       format.html { redirect_to study_programs_url, notice: 'Študijski program označen kot neveljaven.' }
