@@ -44,6 +44,8 @@ Rails.application.routes.draw do
 
   get '/study_programs/pdf_export/' => 'study_programs#pdf_export_list', via: :get, as: 'export_study_programs'
 
+  get '/study_programs/:study_program_id/candidates/pdf_export/' => 'study_program_candidates#pdf_export', as: 'export_study_program_candidates'
+
   resources :study_programs do
     resources :study_program_modes, except: :show, concerns: :paginatable
     resources :study_program_candidates, only: :index, concerns: :paginatable

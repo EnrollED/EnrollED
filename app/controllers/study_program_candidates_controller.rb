@@ -1,5 +1,5 @@
 class StudyProgramCandidatesController < ApplicationController
-  before_action :set_study_program, only: [:index]
+  before_action :set_study_program, only: [:index, :pdf_export]
 
   layout 'home'
 
@@ -14,6 +14,25 @@ class StudyProgramCandidatesController < ApplicationController
 
     @mode_of_studies = ModeOfStudy.order(:name)
 
+  end
+
+  def pdf_export
+    #authorize ApplicationChoice
+
+    @candidates = ApplicationChoice.where({study_program_modes: {study_program_id: @study_program.id}})
+                      .includes([{study_program_mode: [{study_program: [:higher_education_institution]}, :mode_of_study]}, :application])
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        #export_pdf
+        html = render_to_string(:action => :pdf_export, :layout => 'layouts/layout_pdf.html.erb', :template => 'candidates/pdf_export.html.erb')
+        pdf = WickedPdf.new.pdf_from_string(html, :orientation => 'Landscape')
+        send_data(pdf,
+                  :filename    => "kandidati.pdf",
+                  :disposition => 'attachment')
+      end
+    end
   end
 
   private
