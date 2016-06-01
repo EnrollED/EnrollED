@@ -7,6 +7,7 @@
       <th>EMŠO</th>
       <th>Visokošolski zavod</th>
       <th>Študijski program</th>
+      <th>Vrsta študija</th>
       <th>Način študija</th>
     </tr>
     </thead>
@@ -19,6 +20,7 @@
           <td><%= candidate.application.EMSO %></td>
           <td><%= candidate.study_program_mode.study_program.higher_education_institution.name %></td>
           <td><%= candidate.study_program_mode.study_program.name %></td>
+          <td><%= candidate.study_program_mode.mode_of_study.name %></td>
           <td><%= candidate.study_program_mode.study_program.type_of_study.name %></td>
         </tr>
     <% end %>

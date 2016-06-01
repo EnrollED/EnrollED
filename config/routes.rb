@@ -46,6 +46,7 @@ Rails.application.routes.draw do
 
   resources :study_programs do
     resources :study_program_modes, except: :show, concerns: :paginatable
+    resources :study_program_candidates, only: :index, concerns: :paginatable
     resources :requirements do
       resources :requirement_elements
       resources :study_program_elements
