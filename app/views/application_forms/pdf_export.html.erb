@@ -4,7 +4,7 @@
     Univerza v Ljubljani, p.p. 524, 1001 LJUBLJANA
   </div>
   <div class="col-xs-2">
-    Prijava oddana:  <br/>
+    Prijava oddana: <br/>
     <span class="fs9"><%= @application.submission_date.strftime('%d.%m.%Y %H:%M:%S') %></span>
   </div>
   <div class="col-xs-2">
@@ -12,14 +12,15 @@
     DIGITALNO
   </div>
   <div class="col-xs-2">
-    Številka:  <br/>
+    Številka: <br/>
     <strong class="fs14"><%= @application.application_number %></strong>
   </div>
 </div>
 <div class="row mg-btm3">
   <div class="col-xs-10 bg-grey border-btm-thick">
     RAZPIS ZA VPIS NA DODIPLOMSKE IN ENOVITE MAGISTRSKE ŠTUDIJSKE PROGRAME v<br/>
-    študijskem letu <%= @application.enrollment.study_year %> - Univerza v Ljubljani, Univerza v Mariboru, Univerza na<br/>
+    študijskem letu <%= @application.enrollment.study_year %> - Univerza v Ljubljani, Univerza v Mariboru, Univerza
+    na<br/>
     Primorskem, Univerza v Novi Gorici, javni in koncesionirani samostojni visokošolski
     zavodi<br/>
     Prijavni rok: <%= @application.enrollment.name %>
@@ -105,7 +106,8 @@
         Država in kraj:
       </div>
       <div class="col-xs-3 bg-grey">
-        <%= @application.country_of_birth.name %>,<%= @application.municipality.name.blank? ? '&nbsp;'.html_safe : @application.municipality.name %>
+        <%= @application.country_of_birth.name %>
+        ,<%= @application.municipality.name.blank? ? '&nbsp;'.html_safe : @application.municipality.name %>
       </div>
     </div>
     <div class="row mg-btm3">
@@ -133,10 +135,11 @@
   <div class="col-xs-12">
     <div class="row mg-btm3">
       <div class="col-xs-3">
-       Naslov:
+        Naslov:
       </div>
       <div class="col-xs-9 bg-grey">
-        <%= @application.place_of_residence %>, <%= @application.post_of_residence.code %> <%= @application.post_of_residence.name %>
+        <%= @application.place_of_residence %>
+        , <%= @application.post_of_residence.code %> <%= @application.post_of_residence.name %>
       </div>
     </div>
     <div class="row mg-btm3">
@@ -182,7 +185,8 @@
         Naslov:
       </div>
       <div class="col-xs-9 bg-grey">
-        <%= @application.place_for_notification.blank? ? '&nbsp;'.html_safe : @application.place_for_notification %>, <%= @application.post_for_notification.code.blank? ? '&nbsp;'.html_safe : @application.post_for_notification.code %> <%= @application.post_for_notification.name.blank? ? '&nbsp;'.html_safe : @application.post_for_notification.name %>
+        <%= @application.place_for_notification.blank? ? '&nbsp;'.html_safe : @application.place_for_notification %>
+        , <%= @application.post_for_notification.code.blank? ? '&nbsp;'.html_safe : @application.post_for_notification.code %> <%= @application.post_for_notification.name.blank? ? '&nbsp;'.html_safe : @application.post_for_notification.name %>
       </div>
     </div>
   </div>
@@ -215,53 +219,53 @@
   </div>
 </div>
 <% @application_choices.each do |choice| %>
-  <div class="row mg-btm3 border-btm-thick">
-    <div class="col-xs-12">
-      <div class="vertical-text">
-        <strong><%= choice.choice %>. ŽELJA</strong>
-      </div>
-      <div class="row mg-btm3">
-        <div class="col-xs-3 col-xs-offset-1">
-          Visokošolski zavod:
+    <div class="row mg-btm3 border-btm-thick">
+      <div class="col-xs-12">
+        <div class="vertical-text">
+          <strong><%= choice.choice %>. ŽELJA</strong>
         </div>
-        <div class="col-xs-8 bg-grey">
-          <%= choice.study_program_mode.study_program.higher_education_institution.university.name %>  <%= choice.study_program_mode.study_program.higher_education_institution.name %>
+        <div class="row mg-btm3">
+          <div class="col-xs-3 col-xs-offset-1">
+            Visokošolski zavod:
+          </div>
+          <div class="col-xs-8 bg-grey">
+            <%= choice.study_program_mode.study_program.higher_education_institution.university.name %>  <%= choice.study_program_mode.study_program.higher_education_institution.name %>
+          </div>
         </div>
-      </div>
-      <div class="row mg-btm3">
-        <div class="col-xs-3 col-xs-offset-1">
-          Študijski program:
+        <div class="row mg-btm3">
+          <div class="col-xs-3 col-xs-offset-1">
+            Študijski program:
+          </div>
+          <div class="col-xs-8 bg-grey">
+            <%= choice.study_program_mode.study_program.name %>
+          </div>
         </div>
-        <div class="col-xs-8 bg-grey">
-          <%= choice.study_program_mode.study_program.name %>
+        <div class="row mg-btm3">
+          <div class="col-xs-3 col-xs-offset-1">
+            Smer/modul:
+          </div>
+          <div class="col-xs-8 bg-grey">
+            /
+          </div>
         </div>
-      </div>
-      <div class="row mg-btm3">
-        <div class="col-xs-3 col-xs-offset-1">
-          Smer/modul:
+        <div class="row mg-btm3">
+          <div class="col-xs-3 col-xs-offset-1">
+            Kraj študija:
+          </div>
+          <div class="col-xs-8 bg-grey">
+            <%= choice.study_program_mode.study_program.higher_education_institution.municipality.name %>
+          </div>
         </div>
-        <div class="col-xs-8 bg-grey">
-          /
-        </div>
-      </div>
-      <div class="row mg-btm3">
-        <div class="col-xs-3 col-xs-offset-1">
-          Kraj študija:
-        </div>
-        <div class="col-xs-8 bg-grey">
-          <%= choice.study_program_mode.study_program.higher_education_institution.municipality.name %>
-        </div>
-      </div>
-      <div class="row mg-btm3">
-        <div class="col-xs-3 ">
-          Način študija:
-        </div>
-        <div class="col-xs-9 bg-grey">
-          <%= choice.study_program_mode.mode_of_study.name %>
+        <div class="row mg-btm3">
+          <div class="col-xs-3 ">
+            Način študija:
+          </div>
+          <div class="col-xs-9 bg-grey">
+            <%= choice.study_program_mode.mode_of_study.name %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 <% end %>
 <div class="row bg-light-grey border-btm-thick fs14">
   <div class="col-xs-12">
@@ -286,7 +290,10 @@
           <div class="col-xs-12">
             <div class="row mg-btm3">
               <div class="col-xs-10">Spričevalo o končani srednji šoli že imam:</div>
-              <div class="col-xs-2 bg-grey"><% if @application.highschool_certificate? %>DA <% else %>NE <% end %></div>
+              <div class="col-xs-2 bg-grey">
+                <% if @application.highschool_certificate? %>DA
+                <% else %>NE
+                <% end %></div>
             </div>
             <div class="row mg-btm3">
               <div class="col-xs-4">Način zaključka srednje šole:</div>
@@ -299,7 +306,13 @@
             </div>
             <div class="row mg-btm3">
               <div class="col-xs-10">Datum izdaje spričevala o končani srednji šoli:</div>
-              <div class="col-xs-2 bg-grey"><%= @application.highschool_finished_date.strftime('%d.%m.%Y') %></div>
+              <div class="col-xs-2 bg-grey">
+                <% if @application.highschool_finished_date.present? %>
+                    <%= @application.highschool_finished_date.strftime('%d.%m.%Y') %>
+                <% else %>
+                  /
+                <% end %>
+              </div>
             </div>
             <div class="row mg-btm3">
               <div class="col-xs-4">Država:</div>
