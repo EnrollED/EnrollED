@@ -177,9 +177,9 @@ req = Requirement.create(study_program: StudyProgram.where(type_of_study: TypeOf
 RequirementElement.create(requirement: req, element: Element.find_by_name('RAČUNALNIŠTVO (NA MATURI)'))
 RequirementElement.create(requirement: req, element: Element.find_by_name('MATEMATIKA (NA MATURI)'))
 RequirementElement.create(requirement: req, element: Element.find_by_name('FIZIKA (NA MATURI)'))
-StudyProgramElement.create(requirement: req, element: Element.find_by_name('SPLOŠNI USPEH PRI POKLICNI MATURI'), weight: 0.4 )
+StudyProgramElement.create(requirement: req, element: Element.find_by_name('SPLOŠNI USPEH PRI POKLICNI MATURI'), weight: 0.2 )
 StudyProgramElement.create(requirement: req, element: Element.find_by_name('SPLOŠNI USPEH V 3. in 4. LETNIKU'), weight: 0.4 )
-StudyProgramElement.create(requirement: req, element: Element.find_by_name('USPEH PRI MATURITETNEM PREDMETU'), weight: 0.2 )
+StudyProgramElement.create(requirement: req, element: Element.find_by_name('USPEH PRI MATURITETNEM PREDMETU'), weight: 0.4 )
 
 req = Requirement.create(study_program: StudyProgram.where(type_of_study: TypeOfStudy.find_by_name('VISOKOŠOLSKI STROKOVNI')).find_by_name('PRAKTIČNA MATEMATIKA'), highschool_completion: HighschoolCompletion.find_by_name('SPLOŠNA MATURA'))
 StudyProgramElement.create(requirement: req, element: Element.find_by_name('SPLOŠNI USPEH PRI SPLOŠNI MATURI'), weight: 0.3 )
