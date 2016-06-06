@@ -23,7 +23,9 @@ class CandidatesController < ApplicationController
 
   def pdf_export
     authorize ApplicationChoice
-    @candidates = CandidatePolicy::Scope.new(current_user, ApplicationChoice).resolve
+    @candidates = ApplicationChoice
+                      .includes([{study_program_mode: [{study_program: [:higher_education_institution, :type_of_study]}, :mode_of_study]}, {application: [:user]}])
+                      .order('higher_education_institutions.name, study_programs.name, mode_of_studies.name DESC, users.lastname')
 
     respond_to do |format|
       format.html

@@ -21,7 +21,8 @@ class StudyProgramCandidatesController < ApplicationController
     #authorize ApplicationChoice
 
     @candidates = ApplicationChoice.where({study_program_modes: {study_program_id: @study_program.id}})
-                      .includes([{study_program_mode: [{study_program: [:higher_education_institution]}, :mode_of_study]}, :application])
+                      .includes([{study_program_mode: [{study_program: [:higher_education_institution]}, :mode_of_study]}, {application: [:user]}])
+                      .order('mode_of_studies.name DESC, users.lastname')
 
     respond_to do |format|
       format.html

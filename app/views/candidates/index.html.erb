@@ -19,11 +19,11 @@
 
       <div class="col-md-2">
         <%= select_tag :type_of_study_id, options_from_collection_for_select(@type_of_studies, :id, :name, params[:type_of_study_id]),
-                       include_blank: "-- Izberi način --", class: 'form-control' %>
+                       include_blank: "-- Izberi vrsto --", class: 'form-control' %>
       </div>
       <div class="col-md-2">
         <%= select_tag :mode_of_study_id, options_from_collection_for_select(@mode_of_studies, :id, :name, params[:mode_of_study_id]),
-                       include_blank: "-- Izberi vrsto --", class: 'form-control' %>
+                       include_blank: "-- Izberi način --", class: 'form-control' %>
       </div>
       <div class="col-md-1 text-right">
         <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
