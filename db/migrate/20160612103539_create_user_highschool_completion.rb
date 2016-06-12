@@ -1,6 +1,6 @@
-class CreateUserHighSchoolCompletion < ActiveRecord::Migration
+class CreateUserHighschoolCompletion < ActiveRecord::Migration
   def change
-    create_table :user_high_school_completions do |t|
+    create_table :user_highschool_completions, id: :uuid do |t|
       t.boolean :passed, null: false
 
       t.references :user, type: :uuid
@@ -9,7 +9,7 @@ class CreateUserHighSchoolCompletion < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_index :user_high_school_completions, [:highschool_completion_id, :user_id], unique: true,
+    add_index :user_highschool_completions, [:highschool_completion_id, :user_id], unique: true,
               name: 'index_user_high_school_completions'
   end
 end

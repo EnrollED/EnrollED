@@ -263,7 +263,7 @@ ActiveRecord::Schema.define(version: 20160612103539) do
 
   add_index "user_elements", ["element_id", "user_id"], name: "index_user_elements_on_element_id_and_user_id", unique: true, using: :btree
 
-  create_table "user_high_school_completions", force: :cascade do |t|
+  create_table "user_highschool_completions", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.boolean  "passed",                   null: false
     t.uuid     "user_id"
     t.uuid     "highschool_completion_id"
@@ -271,7 +271,7 @@ ActiveRecord::Schema.define(version: 20160612103539) do
     t.datetime "updated_at",               null: false
   end
 
-  add_index "user_high_school_completions", ["highschool_completion_id", "user_id"], name: "index_user_high_school_completions", unique: true, using: :btree
+  add_index "user_highschool_completions", ["highschool_completion_id", "user_id"], name: "index_user_high_school_completions", unique: true, using: :btree
 
   create_table "users", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "username",                            null: false

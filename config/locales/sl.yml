@@ -184,6 +184,8 @@ sl:
       type_of_study: 'Vrsta študija'
       university: 'Univerza'
       enrollment: 'Razpis'
+      user_highschool_completion: 'Stanje pogoja uporabnika'
+      user_element: 'Ocena predmeta uporabnika'
     attributes:
       user:
         username: 'Uporabniško ime'
@@ -289,6 +291,14 @@ sl:
         parent: 'Šifra starša'
         level: 'Nivo'
         is_valid: 'Veljavnost'
+      user_highschool_completion:
+        user_id: 'Uporabnik'
+        highschool_completion_id: 'Pogoj'
+        passed: 'Opravil'
+      user_element:
+        user_id: 'Uporabnik'
+        element_id: 'Element'
+        score: 'Ocena'
     errors:
       messages:
         record_invalid: "Validacija ni uspela: %{errors}"
@@ -309,15 +319,26 @@ sl:
       home:
         personal: 'Osebno'
         enrollment_resources: 'Viri za vpis'
+        results: 'Rezultati'
         candidates: 'Kandidati'
         my_applications: 'Moje prijave'
         my_programs: 'Moji programi'
         study_programs: 'Študijski programi'
+        all_applications: 'Vse prijave'
+        user_requirements: 'Pogoji'
+        user_elements: 'Predmeti'
+        import: 'Uvozi'
     header:
       my_profile: 'Moj profil'
       logout: 'Odjavi se'
       admin_area: 'Admin prostor'
       zadnja_prijava: 'Zadnja prijava'
+  completion_results:
+    index:
+      view_results: 'Preglej rezultate'
+  element_results:
+    index:
+      view_results: 'Preglej rezultate'
   study_programs:
     menu:
       overview: 'Pregled'

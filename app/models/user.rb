@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   rolify
 
   has_many :user_elements
+  has_many :user_highschool_completions
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
@@ -20,6 +21,10 @@ class User < ActiveRecord::Base
   end
 
   ####### Instance methods #######
+  def full_name
+    "#{self.firstname} #{self.lastname}"
+  end
+
   def disable
     update_attribute(:disabled_at, Time.current)
   end

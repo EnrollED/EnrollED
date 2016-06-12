@@ -1,0 +1,27 @@
+<%= form_for @result, url: url do |f| %>
+
+    <%= render 'layouts/errors', :resource => @result %>
+
+    <div class="form-group has-feedback">
+      <%= f.label :element_id, class: 'control-label' %>
+      <%= f.collection_select :element_id, Element.order(:name).all, :id, :name,
+                              {:include_blank => false},
+                              { class: 'form-control', disabled: 'disabled' }  %>
+    </div>
+
+    <div class="form-group has-feedback">
+      <%= f.label :user_id, class: 'control-label' %>
+      <%= f.collection_select :user_id, User.order(:lastname).all, :id, :full_name, {},
+                              { class: 'form-control' }  %>
+    </div>
+
+    <div class="form-group has-feedback">
+      <%= f.label :score, class: 'control-label' %>
+      <%= f.number_field :score, placeholder: true, class: 'form-control', step: 'any'%>
+    </div>
+
+    <%= f.submit t('defaults.save'), class: 'btn btn-success' %>
+
+    <%= link_to t('defaults.cancel'), element_result_element_result_scores_path(@element), class: 'btn btn-warning' %>
+
+<% end %>

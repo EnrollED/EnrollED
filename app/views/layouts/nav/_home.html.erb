@@ -20,12 +20,20 @@
           <a href="<%= study_programs_path %>"><i class="fa fa-list"></i> <span><%= t '.study_programs' %></span></a>
         </li>
         <li>
-          <a href="<%= all_application_form_path %>"><i class="fa fa-wpforms"></i> <span>Vse prijave</span></a>
+          <a href="<%= all_application_form_path %>"><i class="fa fa-wpforms"></i> <span><%= t '.all_applications' %></span></a>
         </li>
         <li>
           <a href="<%= candidates_path %>"><i class="fa fa-male"></i> <span><%= t '.candidates' %></span></a>
         </li>
     <% end %>
 
+    <li class="navbar-side-divider">
+      <span><%= t '.results' %></span>
+    </li>
+    <li>
+      <a href="<%= completion_results_path %>"><i class="fa fa-gavel"></i> <span><%= t '.user_requirements' %></span></a>
+      <a href="<%= element_results_path %>"><i class="fa fa-calculator"></i> <span><%= t '.user_elements' %></span></a>
+      <a href="<%= all_application_form_path %>"><i class="fa fa-upload"></i> <span><%= t '.import' %></span></a>
+    </li>
   </ul>
 </nav>

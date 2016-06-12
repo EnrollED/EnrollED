@@ -1,0 +1,84 @@
+<div class="row page-heading">
+  <div class="col-lg-10">
+    <h2>Stanja pogojov za <%= @completion.name %></h2>
+  </div>
+</div>
+
+<br />
+
+<div class="row">
+
+  <div class="col-sm-4">
+    <%= form_tag(completion_result_completion_result_scores_path(@completion), method: :get) do |f| %>
+
+        <div class="input-group">
+
+          <%= search_field_tag :search, params[:search], autofocus: true,
+                               placeholder: t('defaults.search') + '...', class: 'form-control' %>
+
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+          </span>
+
+        </div>
+
+    <% end %>
+  </div>
+
+  <div class="col-sm-8 text-right">
+    <%= link_to 'Novo stanje', new_completion_result_completion_result_score_path(@completion), class: 'btn btn-success' %>
+  </div>
+</div>
+
+<br />
+
+<div class="table-responsive full">
+  <table class="table table-striped table-hover">
+    <thead>
+    <tr>
+      <th>Ime</th>
+      <th>Priimek</th>
+      <th>Opravil</th>
+      <th></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @results.each do |r| %>
+        <tr>
+          <td><%= r.user.firstname %></td>
+          <td><%= r.user.lastname %></td>
+          <td>
+            <% if r.passed? %>
+                <span class="label label-success"><i class="fa fa-check"></i></span>
+            <% else %>
+                <span class="label label-danger"><i class="fa fa-exclamation-circle"></i></span>
+            <% end %>
+          </td>
+
+          <td class="text-right table-links">
+            <%= link_to edit_completion_result_completion_result_score_path(@completion, r),
+                        class: 'label label-info' do %>
+                <i class="fa fa-pencil" title="<%= t 'defaults.edit' %>" aria-hidden="true"></i>
+            <% end %>
+            <%= link_to completion_result_completion_result_score_path(@completion, r),
+                        method: :delete, data: { confirm: t('defaults.are_you_sure') }, class: 'label label-danger' do %>
+                <i class="fa fa-trash" title="<%= t 'defaults.remove' %>" aria-hidden="true"></i>
+            <% end %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<% if @results.length == 0 %>
+    <div class="text-center">
+
+      <p>Ni stanj</p>
+    </div>
+<% end %>
+
+<div class="text-center">
+  <%= paginate @results %>
+</div>

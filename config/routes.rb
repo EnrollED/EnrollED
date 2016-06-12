@@ -69,6 +69,14 @@ Rails.application.routes.draw do
 
   get '/study_programs/:id/pdf_export/' => 'study_programs#pdf_export', via: :get, as: 'export_study_program'
 
+  resources :completion_results, only: :index, concerns: :paginatable do
+    resources :completion_result_scores, except: :show, concerns: :paginatable
+  end
+
+  resources :element_results, only: :index, concerns: :paginatable do
+    resources :element_result_scores, except: :show, concerns: :paginatable
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

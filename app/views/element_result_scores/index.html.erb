@@ -1,0 +1,78 @@
+<div class="row page-heading">
+  <div class="col-lg-10">
+    <h2>Ocene za <%= @element.name %></h2>
+  </div>
+</div>
+
+<br />
+
+<div class="row">
+
+  <div class="col-sm-4">
+    <%= form_tag(element_result_element_result_scores_path(@element), method: :get) do |f| %>
+
+        <div class="input-group">
+
+          <%= search_field_tag :search, params[:search], autofocus: true,
+                               placeholder: t('defaults.search') + '...', class: 'form-control' %>
+
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+          </span>
+
+        </div>
+
+    <% end %>
+  </div>
+
+  <div class="col-sm-8 text-right">
+    <%= link_to 'Nova ocena', new_element_result_element_result_score_path(@element), class: 'btn btn-success' %>
+  </div>
+</div>
+
+<br />
+
+<div class="table-responsive full">
+  <table class="table table-striped table-hover">
+    <thead>
+    <tr>
+      <th>Ime</th>
+      <th>Priimek</th>
+      <th>Ocena</th>
+      <th></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @results.each do |r| %>
+        <tr>
+          <td><%= r.user.firstname %></td>
+          <td><%= r.user.lastname %></td>
+          <td><%= r.score %></td>
+
+          <td class="text-right table-links">
+            <%= link_to edit_element_result_element_result_score_path(@element, r),
+                        class: 'label label-info' do %>
+                <i class="fa fa-pencil" title="<%= t 'defaults.edit' %>" aria-hidden="true"></i>
+            <% end %>
+            <%= link_to element_result_element_result_score_path(@element, r),
+                        method: :delete, data: { confirm: t('defaults.are_you_sure') }, class: 'label label-danger' do %>
+                <i class="fa fa-trash" title="<%= t 'defaults.remove' %>" aria-hidden="true"></i>
+            <% end %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<% if @results.length == 0 %>
+    <div class="text-center">
+
+      <p>Ni ocen</p>
+    </div>
+<% end %>
+
+<div class="text-center">
+  <%= paginate @results %>
+</div>
