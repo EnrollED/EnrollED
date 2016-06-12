@@ -12,7 +12,9 @@ class StudyProgramMode < ActiveRecord::Base
     university_name = program.higher_education_institution.university.name
     faculty_name = program.higher_education_institution.name
     program_name = program.name
-    "#{university_name}, #{faculty_name}, #{program_name}, #{mode_name} "
+    type_name = program.type_of_study.name
+    
+    "#{university_name}, #{faculty_name}, #{program_name}, #{mode_name}, #{type_name} "
   end
 
 end

@@ -1,4 +1,6 @@
 class Element < ActiveRecord::Base
+  has_many :user_elements
+
   validates :code, presence: true, uniqueness: { case_sensitive: false }
   validates :name, presence: true, length: {in: 2..100}
 

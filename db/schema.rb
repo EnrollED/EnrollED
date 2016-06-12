@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160526080936) do
+ActiveRecord::Schema.define(version: 20160612103539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -252,6 +252,26 @@ ActiveRecord::Schema.define(version: 20160526080936) do
     t.datetime "updated_at",                null: false
     t.boolean  "is_valid",   default: true
   end
+
+  create_table "user_elements", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
+    t.float    "score",      null: false
+    t.uuid     "user_id"
+    t.uuid     "element_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "user_elements", ["element_id", "user_id"], name: "index_user_elements_on_element_id_and_user_id", unique: true, using: :btree
+
+  create_table "user_high_school_completions", force: :cascade do |t|
+    t.boolean  "passed",                   null: false
+    t.uuid     "user_id"
+    t.uuid     "highschool_completion_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "user_high_school_completions", ["highschool_completion_id", "user_id"], name: "index_user_high_school_completions", unique: true, using: :btree
 
   create_table "users", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "username",                            null: false
