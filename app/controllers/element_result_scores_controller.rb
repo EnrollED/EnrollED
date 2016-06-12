@@ -5,7 +5,8 @@ class ElementResultScoresController < ApplicationController
   layout 'home'
 
   def index
-    @results = @element.user_elements.search(params[:search]).joins(:user).includes(:user).page(params[:page])
+    @results = @element.user_elements.search(params[:search]).joins(:user).includes(:user)
+                   .order('users.lastname').page(params[:page])
   end
 
   def new

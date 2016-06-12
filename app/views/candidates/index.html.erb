@@ -53,6 +53,7 @@
       <th>Študijski program</th>
       <th>Način študija</th>
       <th>Vrsta študija</th>
+      <th></th>
     </tr>
     </thead>
 
@@ -66,6 +67,11 @@
           <td><%= candidate.study_program_mode.study_program.name %></td>
           <td><%= candidate.study_program_mode.mode_of_study.name %></td>
           <td><%= candidate.study_program_mode.study_program.type_of_study.name %></td>
+          <td>
+            <%= link_to '', class: 'label label-info' do %>
+                <i class="fa fa-info-circle" title="Izračun uspeha" aria-hidden="true"></i>
+            <% end %>
+          </td>
         </tr>
     <% end %>
     </tbody>

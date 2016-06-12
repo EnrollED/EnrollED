@@ -5,7 +5,8 @@ class CompletionResultScoresController < ApplicationController
   layout 'home'
 
   def index
-    @results = @completion.user_highschool_completions.search(params[:search]).joins(:user).includes(:user).page(params[:page])
+    @results = @completion.user_highschool_completions.search(params[:search]).joins(:user).includes(:user)
+                   .order('users.lastname').page(params[:page])
   end
 
   def new

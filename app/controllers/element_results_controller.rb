@@ -1,4 +1,5 @@
 class ElementResultsController < ApplicationController
+
   layout 'home'
 
   def index

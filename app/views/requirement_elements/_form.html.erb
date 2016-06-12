@@ -3,7 +3,7 @@
 
     <div class="form-group">
       <%= f.label "Predmet", class: 'control-label' %>
-      <%= f.collection_select :element_id, Element.where("code LIKE 'M%'"), :id, :name, {:include_blank => "---Izberi predmet---"}, {:class => 'form-control'} %>
+      <%= f.collection_select :element_id, Element.where("code LIKE 'M%' or code LIKE 'L%'"), :id, :name, {:include_blank => "---Izberi predmet---"}, {:class => 'form-control'} %>
     </div>
 
     <%= f.submit t('defaults.save'), class: 'btn btn-success' %>

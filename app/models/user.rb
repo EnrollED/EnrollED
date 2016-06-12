@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   rolify
 
+  has_many :applications
   has_many :user_elements
   has_many :user_highschool_completions
 

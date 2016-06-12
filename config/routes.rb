@@ -77,6 +77,11 @@ Rails.application.routes.draw do
     resources :element_result_scores, except: :show, concerns: :paginatable
   end
 
+  resources :import_results, only: :index
+
+  post '/import_results/splosna_matura' => 'import_results#splosna_matura', as: 'import_splosna_matura'
+  post '/import_results/splosna_matura_predmeti' => 'import_results#splosna_matura_predmeti', as: 'import_splosna_matura_predmeti'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -1,0 +1,76 @@
+<div class="row page-heading">
+  <div class="col-lg-10">
+    <h2>Uvoz rezultatov</h2>
+  </div>
+</div>
+
+<%= form_tag({controller: :import_results, action: :splosna_matura}, multipart: true) do %>
+    <label for="file">Upload text File</label>
+    <%= file_field_tag "file" %>
+
+    <%= submit_tag %>
+<% end %>
+
+<%= form_tag({controller: :import_results, action: :splosna_matura_predmeti}, multipart: true) do %>
+    <label for="file">Upload text File</label>
+    <%= file_field_tag "file" %>
+
+    <%= submit_tag %>
+<% end %>
+
+<div class="row">
+  <div class="col-lg-3">
+    <a href="<%= %>">
+      <div class="widget navy-bg">
+        <div class="row">
+          <div class="col-xs-2">
+            <i class="fa fa-folder fa-4x"></i>
+          </div>
+          <div class="col-xs-10 text-right">
+            <span>Splošna matura</span>
+            <h2 class="font-bold">Rezultati</h2>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="col-lg-3">
+    <div class="widget blue-bg">
+      <div class="row">
+        <div class="col-xs-2">
+          <i class="fa fa-folder-o fa-4x"></i>
+        </div>
+        <div class="col-xs-10 text-right">
+          <span>Splošna matura</span>
+          <h2 class="font-bold">Predmeti</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class="widget lazur-bg">
+      <div class="row">
+        <div class="col-xs-2">
+          <i class="fa fa-folder-open fa-4x"></i>
+        </div>
+        <div class="col-xs-10 text-right">
+          <span>Poklicna matura</span>
+          <h2 class="font-bold">Rezultati</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class="widget yellow-bg">
+      <div class="row">
+        <div class="col-xs-2">
+          <i class="fa fa-folder-open-o fa-4x"></i>
+        </div>
+        <div class="col-xs-10 text-right">
+          <span>Poklicna matura</span>
+          <h2 class="font-bold">Predmeti</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
