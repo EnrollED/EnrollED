@@ -68,7 +68,7 @@
           <td><%= candidate.study_program_mode.mode_of_study.name %></td>
           <td><%= candidate.study_program_mode.study_program.type_of_study.name %></td>
           <td>
-            <%= link_to '', class: 'label label-info' do %>
+            <%= link_to candidate_path(candidate), class: 'label label-info' do %>
                 <i class="fa fa-info-circle" title="Izračun uspeha" aria-hidden="true"></i>
             <% end %>
           </td>

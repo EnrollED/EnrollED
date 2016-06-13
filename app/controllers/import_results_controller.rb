@@ -71,6 +71,16 @@ class ImportResultsController < ApplicationController
         user_uspeh_predmet = user.user_elements.find_or_create_by(element_id: uspeh_predmet.id)
         user_uspeh_predmet.score = columns[2].to_f
         user_uspeh_predmet.save
+
+        if uspeh_predmet.code == 'M401' || uspeh_predmet.code == 'L401'
+          uspeh_letniki = Element.find_by_code('Y401')
+
+          if uspeh_letniki.present?
+            user_uspeh_letniki = user.user_elements.find_or_create_by(element_id: uspeh_letniki.id)
+            user_uspeh_letniki.score = 0 + columns[3].to_f + columns[4].to_f
+            user_uspeh_letniki.save
+          end
+        end
       end
     end
 
@@ -143,6 +153,16 @@ class ImportResultsController < ApplicationController
         user_uspeh_predmet = user.user_elements.find_or_create_by(element_id: uspeh_predmet.id)
         user_uspeh_predmet.score = columns[2].to_f
         user_uspeh_predmet.save
+
+        if uspeh_predmet.code == 'M401' || uspeh_predmet.code == 'L401'
+          uspeh_letniki = Element.find_by_code('Y401')
+
+          if uspeh_letniki.present?
+            user_uspeh_letniki = user.user_elements.find_or_create_by(element_id: uspeh_letniki.id)
+            user_uspeh_letniki.score = 0 + columns[3].to_f + columns[4].to_f
+            user_uspeh_letniki.save
+          end
+        end
       end
     end
 

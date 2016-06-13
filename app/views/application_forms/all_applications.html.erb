@@ -59,7 +59,7 @@
           <% end %>
           <% if application.status != 'Poslana' or policy(:admin).index? or policy(:admissions).index? %>
               <td>
-                <%= link_to all_application_form_path(application), method: :delete, data: {confirm: 'Ali ste prepričani?'}, class: 'label label-danger' do %>
+                <%= link_to application_form_path(application), method: :delete, data: {confirm: 'Ali ste prepričani?'}, class: 'label label-danger' do %>
                     <i class="fa fa-trash" title="<%= "Odstrani" %>" aria-hidden="true"></i>
                 <% end %>
               </td>

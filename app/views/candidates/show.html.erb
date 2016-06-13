@@ -1,0 +1,165 @@
+<div class="row page-heading">
+  <div class="col-lg-10">
+    <h2>Uspeh kandidata</h2>
+  </div>
+</div>
+
+<div>
+  <div class="col-sm-12 text-right">
+    <%= link_to 'Izvozi v PDF', export_candidate_path(@candidate, :format=> :pdf),
+                class: 'btn btn-success' %>
+  </div>
+</div>
+
+<br />
+
+<div class="row m-b-lg m-t-lg">
+  <div class="col-md-6">
+
+    <div class="profile-image">
+      <%= image_tag gravatar_url(@candidate.application.user.email), class: 'img-circle circle-border m-b-md' %>
+    </div>
+    <div class="profile-info">
+      <div>
+        <div>
+          <h2 class="no-margins">
+            <%= @candidate.application.user.full_name %>
+          </h2>
+          <h4>EMŠO: <%= @candidate.application.EMSO %></h4>
+          <small>
+            <%= @candidate.application.place_of_residence %><br/>
+            <%= @candidate.application.post_of_residence.code %>
+            <%= @candidate.application.post_of_residence.name %>,
+            <%= @candidate.application.country_of_residence.name %>
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <table class="table small m-b-xs">
+      <tbody>
+      <tr>
+        <td>
+          <%= @candidate.study_program_mode.study_program.higher_education_institution.name %>
+        </td>
+        <td>
+          <%= @candidate.study_program_mode.study_program.type_of_study.name %>
+        </td>
+
+      </tr>
+      <tr>
+        <td>
+          <%= @candidate.study_program_mode.study_program.name %>
+        </td>
+        <td>
+          <%= @candidate.study_program_mode.mode_of_study.name %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= @candidate.study_program_mode.study_program.enrollment.name %>
+        </td>
+        <td>
+          <%= @candidate.choice %>. izbira
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<h2>Izračun</h2>
+
+<div class="table-responsive full">
+  <table class="table table-striped table-hover">
+    <thead>
+    <tr>
+      <th>Pogoj</th>
+      <th>Ustreza</th>
+      <th>Število točk</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @calcs.each do |c| %>
+        <tr>
+          <td><%= c[:req].name %></td>
+          <td>
+            <% if c[:pass] %>
+                <span class="label label-success"><i class="fa fa-check"></i></span>
+            <% else %>
+                <span class="label label-danger"><i class="fa fa-exclamation-circle"></i></span>
+            <% end %>
+          </td>
+          <td>
+            <% if c[:pass] %>
+                <%= c[:points] %>
+            <% else %>
+                /
+            <% end %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<hr/>
+
+<h2>Izpolnjeni pogoji</h2>
+
+<div class="table-responsive full">
+  <table class="table table-striped table-hover">
+    <thead>
+    <tr>
+      <th>Šifra</th>
+      <th>Naziv</th>
+      <th>Opravljeno</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @candidate.application.user.user_highschool_completions.each do |r| %>
+        <tr>
+          <td><%= r.highschool_completion.code %></td>
+          <td><%= r.highschool_completion.name %></td>
+          <td>
+            <% if r.passed? %>
+                <span class="label label-success"><i class="fa fa-check"></i></span>
+            <% else %>
+                <span class="label label-danger"><i class="fa fa-exclamation-circle"></i></span>
+            <% end %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<br/>
+
+<h2>Predmeti</h2>
+
+<div class="table-responsive full">
+  <table class="table table-striped table-hover">
+    <thead>
+    <tr>
+      <th>Šifra</th>
+      <th>Naziv</th>
+      <th>Ocena</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @candidate.application.user.user_elements.each do |e| %>
+        <tr>
+          <td><%= e.element.code %></td>
+          <td><%= e.element.name %></td>
+          <td><%= e.score %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

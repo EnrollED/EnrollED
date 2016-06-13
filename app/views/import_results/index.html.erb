@@ -4,35 +4,26 @@
   </div>
 </div>
 
-<%= form_tag({controller: :import_results, action: :splosna_matura}, multipart: true) do %>
-    <label for="file">Upload text File</label>
-    <%= file_field_tag "file" %>
-
-    <%= submit_tag %>
-<% end %>
-
-<%= form_tag({controller: :import_results, action: :splosna_matura_predmeti}, multipart: true) do %>
-    <label for="file">Upload text File</label>
-    <%= file_field_tag "file" %>
-
-    <%= submit_tag %>
-<% end %>
-
 <div class="row">
   <div class="col-lg-3">
-    <a href="<%= %>">
-      <div class="widget navy-bg">
-        <div class="row">
-          <div class="col-xs-2">
-            <i class="fa fa-folder fa-4x"></i>
-          </div>
-          <div class="col-xs-10 text-right">
-            <span>Splošna matura</span>
-            <h2 class="font-bold">Rezultati</h2>
-          </div>
+    <div class="widget navy-bg">
+      <div class="row">
+        <div class="col-xs-2">
+          <i class="fa fa-folder fa-4x"></i>
+        </div>
+        <div class="col-xs-10 text-right">
+          <span>Splošna matura</span>
+          <h2 class="font-bold">Rezultati</h2>
         </div>
       </div>
-    </a>
+    </div>
+    <%= form_tag({controller: :import_results, action: :splosna_matura}, multipart: true) do %>
+        <%= file_field_tag "file" %>
+
+        <br/>
+
+        <%= submit_tag t('defaults.save'), class: 'btn btn-sm btn-success' %>
+    <% end %>
   </div>
   <div class="col-lg-3">
     <div class="widget blue-bg">
@@ -46,6 +37,13 @@
         </div>
       </div>
     </div>
+    <%= form_tag({controller: :import_results, action: :splosna_matura_predmeti}, multipart: true) do %>
+        <%= file_field_tag "file" %>
+
+        <br/>
+
+        <%= submit_tag t('defaults.save'), class: 'btn btn-sm btn-success' %>
+    <% end %>
   </div>
   <div class="col-lg-3">
     <div class="widget lazur-bg">
@@ -59,6 +57,13 @@
         </div>
       </div>
     </div>
+    <%= form_tag({controller: :import_results, action: :poklicna_matura}, multipart: true) do %>
+        <%= file_field_tag "file" %>
+
+        <br/>
+
+        <%= submit_tag t('defaults.save'), class: 'btn btn-sm btn-success' %>
+    <% end %>
   </div>
   <div class="col-lg-3">
     <div class="widget yellow-bg">
@@ -72,5 +77,12 @@
         </div>
       </div>
     </div>
+    <%= form_tag({controller: :import_results, action: :poklicna_matura_predmeti}, multipart: true) do %>
+        <%= file_field_tag "file" %>
+
+        <br/>
+
+        <%= submit_tag t('defaults.save'), class: 'btn btn-sm btn-success' %>
+    <% end %>
   </div>
 </div>

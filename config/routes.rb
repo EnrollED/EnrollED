@@ -56,9 +56,10 @@ Rails.application.routes.draw do
   end
 
   get '/candidates/pdf_export/' => 'candidates#pdf_export', via: :get, as: 'export_candidates'
+  get '/candidates/:id/pdf_export_show/' => 'candidates#pdf_export_show', via: :get, as: 'export_candidate'
 
   resources :study_program_modes
-  resources :candidates
+  resources :candidates, only: [:index, :show], concerns: :paginatable
   resources :application_forms, except: :show do
     resources :choices
   end
@@ -81,6 +82,8 @@ Rails.application.routes.draw do
 
   post '/import_results/splosna_matura' => 'import_results#splosna_matura', as: 'import_splosna_matura'
   post '/import_results/splosna_matura_predmeti' => 'import_results#splosna_matura_predmeti', as: 'import_splosna_matura_predmeti'
+  post '/import_results/poklicna_matura' => 'import_results#poklicna_matura', as: 'import_poklicna_matura'
+  post '/import_results/poklicna_matura_predmeti' => 'import_results#poklicna_matura_predmeti', as: 'import_poklicna_matura_predmeti'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
